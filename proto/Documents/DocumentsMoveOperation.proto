@@ -1,0 +1,11 @@
+syntax="proto3";
+import "DocumentId.proto";
+
+package Diadoc.Proto.Documents;
+
+message DocumentsMoveOperation
+{
+	 string BoxId = 1;
+	 string ToDepartmentId = 2;
+	repeated DocumentId DocumentIds = 3;
+}

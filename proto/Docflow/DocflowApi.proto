@@ -1,0 +1,98 @@
+syntax="proto3";
+// docflow api
+// GetDocflows(boxId, GetDocflowBatchRequest) : GetDocflowBatchResponse
+// GetDocflowEvents(boxId, GetDocflowEventsRequest) : GetDocflowEventsResponse
+
+import "Timestamp.proto";
+import "DocumentId.proto";
+import "TimeBasedFilter.proto";
+import "Docflow/DocumentWithDocflow.proto";
+
+package Diadoc.Proto.Docflow;
+
+message GetDocflowBatchRequest
+{
+	repeated GetDocflowRequest Requests = 1;
+}
+
+message GetDocflowRequest
+{
+	 DocumentId DocumentId = 1;
+	 string LastEventId = 2;
+	 bool InjectEntityContent = 3;
+}
+
+message GetDocflowBatchResponse
+{
+	repeated DocumentWithDocflow Documents = 1;
+}
+
+enum SearchScope
+{
+	SearchScopeAny = 0;
+	SearchScopeIncoming = 1;
+	SearchScopeOutgoing = 2;
+	SearchScopeDeleted = 3;
+	SearchScopeInternal = 4;
+}
+
+message SearchDocflowsRequest
+{
+	 string QueryString = 1;
+	 int32 Count = 2;
+	 int32 FirstIndex = 3;
+	 SearchScope Scope = 4;
+	 bool InjectEntityContent = 5;
+}
+
+message SearchDocflowsResponse
+{
+	repeated DocumentWithDocflow Documents = 1;
+	 bool HaveMoreDocuments = 2;
+}
+
+message GetDocflowsByPacketIdRequest
+{
+	 string PacketId = 1;
+	 int32 Count = 2;
+	 bool InjectEntityContent = 3;
+	 bytes AfterIndexKey = 4;
+}
+
+message FetchedDocument
+{
+	 DocumentWithDocflow Document = 1;
+	 bytes IndexKey = 2;
+}
+
+message GetDocflowsByPacketIdResponse
+{
+	repeated FetchedDocument Documents = 1;
+	 bytes NextPageIndexKey = 2;
+}
+
+message GetDocflowEventsRequest
+{
+	 TimeBasedFilter Filter = 1;
+	 bytes AfterIndexKey = 2;
+	 bool PopulateDocuments = 3;
+	 bool InjectEntityContent = 4;
+	 bool PopulatePreviousDocumentStates = 5;
+}
+
+message GetDocflowEventsResponse
+{
+	 int32 TotalCount = 1;
+	repeated DocflowEvent Events = 2;
+}
+
+message DocflowEvent
+{
+	 string EventId = 1;
+	 Timestamp Timestamp = 2;
+	 DocumentId DocumentId = 3;
+	 bytes IndexKey = 4;
+	 DocumentWithDocflow Document = 5;
+	 string PreviousEventId = 6;
+	 DocumentWithDocflow PreviousDocumentState = 7;
+}

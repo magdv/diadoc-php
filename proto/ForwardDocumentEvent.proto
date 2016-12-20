@@ -1,0 +1,10 @@
+syntax="proto3";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+message ForwardDocumentEvent
+{
+	 Timestamp Timestamp = 1;
+	 string ToBoxId = 2;
+}

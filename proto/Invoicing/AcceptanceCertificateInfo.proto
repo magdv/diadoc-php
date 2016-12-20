@@ -1,0 +1,56 @@
+syntax="proto3";
+import "Invoicing/Signer.proto";
+import "Invoicing/Official.proto";
+import "Invoicing/OrganizationInfo.proto";
+
+package Diadoc.Proto.Invoicing;
+
+// Со стороны исполнителя
+message AcceptanceCertificateSellerTitleInfo {
+	 DiadocOrganizationInfo Seller = 1;								// исполнитель (продавец услуг)
+	 DocflowParticipant Buyer = 2;									// заказчик (покупатель услуг)
+	 string DocumentDate = 3;										// дата составления акта о выполнении
+	 string DocumentNumber = 4;										// номер акта
+	 string DocumentTitle = 5;										// заголовок документа
+	repeated WorkDescription Works = 6;										// описание выполненных работ
+	 AcceptanceCertificateSignatureInfo Signature = 7;				// сведения о подписи акта
+	 Signer Signer = 8;												// подписант
+	 string AdditionalInfo = 9;										// дополнительная информация
+}
+
+// Со стороны заказчика
+message AcceptanceCertificateBuyerTitleInfo {
+	 string Complaints = 1;											// претензии
+	 AcceptanceCertificateSignatureInfo Signature = 2;				// сведения о подписи акта
+	 Signer Signer = 3;												// подписант
+	 string AdditionalInfo = 4;										// дополнительная информация
+}
+
+message AcceptanceCertificateSignatureInfo {
+	 string SignatureDate = 1;										// дата подписи акта исполнителем / заказчиком
+	 Official Official = 2;											// лицо, подписывающее со стороны исполнителя / заказчика
+	 Attorney Attorney = 3;											// сведения о доверенности подписывающего со стороны исполнителя / заказчика
+}
+
+// Описание работ
+message WorkDescription {
+	 string StartingDate = 1;										// начало периода выполнения работ
+	 string CompletionDate = 2;										// окончание периода выполнения работ
+	 string TotalWithVatExcluded = 3;								// сумма без учета НДС - итого
+	 string Vat = 4;												// сумма НДС - итого
+	 string Total = 5;												// сумма с учетом НДС - итого
+	repeated WorkItem Items = 6;											// сведения о произведенной работе
+}
+
+message WorkItem {
+	 string Name = 1;												// наименование
+	 string Description = 2;										// описание работы
+	 string UnitCode = 3;											// код единицы измерения
+	 string UnitName = 4;											// наименование единицы измерения
+	 string Price = 5;												// цена
+	 string Quantity = 6;											// количество
+	 string SubtotalWithVatExcluded = 7;							// сумма без учета НДС
+	 string Vat = 8;												// сумма НДС
+	 string Subtotal = 9;											// сумма с учетом НДС
+	 string AdditionalInfo = 10;									// информационное поле сведений о работе (услуге)
+}

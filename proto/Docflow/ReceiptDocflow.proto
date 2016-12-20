@@ -1,0 +1,11 @@
+syntax="proto3";
+import "Docflow/Attachment.proto";
+
+package Diadoc.Proto.Docflow;
+
+message ReceiptDocflow
+{
+	 bool IsFinished = 1;
+
+	 SignedAttachment ReceiptAttachment = 2;
+}

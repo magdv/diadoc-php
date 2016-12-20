@@ -1,0 +1,14 @@
+syntax="proto3";
+import "Timestamp.proto";
+import "Docflow/Attachment.proto";
+
+package Diadoc.Proto.Docflow;
+
+message RecipientSignatureRejectionDocflow
+{
+	 bool IsFinished = 1;
+
+	 SignedAttachment RecipientSignatureRejectionAttachment = 2;
+
+	 Timestamp DeliveryTimestamp = 3;
+}

@@ -1,0 +1,9 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message ResolutionTarget {
+	 string Department = 1;
+	 string DepartmentId = 2;
+	 string User = 3;
+	 string UserId = 4;
+}

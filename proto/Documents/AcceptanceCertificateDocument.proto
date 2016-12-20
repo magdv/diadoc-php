@@ -1,0 +1,34 @@
+syntax="proto3";
+import "Documents/ReceiptStatus.proto";
+
+package Diadoc.Proto.Documents.AcceptanceCertificateDocument;
+
+message AcceptanceCertificateMetadata {
+	 AcceptanceCertificateDocumentStatus DocumentStatus = 1;
+	 string Total = 2;
+	 string Vat = 3;
+	 string Grounds = 4;
+	 ReceiptStatus ReceiptStatus = 5;
+}
+
+enum AcceptanceCertificateDocumentStatus {
+	UnknownAcceptanceCertificateDocumentStatus = 0;	// Reserved status to report to legacy clients for newly introduced statuses
+	OutboundWaitingForRecipientSignature = 1;
+	OutboundWithRecipientSignature = 2;
+	OutboundRecipientSignatureRequestRejected = 3;
+	OutboundWaitingForSenderSignature = 10;
+	OutboundInvalidSenderSignature = 11;
+	OutboundNoRecipientSignatureRequest = 16;
+	InboundWaitingForRecipientSignature = 4;
+	InboundWithRecipientSignature = 5;
+	InboundRecipientSignatureRequestRejected = 6;
+	InboundInvalidRecipientSignature = 12;
+	InboundNoRecipientSignatureRequest = 17;
+	InternalWaitingForRecipientSignature = 7;
+	InternalWithRecipientSignature = 8;
+	InternalRecipientSignatureRequestRejected = 9;
+	InternalWaitingForSenderSignature = 13;
+	InternalInvalidSenderSignature = 14;
+	InternalInvalidRecipientSignature = 15;
+	InternalNoRecipientSignatureRequest = 18;
+}

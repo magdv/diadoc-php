@@ -1,0 +1,6 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message AsyncMethodResult {
+	 string TaskId = 1;
+}

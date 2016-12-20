@@ -1,0 +1,24 @@
+syntax="proto3";
+import "Docflow/ReceiptDocflow.proto";
+import "Docflow/RecipientSignatureDocflow.proto";
+import "Docflow/RecipientSignatureRejectionDocflow.proto";
+
+package Diadoc.Proto.Docflow;
+
+message BilateralDocflow
+{
+	bool IsFinished = 1;
+
+	ReceiptDocflow ReceiptDocflow = 2;
+	RecipientSignatureDocflow RecipientSignatureDocflow = 3;
+	RecipientSignatureRejectionDocflow RecipientSignatureRejectionDocflow = 4;
+
+	bool IsReceiptRequested = 5;
+	bool IsRecipientSignatureRequested = 6;
+	bool IsDocumentSignedByRecipient = 7;
+	bool IsDocumentRejectedByRecipient = 8;
+
+	bool CanDocumentBeReceipted = 9;
+	bool CanDocumentBeSignedBySender = 10;
+	bool CanDocumentBeSignedOrRejectedByRecipient = 11;
+}

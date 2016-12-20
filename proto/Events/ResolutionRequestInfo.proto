@@ -1,0 +1,18 @@
+syntax="proto3";
+import "ResolutionTarget.proto";
+
+package Diadoc.Proto.Events;
+
+message ResolutionRequestInfo {
+	 ResolutionRequestType RequestType = 1;
+	 string Author = 2;
+	 ResolutionTarget Target = 3;
+	 string ResolvedWith = 4;
+}
+
+enum ResolutionRequestType {
+	ApprovementRequest = 0;
+	UnknownResolutionRequestType = -1;
+	SignatureRequest = 1;
+	ApprovementSignatureRequest = 2;
+}

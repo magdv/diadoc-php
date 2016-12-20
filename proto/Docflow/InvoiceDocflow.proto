@@ -1,0 +1,65 @@
+syntax="proto3";
+import "Timestamp.proto";
+import "Docflow/Attachment.proto";
+import "Docflow/ReceiptDocflow.proto";
+
+package Diadoc.Proto.Docflow;
+
+message InboundInvoiceDocflow
+{
+	 bool IsFinished = 1;
+
+	 InboundInvoiceReceiptDocflow ReceiptDocflow = 2;
+	 InvoiceConfirmationDocflow ConfirmationDocflow = 3;
+	 InvoiceCorrectionRequestDocflow CorrectionRequestDocflow = 4;
+
+	 Timestamp ConfirmationTimestamp = 5;
+
+	 bool IsAmendmentRequested = 6;
+	 bool IsRevised = 7;
+	 bool IsCorrected = 8;
+}
+
+message OutboundInvoiceDocflow
+{
+	 bool IsFinished = 1;
+
+	 ReceiptDocflow ReceiptDocflow = 2;
+	 InvoiceConfirmationDocflow ConfirmationDocflow = 3;
+	 InvoiceCorrectionRequestDocflow CorrectionRequestDocflow = 4;
+
+	 Timestamp ConfirmationTimestamp = 5;
+
+	 bool IsAmendmentRequested = 6;
+	 bool IsRevised = 7;
+	 bool IsCorrected = 8;
+
+	 bool CanDocumentBeSignedBySender = 9;
+}
+
+message InvoiceConfirmationDocflow
+{
+	 bool IsFinished = 1;
+
+	 SignedAttachment ConfirmationAttachment = 2;
+
+	 ReceiptDocflow ReceiptDocflow = 3;
+}
+
+message InboundInvoiceReceiptDocflow
+{
+	 bool IsFinished = 1;
+
+	 SignedAttachment ReceiptAttachment = 2;
+
+	 InvoiceConfirmationDocflow ConfirmationDocflow = 3;
+}
+
+message InvoiceCorrectionRequestDocflow
+{
+	 bool IsFinished = 1;
+
+	 SignedAttachment CorrectionRequestAttachment = 2;
+
+	 ReceiptDocflow ReceiptDocflow = 3;
+}

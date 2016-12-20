@@ -1,0 +1,20 @@
+syntax="proto3";
+import "Timestamp.proto";
+import "DocumentId.proto";
+import "Docflow/DocumentWithDocflow.proto";
+
+package Diadoc.Proto.Forwarding;
+
+message ForwardedDocumentId
+{
+	 string FromBoxId = 1;
+	 DocumentId DocumentId = 2;
+	 string ForwardEventId = 3;
+}
+
+message ForwardedDocument
+{
+	 Timestamp ForwardTimestamp = 1;
+	 ForwardedDocumentId ForwardedDocumentId = 2;
+	 Docflow.DocumentWithDocflow DocumentWithDocflow = 3;
+}

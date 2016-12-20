@@ -1,0 +1,6 @@
+syntax="proto3";
+package Diadoc.Proto.Invoicing;
+
+message FnsRegistrationMessageInfo {
+	repeated bytes Certificates = 1;
+}

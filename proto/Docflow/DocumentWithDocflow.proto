@@ -1,0 +1,20 @@
+syntax="proto3";
+import "Timestamp.proto";
+import "DocumentId.proto";
+import "ForwardDocumentEvent.proto";
+import "Docflow/Docflow.proto";
+import "Docflow/DocumentInfo.proto";
+
+package Diadoc.Proto.Docflow;
+
+message DocumentWithDocflow
+{
+	 DocumentId DocumentId = 1;
+	 string LastEventId = 2;
+	 Timestamp LastEventTimestamp = 3;
+	 DocumentInfo DocumentInfo = 4;
+	 Docflow Docflow = 5;
+	repeated DocumentId InitialDocumentIds = 6;
+	repeated DocumentId SubordinateDocumentIds = 7;
+	repeated ForwardDocumentEvent ForwardDocumentEvents = 8;
+}

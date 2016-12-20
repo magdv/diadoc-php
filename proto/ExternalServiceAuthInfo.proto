@@ -1,0 +1,7 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message ExternalServiceAuthInfo {
+	 string ServiceUserId = 1;
+	 string Thumbprint = 2;
+}

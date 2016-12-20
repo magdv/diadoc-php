@@ -1,0 +1,12 @@
+syntax="proto3";
+import "CertificateInfo.proto";
+
+package Diadoc.Proto;
+
+message User {
+	 string Id = 1;
+	 string LastName = 2;
+	 string FirstName = 3;
+	 string MiddleName = 4;
+	repeated CertificateInfo CloudCertificates = 5;
+}

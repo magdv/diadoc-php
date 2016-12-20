@@ -1,0 +1,7 @@
+syntax="proto3";
+package Diadoc.Proto.Documents;
+
+message DocumentProtocol {
+	 bytes PrintForm = 1;
+	 bytes Signature = 2;
+}

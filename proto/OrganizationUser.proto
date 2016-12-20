@@ -1,0 +1,16 @@
+syntax="proto3";
+import "OrganizationUserPermissions.proto";
+
+package Diadoc.Proto;
+
+message OrganizationUser {
+	 string Id = 1;
+	 string Name = 2; // ФИО сотрудника
+	 OrganizationUserPermissions Permissions = 3;
+         string Position = 4;
+}
+
+message OrganizationUsersList {
+	repeated OrganizationUser Users = 1;
+	 string CurrentUserId = 2;
+}

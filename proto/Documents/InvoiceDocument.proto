@@ -1,0 +1,65 @@
+syntax="proto3";
+package Diadoc.Proto.Documents.InvoiceDocument;
+
+message InvoiceMetadata {
+	 InvoiceStatus InvoiceStatus = 1;
+	 string Total = 2;
+	 string Vat = 3;
+	 int32 Currency = 4;
+	 sfixed64 ConfirmationDateTimeTicks = 5;
+	 int32 InvoiceAmendmentFlags = 6;
+}
+
+message InvoiceRevisionMetadata {
+	 InvoiceStatus InvoiceRevisionStatus = 1;
+	 string OriginalInvoiceNumber = 2;
+	 string OriginalInvoiceDate = 3;
+	 string Total = 4;
+	 string Vat = 5;
+	 int32 Currency = 6;
+	 sfixed64 ConfirmationDateTimeTicks = 7;
+	 int32 InvoiceAmendmentFlags = 8;
+}
+
+message InvoiceCorrectionMetadata {
+	 InvoiceStatus InvoiceCorrectionStatus = 1;
+	 string OriginalInvoiceNumber = 2;
+	 string OriginalInvoiceDate = 3;
+	 string OriginalInvoiceRevisionNumber = 4;
+	 string OriginalInvoiceRevisionDate = 5;
+	 string TotalInc = 6;
+	 string TotalDec = 7;
+	 string VatInc = 8;
+	 string VatDec = 9;
+	 int32 Currency = 10;
+	 sfixed64 ConfirmationDateTimeTicks = 11;
+	 int32 InvoiceAmendmentFlags = 12;
+}
+
+message InvoiceCorrectionRevisionMetadata {
+	 InvoiceStatus InvoiceCorrectionRevisionStatus = 1;
+	 string OriginalInvoiceNumber = 2;
+	 string OriginalInvoiceDate = 3;
+	 string OriginalInvoiceRevisionNumber = 4;
+	 string OriginalInvoiceRevisionDate = 5;
+	 string OriginalInvoiceCorrectionNumber = 6;
+	 string OriginalInvoiceCorrectionDate = 7;
+	 string TotalInc = 8;
+	 string TotalDec = 9;
+	 string VatInc = 10;
+	 string VatDec = 11;
+	 int32 Currency = 12;
+	 sfixed64 ConfirmationDateTimeTicks = 13;
+	 int32 InvoiceAmendmentFlags = 14;
+}
+
+enum InvoiceStatus {
+    UnknownInvoiceStatus = 0;	// This type will be reported to legacy client when it receives unknown status from server
+	OutboundWaitingForInvoiceReceipt = 1;
+	OutboundNotFinished = 2;
+	OutboundFinished = 3;
+	OutboundWaitingForSenderSignature = 6;
+	OutboundInvalidSenderSignature = 7;
+	InboundNotFinished = 4;
+	InboundFinished = 5;
+}

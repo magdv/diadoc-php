@@ -1,0 +1,18 @@
+syntax="proto3";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+message TimeBasedFilter
+{
+	 Timestamp FromTimestamp = 1;
+	 Timestamp ToTimestamp = 2;
+	 SortDirection SortDirection = 3;
+}
+
+enum SortDirection
+{
+	UnknownSortDirection = 0; // reserved for backward compatibility
+	Ascending = 1;
+	Descending = 2;
+}

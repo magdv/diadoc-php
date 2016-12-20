@@ -1,0 +1,22 @@
+syntax="proto3";
+import "Address.proto";
+
+package Diadoc.Proto;
+
+message StringValue {
+	 string Value = 1;
+}
+
+message OrganizationPropertiesToUpdate {
+	 string OrgId = 1;
+	 StringValue Ogrn = 2;
+	 StringValue IfnsCode = 3;
+	 Address Address = 4;
+	 HeadOrganizationPropertiesToUpdate HeadOrganizationProperties = 5;
+}
+
+message HeadOrganizationPropertiesToUpdate {
+	 StringValue Kpp = 1;
+	 StringValue FullName = 2;
+	 Address Address = 3;
+}

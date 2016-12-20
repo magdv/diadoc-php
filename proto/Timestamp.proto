@@ -1,0 +1,7 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message Timestamp
+{
+	sfixed64 Ticks = 1;
+}

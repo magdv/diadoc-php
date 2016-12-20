@@ -1,0 +1,80 @@
+syntax="proto3";
+import "Invoicing/Signer.proto";
+import "Invoicing/Official.proto";
+import "Invoicing/OrganizationInfo.proto";
+
+package Diadoc.Proto.Invoicing;
+
+// Со стороны продавца
+message Torg12SellerTitleInfo {
+	 string DocumentDate = 1;										// дата товарной накладной
+	 string DocumentNumber = 2;										// номер товарной накладной
+	 DocflowParticipant SellerDocflowParticipant = 3;				// участник документооборота, отпустивший товар
+	 DocflowParticipant BuyerDocflowParticipant = 4;				// участник документооборота, которому отпущен товар
+	 OrganizationInfo Shipper = 5;									// грузоотправитель
+	 OrganizationInfo Consignee = 6;								// грузополучатель
+	 OrganizationInfo Supplier = 7;									// поставщик
+	 OrganizationInfo Payer = 8;									// плательщик
+	 Grounds Grounds = 9;											// основание
+	 string WaybillDate = 10;										// дата составления транспортной накладной
+	 string WaybillNumber = 11;										// номер транспортной накладной
+	 string OperationCode = 12;										// код вида операции
+	repeated Torg12Item Items = 13;											// табличные сведения товарной накладной
+	 string ParcelsQuantityTotal = 14;								// количество мест, штук - всего по накладной
+	 string ParcelsQuantityTotalInWords = 15;						// количество мест, штук - всего по накладной, прописью
+	 string GrossQuantityTotal = 16;								// брутто - всего по накладной
+	 string GrossQuantityTotalInWords = 17;							// брутто - всего по накладной, прописью
+	 string NetQuantityTotal = 18;									// нетто - всего по накладной
+	 string NetQuantityTotalInWords = 19;							// нетто - всего по накладной, прописью
+	 string QuantityTotal = 20;										// количество (масса нетто) - всего по накладной
+	 string TotalWithVatExcluded = 21;								// сумма без учета НДС - всего по накладной
+	 string Vat = 22;												// сумма НДС - всего по накладной
+	 string Total = 23;												// сумма с учетом НДС - всего по накладной
+	 string TotalInWords = 24;										// сумма с учетом НДС - всего по накладной, прописью
+	 string SupplyDate = 25;										// дата отпуска
+	 Official SupplyAllowedBy = 26;									// отпуск разрешил
+	 Official SupplyPerformedBy = 27;								// отпуск произвел
+	 Official ChiefAccountant = 28;									// главный бухгалтер
+	 Signer Signer = 29;											// подписант
+	 string AdditionalInfo = 30;									// дополнительные сведения
+	 string AttachmentSheetsQuantity = 31;							// приложение, количество листов
+}
+
+// Со стороны покупателя
+message Torg12BuyerTitleInfo {
+	 string ShipmentReceiptDate = 1;								// дата получения груза
+	 Attorney Attorney = 2;											// сведения по доверенности
+	 Official AcceptedBy = 3;										// лицо, принявшее груз
+	 Official ReceivedBy = 4;										// лицо, получившее груз
+	 Signer Signer = 5;												// подписант
+	 string AdditionalInfo = 6;										// дополнительная информация
+}
+
+message Torg12Item {
+	 string Name = 1;												// наименование
+	 string Feature = 2;											// характеристика
+	 string Sort = 3;												// сорт товара
+	 string NomenclatureArticle = 4;								// артикул
+	 string Code = 5;												// код товара
+	 string UnitCode = 6;											// код единицы измерения
+	 string UnitName = 7;											// наименование единицы измерения
+	 string ParcelType = 8;											// вид упаковки
+	 string ParcelCapacity = 9;										// количество в одном месте
+	 string ParcelsQuantity = 10;									// количество мест
+	 string GrossQuantity = 11;										// брутто
+	 string Quantity = 12;										// нетто // количество (масса)
+	 string Price = 13;												// цена
+	 string TaxRate = 14;											// ставка налога
+	 string SubtotalWithVatExcluded = 15;							// сумма без учета налога
+	 string Vat = 16;												// сумма налога
+	 string Subtotal = 17;											// сумма всего
+	 string AdditionalInfo = 18;									// информационное поле сведений о товаре
+}
+
+// Документ-основание
+message Grounds {
+	 string DocumentName = 1;										// имя документа
+	 string DocumentNumber = 2;										// номер документа
+	 string DocumentDate = 3;										// дата документа
+	 string AdditionalInfo = 4;										// дополнительные сведения
+}
