@@ -1,0 +1,26 @@
+syntax="proto3";
+import "Content_v2.proto";
+
+package Diadoc.Proto;
+
+message CloudSignRequest {
+	repeated CloudSignFile Files = 1; 
+}
+
+message CloudSignFile {
+	 Content_v2 Content = 1;
+	 string FileName = 2;
+}
+
+message CloudSignResult {
+	 string Token = 1;
+}
+
+message CloudSignConfirmResult {
+	repeated Content_v2 Signatures = 1;
+}
+
+message AutosignReceiptsResult {
+     string NextBatchKey = 1;
+     int32 SignedReceiptsCount = 2;
+}

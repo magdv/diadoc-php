@@ -1,0 +1,9 @@
+syntax="proto3";
+import "Invoicing/Signer.proto";
+
+package Diadoc.Proto.Invoicing;
+
+message InvoiceCorrectionRequestInfo {
+	 string ErrorMessage = 1;
+	 Signer Signer = 2;
+}

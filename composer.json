@@ -1,0 +1,35 @@
+{
+    "name": "magdv/diadoc-php",
+    "description": "Diadoc API implementation",
+    "type": "library",
+    "license": "MIT",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Korolev Denis",
+            "email": "d.korolev@magdv.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "google/protobuf": "^3.21",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "MagDv\\Diadoc\\": "src/",
+            "GPBMetadata\\": "phpProto/GPBMetadata/",
+            "Diadoc\\Proto\\": "phpProto/Diadoc/Proto"
+        }
+    },
+    "require-dev": {
+        "rector/rector": "^0.14.6",
+        "friendsofphp/php-cs-fixer": "^3.12"
+    },
+    "scripts": {
+        "fix-style": "vendor/bin/php-cs-fixer fix src",
+        "generate-proto": "php generate.php",
+        "rector": "vendor/bin/rector process src"
+    }
+}

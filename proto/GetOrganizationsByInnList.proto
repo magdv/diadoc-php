@@ -1,0 +1,18 @@
+syntax="proto3";
+import "Organization.proto";
+import "Counteragent.proto";
+
+package Diadoc.Proto;
+
+message GetOrganizationsByInnListRequest {
+	repeated string InnList = 1;
+}
+
+message OrganizationWithCounteragentStatus {
+	 Organization Organization = 1;
+	 CounteragentStatus CounteragentStatus = 2;
+}
+
+message GetOrganizationsByInnListResponse {
+	repeated OrganizationWithCounteragentStatus Organizations = 1;
+}

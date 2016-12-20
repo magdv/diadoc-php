@@ -1,0 +1,7 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message CustomDataItem {
+	 string Key = 1;
+	 string Value = 2;
+}

@@ -1,0 +1,11 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message ResolutionChainList {
+	repeated ResolutionChain ResolutionChains = 1;
+}
+
+message ResolutionChain {
+	 string ChainId = 1;
+	 string Name = 2;
+}

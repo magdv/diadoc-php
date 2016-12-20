@@ -1,0 +1,25 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message Address {
+	 RussianAddress RussianAddress = 1;
+	 ForeignAddress ForeignAddress = 2;
+	 string AddressCode = 3;
+}
+
+message RussianAddress {
+	 string ZipCode = 1;	// индекс
+	 string Region = 2;		// регион (код)
+	 string Territory = 3;	// район
+	 string City = 4;		// город
+	 string Locality = 5;	// населенный пункт
+	 string Street = 6;		// улица
+	 string Building = 7;	// дом
+	 string Block = 8;		// корпус
+	 string Apartment = 9;	// квартира
+}
+
+message ForeignAddress {
+	 string Country = 1;	// страна (код)
+	 string Address = 2;	// текст адреса
+}

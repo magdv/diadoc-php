@@ -1,0 +1,7 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message Content {
+	sfixed32 Size = 1;	// -1 if content size is unknown
+	bytes Data = 2;	// null <=> entity content exists but is not included in proto buffer
+}

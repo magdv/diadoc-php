@@ -1,0 +1,34 @@
+syntax="proto3";
+import "Timestamp.proto";
+import "Docflow/Attachment.proto";
+import "Docflow/ReceiptDocflow.proto";
+import "Docflow/RecipientSignatureRejectionDocflow.proto";
+
+package Diadoc.Proto.Docflow;
+
+message XmlBilateralDocflow
+{
+	 bool IsFinished = 1;
+
+	 ReceiptDocflow ReceiptDocflow = 2;
+	 BuyerTitleDocflow BuyerTitleDocflow = 3;
+	 RecipientSignatureRejectionDocflow RecipientSignatureRejectionDocflow = 4;
+
+	 bool IsReceiptRequested = 5;
+	 bool IsDocumentSignedByRecipient = 6;
+	 bool IsDocumentRejectedByRecipient = 7;
+
+	 bool CanDocumentBeReceipted = 8;
+	 bool CanDocumentBeSignedBySender = 9;
+	 bool CanDocumentBeSignedOrRejectedByRecipient = 10;
+}
+
+message BuyerTitleDocflow
+{
+	 bool IsFinished = 1;
+
+	 SignedAttachment BuyerTitleAttachment = 2;
+
+	 Timestamp SendTimestamp = 3;
+	 Timestamp DeliveryTimestamp = 4;
+}

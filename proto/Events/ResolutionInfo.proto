@@ -1,0 +1,15 @@
+syntax="proto3";
+package Diadoc.Proto.Events;
+
+message ResolutionInfo {
+	 ResolutionType ResolutionType = 1;
+	 string Author = 2;	// ФИО согласователя
+	 string InitialRequestId = 3;
+}
+
+enum ResolutionType {
+	UndefinedResolutionType = 0;
+	UnknownResolutionType = -1; // Reserved type to report to legacy clients for newly introduced types
+	Approve = 1;
+	Disapprove = 2;
+}

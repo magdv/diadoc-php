@@ -1,0 +1,60 @@
+syntax="proto3";
+import "Timestamp.proto";
+import "CustomDataItem.proto";
+import "Docflow/Attachment.proto";
+import "Docflow/InvoiceDocflow.proto";
+import "Docflow/UnilateralDocflow.proto";
+import "Docflow/BilateralDocflow.proto";
+import "Docflow/XmlBilateralDocflow.proto";
+import "Docflow/RevocationDocflow.proto";
+import "Docflow/ResolutionDocflow.proto";
+
+package Diadoc.Proto.Docflow;
+
+message Docflow
+{
+	 bool IsFinished = 1;
+
+	 SignedAttachment DocumentAttachment = 2;
+
+	 string DepartmentId = 3;
+	 bool DocumentIsDeleted = 4;
+	 DocflowStatus DocflowStatus = 5;
+	 Timestamp SendTimestamp = 6;
+	 Timestamp DeliveryTimestamp = 7;
+
+	 InboundInvoiceDocflow InboundInvoiceDocflow = 8;   // for Invoice, InvoiceRevision, InvoiceCorrection, InvoiceCorrectionRevision
+	 OutboundInvoiceDocflow OutboundInvoiceDocflow = 9; // for Invoice, InvoiceRevision, InvoiceCorrection, InvoiceCorrectionRevision
+	 XmlBilateralDocflow XmlBilateralDocflow = 10;      // for XmlTorg12, XmlAcceptanceCertificate
+	 BilateralDocflow BilateralDocflow = 11;            // for Nonformalized, Torg12, AcceptanceCertificate, TrustConnectionRequest, PriceList, PriceListAgreement, CertificateRegistry, ReconciliationAct, Contract, Torg13
+	 UnilateralDocflow UnilateralDocflow = 12;          // for ProformaInvoice, ServiceDetails
+	 RevocationDocflow RevocationDocflow = 13;
+	 ResolutionDocflow ResolutionDocflow = 14;
+
+	 bool CanDocumentBeRevokedUnilaterallyBySender = 15;
+	 string PacketId = 16;
+
+	repeated CustomDataItem CustomData = 17;
+}
+
+message DocflowStatus
+{
+	 DocflowStatusModel PrimaryStatus = 1;
+	 DocflowStatusModel SecondaryStatus = 2;
+}
+
+message DocflowStatusModel
+{
+	 DocflowStatusSeverity Severity = 1;
+	 string StatusText = 2;
+	 string StatusHint = 3;
+}
+
+enum DocflowStatusSeverity
+{
+	UnknownDocflowStatusSeverity = 0; // reserved for backward compatibility
+	Info = 1;
+	Success = 2;
+	Warning = 3;
+	Error = 4;
+}

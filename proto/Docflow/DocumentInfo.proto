@@ -1,0 +1,78 @@
+syntax="proto3";
+import "DocumentType.proto";
+import "DocumentDirection.proto";
+
+package Diadoc.Proto.Docflow;
+
+message DocumentInfo
+{
+	 DocumentType DocumentType = 1;
+	 DocumentDirection DocumentDirection = 2;
+	 bool IsTest = 3;
+	 string CustomDocumentId = 4;
+	 string FromDepartmentId = 5;
+	 string ToDepartmentId = 6;
+	 string CounteragentBoxId = 7;
+	 DocumentDateAndNumber DocumentDateAndNumber = 8;
+	 BasicDocumentInfo BasicDocumentInfo = 9;                  // for XmlTorg12, XmlAcceptanceCertificate, Torg12, AcceptanceCertificate, ProformaInvoice, Torg13
+	 InvoiceDocumentInfo InvoiceInfo = 10;                     // for Invoice, InvoiceRevision
+	 InvoiceCorrectionDocumentInfo InvoiceCorrectionInfo = 11; // for InvoiceCorrection, InvoiceCorrectionRevision
+	 PriceListDocumentInfo PriceListInfo = 12;
+	 ContractDocumentInfo ContractInfo = 13;
+	 SupplementaryAgreementDocumentInfo SupplementaryAgreementInfo = 14;
+}
+
+message DocumentDateAndNumber
+{
+	 string DocumentDate = 1;
+	 string DocumentNumber = 2;
+}
+
+message BasicDocumentInfo
+{
+	 string Total = 1;
+	 bool NoVat = 2;
+	 string Vat = 3;
+	 string Grounds = 4;
+}
+
+message InvoiceDocumentInfo
+{
+	 string Total = 1;
+	 string Vat = 2;
+	 int32 CurrencyCode = 3;
+	 DocumentDateAndNumber OriginalInvoiceDateAndNumber = 4; // for InvoiceRevision
+}
+
+message InvoiceCorrectionDocumentInfo
+{
+	 string TotalInc = 1;
+	 string TotalDec = 2;
+	 string VatInc = 3;
+	 string VatDec = 4;
+	 int32 CurrencyCode = 5;
+	 DocumentDateAndNumber OriginalInvoiceDateAndNumber = 6;
+	 DocumentDateAndNumber OriginalInvoiceRevisionDateAndNumber = 7;
+	 DocumentDateAndNumber OriginalInvoiceCorrectionDateAndNumber = 8; // for InvoiceCorrectionRevision
+}
+
+message PriceListDocumentInfo
+{
+	 string PriceListEffectiveDate = 1;
+	 DocumentDateAndNumber ContractDocumentDateAndNumber = 2;
+}
+
+message ContractDocumentInfo
+{
+	 string ContractPrice = 1;
+	 string ContractType = 2;
+}
+
+message SupplementaryAgreementDocumentInfo
+{
+	 string Total = 1;
+	 string ContractType = 2;
+	 string ContractNumber = 3;
+	 string ContractDate = 4;
+}
+

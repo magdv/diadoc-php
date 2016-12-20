@@ -1,0 +1,13 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message DocumentId {
+	 string MessageId = 1;
+	 string EntityId = 2;
+}
+
+message DocumentIdEx {
+	 string MessageId = 1;
+	 string EntityId = 2;
+	 string BoxId = 3;
+}

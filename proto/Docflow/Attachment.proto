@@ -1,0 +1,36 @@
+syntax="proto3";
+import "Content.proto";
+import "Timestamp.proto";
+import "SignatureVerificationResult.proto";
+
+package Diadoc.Proto.Docflow;
+
+message Entity
+{
+	string EntityId = 1;
+	Timestamp CreationTimestamp = 2;
+	Content Content = 3;
+}
+
+message Attachment
+{
+	Entity Entity = 1;
+	string AttachmentFilename = 2;
+	string DisplayFilename = 3;
+}
+
+message Signature
+{
+	Entity Entity = 1;
+	string SignerBoxId = 2;
+	string SignerDepartmentId = 3;
+	bool IsValid = 4;
+	SignatureVerificationResult VerificationResult = 5;
+}
+
+message SignedAttachment
+{
+	Attachment Attachment = 1;
+	Signature Signature = 2;
+	Entity Comment = 3;
+}

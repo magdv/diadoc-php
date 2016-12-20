@@ -1,0 +1,11 @@
+syntax="proto3";
+import "DocumentId.proto";
+
+package Diadoc.Proto;
+
+message Content_v2 {
+	 bytes Content = 1;
+	 string NameOnShelf = 2;
+	 string PatchedContentId = 3;
+	 DocumentIdEx DocumentId = 4;
+}

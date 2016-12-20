@@ -1,0 +1,21 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+enum DocumentAccessLevel {
+	DepartmentOnly = 0;
+	UnknownDocumentAccessLevel = -1; // Access level which is reported to legacy clients for newly introduced access levels
+	DepartmentAndSubdepartments = 1;
+	AllDocuments = 2;
+	SelectedDepartments = 3;
+}
+
+message OrganizationUserPermissions {
+	 string UserDepartmentId = 1;
+	 bool IsAdministrator = 2;
+	 DocumentAccessLevel DocumentAccessLevel = 3;
+	 bool CanSignDocuments = 4;
+	 bool CanAddResolutions = 7;
+	 bool CanRequestResolutions = 8;
+	repeated string SelectedDepartmentIds = 9;
+	 string JobTitle = 10;
+}

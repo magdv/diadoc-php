@@ -1,0 +1,16 @@
+syntax="proto3";
+import "Docflow/ReceiptDocflow.proto";
+
+package Diadoc.Proto.Docflow;
+
+message UnilateralDocflow
+{
+	 bool IsFinished = 1;
+
+	 ReceiptDocflow ReceiptDocflow = 2;
+
+	 bool IsReceiptRequested = 3;
+
+	 bool CanDocumentBeReceipted = 4;
+	 bool CanDocumentBeSignedBySender = 5;
+}

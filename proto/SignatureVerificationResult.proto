@@ -1,0 +1,24 @@
+syntax="proto3";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+message SignatureVerificationResult
+{
+	 bool IsValid = 1;
+	 CertificateVerificationResult CertificateStatus = 2;
+	 Timestamp SignatureTimestamp = 3;
+}
+
+message CertificateVerificationResult
+{
+	 bool IsValid = 2;
+	repeated CertificateChainElement CertificateChain = 3; // first element corresponds to signer certificate
+	 Timestamp VerificationTime = 4;
+}
+
+message CertificateChainElement
+{
+	 int32 CertificateChainStatusFlags = 1; // X509ChainStatusFlags value
+	 bytes DerCertificate = 2;
+}

@@ -1,0 +1,114 @@
+syntax="proto3";
+import "Content.proto";
+import "DocumentId.proto";
+import "CustomDataItem.proto";
+import "DocumentType.proto";
+import "DocumentDirection.proto";
+import "Documents/AcceptanceCertificateDocument.proto";
+import "Documents/BilateralDocument.proto";
+import "Documents/InvoiceDocument.proto";
+import "Documents/NonformalizedDocument.proto";
+import "Documents/UnilateralDocument.proto";
+import "Documents/UniversalTransferDocument.proto";
+import "ResolutionTarget.proto";
+import "ForwardDocumentEvent.proto";
+
+package Diadoc.Proto.Documents;
+
+message Document {
+	 string IndexKey = 1;
+	 string MessageId = 2;
+	 string EntityId = 3;
+	 sfixed64 CreationTimestampTicks = 4;
+	 string CounteragentBoxId = 5;
+	 DocumentType DocumentType = 6;
+	repeated DocumentId InitialDocumentIds = 7;
+	repeated DocumentId SubordinateDocumentIds = 8;
+	 Content Content = 9;
+	 string FileName = 10;
+	 string DocumentDate = 11;
+	 string DocumentNumber = 12;
+	 NonformalizedDocument.NonformalizedDocumentMetadata NonformalizedDocumentMetadata = 13;
+	 InvoiceDocument.InvoiceMetadata InvoiceMetadata = 14;
+	 BilateralDocument.TrustConnectionRequestMetadata TrustConnectionRequestMetadata = 15;
+	 BilateralDocument.BasicDocumentMetadata Torg12Metadata = 16;
+	 InvoiceDocument.InvoiceRevisionMetadata InvoiceRevisionMetadata = 17;
+	 InvoiceDocument.InvoiceCorrectionMetadata InvoiceCorrectionMetadata = 18;
+	 InvoiceDocument.InvoiceCorrectionRevisionMetadata InvoiceCorrectionRevisionMetadata = 19;
+	 AcceptanceCertificateDocument.AcceptanceCertificateMetadata AcceptanceCertificateMetadata = 20;
+	 UnilateralDocument.ProformaInvoiceMetadata ProformaInvoiceMetadata = 21;
+	 BilateralDocument.BasicDocumentMetadata XmlTorg12Metadata = 22;
+	 BilateralDocument.BasicDocumentMetadata XmlAcceptanceCertificateMetadata = 23;
+	 bool IsDeleted = 24;
+	 string DepartmentId = 25;
+	 bool IsTest = 26;
+	 string FromDepartmentId = 27;
+	 string ToDepartmentId = 28;
+	 BilateralDocument.PriceListMetadata PriceListMetadata = 29;
+	 string CustomDocumentId = 30;
+	 ResolutionStatus ResolutionStatus = 31;
+	 RevocationStatus RevocationStatus = 32;
+	 sfixed64 SendTimestampTicks = 33;
+	 sfixed64 DeliveryTimestampTicks = 34;
+	repeated ForwardDocumentEvent ForwardDocumentEvents = 35;
+	 BilateralDocument.BilateralDocumentMetadata ReconciliationActMetadata = 38;
+	 BilateralDocument.ContractMetadata ContractMetadata = 39;
+	 BilateralDocument.BasicDocumentMetadata Torg13Metadata = 40;
+	 UnilateralDocument.ServiceDetailsMetadata ServiceDetailsMetadata = 41;
+	 RoamingNotificationStatus RoamingNotificationStatus = 42;
+	 bool HasCustomPrintForm = 43;
+	repeated CustomDataItem CustomData = 44;
+	 string PacketId = 45;
+	 DocumentDirection DocumentDirection = 46;
+	 sfixed64 LastModificationTimestampTicks = 47;
+	 bool IsEncryptedContent = 48;
+	 SenderSignatureStatus SenderSignatureStatus = 49;
+	 BilateralDocument.SupplementaryAgreementMetadata SupplementaryAgreementMetadata = 50;
+	 bool IsRead = 51;
+	 string RoamingNotificationStatusDescription = 52;
+	 bool PacketIsLocked = 53;
+	 NonformalizedDocument.NonformalizedDocumentMetadata PriceListAgreementMetadata = 54;
+	 NonformalizedDocument.NonformalizedDocumentMetadata CertificateRegistryMetadata = 55;
+	 UniversalTransferDocument.UniversalTransferDocumentMetadata UniversalTransferDocumentMetadata = 56;
+}
+
+message ResolutionStatus {
+	 ResolutionStatusType Type = 1;
+	 ResolutionTarget Target = 2;
+	 string AuthorUserId = 3;
+	 string AuthorFIO = 4;
+}
+
+enum ResolutionStatusType {
+	None = 0;
+	UnknownResolutionStatus = -1; // Reserved status to report to legacy clients for newly introduced statuses
+	Approved = 1;
+	Disapproved = 2;
+	ApprovementRequested = 3;
+	SignatureRequested = 4;
+	SignatureDenied = 5;
+}
+
+enum RevocationStatus {
+	UnknownRevocationStatus = 0; // Reserved status to report to legacy clients for newly introduced statuses
+	RevocationStatusNone = 1;
+	RevocationIsRequestedByMe = 2;
+	RequestsMyRevocation = 3;
+	RevocationAccepted = 4;
+	RevocationRejected = 5;
+}
+
+enum RoamingNotificationStatus {
+	UnknownRoamingNotificationStatus = 0; // Reserved status to report to legacy clients for newly introduced statuses
+	RoamingNotificationStatusNone = 1;
+	RoamingNotificationStatusSuccess = 2;
+	RoamingNotificationStatusError = 3;
+}
+
+enum SenderSignatureStatus {
+	UnknownSenderSignatureStatus = 0; // Reserved status to report to legacy clients for newly introduced statuses
+	WaitingForSenderSignature = 1;
+	SenderSignatureUnchecked = 2;
+	SenderSignatureCheckedAndValid = 3;
+	SenderSignatureCheckedAndInvalid = 4;
+}

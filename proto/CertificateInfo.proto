@@ -1,0 +1,8 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+message CertificateInfo {
+	 string Thumbprint = 1;
+	 sfixed64 ValidFrom = 2;
+	 sfixed64 ValidTo = 3;
+}

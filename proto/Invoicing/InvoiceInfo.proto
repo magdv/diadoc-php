@@ -1,0 +1,134 @@
+syntax="proto3";
+import "Invoicing/Signer.proto";
+import "Invoicing/OrganizationInfo.proto";
+
+package Diadoc.Proto.Invoicing;
+
+message InvoiceInfo {
+	 string InvoiceDate = 1;					// дата СФ
+	 string InvoiceNumber = 2;					// номер СФ
+	 DiadocOrganizationInfo Seller = 3;			// продавец
+	 DiadocOrganizationInfo Buyer = 4;			// покупатель
+	 ShipperOrConsignee Shipper = 5;			// грузоотправитель
+	 ShipperOrConsignee Consignee = 6;			// грузополучатель
+	 Signer Signer = 7;							// подписант
+	repeated PaymentDocumentInfo PaymentDocuments = 8;	// платежно-расчетные документы
+	repeated InvoiceItem Items = 9;						// информация о товарах
+	 string Currency = 10;						// валюта (код)
+	 string TotalWithVatExcluded = 11;			// сумма без учета налога
+	 string Vat = 12;							// сумма налога
+	 string Total = 13;							// сумма всего
+	 string AdditionalInfo = 14;				// информационное поле документа v5.01
+	 string InvoiceRevisionDate = 15;			// дата ИСФ (обязательно при формировании InvoiceRevision)
+	 string InvoiceRevisionNumber = 16;			// номер ИСФ (обязательно при формировании InvoiceRevision)
+	repeated AdditionalInfo AdditionalInfos = 17;		// информационное поле документа v5.02
+	 InvoiceFormatVersion Version = 18;	// версия формата ФУФа (для тестирования систем в переходном периоде)
+}
+
+message AdditionalInfo {
+	 string Id = 1;		// Идентификатор
+	 string Value = 2;	// Значение
+}
+
+enum InvoiceFormatVersion {
+	DefaultInvoiceFormatVersion = 0;
+	v5_01 = 1;
+	v5_02 = 2;
+}
+
+message InvoiceItem {
+	 string Product = 1;					// наименование товара
+	 string Unit = 2;						// единицы измерения товара (код)
+	 string Quantity = 3;					// количество единиц товара
+	 string Price = 4;						// цена за единицу товара
+	repeated string CountriesOfOrigin = 5;			// страны происхождения товара (коды)  v5.01
+	repeated string CustomsDeclarationNumbers = 6;	// номера таможенных деклараций        v5.01
+	 string Excise = 7;						// акциз
+	 TaxRate TaxRate = 8; 					// ставка налога
+	 string SubtotalWithVatExcluded = 9;	// сумма без учета налога
+	 string Vat = 10;						// сумма налога
+	 string Subtotal = 11;					// сумма всего
+	 string AdditionalInfo = 12;			// информационное поле товара v5.01
+	repeated CustomsDeclaration CustomsDeclarations = 13; // номера таможенных деклараций v5.02
+	repeated AdditionalInfo AdditionalInfos = 14;	// информационное поле товара v5.02
+}
+
+message CustomsDeclaration {
+	 string CountryCode = 1;				// код страны происхождения товара
+	 string DeclarationNumber = 2;			// номер таможенной декларации
+}
+
+message PaymentDocumentInfo {
+	 string DocumentDate = 1;
+	 string DocumentNumber = 2;
+}
+
+message ShipperOrConsignee {
+	 bool SameAsSellerOrBuyer = 1;	// совпадает с продавцом/покупателем
+	 OrganizationInfo OrgInfo = 2;	// реквизиты организации
+}
+
+enum TaxRate {
+	NoVat = 0;
+	Percent_0 = 1;
+	Percent_10 = 2;
+	Percent_18 = 3;
+	Percent_20 = 4;
+	Fraction_10_110 = 5;
+	Fraction_18_118 = 6;
+}
+
+message InvoiceCorrectionInfo {
+	 string InvoiceDate = 1;						// дата СФ
+	 string InvoiceNumber = 2;						// номер СФ
+	 string InvoiceRevisionDate = 3;				// дата ИСФ (заполняется, если КСФ/ИКСФ формируется на исправленный СФ)
+	 string InvoiceRevisionNumber = 4;				// номер ИСФ (заполняется, если КСФ/ИКСФ формируется на исправленный СФ)
+	 string InvoiceCorrectionDate = 5;				// дата КСФ
+	 string InvoiceCorrectionNumber = 6;			// номер КСФ
+	 string InvoiceCorrectionRevisionDate = 7;		// дата ИКСФ (обязательно при формировании InvoiceCorrectionRevision)
+	 string InvoiceCorrectionRevisionNumber = 8;	// номер ИКСФ (обязательно при формировании InvoiceCorrectionRevision)
+	 DiadocOrganizationInfo Seller = 9;				// продавец
+	 DiadocOrganizationInfo Buyer = 10;				// покупатель
+	 Signer Signer = 11;							// подписант
+	repeated InvoiceCorrectionItem Items = 12;				// информация о товарах
+	 string Currency = 13;							// валюта (код)
+	 InvoiceTotalsDiff TotalsInc = 14;				// суммы к увеличению
+	 InvoiceTotalsDiff TotalsDec = 15;				// суммы к уменьшению
+	 string AdditionalInfo = 16;					// информационное поле документа v5.01
+	repeated AdditionalInfo AdditionalInfos = 17;			// информационное поле документа v5.02
+	 InvoiceFormatVersion Version = 18;	// версия формата ФУФа (для тестирования систем в переходном периоде)
+}
+
+message InvoiceTotalsDiff {
+	 string TotalWithVatExcluded = 1;	// сумма без учета налога
+	 string Vat = 2;					// сумма налога
+	 string Total = 3;					// сумма всего
+}
+
+message InvoiceCorrectionItem {
+	 string Product = 1;								// наименование товара
+	 CorrectableInvoiceItemFields OriginalValues = 2;	// значения до изменения
+	 CorrectableInvoiceItemFields CorrectedValues = 3;	// значения после изменения
+	 InvoiceItemAmountsDiff AmountsInc = 4;				// суммы к увеличению
+	 InvoiceItemAmountsDiff AmountsDec = 5;				// суммы к уменьшению
+	 string AdditionalInfo = 6;							// информационное поле товара v5.01
+	repeated AdditionalInfo AdditionalInfos = 7;			// информационное поле документа v5.02
+}
+
+message CorrectableInvoiceItemFields {
+	 string Unit = 1;						// единицы измерения товара (код)
+	 string Quantity = 2;					// количество единиц товара
+	 string Price = 3;						// цена за единицу товара
+	 string Excise = 4;						// акциз
+	 TaxRate TaxRate = 5;					// ставка налога
+	 string SubtotalWithVatExcluded = 6;	// сумма без учета налога
+	 string Vat = 7;						// сумма налога
+	 string Subtotal = 8;					// сумма с учетом налога
+}
+
+message InvoiceItemAmountsDiff {
+	 string Excise = 1;						// акциз
+	 string SubtotalWithVatExcluded = 2;	// сумма без учета налога
+	 string Vat = 3;						// сумма налога
+	 string Subtotal = 4;					// сумма с учетом налога
+}

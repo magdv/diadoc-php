@@ -1,0 +1,36 @@
+syntax="proto3";
+import "Organization.proto";
+
+package Diadoc.Proto;
+
+message CounteragentList {
+	 int32 TotalCount = 1;
+	repeated Counteragent Counteragents = 2;
+}
+
+message Counteragent {
+	 string IndexKey = 1;
+	 Organization Organization = 2;
+	 CounteragentStatus CurrentStatus = 3;
+	 sfixed64 LastEventTimestampTicks = 4;
+	 string MessageFromCounteragent = 6;
+	 string MessageToCounteragent = 7;
+}
+
+enum CounteragentStatus {
+	UnknownCounteragentStatus = 0;
+	IsMyCounteragent = 1;
+	InvitesMe = 2;
+	IsInvitedByMe = 3;
+	RejectsMe = 5;
+	IsRejectedByMe = 6;
+	NotInCounteragentList = 7;
+}
+
+message CounteragentCertificateList {
+	repeated Certificate Certificates = 1;
+}
+
+message Certificate {
+	 bytes RawCertificateData = 1;
+}

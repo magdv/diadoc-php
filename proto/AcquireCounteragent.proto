@@ -1,0 +1,22 @@
+syntax="proto3";
+import "Events/DiadocMessage-PostApi.proto";
+
+package Diadoc.Proto;
+
+message AcquireCounteragentRequest {
+	 string OrgId = 1;
+	 string Inn = 2;
+	 string MessageToCounteragent = 3;
+	 InvitationDocument InvitationDocument = 4;
+}
+
+message InvitationDocument {
+	 Events.SignedContent SignedContent = 1;
+	 string FileName = 2;
+	 bool SignatureRequested = 3;
+	 string Type = 4;
+}
+
+message AcquireCounteragentResult {
+	 string OrgId = 1;
+}

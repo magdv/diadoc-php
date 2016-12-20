@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto.Invoicing;
+
+message Signer {
+	 bytes SignerCertificate = 1;
+	 SignerDetails SignerDetails = 2;
+	 string SignerCertificateThumbprint = 3;
+}
+
+message SignerDetails {
+	 string Surname = 1;
+	 string FirstName = 2;
+	 string Patronymic = 3;
+	 string JobTitle = 4;
+	 string Inn = 5;
+	 string SoleProprietorRegistrationCertificate = 6;
+}

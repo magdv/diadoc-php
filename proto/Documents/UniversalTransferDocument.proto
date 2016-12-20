@@ -1,0 +1,28 @@
+syntax="proto3";
+import "Documents/ReceiptStatus.proto";
+
+package Diadoc.Proto.Documents.UniversalTransferDocument;
+
+message UniversalTransferDocumentMetadata {
+	 UniversalTransferDocumentStatus DocumentStatus = 1;
+	 string Total = 2; // TotalSum;
+	 string Vat = 3; //TotalVat;
+	 string Grounds = 4; // DocumentGrounds
+	 string DocumentFunction = 5;
+	 int32 Currency = 6;
+	 ReceiptStatus ReceiptStatus = 7;
+}
+
+enum UniversalTransferDocumentStatus {
+	UnknownDocumentStatus = 0;	// This type will be reported to legacy client when it receives unknown status from server
+	OutboundWaitingForSenderSignature = 1;
+	OutboundWaitingForInvoiceReceiptAndRecipientSignature = 2;
+	OutboundWaitingForInvoiceReceipt = 3; 
+	OutboundWaitingForRecipientSignature = 4;
+	OutboundInvalidSenderSignature = 5;
+	InboundWaitingForInvoiceReceiptAndRecipientSignature = 6;
+	InboundWaitingForRecipientSignature = 7; 
+	InboundWaitingForInvoiceReceipt = 8;
+	InboundWithRecipientSignature = 9; 
+	InboundInvalidRecipientSignature = 10;
+}
