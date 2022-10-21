@@ -21,6 +21,10 @@ class CounteragentList extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Counteragent Counteragents = 2;</code>
      */
     private $Counteragents;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TotalCountType TotalCountType = 3;</code>
+     */
+    private $TotalCountType = 0;
 
     /**
      * Constructor.
@@ -30,6 +34,7 @@ class CounteragentList extends \Google\Protobuf\Internal\Message
      *
      *     @type int $TotalCount
      *     @type \Diadoc\Proto\Counteragent[]|\Google\Protobuf\Internal\RepeatedField $Counteragents
+     *     @type int $TotalCountType
      * }
      */
     public function __construct($data = NULL) {
@@ -77,6 +82,28 @@ class CounteragentList extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Diadoc\Proto\Counteragent::class);
         $this->Counteragents = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TotalCountType TotalCountType = 3;</code>
+     * @return int
+     */
+    public function getTotalCountType()
+    {
+        return $this->TotalCountType;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TotalCountType TotalCountType = 3;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTotalCountType($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\TotalCountType::class);
+        $this->TotalCountType = $var;
 
         return $this;
     }
