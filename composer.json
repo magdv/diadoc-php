@@ -3,7 +3,6 @@
     "description": "Diadoc API implementation",
     "type": "library",
     "license": "MIT",
-    "version": "1.0.0",
     "authors": [
         {
             "name": "Korolev Denis",
