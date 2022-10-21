@@ -148,7 +148,8 @@ class DiadocApi
     public const RESOURCE_AUTO_SIGN_RECEIPTS_RESULT = '/AutoSignReceiptsResult';
 
     private $ddauthApiClientId;
-    private $token;
+    /** @var null|string */
+    private $token = null;
 
     private $serviceUrl;
 
@@ -664,12 +665,12 @@ class DiadocApi
     /**
      * @param $myOrgId
      * @param CounteragentStatus|null $counteragentStatus
-     * @param int|null $afterIndexKey
+     * @param string|null $afterIndexKey
      *
      * @return CounteragentList
      * @throws DiadocApiException
      */
-    public function getCountragentsV2($myOrgId, CounteragentStatus $counteragentStatus = null, ?int $afterIndexKey = null): CounteragentList
+    public function getCountragentsV2($myOrgId, CounteragentStatus $counteragentStatus = null, ?string $afterIndexKey = null): CounteragentList
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_COUNTERAGENTS_V2,
@@ -1076,7 +1077,7 @@ class DiadocApi
         return $data;
     }
 
-    protected function getToken(): string
+    protected function getToken(): ?string
     {
         return $this->token;
     }
