@@ -29,6 +29,10 @@ message Organization {
   int32 InvitationCount = 20;
   int32 SearchCount = 21;
   Sociability Sociability = 22;
+  string LiquidationDate = 23;
+  string CertificateOfRegistryInfo = 24;
+  bool IsForeign = 25;
+  bool HasCertificateToSign = 26;
 }
 
 message Department {

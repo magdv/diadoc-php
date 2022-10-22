@@ -97,6 +97,22 @@ class Organization extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Diadoc.Proto.Sociability Sociability = 22;</code>
      */
     private $Sociability = 0;
+    /**
+     * Generated from protobuf field <code>string LiquidationDate = 23;</code>
+     */
+    private $LiquidationDate = '';
+    /**
+     * Generated from protobuf field <code>string CertificateOfRegistryInfo = 24;</code>
+     */
+    private $CertificateOfRegistryInfo = '';
+    /**
+     * Generated from protobuf field <code>bool IsForeign = 25;</code>
+     */
+    private $IsForeign = false;
+    /**
+     * Generated from protobuf field <code>bool HasCertificateToSign = 26;</code>
+     */
+    private $HasCertificateToSign = false;
 
     /**
      * Constructor.
@@ -125,6 +141,10 @@ class Organization extends \Google\Protobuf\Internal\Message
      *     @type int $InvitationCount
      *     @type int $SearchCount
      *     @type int $Sociability
+     *     @type string $LiquidationDate
+     *     @type string $CertificateOfRegistryInfo
+     *     @type bool $IsForeign
+     *     @type bool $HasCertificateToSign
      * }
      */
     public function __construct($data = NULL) {
@@ -590,6 +610,94 @@ class Organization extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Diadoc\Proto\Sociability::class);
         $this->Sociability = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string LiquidationDate = 23;</code>
+     * @return string
+     */
+    public function getLiquidationDate()
+    {
+        return $this->LiquidationDate;
+    }
+
+    /**
+     * Generated from protobuf field <code>string LiquidationDate = 23;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setLiquidationDate($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->LiquidationDate = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string CertificateOfRegistryInfo = 24;</code>
+     * @return string
+     */
+    public function getCertificateOfRegistryInfo()
+    {
+        return $this->CertificateOfRegistryInfo;
+    }
+
+    /**
+     * Generated from protobuf field <code>string CertificateOfRegistryInfo = 24;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setCertificateOfRegistryInfo($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->CertificateOfRegistryInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool IsForeign = 25;</code>
+     * @return bool
+     */
+    public function getIsForeign()
+    {
+        return $this->IsForeign;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool IsForeign = 25;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsForeign($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->IsForeign = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool HasCertificateToSign = 26;</code>
+     * @return bool
+     */
+    public function getHasCertificateToSign()
+    {
+        return $this->HasCertificateToSign;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool HasCertificateToSign = 26;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setHasCertificateToSign($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->HasCertificateToSign = $var;
 
         return $this;
     }
