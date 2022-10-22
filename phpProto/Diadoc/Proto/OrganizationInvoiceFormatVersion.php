@@ -12,9 +12,9 @@ class OrganizationInvoiceFormatVersion
     /**
      * ради не ругания компилятора
      *
-     * Generated from protobuf enum <code>def = 0;</code>
+     * Generated from protobuf enum <code>default = 0;</code>
      */
-    const def = 0;
+    const PBdefault = 0;
     /**
      * Generated from protobuf enum <code>v5_01 = 1;</code>
      */

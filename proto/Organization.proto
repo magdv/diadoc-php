@@ -1,60 +1,62 @@
-syntax="proto3";
+syntax = "proto3";
 import "Address.proto";
 
 package Diadoc.Proto;
 
 message OrganizationList {
-	repeated Organization Organizations = 1;
+  repeated Organization Organizations = 1;
 }
 
 message Organization {
-	 string OrgId = 1;
-	 string Inn = 2;
-	 string Kpp = 3;
-	 string FullName = 4;
-	 string ShortName = 5;
-	repeated Box Boxes = 7;
-	 string Ogrn = 8;
-	 string FnsParticipantId = 9;
-	 Address Address = 10;
-	 string FnsRegistrationDate = 11;
-	repeated Department Departments = 12;
-	 string IfnsCode = 13;
-	 bool IsPilot = 14;
-	 bool IsActive = 15;
-	 bool IsTest = 16;
-	 bool IsBranch = 17;
-	 bool IsRoaming = 18;
-	 bool IsEmployee = 19;
-	 int32 InvitationCount = 20;
-	 int32 SearchCount = 21;
-	 Sociability Sociability = 22;
+  string OrgId = 1;
+  string Inn = 2;
+  string Kpp = 3;
+  string FullName = 4;
+  string ShortName = 5;
+  repeated Box Boxes = 7;
+  string Ogrn = 8;
+  string FnsParticipantId = 9;
+  Address Address = 10;
+  string FnsRegistrationDate = 11;
+  repeated Department Departments = 12;
+  string IfnsCode = 13;
+  bool IsPilot = 14;
+  bool IsActive = 15;
+  bool IsTest = 16;
+  bool IsBranch = 17;
+  bool IsRoaming = 18;
+  bool IsEmployee = 19;
+  int32 InvitationCount = 20;
+  int32 SearchCount = 21;
+  Sociability Sociability = 22;
 }
 
 message Department {
-	 string DepartmentId = 1;
-	 string ParentDepartmentId = 2;
-	 string Name = 3;
-	 string Abbreviation = 4;
-	 string Kpp = 5;
-	 Address Address = 6;
-	 bool IsDisabled = 7;
+  string DepartmentId = 1;
+  string ParentDepartmentId = 2;
+  string Name = 3;
+  string Abbreviation = 4;
+  string Kpp = 5;
+  Address Address = 6;
+  bool IsDisabled = 7;
 }
 
 enum OrganizationInvoiceFormatVersion {
-	def = 0; 							// ради не ругания компилятора
-	v5_01 = 1;
-	v5_02 = 2;
+  default = 0;              // ради не ругания компилятора
+  v5_01 = 1;
+  v5_02 = 2;
 }
 
 message Box {
-	 string BoxId = 1;
-	 string Title = 2;
-	 Organization Organization = 3;
-	 OrganizationInvoiceFormatVersion InvoiceFormatVersion = 4 ;
+  string BoxId = 1;
+  string Title = 2;
+  Organization Organization = 3;
+  OrganizationInvoiceFormatVersion InvoiceFormatVersion = 4 ;
+  bool EncryptedDocumentsAllowed = 5;
+  string BoxIdGuid = 6;
 }
 
 enum Sociability {
-	AllOrganizations = 0;
-	CounteragentsOnly = 1;
+  AllOrganizations = 0;
+  CounteragentsOnly = 1;
 }

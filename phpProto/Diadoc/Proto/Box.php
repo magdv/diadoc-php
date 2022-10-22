@@ -29,6 +29,14 @@ class Box extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Diadoc.Proto.OrganizationInvoiceFormatVersion InvoiceFormatVersion = 4;</code>
      */
     private $InvoiceFormatVersion = 0;
+    /**
+     * Generated from protobuf field <code>bool EncryptedDocumentsAllowed = 5;</code>
+     */
+    private $EncryptedDocumentsAllowed = false;
+    /**
+     * Generated from protobuf field <code>string BoxIdGuid = 6;</code>
+     */
+    private $BoxIdGuid = '';
 
     /**
      * Constructor.
@@ -40,6 +48,8 @@ class Box extends \Google\Protobuf\Internal\Message
      *     @type string $Title
      *     @type \Diadoc\Proto\Organization $Organization
      *     @type int $InvoiceFormatVersion
+     *     @type bool $EncryptedDocumentsAllowed
+     *     @type string $BoxIdGuid
      * }
      */
     public function __construct($data = NULL) {
@@ -131,6 +141,50 @@ class Box extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Diadoc\Proto\OrganizationInvoiceFormatVersion::class);
         $this->InvoiceFormatVersion = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool EncryptedDocumentsAllowed = 5;</code>
+     * @return bool
+     */
+    public function getEncryptedDocumentsAllowed()
+    {
+        return $this->EncryptedDocumentsAllowed;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool EncryptedDocumentsAllowed = 5;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setEncryptedDocumentsAllowed($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->EncryptedDocumentsAllowed = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string BoxIdGuid = 6;</code>
+     * @return string
+     */
+    public function getBoxIdGuid()
+    {
+        return $this->BoxIdGuid;
+    }
+
+    /**
+     * Generated from protobuf field <code>string BoxIdGuid = 6;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setBoxIdGuid($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->BoxIdGuid = $var;
 
         return $this;
     }
