@@ -2,7 +2,7 @@
 
 namespace MagDv\Diadoc;
 
-use Magdv\Diadoc\Exception\DiadocApiException;
+use MagDv\Diadoc\Exception\DiadocApiException;
 use Google\Protobuf\Internal\Message;
 use Diadoc\Proto\AsyncMethodResult;
 use Diadoc\Proto\Counteragent;

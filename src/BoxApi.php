@@ -2,7 +2,7 @@
 
 namespace MagDv\Diadoc;
 
-use Magdv\Diadoc\Exception\DiadocApiException;
+use MagDv\Diadoc\Exception\DiadocApiException;
 use DateTime;
 use Diadoc\Proto\Box;
 use Diadoc\Proto\Docflow\GetDocflowBatchRequest;

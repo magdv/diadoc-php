@@ -44,9 +44,9 @@ use Diadoc\Proto\SortDirection;
 use Diadoc\Proto\TimeBasedFilter;
 use Diadoc\Proto\Timestamp;
 use Diadoc\Proto\User;
-use Magdv\Diadoc\Exception\DiadocApiException;
-use Magdv\Diadoc\Filter\DocumentsFilter;
-use Magdv\Diadoc\Helper\DateHelper;
+use MagDv\Diadoc\Exception\DiadocApiException;
+use MagDv\Diadoc\Filter\DocumentsFilter;
+use MagDv\Diadoc\Helper\DateHelper;
 
 class DiadocApi
 {
