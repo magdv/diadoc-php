@@ -16,99 +16,99 @@ class Entity extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.EntityType EntityType = 1;</code>
      */
-    private $EntityType = 0;
+    protected $EntityType = 0;
     /**
      * Generated from protobuf field <code>string EntityId = 2;</code>
      */
-    private $EntityId = '';
+    protected $EntityId = '';
     /**
      * Generated from protobuf field <code>string ParentEntityId = 3;</code>
      */
-    private $ParentEntityId = '';
+    protected $ParentEntityId = '';
     /**
      * null <=> there is no content for this entity (very unlikely to happen)
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Content Content = 4;</code>
      */
-    private $Content = null;
+    protected $Content = null;
     /**
      * only for EntityType.Attachment
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Events.AttachmentType AttachmentType = 5;</code>
      */
-    private $AttachmentType = 0;
+    protected $AttachmentType = 0;
     /**
      * only for EntityType.Attachment
      *
      * Generated from protobuf field <code>string FileName = 6;</code>
      */
-    private $FileName = '';
+    protected $FileName = '';
     /**
      * only for EntityType.Attachment
      *
      * Generated from protobuf field <code>bool NeedRecipientSignature = 7;</code>
      */
-    private $NeedRecipientSignature = false;
+    protected $NeedRecipientSignature = false;
     /**
      * only for EntityType.Signature
      *
      * Generated from protobuf field <code>string SignerBoxId = 8;</code>
      */
-    private $SignerBoxId = '';
+    protected $SignerBoxId = '';
     /**
      * only for Attachment/DeliveryFailureNotification
      *
      * Generated from protobuf field <code>string NotDeliveredEventId = 10;</code>
      */
-    private $NotDeliveredEventId = '';
+    protected $NotDeliveredEventId = '';
     /**
      * only for EntityType.Attachment
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.Document DocumentInfo = 11;</code>
      */
-    private $DocumentInfo = null;
+    protected $DocumentInfo = null;
     /**
      * Generated from protobuf field <code>sfixed64 RawCreationDate = 12;</code>
      */
-    private $RawCreationDate = 0;
+    protected $RawCreationDate = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionInfo ResolutionInfo = 13;</code>
      */
-    private $ResolutionInfo = null;
+    protected $ResolutionInfo = null;
     /**
      * only for EntityType.Signature
      *
      * Generated from protobuf field <code>string SignerDepartmentId = 14;</code>
      */
-    private $SignerDepartmentId = '';
+    protected $SignerDepartmentId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestInfo ResolutionRequestInfo = 15;</code>
      */
-    private $ResolutionRequestInfo = null;
+    protected $ResolutionRequestInfo = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestDenialInfo ResolutionRequestDenialInfo = 16;</code>
      */
-    private $ResolutionRequestDenialInfo = null;
+    protected $ResolutionRequestDenialInfo = null;
     /**
      * only for EntityType.Attachment
      *
      * Generated from protobuf field <code>bool NeedReceipt = 17;</code>
      */
-    private $NeedReceipt = false;
+    protected $NeedReceipt = false;
     /**
      * Generated from protobuf field <code>string PacketId = 18;</code>
      */
-    private $PacketId = '';
+    protected $PacketId = '';
     /**
      * only for EntityType.Signature
      *
      * Generated from protobuf field <code>bool IsApprovementSignature = 19;</code>
      */
-    private $IsApprovementSignature = false;
+    protected $IsApprovementSignature = false;
     /**
      * Generated from protobuf field <code>bool IsEncryptedContent = 20;</code>
      */
-    private $IsEncryptedContent = false;
+    protected $IsEncryptedContent = false;
 
     /**
      * Constructor.

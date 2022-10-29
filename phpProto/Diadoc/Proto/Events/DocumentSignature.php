@@ -16,27 +16,27 @@ class DocumentSignature extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ParentEntityId = 1;</code>
      */
-    private $ParentEntityId = '';
+    protected $ParentEntityId = '';
     /**
      * Generated from protobuf field <code>bytes Signature = 2;</code>
      */
-    private $Signature = '';
+    protected $Signature = '';
     /**
      * Generated from protobuf field <code>bool SignWithTestSignature = 4;</code>
      */
-    private $SignWithTestSignature = false;
+    protected $SignWithTestSignature = false;
     /**
      * Generated from protobuf field <code>bool IsApprovementSignature = 5;</code>
      */
-    private $IsApprovementSignature = false;
+    protected $IsApprovementSignature = false;
     /**
      * Generated from protobuf field <code>string SignatureNameOnShelf = 6;</code>
      */
-    private $SignatureNameOnShelf = '';
+    protected $SignatureNameOnShelf = '';
     /**
      * Generated from protobuf field <code>string PatchedContentId = 7;</code>
      */
-    private $PatchedContentId = '';
+    protected $PatchedContentId = '';
 
     /**
      * Constructor.

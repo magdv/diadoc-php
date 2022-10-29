@@ -16,15 +16,15 @@ class BoxEvent extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string EventId = 1;</code>
      */
-    private $EventId = '';
+    protected $EventId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.Message Message = 2;</code>
      */
-    private $Message = null;
+    protected $Message = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.MessagePatch Patch = 3;</code>
      */
-    private $Patch = null;
+    protected $Patch = null;
 
     /**
      * Constructor.

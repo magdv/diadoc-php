@@ -16,15 +16,15 @@ class InvoiceCorrectionRequestDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    private $IsFinished = false;
+    protected $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.SignedAttachment CorrectionRequestAttachment = 2;</code>
      */
-    private $CorrectionRequestAttachment = null;
+    protected $CorrectionRequestAttachment = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.ReceiptDocflow ReceiptDocflow = 3;</code>
      */
-    private $ReceiptDocflow = null;
+    protected $ReceiptDocflow = null;
 
     /**
      * Constructor.

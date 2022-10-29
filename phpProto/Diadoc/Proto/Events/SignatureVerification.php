@@ -16,15 +16,15 @@ class SignatureVerification extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string InitialDocumentId = 1;</code>
      */
-    private $InitialDocumentId = '';
+    protected $InitialDocumentId = '';
     /**
      * Generated from protobuf field <code>bool IsValid = 2;</code>
      */
-    private $IsValid = false;
+    protected $IsValid = false;
     /**
      * Generated from protobuf field <code>string ErrorMessage = 3;</code>
      */
-    private $ErrorMessage = '';
+    protected $ErrorMessage = '';
 
     /**
      * Constructor.

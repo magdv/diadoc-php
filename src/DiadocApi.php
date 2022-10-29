@@ -2,6 +2,7 @@
 
 namespace MagDv\Diadoc;
 
+use Diadoc\Proto\Documents\Types\GetDocumentTypesResponseV2;
 use Exception;
 use DateTime;
 use Diadoc\Proto\AcquireCounteragentRequest;
@@ -103,6 +104,7 @@ class DiadocApi
     public const RESOURCE_GENERATE_TORG_12_XML_FOR_SELLER = '/GenerateTorg12XmlForSeller';
     public const RESOURCE_GET_DOCUMENT = '/V3/GetDocument';
     public const RESOURCE_GET_DOCUMENTS = '/V3/GetDocuments';
+    public const RESOURCE_GET_DOCUMENT_TYPES = '/V2/GetDocumentTypes';
     public const RESOURCE_GET_FORWARDED_DOCUMENT_EVENTS = '/V2/GetForwardedDocumentEvents';
     public const RESOURCE_GENERATE_FORWARDED_DOCUMENT_PRINT_FORM = '/GenerateForwardedDocumentPrintForm';
     public const RESOURCE_GET_FORWARDED_ENTITY_CONTENT = '/V2/GetForwardedEntityContent';
@@ -165,9 +167,10 @@ class DiadocApi
             self::RESOURCE_AUTHENTICATE,
             [
                 'login' => $login,
-                'password'  =>  $password
+                'password'  => $password
             ],
-            self::METHOD_POST
+            self::METHOD_POST,
+            []
         );
 
         $this->setToken($response);
@@ -181,10 +184,14 @@ class DiadocApi
         if ($token = $this->getToken()) {
             $header .= sprintf(', ddauth_token=%s', $token);
         }
-        return ['Authorization: ' . $header];
+
+        return array_merge(
+            ['Authorization: ' . $header],
+            ['Content-Type: application/x-protobuf']
+        );
     }
 
-    protected function doRequest($resource, $params = [], $method = self::METHOD_GET, $data = []): string
+    protected function doRequest($resource, $params = [], $method = self::METHOD_GET, $data): string
     {
         if (!$this->getToken() && !in_array($resource, [self::RESOURCE_AUTHENTICATE, self::RESOURCE_AUTHENTICATE_V2], true)) {
             throw new Exception('Unauthorized request');
@@ -237,7 +244,9 @@ class DiadocApi
             self::RESOURCE_GET_BOX,
             [
                 'boxId' => $boxId
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $box = new Box();
@@ -258,7 +267,9 @@ class DiadocApi
             [
                 'orgId' => $orgId,
                 'departmentId' => $departmentId
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $department = new Department();
@@ -293,7 +304,9 @@ class DiadocApi
             self::RESOURCE_GET_MY_PERMISSIONS,
             [
                 'orgId' => $orgId
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
         $permission = new OrganizationUserPermissions();
         $permission->mergeFromString($response);
@@ -307,7 +320,7 @@ class DiadocApi
      */
     public function getMyUser(): User
     {
-        $response = $this->doRequest(self::RESOURCE_GET_MY_USER);
+        $response = $this->doRequest(self::RESOURCE_GET_MY_USER, [], self::METHOD_GET, []);
 
         $user = new User();
         $user->mergeFromString($response);
@@ -325,7 +338,9 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATION,
             [
                 'orgId' => $orgId
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $org = new Organization();
@@ -344,7 +359,9 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATION,
             [
                 'fnsParticipantId' => $fnsParticipantId
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $org = new Organization();
@@ -364,7 +381,9 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATION,
             [
                 'inn' => $inn
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $org = new Organization();
@@ -387,7 +406,9 @@ class DiadocApi
                 'inn' => $inn,
                 'kpp' => $kpp,
                 'includeRelations' => $includeRelations ? 'true' : 'false'
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $org = new OrganizationList();
@@ -410,10 +431,10 @@ class DiadocApi
         $response = $this->doRequest(
             self::RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST,
             [
-                'myOrgId'   =>  $myOrgId
+                'myOrgId'   => $myOrgId
             ],
             self::METHOD_POST,
-            json_decode($request->serializeToJsonString(), true)
+            $request->serializeToString()
         );
 
         $data = new GetOrganizationsByInnListResponse();
@@ -434,7 +455,9 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATION_USERS,
             [
                 'orgId' => $orgId
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $data = new OrganizationUsersList();
@@ -455,7 +478,9 @@ class DiadocApi
             self::RESOURCE_PARSE_RUSSIAN_ADDRESS,
             [
                 'address' => $address
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $data = new RussianAddress();
@@ -470,17 +495,18 @@ class DiadocApi
      * @return mixed
      * @throws DiadocApiException
      */
-    public function acquireCounteragent(string $myOrgId, string $counteragentOrgId, string  $myDepartmentId, string $comment = null): string
+    public function acquireCounteragent(string $myOrgId, string $counteragentOrgId, string $myDepartmentId, string $comment = null): string
     {
         return $this->doRequest(
             self::RESOURCE_ACQUIRE_COUNTERAGENTS,
             [
                 'myOrgId' => $myOrgId,
                 'counteragentOrgId' => $counteragentOrgId,
-                'myDepartmentId'    =>  $myDepartmentId,
-                'comment'   =>  $comment
+                'myDepartmentId'    => $myDepartmentId,
+                'comment'   => $comment
             ],
-            self::METHOD_POST
+            self::METHOD_POST,
+            []
         );
     }
 
@@ -505,10 +531,10 @@ class DiadocApi
             self::RESOURCE_ACQUIRE_COUNTERAGENTS_V2,
             [
                 'myOrgId' => $myOrgId,
-                'myDepartmentId'    =>  $myDepartmentId,
+                'myDepartmentId'    => $myDepartmentId,
             ],
             self::METHOD_POST,
-            json_decode($request->serializeToJsonString(), true)
+            $request->serializeToString()
         );
 
         $data = new AsyncMethodResult();
@@ -538,10 +564,10 @@ class DiadocApi
             self::RESOURCE_ACQUIRE_COUNTERAGENTS_V2,
             [
                 'myOrgId' => $myOrgId,
-                'myDepartmentId'    =>  $myDepartmentId,
+                'myDepartmentId'    => $myDepartmentId,
             ],
             self::METHOD_POST,
-            json_decode($request->serializeToJsonString(), true)
+            $request->serializeToString()
         );
 
         $data = new AsyncMethodResult();
@@ -563,7 +589,8 @@ class DiadocApi
             [
                 'taskId' => $taskId
             ],
-            self::METHOD_GET
+            self::METHOD_GET,
+            []
         );
 
         $data = new AcquireCounteragentResult();
@@ -588,7 +615,8 @@ class DiadocApi
                 'counteragentOrgId' => $counteragentOrgId,
                 'comment' => $comment
             ],
-            self::METHOD_POST
+            self::METHOD_POST,
+            []
         );
     }
 
@@ -606,7 +634,9 @@ class DiadocApi
             [
                 'myOrgId' => $myOrgId,
                 'counteragentOrgId' => $counteragentOrgId
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
         $data = new Counteragent();
         $data->mergeFromString($response);
@@ -629,7 +659,9 @@ class DiadocApi
             [
                 'myOrgId' => $myOrgId,
                 'counteragentOrgId' => $counteragentOrgId
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $data = new Counteragent();
@@ -651,10 +683,12 @@ class DiadocApi
         $response = $this->doRequest(
             self::RESOURCE_GET_COUNTERAGENTS,
             [
-                'myOrgId'   =>  $myOrgId,
+                'myOrgId'   => $myOrgId,
                 'counteragentStatus' => $counteragentStatus,
-                'afterIndexKey'  =>  $afterIndexKey
-            ]
+                'afterIndexKey'  => $afterIndexKey
+            ],
+            self::METHOD_GET,
+            []
         );
         $data = new CounteragentList();
         $data->mergeFromString($response);
@@ -675,10 +709,12 @@ class DiadocApi
         $response = $this->doRequest(
             self::RESOURCE_GET_COUNTERAGENTS_V2,
             [
-                'myOrgId'   =>  $myOrgId,
+                'myOrgId'   => $myOrgId,
                 'counteragentStatus' => $counteragentStatus,
-                'afterIndexKey'  =>  $afterIndexKey
-            ]
+                'afterIndexKey'  => $afterIndexKey
+            ],
+            self::METHOD_GET,
+            []
         );
         $list = (new CounteragentList());
         $list->mergeFromString($response);
@@ -693,7 +729,9 @@ class DiadocApi
             [
                 'myOrgId' => $myOrgId,
                 'counteragentOrgId' => $counteragentOrgId
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $list = new CounteragentCertificateList();
@@ -715,10 +753,12 @@ class DiadocApi
         return $this->doRequest(
             self::RESOURCE_GET_ENTITY_CONTENT,
             [
-                'boxId' =>  $boxId,
-                'messageId' =>  $messageId,
-                'entityId'  =>  $entityId
-            ]
+                'boxId' => $boxId,
+                'messageId' => $messageId,
+                'entityId'  => $entityId
+            ],
+            self::METHOD_GET,
+            []
         );
     }
 
@@ -736,11 +776,13 @@ class DiadocApi
         $response = $this->doRequest(
             self::RESOURCE_GET_MESSAGE,
             [
-                'boxId' =>  $boxId,
-                'messageId' =>  $messageId,
-                'entityId'  =>  $entityId,
+                'boxId' => $boxId,
+                'messageId' => $messageId,
+                'entityId'  => $entityId,
                 'originalSignature' => $originalSignature
-            ]
+            ],
+            self::METHOD_GET,
+            []
         );
         $data = new Message();
         $data->mergeFromString($response);
@@ -754,7 +796,7 @@ class DiadocApi
      * @return Message| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function postMessage(MessageToPost $messageToPost, ?string  $operationId = null): Message
+    public function postMessage(MessageToPost $messageToPost, ?string $operationId = null): Message
     {
         $response = $this->doRequest(
             self::RESOURCE_POST_MESSAGE,
@@ -762,7 +804,7 @@ class DiadocApi
                 'operationId' => $operationId
             ],
             self::METHOD_POST,
-            json_decode($messageToPost->serializeToJsonString(), true)
+            $messageToPost->serializeToString()
         );
 
         $data = new Message();
@@ -783,7 +825,7 @@ class DiadocApi
                 'operationId' => $operationId
             ],
             self::METHOD_POST,
-            json_decode($messagePatchToPost->serializeToJsonString(), true)
+            $messagePatchToPost->serializeToString()
         );
 
         $data = new MessagePatch();
@@ -797,16 +839,17 @@ class DiadocApi
      *
      * @throws DiadocApiException
      */
-    public function delete(string $boxId, string  $messageId, string $documentId = null): bool
+    public function delete(string $boxId, string $messageId, string $documentId = null): bool
     {
         $this->doRequest(
             self::RESOURCE_DELETE,
             [
-                'boxId' =>  $boxId,
+                'boxId' => $boxId,
                 'messageId' => $messageId,
                 'documentId' => $documentId
             ],
-            self::METHOD_POST
+            self::METHOD_POST,
+            []
         );
 
         return true;
@@ -828,10 +871,10 @@ class DiadocApi
         return $this->doRequest(
             self::RESOURCE_FORWARD_DOCUMENT,
             [
-                'boxId' =>  $boxId
+                'boxId' => $boxId
             ],
             self::METHOD_POST,
-            json_decode($forwardDocumentRequest->serializeToJsonString(), true)
+            $forwardDocumentRequest->serializeToString()
         );
     }
 
@@ -848,9 +891,11 @@ class DiadocApi
             self::RESOURCE_GET_DOCUMENT,
             [
                 'boxId' => $boxId,
-                'messageId' =>  $messageId,
-                'entityId'  =>  $entityId
-            ]
+                'messageId' => $messageId,
+                'entityId'  => $entityId
+            ],
+            self::METHOD_GET,
+            []
         );
         $data = new Document();
         $data->mergeFromString($response);
@@ -867,8 +912,8 @@ class DiadocApi
         }
         $params = [
             'boxId' => $boxId,
-            'sortDirection' =>  $sortDirection,
-            'afterIndexKey' =>  $afterIndexKey
+            'sortDirection' => $sortDirection,
+            'afterIndexKey' => $afterIndexKey
         ];
         if (is_null($documentsFilter)) {
             $documentsFilter = DocumentsFilter::create();
@@ -878,10 +923,31 @@ class DiadocApi
 
         $response = $this->doRequest(
             self::RESOURCE_GET_DOCUMENTS,
-            $params
+            $params,
+            self::METHOD_GET,
+            []
         );
 
         $data = new DocumentList();
+        $data->mergeFromString($response);
+
+        return $data;
+    }
+
+    public function getDocumentTypes(string $boxId): GetDocumentTypesResponseV2
+    {
+        $params = [
+            'boxId' => $boxId,
+        ];
+
+        $response = $this->doRequest(
+            self::RESOURCE_GET_DOCUMENT_TYPES,
+            $params,
+            self::METHOD_GET,
+            []
+        );
+
+        $data = new GetDocumentTypesResponseV2();
         $data->mergeFromString($response);
 
         return $data;
@@ -897,10 +963,10 @@ class DiadocApi
         $response = $this->doRequest(
             self::RESOURCE_GET_DOCFLOWS,
             [
-                'boxId' =>  $boxId
+                'boxId' => $boxId
             ],
             self::METHOD_POST,
-            json_decode($batchRequest->serializeToJsonString(), true)
+            $batchRequest->serializeToString()
         );
 
         $data = new GetDocflowBatchResponse();
@@ -929,10 +995,10 @@ class DiadocApi
         $response = $this->doRequest(
             self::RESOURCE_GET_DOCFLOWS_BY_PACKET_ID,
             [
-                'boxId' =>  $boxId
+                'boxId' => $boxId
             ],
             self::METHOD_POST,
-            json_decode($getDocflowsByPacketIdRequest->serializeToJsonString(), true)
+            $getDocflowsByPacketIdRequest->serializeToString()
         );
 
         $data = new GetDocflowsByPacketIdResponse();
@@ -965,10 +1031,10 @@ class DiadocApi
         $response = $this->doRequest(
             self::RESOURCE_SEARCH_DOCFLOWS,
             [
-                'boxId' =>  $boxId
+                'boxId' => $boxId
             ],
             self::METHOD_POST,
-            json_decode($searchDocflowRequest->serializeToJsonString(), true)
+            $searchDocflowRequest->serializeToString()
         );
 
         $data = new SearchDocflowsResponse();
@@ -1027,10 +1093,10 @@ class DiadocApi
         $response = $this->doRequest(
             self::RESOURCE_GET_DOCFLOWS_EVENTS,
             [
-                'boxId' =>  $boxId
+                'boxId' => $boxId
             ],
             self::METHOD_POST,
-            json_decode($getDocflowEventsRequest->serializeToJsonString(), true)
+            $getDocflowEventsRequest->serializeToString()
         );
 
         $data = new GetDocflowEventsResponse();
@@ -1051,9 +1117,11 @@ class DiadocApi
         $response = $this->doRequest(
             self::RESOURCE_GET_EVENT,
             [
-                'boxId' =>  $boxId,
-                'eventId' =>    $eventId
-            ]
+                'boxId' => $boxId,
+                'eventId' => $eventId
+            ],
+            self::METHOD_GET,
+            []
         );
 
         $data = new BoxEvent();
@@ -1062,14 +1130,16 @@ class DiadocApi
         return $data;
     }
 
-    public function getNewEvents(string $boxId, string  $afterEventId = null): BoxEventList
+    public function getNewEvents(string $boxId, string $afterEventId = null): BoxEventList
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_NEW_EVENTS,
             [
-                'boxId' =>  $boxId,
-                'afterEventId' =>    $afterEventId
-            ]
+                'boxId' => $boxId,
+                'afterEventId' => $afterEventId
+            ],
+            self::METHOD_GET,
+            []
         );
         $data = new BoxEventList();
         $data->mergeFromString($response);

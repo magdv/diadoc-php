@@ -20,7 +20,7 @@ class SearchDocflowsResponse extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool HaveMoreDocuments = 2;</code>
      */
-    private $HaveMoreDocuments = false;
+    protected $HaveMoreDocuments = false;
 
     /**
      * Constructor.

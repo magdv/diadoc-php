@@ -16,11 +16,11 @@ class RecognizedInvoice extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string MetadataJson = 1;</code>
      */
-    private $MetadataJson = '';
+    protected $MetadataJson = '';
     /**
      * Generated from protobuf field <code>string ValidationErrorMessage = 2;</code>
      */
-    private $ValidationErrorMessage = '';
+    protected $ValidationErrorMessage = '';
 
     /**
      * Constructor.

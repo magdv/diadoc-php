@@ -357,15 +357,15 @@ class DocumentsFilter
     public function toFilter(): array
     {
         return [
-            'filterCategory'    =>  $this->buildFilterCategory(),
-            'counteragentBoxId' =>  $this->counteragentBoxId,
-            'toDepartmentId'    =>  $this->toDepartmentId,
+            'filterCategory'    => $this->buildFilterCategory(),
+            'counteragentBoxId' => $this->counteragentBoxId,
+            'toDepartmentId'    => $this->toDepartmentId,
             'timestampFromTicks' => $this->fromDate ? DateHelper::convertDateTimeToTicks($this->fromDate) : null,
-            'timestampToTicks'  =>  $this->toDate ? DateHelper::convertDateTimeToTicks($this->toDate) : null,
-            'fromDocumentDate'  =>  $this->fromDocumentDate ? $this->fromDocumentDate->format('d.m.Y') : null,
-            'toDocumentDate'    =>  $this->toDocumentDate ? $this->toDocumentDate->format('d.m.Y') : null,
-            'departmentId'      =>  $this->departmentId,
-            'excludeSubdepartments' =>  $this->excludeSubdepartments
+            'timestampToTicks'  => $this->toDate ? DateHelper::convertDateTimeToTicks($this->toDate) : null,
+            'fromDocumentDate'  => $this->fromDocumentDate ? $this->fromDocumentDate->format('d.m.Y') : null,
+            'toDocumentDate'    => $this->toDocumentDate ? $this->toDocumentDate->format('d.m.Y') : null,
+            'departmentId'      => $this->departmentId,
+            'excludeSubdepartments' => $this->excludeSubdepartments
         ];
     }
 }

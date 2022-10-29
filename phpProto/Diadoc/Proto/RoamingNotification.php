@@ -16,11 +16,11 @@ class RoamingNotification extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool Success = 1;</code>
      */
-    private $Success = false;
+    protected $Success = false;
     /**
      * Generated from protobuf field <code>string Description = 2;</code>
      */
-    private $Description = '';
+    protected $Description = '';
 
     /**
      * Constructor.

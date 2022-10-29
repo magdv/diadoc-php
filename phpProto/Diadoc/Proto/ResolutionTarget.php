@@ -16,19 +16,19 @@ class ResolutionTarget extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Department = 1;</code>
      */
-    private $Department = '';
+    protected $Department = '';
     /**
      * Generated from protobuf field <code>string DepartmentId = 2;</code>
      */
-    private $DepartmentId = '';
+    protected $DepartmentId = '';
     /**
      * Generated from protobuf field <code>string User = 3;</code>
      */
-    private $User = '';
+    protected $User = '';
     /**
      * Generated from protobuf field <code>string UserId = 4;</code>
      */
-    private $UserId = '';
+    protected $UserId = '';
 
     /**
      * Constructor.

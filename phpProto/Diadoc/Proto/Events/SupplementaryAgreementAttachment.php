@@ -16,15 +16,15 @@ class SupplementaryAgreementAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.SignedContent SignedContent = 1;</code>
      */
-    private $SignedContent = null;
+    protected $SignedContent = null;
     /**
      * Generated from protobuf field <code>string FileName = 2;</code>
      */
-    private $FileName = '';
+    protected $FileName = '';
     /**
      * Generated from protobuf field <code>string Comment = 3;</code>
      */
-    private $Comment = '';
+    protected $Comment = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId InitialDocumentIds = 4;</code>
      */
@@ -36,35 +36,35 @@ class SupplementaryAgreementAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string CustomDocumentId = 6;</code>
      */
-    private $CustomDocumentId = '';
+    protected $CustomDocumentId = '';
     /**
      * Generated from protobuf field <code>string DocumentDate = 7;</code>
      */
-    private $DocumentDate = '';
+    protected $DocumentDate = '';
     /**
      * Generated from protobuf field <code>string DocumentNumber = 8;</code>
      */
-    private $DocumentNumber = '';
+    protected $DocumentNumber = '';
     /**
      * Generated from protobuf field <code>string Total = 9;</code>
      */
-    private $Total = '';
+    protected $Total = '';
     /**
      * Generated from protobuf field <code>string ContractNumber = 10;</code>
      */
-    private $ContractNumber = '';
+    protected $ContractNumber = '';
     /**
      * Generated from protobuf field <code>string ContractDate = 11;</code>
      */
-    private $ContractDate = '';
+    protected $ContractDate = '';
     /**
      * Generated from protobuf field <code>string ContractType = 12;</code>
      */
-    private $ContractType = '';
+    protected $ContractType = '';
     /**
      * Generated from protobuf field <code>bool NeedReceipt = 13;</code>
      */
-    private $NeedReceipt = false;
+    protected $NeedReceipt = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.CustomDataItem CustomData = 14;</code>
      */

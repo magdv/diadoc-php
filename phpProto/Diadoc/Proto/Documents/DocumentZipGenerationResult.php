@@ -16,7 +16,7 @@ class DocumentZipGenerationResult extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ZipFileNameOnShelf = 1;</code>
      */
-    private $ZipFileNameOnShelf = '';
+    protected $ZipFileNameOnShelf = '';
 
     /**
      * Constructor.

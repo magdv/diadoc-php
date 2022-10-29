@@ -16,15 +16,15 @@ class DocflowStatusModel extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocflowStatusSeverity Severity = 1;</code>
      */
-    private $Severity = 0;
+    protected $Severity = 0;
     /**
      * Generated from protobuf field <code>string StatusText = 2;</code>
      */
-    private $StatusText = '';
+    protected $StatusText = '';
     /**
      * Generated from protobuf field <code>string StatusHint = 3;</code>
      */
-    private $StatusHint = '';
+    protected $StatusHint = '';
 
     /**
      * Constructor.

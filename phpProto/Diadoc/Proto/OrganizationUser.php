@@ -16,21 +16,21 @@ class OrganizationUser extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Id = 1;</code>
      */
-    private $Id = '';
+    protected $Id = '';
     /**
      * ФИО сотрудника
      *
      * Generated from protobuf field <code>string Name = 2;</code>
      */
-    private $Name = '';
+    protected $Name = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.OrganizationUserPermissions Permissions = 3;</code>
      */
-    private $Permissions = null;
+    protected $Permissions = null;
     /**
      * Generated from protobuf field <code>string Position = 4;</code>
      */
-    private $Position = '';
+    protected $Position = '';
 
     /**
      * Constructor.

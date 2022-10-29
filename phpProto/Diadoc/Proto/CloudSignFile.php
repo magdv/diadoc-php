@@ -16,11 +16,11 @@ class CloudSignFile extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Content_v2 Content = 1;</code>
      */
-    private $Content = null;
+    protected $Content = null;
     /**
      * Generated from protobuf field <code>string FileName = 2;</code>
      */
-    private $FileName = '';
+    protected $FileName = '';
 
     /**
      * Constructor.

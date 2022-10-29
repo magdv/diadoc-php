@@ -16,23 +16,23 @@ class SignedContent extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bytes Content = 1;</code>
      */
-    private $Content = '';
+    protected $Content = '';
     /**
      * Generated from protobuf field <code>bytes Signature = 2;</code>
      */
-    private $Signature = '';
+    protected $Signature = '';
     /**
      * Generated from protobuf field <code>string NameOnShelf = 4;</code>
      */
-    private $NameOnShelf = '';
+    protected $NameOnShelf = '';
     /**
      * Generated from protobuf field <code>bool SignWithTestSignature = 5;</code>
      */
-    private $SignWithTestSignature = false;
+    protected $SignWithTestSignature = false;
     /**
      * Generated from protobuf field <code>string SignatureNameOnShelf = 6;</code>
      */
-    private $SignatureNameOnShelf = '';
+    protected $SignatureNameOnShelf = '';
 
     /**
      * Constructor.

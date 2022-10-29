@@ -18,13 +18,13 @@ class ForeignAddress extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Country = 1;</code>
      */
-    private $Country = '';
+    protected $Country = '';
     /**
      * текст адреса
      *
      * Generated from protobuf field <code>string Address = 2;</code>
      */
-    private $Address = '';
+    protected $Address = '';
 
     /**
      * Constructor.

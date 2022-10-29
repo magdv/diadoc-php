@@ -16,19 +16,19 @@ class ResolutionRequestInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestType RequestType = 1;</code>
      */
-    private $RequestType = 0;
+    protected $RequestType = 0;
     /**
      * Generated from protobuf field <code>string Author = 2;</code>
      */
-    private $Author = '';
+    protected $Author = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.ResolutionTarget Target = 3;</code>
      */
-    private $Target = null;
+    protected $Target = null;
     /**
      * Generated from protobuf field <code>string ResolvedWith = 4;</code>
      */
-    private $ResolvedWith = '';
+    protected $ResolvedWith = '';
 
     /**
      * Constructor.

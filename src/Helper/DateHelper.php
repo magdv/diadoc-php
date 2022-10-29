@@ -19,7 +19,7 @@ class DateHelper
         if (is_null($ticks)) {
             return null;
         }
-        $timestamp = floor(($ticks - 621355968000000000)/10000000);
+        $timestamp = floor(($ticks - 621355968000000000) / 10000000);
 
         $dateTime = new DateTime();
         $dateTime->setTimestamp($timestamp);

@@ -16,11 +16,11 @@ class DocumentToPatch extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentId DocumentId = 1;</code>
      */
-    private $DocumentId = null;
+    protected $DocumentId = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 2;</code>
      */
-    private $Signer = null;
+    protected $Signer = null;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Invoicing.Signers.ExtendedSigner ExtendedSigner = 3;</code>
      */

@@ -4,6 +4,8 @@
 
 namespace Diadoc\Proto\Invoicing\Signers;
 
+use UnexpectedValueException;
+
 /**
  * Protobuf type <code>Diadoc.Proto.Invoicing.Signers.SignerStatus</code>
  */
@@ -39,5 +41,33 @@ class SignerStatus
      * Generated from protobuf enum <code>AuthorizedPerson = 4;</code>
      */
     const AuthorizedPerson = 4;
+
+    private static $valueToName = [
+        self::sifdef => 'sifdef',
+        self::SellerEmployee => 'SellerEmployee',
+        self::InformationCreatorEmployee => 'InformationCreatorEmployee',
+        self::OtherOrganizationEmployee => 'OtherOrganizationEmployee',
+        self::AuthorizedPerson => 'AuthorizedPerson',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

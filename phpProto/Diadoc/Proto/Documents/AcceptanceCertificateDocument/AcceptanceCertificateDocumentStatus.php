@@ -4,6 +4,8 @@
 
 namespace Diadoc\Proto\Documents\AcceptanceCertificateDocument;
 
+use UnexpectedValueException;
+
 /**
  * Protobuf type <code>Diadoc.Proto.Documents.AcceptanceCertificateDocument.AcceptanceCertificateDocumentStatus</code>
  */
@@ -87,5 +89,47 @@ class AcceptanceCertificateDocumentStatus
      * Generated from protobuf enum <code>InternalNoRecipientSignatureRequest = 18;</code>
      */
     const InternalNoRecipientSignatureRequest = 18;
+
+    private static $valueToName = [
+        self::UnknownAcceptanceCertificateDocumentStatus => 'UnknownAcceptanceCertificateDocumentStatus',
+        self::OutboundWaitingForRecipientSignature => 'OutboundWaitingForRecipientSignature',
+        self::OutboundWithRecipientSignature => 'OutboundWithRecipientSignature',
+        self::OutboundRecipientSignatureRequestRejected => 'OutboundRecipientSignatureRequestRejected',
+        self::OutboundWaitingForSenderSignature => 'OutboundWaitingForSenderSignature',
+        self::OutboundInvalidSenderSignature => 'OutboundInvalidSenderSignature',
+        self::OutboundNoRecipientSignatureRequest => 'OutboundNoRecipientSignatureRequest',
+        self::InboundWaitingForRecipientSignature => 'InboundWaitingForRecipientSignature',
+        self::InboundWithRecipientSignature => 'InboundWithRecipientSignature',
+        self::InboundRecipientSignatureRequestRejected => 'InboundRecipientSignatureRequestRejected',
+        self::InboundInvalidRecipientSignature => 'InboundInvalidRecipientSignature',
+        self::InboundNoRecipientSignatureRequest => 'InboundNoRecipientSignatureRequest',
+        self::InternalWaitingForRecipientSignature => 'InternalWaitingForRecipientSignature',
+        self::InternalWithRecipientSignature => 'InternalWithRecipientSignature',
+        self::InternalRecipientSignatureRequestRejected => 'InternalRecipientSignatureRequestRejected',
+        self::InternalWaitingForSenderSignature => 'InternalWaitingForSenderSignature',
+        self::InternalInvalidSenderSignature => 'InternalInvalidSenderSignature',
+        self::InternalInvalidRecipientSignature => 'InternalInvalidRecipientSignature',
+        self::InternalNoRecipientSignatureRequest => 'InternalNoRecipientSignatureRequest',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

@@ -18,13 +18,13 @@ class AdditionalInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Id = 1;</code>
      */
-    private $Id = '';
+    protected $Id = '';
     /**
      * Значение
      *
      * Generated from protobuf field <code>string Value = 2;</code>
      */
-    private $Value = '';
+    protected $Value = '';
 
     /**
      * Constructor.

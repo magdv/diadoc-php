@@ -16,15 +16,15 @@ class ResolutionChainAssignment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string InitialDocumentId = 1;</code>
      */
-    private $InitialDocumentId = '';
+    protected $InitialDocumentId = '';
     /**
      * Generated from protobuf field <code>string ChainId = 2;</code>
      */
-    private $ChainId = '';
+    protected $ChainId = '';
     /**
      * Generated from protobuf field <code>string Comment = 3;</code>
      */
-    private $Comment = '';
+    protected $Comment = '';
 
     /**
      * Constructor.

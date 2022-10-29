@@ -16,11 +16,11 @@ class InvoiceCorrectionRequestInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ErrorMessage = 1;</code>
      */
-    private $ErrorMessage = '';
+    protected $ErrorMessage = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 2;</code>
      */
-    private $Signer = null;
+    protected $Signer = null;
 
     /**
      * Constructor.

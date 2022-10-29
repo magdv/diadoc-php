@@ -18,25 +18,25 @@ class InvoiceItem extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Product = 1;</code>
      */
-    private $Product = '';
+    protected $Product = '';
     /**
      * единицы измерения товара (код)
      *
      * Generated from protobuf field <code>string Unit = 2;</code>
      */
-    private $Unit = '';
+    protected $Unit = '';
     /**
      * количество единиц товара
      *
      * Generated from protobuf field <code>string Quantity = 3;</code>
      */
-    private $Quantity = '';
+    protected $Quantity = '';
     /**
      * цена за единицу товара
      *
      * Generated from protobuf field <code>string Price = 4;</code>
      */
-    private $Price = '';
+    protected $Price = '';
     /**
      * страны происхождения товара (коды)  v5.01
      *
@@ -54,37 +54,37 @@ class InvoiceItem extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Excise = 7;</code>
      */
-    private $Excise = '';
+    protected $Excise = '';
     /**
      * ставка налога
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.TaxRate TaxRate = 8;</code>
      */
-    private $TaxRate = 0;
+    protected $TaxRate = 0;
     /**
      * сумма без учета налога
      *
      * Generated from protobuf field <code>string SubtotalWithVatExcluded = 9;</code>
      */
-    private $SubtotalWithVatExcluded = '';
+    protected $SubtotalWithVatExcluded = '';
     /**
      * сумма налога
      *
      * Generated from protobuf field <code>string Vat = 10;</code>
      */
-    private $Vat = '';
+    protected $Vat = '';
     /**
      * сумма всего
      *
      * Generated from protobuf field <code>string Subtotal = 11;</code>
      */
-    private $Subtotal = '';
+    protected $Subtotal = '';
     /**
      * информационное поле товара v5.01
      *
      * Generated from protobuf field <code>string AdditionalInfo = 12;</code>
      */
-    private $AdditionalInfo = '';
+    protected $AdditionalInfo = '';
     /**
      * номера таможенных деклараций v5.02
      *

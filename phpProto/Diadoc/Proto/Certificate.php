@@ -16,7 +16,7 @@ class Certificate extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bytes RawCertificateData = 1;</code>
      */
-    private $RawCertificateData = '';
+    protected $RawCertificateData = '';
 
     /**
      * Constructor.

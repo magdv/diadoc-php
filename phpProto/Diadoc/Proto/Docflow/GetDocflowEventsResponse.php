@@ -16,7 +16,7 @@ class GetDocflowEventsResponse extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>int32 TotalCount = 1;</code>
      */
-    private $TotalCount = 0;
+    protected $TotalCount = 0;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Docflow.DocflowEvent Events = 2;</code>
      */

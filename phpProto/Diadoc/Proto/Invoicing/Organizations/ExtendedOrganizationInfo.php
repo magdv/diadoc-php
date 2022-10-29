@@ -18,121 +18,121 @@ class ExtendedOrganizationInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    private $BoxId = '';
+    protected $BoxId = '';
     /**
      * название //НаимОрг
      *
      * Generated from protobuf field <code>string OrgName = 2;</code>
      */
-    private $OrgName = '';
+    protected $OrgName = '';
     /**
      * ИНН //ИНН ФЛ-ИНН
      *
      * Generated from protobuf field <code>string Inn = 3;</code>
      */
-    private $Inn = '';
+    protected $Inn = '';
     /**
      * КПП //КПП
      *
      * Generated from protobuf field <code>string Kpp = 4;</code>
      */
-    private $Kpp = '';
+    protected $Kpp = '';
     /**
      * адрес //Адрес
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Address Address = 5;</code>
      */
-    private $Address = null;
+    protected $Address = null;
     /**
      * идентификатор участника ЭДО
      *
      * Generated from protobuf field <code>string FnsParticipantId = 6;</code>
      */
-    private $FnsParticipantId = '';
+    protected $FnsParticipantId = '';
     /**
      * СвИП - СвЮЛУч - СвИнНеУч
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Organizations.OrgType OrgType = 7;</code>
      */
-    private $OrgType = 0;
+    protected $OrgType = 0;
     /**
      * код организационно-правовой формы по ОКОПФ
      *
      * Generated from protobuf field <code>string Okopf = 8;</code>
      */
-    private $Okopf = '';
+    protected $Okopf = '';
     /**
      * код в общероссийском классификаторе предприятий и организаций //ОКПО
      *
      * Generated from protobuf field <code>string Okpo = 9;</code>
      */
-    private $Okpo = '';
+    protected $Okpo = '';
     /**
      * код основного вида деятельности по ОКДП
      *
      * Generated from protobuf field <code>string Okdp = 10;</code>
      */
-    private $Okdp = '';
+    protected $Okdp = '';
     /**
      * Номер контактного телефона/факс //Тлф
      *
      * Generated from protobuf field <code>string Phone = 11;</code>
      */
-    private $Phone = '';
+    protected $Phone = '';
     /**
      * Адрес электронной почты // ЭлПочта
      *
      * Generated from protobuf field <code>string Email = 12;</code>
      */
-    private $Email = '';
+    protected $Email = '';
     /**
      * Корреспондентский счёт // КорСчет
      *
      * Generated from protobuf field <code>string CorrespondentAccount = 13;</code>
      */
-    private $CorrespondentAccount = '';
+    protected $CorrespondentAccount = '';
     /**
      * номер банковского счета //НамерСчета
      *
      * Generated from protobuf field <code>string BankAccountNumber = 14;</code>
      */
-    private $BankAccountNumber = '';
+    protected $BankAccountNumber = '';
     /**
      * название банка //НаимБанк
      *
      * Generated from protobuf field <code>string BankName = 15;</code>
      */
-    private $BankName = '';
+    protected $BankName = '';
     /**
      * БИК //БИК
      *
      * Generated from protobuf field <code>string BankId = 16;</code>
      */
-    private $BankId = '';
+    protected $BankId = '';
     /**
      * структурное подразделение //СтруктПодр
      *
      * Generated from protobuf field <code>string Department = 17;</code>
      */
-    private $Department = '';
+    protected $Department = '';
     /**
      * Информация для участника // ИнфДляУчаст
      *
      * Generated from protobuf field <code>string OrganizationAdditionalInfo = 18;</code>
      */
-    private $OrganizationAdditionalInfo = '';
+    protected $OrganizationAdditionalInfo = '';
     /**
      * Иные сведения, идентифицирующие ФЛ или ЮЛ //ИныеСвед
      *
      * Generated from protobuf field <code>string OrganizationOrPersonInfo = 19;</code>
      */
-    private $OrganizationOrPersonInfo = '';
+    protected $OrganizationOrPersonInfo = '';
     /**
      * Реквизиты свидетельства о государственной регистрации ИП //СвГосРегИп
      *
      * Generated from protobuf field <code>string IndividualEntityRegistrationCertificate = 20;</code>
      */
-    private $IndividualEntityRegistrationCertificate = '';
+    protected $IndividualEntityRegistrationCertificate = '';
 
     /**
      * Constructor.

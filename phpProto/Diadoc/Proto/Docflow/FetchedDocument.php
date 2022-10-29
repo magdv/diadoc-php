@@ -16,11 +16,11 @@ class FetchedDocument extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentWithDocflow Document = 1;</code>
      */
-    private $Document = null;
+    protected $Document = null;
     /**
      * Generated from protobuf field <code>bytes IndexKey = 2;</code>
      */
-    private $IndexKey = '';
+    protected $IndexKey = '';
 
     /**
      * Constructor.

@@ -16,11 +16,11 @@ class MetadataItem extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Key = 1;</code>
      */
-    private $Key = '';
+    protected $Key = '';
     /**
      * Generated from protobuf field <code>string Value = 2;</code>
      */
-    private $Value = '';
+    protected $Value = '';
 
     /**
      * Constructor.

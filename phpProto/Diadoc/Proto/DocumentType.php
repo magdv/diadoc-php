@@ -4,6 +4,8 @@
 
 namespace Diadoc\Proto;
 
+use UnexpectedValueException;
+
 /**
  * Protobuf type <code>Diadoc.Proto.DocumentType</code>
  */
@@ -95,5 +97,99 @@ class DocumentType
      * Generated from protobuf enum <code>UniversalTransferDocument = 41;</code>
      */
     const UniversalTransferDocument = 41;
+    /**
+     * Generated from protobuf enum <code>UniversalTransferDocumentRevision = 42;</code>
+     */
+    const UniversalTransferDocumentRevision = 42;
+    /**
+     * Generated from protobuf enum <code>UniversalCorrectionDocument = 43;</code>
+     */
+    const UniversalCorrectionDocument = 43;
+    /**
+     * Generated from protobuf enum <code>UniversalCorrectionDocumentRevision = 44;</code>
+     */
+    const UniversalCorrectionDocumentRevision = 44;
+    /**
+     * Generated from protobuf enum <code>StorageInventoryAcceptanceCertificate = 45;</code>
+     */
+    const StorageInventoryAcceptanceCertificate = 45;
+    /**
+     * Generated from protobuf enum <code>ReturnInventoryAcceptanceCertificate = 46;</code>
+     */
+    const ReturnInventoryAcceptanceCertificate = 46;
+    /**
+     * Generated from protobuf enum <code>Torg2 = 47;</code>
+     */
+    const Torg2 = 47;
+    /**
+     * Generated from protobuf enum <code>ElectricityIndication = 48;</code>
+     */
+    const ElectricityIndication = 48;
+    /**
+     * Generated from protobuf enum <code>Waybill = 49;</code>
+     */
+    const Waybill = 49;
+    /**
+     * Generated from protobuf enum <code>PowerOfAttorney = 50;</code>
+     */
+    const PowerOfAttorney = 50;
+    /**
+     * Generated from protobuf enum <code>LogisticsWaybill = 51;</code>
+     */
+    const LogisticsWaybill = 51;
+
+    private static $valueToName = [
+        self::Nonformalized => 'Nonformalized',
+        self::UnknownDocumentType => 'UnknownDocumentType',
+        self::Invoice => 'Invoice',
+        self::TrustConnectionRequest => 'TrustConnectionRequest',
+        self::Torg12 => 'Torg12',
+        self::InvoiceRevision => 'InvoiceRevision',
+        self::InvoiceCorrection => 'InvoiceCorrection',
+        self::InvoiceCorrectionRevision => 'InvoiceCorrectionRevision',
+        self::AcceptanceCertificate => 'AcceptanceCertificate',
+        self::ProformaInvoice => 'ProformaInvoice',
+        self::XmlTorg12 => 'XmlTorg12',
+        self::XmlAcceptanceCertificate => 'XmlAcceptanceCertificate',
+        self::PriceList => 'PriceList',
+        self::PriceListAgreement => 'PriceListAgreement',
+        self::CertificateRegistry => 'CertificateRegistry',
+        self::ReconciliationAct => 'ReconciliationAct',
+        self::Contract => 'Contract',
+        self::Torg13 => 'Torg13',
+        self::ServiceDetails => 'ServiceDetails',
+        self::SupplementaryAgreement => 'SupplementaryAgreement',
+        self::UniversalTransferDocument => 'UniversalTransferDocument',
+        self::UniversalTransferDocumentRevision => 'UniversalTransferDocumentRevision',
+        self::UniversalCorrectionDocument => 'UniversalCorrectionDocument',
+        self::UniversalCorrectionDocumentRevision => 'UniversalCorrectionDocumentRevision',
+        self::StorageInventoryAcceptanceCertificate => 'StorageInventoryAcceptanceCertificate',
+        self::ReturnInventoryAcceptanceCertificate => 'ReturnInventoryAcceptanceCertificate',
+        self::Torg2 => 'Torg2',
+        self::ElectricityIndication => 'ElectricityIndication',
+        self::Waybill => 'Waybill',
+        self::PowerOfAttorney => 'PowerOfAttorney',
+        self::LogisticsWaybill => 'LogisticsWaybill',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

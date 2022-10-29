@@ -16,15 +16,15 @@ class StructuredDataAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bytes Content = 1;</code>
      */
-    private $Content = '';
+    protected $Content = '';
     /**
      * Generated from protobuf field <code>string FileName = 2;</code>
      */
-    private $FileName = '';
+    protected $FileName = '';
     /**
      * Generated from protobuf field <code>string ParentCustomDocumentId = 3;</code>
      */
-    private $ParentCustomDocumentId = '';
+    protected $ParentCustomDocumentId = '';
 
     /**
      * Constructor.

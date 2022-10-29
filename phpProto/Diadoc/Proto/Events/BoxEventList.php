@@ -20,7 +20,7 @@ class BoxEventList extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>int32 TotalCount = 2;</code>
      */
-    private $TotalCount = 0;
+    protected $TotalCount = 0;
 
     /**
      * Constructor.

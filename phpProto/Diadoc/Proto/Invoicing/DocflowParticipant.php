@@ -18,25 +18,25 @@ class DocflowParticipant extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    private $BoxId = '';
+    protected $BoxId = '';
     /**
      * ИНН организации-участника обмена
      *
      * Generated from protobuf field <code>string Inn = 2;</code>
      */
-    private $Inn = '';
+    protected $Inn = '';
     /**
      * КПП организации-участника обмена
      *
      * Generated from protobuf field <code>string Kpp = 3;</code>
      */
-    private $Kpp = '';
+    protected $Kpp = '';
     /**
      * идентификатор участника ЭДО
      *
      * Generated from protobuf field <code>string FnsParticipantId = 4;</code>
      */
-    private $FnsParticipantId = '';
+    protected $FnsParticipantId = '';
 
     /**
      * Constructor.

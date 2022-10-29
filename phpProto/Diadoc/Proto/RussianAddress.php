@@ -18,55 +18,55 @@ class RussianAddress extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string ZipCode = 1;</code>
      */
-    private $ZipCode = '';
+    protected $ZipCode = '';
     /**
      * регион (код)
      *
      * Generated from protobuf field <code>string Region = 2;</code>
      */
-    private $Region = '';
+    protected $Region = '';
     /**
      * район
      *
      * Generated from protobuf field <code>string Territory = 3;</code>
      */
-    private $Territory = '';
+    protected $Territory = '';
     /**
      * город
      *
      * Generated from protobuf field <code>string City = 4;</code>
      */
-    private $City = '';
+    protected $City = '';
     /**
      * населенный пункт
      *
      * Generated from protobuf field <code>string Locality = 5;</code>
      */
-    private $Locality = '';
+    protected $Locality = '';
     /**
      * улица
      *
      * Generated from protobuf field <code>string Street = 6;</code>
      */
-    private $Street = '';
+    protected $Street = '';
     /**
      * дом
      *
      * Generated from protobuf field <code>string Building = 7;</code>
      */
-    private $Building = '';
+    protected $Building = '';
     /**
      * корпус
      *
      * Generated from protobuf field <code>string Block = 8;</code>
      */
-    private $Block = '';
+    protected $Block = '';
     /**
      * квартира
      *
      * Generated from protobuf field <code>string Apartment = 9;</code>
      */
-    private $Apartment = '';
+    protected $Apartment = '';
 
     /**
      * Constructor.

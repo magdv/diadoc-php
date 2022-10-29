@@ -16,7 +16,7 @@ class EditDocumentPacketCommand extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string DocumentId = 1;</code>
      */
-    private $DocumentId = '';
+    protected $DocumentId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId AddDocumentsToPacket = 2;</code>
      */

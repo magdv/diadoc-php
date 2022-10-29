@@ -20,31 +20,31 @@ class AcceptanceCertificateSellerTitleInfo extends \Google\Protobuf\Internal\Mes
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.DiadocOrganizationInfo Seller = 1;</code>
      */
-    private $Seller = null;
+    protected $Seller = null;
     /**
      * заказчик (покупатель услуг)
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.DocflowParticipant Buyer = 2;</code>
      */
-    private $Buyer = null;
+    protected $Buyer = null;
     /**
      * дата составления акта о выполнении
      *
      * Generated from protobuf field <code>string DocumentDate = 3;</code>
      */
-    private $DocumentDate = '';
+    protected $DocumentDate = '';
     /**
      * номер акта
      *
      * Generated from protobuf field <code>string DocumentNumber = 4;</code>
      */
-    private $DocumentNumber = '';
+    protected $DocumentNumber = '';
     /**
      * заголовок документа
      *
      * Generated from protobuf field <code>string DocumentTitle = 5;</code>
      */
-    private $DocumentTitle = '';
+    protected $DocumentTitle = '';
     /**
      * описание выполненных работ
      *
@@ -56,19 +56,19 @@ class AcceptanceCertificateSellerTitleInfo extends \Google\Protobuf\Internal\Mes
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.AcceptanceCertificateSignatureInfo Signature = 7;</code>
      */
-    private $Signature = null;
+    protected $Signature = null;
     /**
      * подписант
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 8;</code>
      */
-    private $Signer = null;
+    protected $Signer = null;
     /**
      * дополнительная информация
      *
      * Generated from protobuf field <code>string AdditionalInfo = 9;</code>
      */
-    private $AdditionalInfo = '';
+    protected $AdditionalInfo = '';
 
     /**
      * Constructor.

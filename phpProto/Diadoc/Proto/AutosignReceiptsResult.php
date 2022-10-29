@@ -16,11 +16,11 @@ class AutosignReceiptsResult extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string NextBatchKey = 1;</code>
      */
-    private $NextBatchKey = '';
+    protected $NextBatchKey = '';
     /**
      * Generated from protobuf field <code>int32 SignedReceiptsCount = 2;</code>
      */
-    private $SignedReceiptsCount = 0;
+    protected $SignedReceiptsCount = 0;
 
     /**
      * Constructor.

@@ -16,27 +16,27 @@ class Recognized extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string RecognitionId = 1;</code>
      */
-    private $RecognitionId = '';
+    protected $RecognitionId = '';
     /**
      * Generated from protobuf field <code>string ErrorMessage = 2;</code>
      */
-    private $ErrorMessage = '';
+    protected $ErrorMessage = '';
     /**
      * Generated from protobuf field <code>string FileName = 3;</code>
      */
-    private $FileName = '';
+    protected $FileName = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Recognition.RecognizedDocumentType DocumentType = 4;</code>
      */
-    private $DocumentType = 0;
+    protected $DocumentType = 0;
     /**
      * Generated from protobuf field <code>bytes Content = 5;</code>
      */
-    private $Content = '';
+    protected $Content = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Recognition.RecognizedInvoice Invoice = 6;</code>
      */
-    private $Invoice = null;
+    protected $Invoice = null;
 
     /**
      * Constructor.

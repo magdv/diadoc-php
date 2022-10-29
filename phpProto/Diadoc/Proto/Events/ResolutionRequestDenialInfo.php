@@ -16,11 +16,11 @@ class ResolutionRequestDenialInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Author = 1;</code>
      */
-    private $Author = '';
+    protected $Author = '';
     /**
      * Generated from protobuf field <code>string InitialRequestId = 2;</code>
      */
-    private $InitialRequestId = '';
+    protected $InitialRequestId = '';
 
     /**
      * Constructor.

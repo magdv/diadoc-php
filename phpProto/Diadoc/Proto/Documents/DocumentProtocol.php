@@ -16,11 +16,11 @@ class DocumentProtocol extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bytes PrintForm = 1;</code>
      */
-    private $PrintForm = '';
+    protected $PrintForm = '';
     /**
      * Generated from protobuf field <code>bytes Signature = 2;</code>
      */
-    private $Signature = '';
+    protected $Signature = '';
 
     /**
      * Constructor.

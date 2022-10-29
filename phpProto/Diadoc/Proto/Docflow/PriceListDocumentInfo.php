@@ -16,11 +16,11 @@ class PriceListDocumentInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string PriceListEffectiveDate = 1;</code>
      */
-    private $PriceListEffectiveDate = '';
+    protected $PriceListEffectiveDate = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber ContractDocumentDateAndNumber = 2;</code>
      */
-    private $ContractDocumentDateAndNumber = null;
+    protected $ContractDocumentDateAndNumber = null;
 
     /**
      * Constructor.

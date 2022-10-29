@@ -16,11 +16,11 @@ class DocumentsMoveOperation extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    private $BoxId = '';
+    protected $BoxId = '';
     /**
      * Generated from protobuf field <code>string ToDepartmentId = 2;</code>
      */
-    private $ToDepartmentId = '';
+    protected $ToDepartmentId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId DocumentIds = 3;</code>
      */

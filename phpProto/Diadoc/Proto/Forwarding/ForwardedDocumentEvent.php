@@ -16,19 +16,19 @@ class ForwardedDocumentEvent extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp Timestamp = 1;</code>
      */
-    private $Timestamp = null;
+    protected $Timestamp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Forwarding.ForwardedDocumentId ForwardedDocumentId = 2;</code>
      */
-    private $ForwardedDocumentId = null;
+    protected $ForwardedDocumentId = null;
     /**
      * Generated from protobuf field <code>bytes IndexKey = 3;</code>
      */
-    private $IndexKey = '';
+    protected $IndexKey = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Forwarding.ForwardedDocument ForwardedDocument = 4;</code>
      */
-    private $ForwardedDocument = null;
+    protected $ForwardedDocument = null;
 
     /**
      * Constructor.

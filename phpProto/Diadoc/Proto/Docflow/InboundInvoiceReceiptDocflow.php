@@ -16,15 +16,15 @@ class InboundInvoiceReceiptDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    private $IsFinished = false;
+    protected $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.SignedAttachment ReceiptAttachment = 2;</code>
      */
-    private $ReceiptAttachment = null;
+    protected $ReceiptAttachment = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.InvoiceConfirmationDocflow ConfirmationDocflow = 3;</code>
      */
-    private $ConfirmationDocflow = null;
+    protected $ConfirmationDocflow = null;
 
     /**
      * Constructor.

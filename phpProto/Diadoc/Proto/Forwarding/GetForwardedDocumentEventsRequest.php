@@ -16,19 +16,19 @@ class GetForwardedDocumentEventsRequest extends \Google\Protobuf\Internal\Messag
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.TimeBasedFilter Filter = 1;</code>
      */
-    private $Filter = null;
+    protected $Filter = null;
     /**
      * Generated from protobuf field <code>bytes AfterIndexKey = 2;</code>
      */
-    private $AfterIndexKey = '';
+    protected $AfterIndexKey = '';
     /**
      * Generated from protobuf field <code>bool PopulateForwardedDocuments = 3;</code>
      */
-    private $PopulateForwardedDocuments = false;
+    protected $PopulateForwardedDocuments = false;
     /**
      * Generated from protobuf field <code>bool InjectEntityContent = 4;</code>
      */
-    private $InjectEntityContent = false;
+    protected $InjectEntityContent = false;
 
     /**
      * Constructor.

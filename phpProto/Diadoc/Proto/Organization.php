@@ -16,23 +16,23 @@ class Organization extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string OrgId = 1;</code>
      */
-    private $OrgId = '';
+    protected $OrgId = '';
     /**
      * Generated from protobuf field <code>string Inn = 2;</code>
      */
-    private $Inn = '';
+    protected $Inn = '';
     /**
      * Generated from protobuf field <code>string Kpp = 3;</code>
      */
-    private $Kpp = '';
+    protected $Kpp = '';
     /**
      * Generated from protobuf field <code>string FullName = 4;</code>
      */
-    private $FullName = '';
+    protected $FullName = '';
     /**
      * Generated from protobuf field <code>string ShortName = 5;</code>
      */
-    private $ShortName = '';
+    protected $ShortName = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Box Boxes = 7;</code>
      */
@@ -40,19 +40,19 @@ class Organization extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Ogrn = 8;</code>
      */
-    private $Ogrn = '';
+    protected $Ogrn = '';
     /**
      * Generated from protobuf field <code>string FnsParticipantId = 9;</code>
      */
-    private $FnsParticipantId = '';
+    protected $FnsParticipantId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Address Address = 10;</code>
      */
-    private $Address = null;
+    protected $Address = null;
     /**
      * Generated from protobuf field <code>string FnsRegistrationDate = 11;</code>
      */
-    private $FnsRegistrationDate = '';
+    protected $FnsRegistrationDate = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Department Departments = 12;</code>
      */
@@ -60,59 +60,59 @@ class Organization extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string IfnsCode = 13;</code>
      */
-    private $IfnsCode = '';
+    protected $IfnsCode = '';
     /**
      * Generated from protobuf field <code>bool IsPilot = 14;</code>
      */
-    private $IsPilot = false;
+    protected $IsPilot = false;
     /**
      * Generated from protobuf field <code>bool IsActive = 15;</code>
      */
-    private $IsActive = false;
+    protected $IsActive = false;
     /**
      * Generated from protobuf field <code>bool IsTest = 16;</code>
      */
-    private $IsTest = false;
+    protected $IsTest = false;
     /**
      * Generated from protobuf field <code>bool IsBranch = 17;</code>
      */
-    private $IsBranch = false;
+    protected $IsBranch = false;
     /**
      * Generated from protobuf field <code>bool IsRoaming = 18;</code>
      */
-    private $IsRoaming = false;
+    protected $IsRoaming = false;
     /**
      * Generated from protobuf field <code>bool IsEmployee = 19;</code>
      */
-    private $IsEmployee = false;
+    protected $IsEmployee = false;
     /**
      * Generated from protobuf field <code>int32 InvitationCount = 20;</code>
      */
-    private $InvitationCount = 0;
+    protected $InvitationCount = 0;
     /**
      * Generated from protobuf field <code>int32 SearchCount = 21;</code>
      */
-    private $SearchCount = 0;
+    protected $SearchCount = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Sociability Sociability = 22;</code>
      */
-    private $Sociability = 0;
+    protected $Sociability = 0;
     /**
      * Generated from protobuf field <code>string LiquidationDate = 23;</code>
      */
-    private $LiquidationDate = '';
+    protected $LiquidationDate = '';
     /**
      * Generated from protobuf field <code>string CertificateOfRegistryInfo = 24;</code>
      */
-    private $CertificateOfRegistryInfo = '';
+    protected $CertificateOfRegistryInfo = '';
     /**
      * Generated from protobuf field <code>bool IsForeign = 25;</code>
      */
-    private $IsForeign = false;
+    protected $IsForeign = false;
     /**
      * Generated from protobuf field <code>bool HasCertificateToSign = 26;</code>
      */
-    private $HasCertificateToSign = false;
+    protected $HasCertificateToSign = false;
 
     /**
      * Constructor.

@@ -18,13 +18,13 @@ class CustomsDeclaration extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string CountryCode = 1;</code>
      */
-    private $CountryCode = '';
+    protected $CountryCode = '';
     /**
      * номер таможенной декларации
      *
      * Generated from protobuf field <code>string DeclarationNumber = 2;</code>
      */
-    private $DeclarationNumber = '';
+    protected $DeclarationNumber = '';
 
     /**
      * Constructor.

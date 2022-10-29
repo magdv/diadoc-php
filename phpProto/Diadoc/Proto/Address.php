@@ -16,15 +16,15 @@ class Address extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.RussianAddress RussianAddress = 1;</code>
      */
-    private $RussianAddress = null;
+    protected $RussianAddress = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.ForeignAddress ForeignAddress = 2;</code>
      */
-    private $ForeignAddress = null;
+    protected $ForeignAddress = null;
     /**
      * Generated from protobuf field <code>string AddressCode = 3;</code>
      */
-    private $AddressCode = '';
+    protected $AddressCode = '';
 
     /**
      * Constructor.

@@ -16,11 +16,11 @@ class MessageToPost extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string FromBoxId = 1;</code>
      */
-    private $FromBoxId = '';
+    protected $FromBoxId = '';
     /**
      * Generated from protobuf field <code>string ToBoxId = 2;</code>
      */
-    private $ToBoxId = '';
+    protected $ToBoxId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.XmlDocumentAttachment Invoices = 3;</code>
      */
@@ -56,31 +56,31 @@ class MessageToPost extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ToDepartmentId = 12;</code>
      */
-    private $ToDepartmentId = '';
+    protected $ToDepartmentId = '';
     /**
      * Generated from protobuf field <code>bool IsDraft = 13;</code>
      */
-    private $IsDraft = false;
+    protected $IsDraft = false;
     /**
      * Generated from protobuf field <code>bool LockDraft = 14;</code>
      */
-    private $LockDraft = false;
+    protected $LockDraft = false;
     /**
      * Generated from protobuf field <code>bool StrictDraftValidation = 15;</code>
      */
-    private $StrictDraftValidation = false;
+    protected $StrictDraftValidation = false;
     /**
      * Generated from protobuf field <code>bool IsInternal = 16;</code>
      */
-    private $IsInternal = false;
+    protected $IsInternal = false;
     /**
      * Generated from protobuf field <code>string FromDepartmentId = 17;</code>
      */
-    private $FromDepartmentId = '';
+    protected $FromDepartmentId = '';
     /**
      * Generated from protobuf field <code>bool DelaySend = 18;</code>
      */
-    private $DelaySend = false;
+    protected $DelaySend = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.PriceListAttachment PriceLists = 19;</code>
      */
@@ -112,11 +112,11 @@ class MessageToPost extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ProxyBoxId = 26;</code>
      */
-    private $ProxyBoxId = '';
+    protected $ProxyBoxId = '';
     /**
      * Generated from protobuf field <code>string ProxyDepartmentId = 27;</code>
      */
-    private $ProxyDepartmentId = '';
+    protected $ProxyDepartmentId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.EncryptedInvoiceAttachment EncryptedInvoices = 28;</code>
      */
@@ -136,7 +136,7 @@ class MessageToPost extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool LockPacket = 32;</code>
      */
-    private $LockPacket = false;
+    protected $LockPacket = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.XmlDocumentAttachment UniversalTransferDocumentSellerTitles = 33;</code>
      */

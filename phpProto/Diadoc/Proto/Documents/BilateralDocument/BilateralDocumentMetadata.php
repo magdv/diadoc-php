@@ -16,11 +16,11 @@ class BilateralDocumentMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentStatus DocumentStatus = 1;</code>
      */
-    private $DocumentStatus = 0;
+    protected $DocumentStatus = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ReceiptStatus ReceiptStatus = 2;</code>
      */
-    private $ReceiptStatus = 0;
+    protected $ReceiptStatus = 0;
 
     /**
      * Constructor.

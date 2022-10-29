@@ -16,11 +16,11 @@ class DocumentId extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string MessageId = 1;</code>
      */
-    private $MessageId = '';
+    protected $MessageId = '';
     /**
      * Generated from protobuf field <code>string EntityId = 2;</code>
      */
-    private $EntityId = '';
+    protected $EntityId = '';
 
     /**
      * Constructor.

@@ -16,11 +16,11 @@ class EncryptedXmlBasicDocumentMetadata extends \Google\Protobuf\Internal\Messag
     /**
      * Generated from protobuf field <code>string FormationDate = 1;</code>
      */
-    private $FormationDate = '';
+    protected $FormationDate = '';
     /**
      * Generated from protobuf field <code>string FormationTime = 2;</code>
      */
-    private $FormationTime = '';
+    protected $FormationTime = '';
 
     /**
      * Constructor.

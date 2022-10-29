@@ -16,7 +16,7 @@ class Timestamp extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>sfixed64 Ticks = 1;</code>
      */
-    private $Ticks = 0;
+    protected $Ticks = 0;
 
     /**
      * Constructor.

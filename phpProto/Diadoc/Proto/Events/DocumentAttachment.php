@@ -16,15 +16,15 @@ class DocumentAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.SignedContent SignedContent = 1;</code>
      */
-    private $SignedContent = null;
+    protected $SignedContent = null;
     /**
      * Generated from protobuf field <code>string Comment = 3;</code>
      */
-    private $Comment = '';
+    protected $Comment = '';
     /**
      * Generated from protobuf field <code>bool NeedRecipientSignature = 4;</code>
      */
-    private $NeedRecipientSignature = false;
+    protected $NeedRecipientSignature = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId InitialDocumentIds = 5;</code>
      */
@@ -39,11 +39,11 @@ class DocumentAttachment extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string CustomDocumentId = 9;</code>
      */
-    private $CustomDocumentId = '';
+    protected $CustomDocumentId = '';
     /**
      * Generated from protobuf field <code>bool NeedReceipt = 10;</code>
      */
-    private $NeedReceipt = false;
+    protected $NeedReceipt = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.CustomDataItem CustomData = 11;</code>
      */
@@ -51,15 +51,15 @@ class DocumentAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string TypeNamedId = 12;</code>
      */
-    private $TypeNamedId = '';
+    protected $TypeNamedId = '';
     /**
      * Generated from protobuf field <code>string Function = 13;</code>
      */
-    private $Function = '';
+    protected $Function = '';
     /**
      * Generated from protobuf field <code>string Version = 14;</code>
      */
-    private $Version = '';
+    protected $Version = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.MetadataItem Metadata = 15;</code>
      */
@@ -67,15 +67,15 @@ class DocumentAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>int32 WorkflowId = 16;</code>
      */
-    private $WorkflowId = 0;
+    protected $WorkflowId = 0;
     /**
      * Generated from protobuf field <code>bool IsEncrypted = 17;</code>
      */
-    private $IsEncrypted = false;
+    protected $IsEncrypted = false;
     /**
      * Generated from protobuf field <code>string EditingSettingId = 18;</code>
      */
-    private $EditingSettingId = '';
+    protected $EditingSettingId = '';
 
     /**
      * Constructor.

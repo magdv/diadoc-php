@@ -4,6 +4,8 @@
 
 namespace Diadoc\Proto\Events;
 
+use UnexpectedValueException;
+
 /**
  * Protobuf type <code>Diadoc.Proto.Events.AttachmentType</code>
  */
@@ -44,17 +46,9 @@ class AttachmentType
      */
     const DeliveryFailureNotification = 6;
     /**
-     * Generated from protobuf enum <code>EancomInvoic = 7;</code>
-     */
-    const EancomInvoic = 7;
-    /**
      * Generated from protobuf enum <code>SignatureRequestRejection = 8;</code>
      */
     const SignatureRequestRejection = 8;
-    /**
-     * Generated from protobuf enum <code>EcrCatConformanceCertificateMetadata = 9;</code>
-     */
-    const EcrCatConformanceCertificateMetadata = 9;
     /**
      * Generated from protobuf enum <code>SignatureVerificationReport = 10;</code>
      */
@@ -180,6 +174,18 @@ class AttachmentType
      */
     const UniversalTransferDocumentRevision = 45;
     /**
+     * Generated from protobuf enum <code>UniversalCorrectionDocument = 49;</code>
+     */
+    const UniversalCorrectionDocument = 49;
+    /**
+     * Generated from protobuf enum <code>UniversalCorrectionDocumentRevision = 50;</code>
+     */
+    const UniversalCorrectionDocumentRevision = 50;
+    /**
+     * Generated from protobuf enum <code>UniversalCorrectionDocumentBuyerTitle = 51;</code>
+     */
+    const UniversalCorrectionDocumentBuyerTitle = 51;
+    /**
      * Generated from protobuf enum <code>CustomData = 64;</code>
      */
     const CustomData = 64;
@@ -188,10 +194,132 @@ class AttachmentType
      */
     const MoveDocument = 65;
     /**
-     *Неизвестные типы должны обрабатываться как Nonformalized
-     *
-     * Generated from protobuf enum <code>ResolutionChainAssignmentAttachment = 66;</code>
+     * Generated from protobuf enum <code>ResolutionRouteAssignment = 66;</code>
      */
-    const ResolutionChainAssignmentAttachment = 66;
+    const ResolutionRouteAssignment = 66;
+    /**
+     * Generated from protobuf enum <code>ResolutionRouteRemoval = 67;</code>
+     */
+    const ResolutionRouteRemoval = 67;
+    /**
+     * Generated from protobuf enum <code>Title = 68;</code>
+     */
+    const Title = 68;
+    /**
+     * Generated from protobuf enum <code>Cancellation = 69;</code>
+     */
+    const Cancellation = 69;
+    /**
+     * Generated from protobuf enum <code>Edition = 71;</code>
+     */
+    const Edition = 71;
+    /**
+     * Generated from protobuf enum <code>DeletionRestoration = 72;</code>
+     */
+    const DeletionRestoration = 72;
+    /**
+     * Generated from protobuf enum <code>TemplateTransformation = 73;</code>
+     */
+    const TemplateTransformation = 73;
+    /**
+     * Generated from protobuf enum <code>TemplateRefusal = 74;</code>
+     */
+    const TemplateRefusal = 74;
+    /**
+     * Generated from protobuf enum <code>OuterDocflow = 75;</code>
+     */
+    const OuterDocflow = 75;
+    /**
+     * Generated from protobuf enum <code>RoamingConfirmation = 76;</code>
+     */
+    const RoamingConfirmation = 76;
+    /**
+     * Generated from protobuf enum <code>PowerOfAttorney = 77;</code>
+     */
+    const PowerOfAttorney = 77;
+    /**
+     * Generated from protobuf enum <code>PowerOfAttorneyStatus = 78;</code>
+     */
+    const PowerOfAttorneyStatus = 78;
+
+    private static $valueToName = [
+        self::Nonformalized => 'Nonformalized',
+        self::UnknownAttachmentType => 'UnknownAttachmentType',
+        self::Invoice => 'Invoice',
+        self::InvoiceReceipt => 'InvoiceReceipt',
+        self::InvoiceConfirmation => 'InvoiceConfirmation',
+        self::InvoiceCorrectionRequest => 'InvoiceCorrectionRequest',
+        self::AttachmentComment => 'AttachmentComment',
+        self::DeliveryFailureNotification => 'DeliveryFailureNotification',
+        self::SignatureRequestRejection => 'SignatureRequestRejection',
+        self::SignatureVerificationReport => 'SignatureVerificationReport',
+        self::TrustConnectionRequest => 'TrustConnectionRequest',
+        self::Torg12 => 'Torg12',
+        self::InvoiceRevision => 'InvoiceRevision',
+        self::InvoiceCorrection => 'InvoiceCorrection',
+        self::InvoiceCorrectionRevision => 'InvoiceCorrectionRevision',
+        self::AcceptanceCertificate => 'AcceptanceCertificate',
+        self::StructuredData => 'StructuredData',
+        self::ProformaInvoice => 'ProformaInvoice',
+        self::XmlTorg12 => 'XmlTorg12',
+        self::XmlAcceptanceCertificate => 'XmlAcceptanceCertificate',
+        self::XmlTorg12BuyerTitle => 'XmlTorg12BuyerTitle',
+        self::XmlAcceptanceCertificateBuyerTitle => 'XmlAcceptanceCertificateBuyerTitle',
+        self::Resolution => 'Resolution',
+        self::ResolutionRequest => 'ResolutionRequest',
+        self::ResolutionRequestDenial => 'ResolutionRequestDenial',
+        self::PriceList => 'PriceList',
+        self::Receipt => 'Receipt',
+        self::XmlSignatureRejection => 'XmlSignatureRejection',
+        self::RevocationRequest => 'RevocationRequest',
+        self::PriceListAgreement => 'PriceListAgreement',
+        self::CertificateRegistry => 'CertificateRegistry',
+        self::ReconciliationAct => 'ReconciliationAct',
+        self::Contract => 'Contract',
+        self::Torg13 => 'Torg13',
+        self::ServiceDetails => 'ServiceDetails',
+        self::RoamingNotification => 'RoamingNotification',
+        self::SupplementaryAgreement => 'SupplementaryAgreement',
+        self::UniversalTransferDocument => 'UniversalTransferDocument',
+        self::UniversalTransferDocumentBuyerTitle => 'UniversalTransferDocumentBuyerTitle',
+        self::UniversalTransferDocumentRevision => 'UniversalTransferDocumentRevision',
+        self::UniversalCorrectionDocument => 'UniversalCorrectionDocument',
+        self::UniversalCorrectionDocumentRevision => 'UniversalCorrectionDocumentRevision',
+        self::UniversalCorrectionDocumentBuyerTitle => 'UniversalCorrectionDocumentBuyerTitle',
+        self::CustomData => 'CustomData',
+        self::MoveDocument => 'MoveDocument',
+        self::ResolutionRouteAssignment => 'ResolutionRouteAssignment',
+        self::ResolutionRouteRemoval => 'ResolutionRouteRemoval',
+        self::Title => 'Title',
+        self::Cancellation => 'Cancellation',
+        self::Edition => 'Edition',
+        self::DeletionRestoration => 'DeletionRestoration',
+        self::TemplateTransformation => 'TemplateTransformation',
+        self::TemplateRefusal => 'TemplateRefusal',
+        self::OuterDocflow => 'OuterDocflow',
+        self::RoamingConfirmation => 'RoamingConfirmation',
+        self::PowerOfAttorney => 'PowerOfAttorney',
+        self::PowerOfAttorneyStatus => 'PowerOfAttorneyStatus',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

@@ -99,7 +99,7 @@ class BoxApi
      * @return Message
      * @throws DiadocApiException
      */
-    public function getMessage(string $messageId, string  $entityId = null, string  $originalSignature = null): Message
+    public function getMessage(string $messageId, string $entityId = null, string $originalSignature = null): Message
     {
         return $this->diadocApi->getMessage($this->boxId, $messageId, $entityId, $originalSignature);
     }
@@ -111,7 +111,7 @@ class BoxApi
      * @return bool
      * @throws DiadocApiException
      */
-    public function delete(string $messageId, string  $documentId = null): bool
+    public function delete(string $messageId, string $documentId = null): bool
     {
         return $this->diadocApi->delete($this->boxId, $messageId, $documentId);
     }

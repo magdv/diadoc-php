@@ -16,35 +16,35 @@ class InvoiceRevisionMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.InvoiceDocument.InvoiceStatus InvoiceRevisionStatus = 1;</code>
      */
-    private $InvoiceRevisionStatus = 0;
+    protected $InvoiceRevisionStatus = 0;
     /**
      * Generated from protobuf field <code>string OriginalInvoiceNumber = 2;</code>
      */
-    private $OriginalInvoiceNumber = '';
+    protected $OriginalInvoiceNumber = '';
     /**
      * Generated from protobuf field <code>string OriginalInvoiceDate = 3;</code>
      */
-    private $OriginalInvoiceDate = '';
+    protected $OriginalInvoiceDate = '';
     /**
      * Generated from protobuf field <code>string Total = 4;</code>
      */
-    private $Total = '';
+    protected $Total = '';
     /**
      * Generated from protobuf field <code>string Vat = 5;</code>
      */
-    private $Vat = '';
+    protected $Vat = '';
     /**
      * Generated from protobuf field <code>int32 Currency = 6;</code>
      */
-    private $Currency = 0;
+    protected $Currency = 0;
     /**
      * Generated from protobuf field <code>sfixed64 ConfirmationDateTimeTicks = 7;</code>
      */
-    private $ConfirmationDateTimeTicks = 0;
+    protected $ConfirmationDateTimeTicks = 0;
     /**
      * Generated from protobuf field <code>int32 InvoiceAmendmentFlags = 8;</code>
      */
-    private $InvoiceAmendmentFlags = 0;
+    protected $InvoiceAmendmentFlags = 0;
 
     /**
      * Constructor.

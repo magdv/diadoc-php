@@ -20,7 +20,7 @@ class GetForwardedDocumentsRequest extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool InjectEntityContent = 2;</code>
      */
-    private $InjectEntityContent = false;
+    protected $InjectEntityContent = false;
 
     /**
      * Constructor.

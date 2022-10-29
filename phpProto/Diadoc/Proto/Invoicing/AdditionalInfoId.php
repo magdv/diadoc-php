@@ -18,7 +18,7 @@ class AdditionalInfoId extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string InfoFileId = 1;</code>
      */
-    private $InfoFileId = '';
+    protected $InfoFileId = '';
     /**
      *Текстовая информация // ТекстИнф
      *

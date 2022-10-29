@@ -16,19 +16,19 @@ class ResolutionStatus extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ResolutionStatusType Type = 1;</code>
      */
-    private $Type = 0;
+    protected $Type = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.ResolutionTarget Target = 2;</code>
      */
-    private $Target = null;
+    protected $Target = null;
     /**
      * Generated from protobuf field <code>string AuthorUserId = 3;</code>
      */
-    private $AuthorUserId = '';
+    protected $AuthorUserId = '';
     /**
      * Generated from protobuf field <code>string AuthorFIO = 4;</code>
      */
-    private $AuthorFIO = '';
+    protected $AuthorFIO = '';
 
     /**
      * Constructor.

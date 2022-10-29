@@ -4,6 +4,8 @@
 
 namespace Diadoc\Proto\Documents\UnilateralDocument;
 
+use UnexpectedValueException;
+
 /**
  * Protobuf type <code>Diadoc.Proto.Documents.UnilateralDocument.UnilateralDocumentStatus</code>
  */
@@ -43,5 +45,36 @@ class UnilateralDocumentStatus
      * Generated from protobuf enum <code>InternalInvalidSenderSignature = 7;</code>
      */
     const InternalInvalidSenderSignature = 7;
+
+    private static $valueToName = [
+        self::UnknownUnilateralDocumentStatus => 'UnknownUnilateralDocumentStatus',
+        self::Outbound => 'Outbound',
+        self::OutboundWaitingForSenderSignature => 'OutboundWaitingForSenderSignature',
+        self::OutboundInvalidSenderSignature => 'OutboundInvalidSenderSignature',
+        self::Inbound => 'Inbound',
+        self::Internal => 'Internal',
+        self::InternalWaitingForSenderSignature => 'InternalWaitingForSenderSignature',
+        self::InternalInvalidSenderSignature => 'InternalInvalidSenderSignature',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

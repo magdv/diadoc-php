@@ -18,67 +18,67 @@ class InvoiceCorrectionInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string InvoiceDate = 1;</code>
      */
-    private $InvoiceDate = '';
+    protected $InvoiceDate = '';
     /**
      * номер СФ
      *
      * Generated from protobuf field <code>string InvoiceNumber = 2;</code>
      */
-    private $InvoiceNumber = '';
+    protected $InvoiceNumber = '';
     /**
      * дата ИСФ (заполняется, если КСФ/ИКСФ формируется на исправленный СФ)
      *
      * Generated from protobuf field <code>string InvoiceRevisionDate = 3;</code>
      */
-    private $InvoiceRevisionDate = '';
+    protected $InvoiceRevisionDate = '';
     /**
      * номер ИСФ (заполняется, если КСФ/ИКСФ формируется на исправленный СФ)
      *
      * Generated from protobuf field <code>string InvoiceRevisionNumber = 4;</code>
      */
-    private $InvoiceRevisionNumber = '';
+    protected $InvoiceRevisionNumber = '';
     /**
      * дата КСФ
      *
      * Generated from protobuf field <code>string InvoiceCorrectionDate = 5;</code>
      */
-    private $InvoiceCorrectionDate = '';
+    protected $InvoiceCorrectionDate = '';
     /**
      * номер КСФ
      *
      * Generated from protobuf field <code>string InvoiceCorrectionNumber = 6;</code>
      */
-    private $InvoiceCorrectionNumber = '';
+    protected $InvoiceCorrectionNumber = '';
     /**
      * дата ИКСФ (обязательно при формировании InvoiceCorrectionRevision)
      *
      * Generated from protobuf field <code>string InvoiceCorrectionRevisionDate = 7;</code>
      */
-    private $InvoiceCorrectionRevisionDate = '';
+    protected $InvoiceCorrectionRevisionDate = '';
     /**
      * номер ИКСФ (обязательно при формировании InvoiceCorrectionRevision)
      *
      * Generated from protobuf field <code>string InvoiceCorrectionRevisionNumber = 8;</code>
      */
-    private $InvoiceCorrectionRevisionNumber = '';
+    protected $InvoiceCorrectionRevisionNumber = '';
     /**
      * продавец
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.DiadocOrganizationInfo Seller = 9;</code>
      */
-    private $Seller = null;
+    protected $Seller = null;
     /**
      * покупатель
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.DiadocOrganizationInfo Buyer = 10;</code>
      */
-    private $Buyer = null;
+    protected $Buyer = null;
     /**
      * подписант
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 11;</code>
      */
-    private $Signer = null;
+    protected $Signer = null;
     /**
      * информация о товарах
      *
@@ -90,25 +90,25 @@ class InvoiceCorrectionInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Currency = 13;</code>
      */
-    private $Currency = '';
+    protected $Currency = '';
     /**
      * суммы к увеличению
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.InvoiceTotalsDiff TotalsInc = 14;</code>
      */
-    private $TotalsInc = null;
+    protected $TotalsInc = null;
     /**
      * суммы к уменьшению
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.InvoiceTotalsDiff TotalsDec = 15;</code>
      */
-    private $TotalsDec = null;
+    protected $TotalsDec = null;
     /**
      * информационное поле документа v5.01
      *
      * Generated from protobuf field <code>string AdditionalInfo = 16;</code>
      */
-    private $AdditionalInfo = '';
+    protected $AdditionalInfo = '';
     /**
      * информационное поле документа v5.02
      *
@@ -120,7 +120,7 @@ class InvoiceCorrectionInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.InvoiceFormatVersion Version = 18;</code>
      */
-    private $Version = 0;
+    protected $Version = 0;
 
     /**
      * Constructor.

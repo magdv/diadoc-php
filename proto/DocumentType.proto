@@ -24,4 +24,14 @@ enum DocumentType
 	ServiceDetails = 38;
 	SupplementaryAgreement = 40;
 	UniversalTransferDocument = 41;
+	UniversalTransferDocumentRevision = 42;
+	UniversalCorrectionDocument = 43;
+	UniversalCorrectionDocumentRevision = 44;
+	StorageInventoryAcceptanceCertificate = 45;
+	ReturnInventoryAcceptanceCertificate = 46;
+	Torg2 = 47;
+	ElectricityIndication = 48;
+	Waybill = 49;
+	PowerOfAttorney = 50;
+	LogisticsWaybill = 51;
 }

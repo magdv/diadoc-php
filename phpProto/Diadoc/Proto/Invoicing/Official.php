@@ -18,19 +18,19 @@ class Official extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Surname = 1;</code>
      */
-    private $Surname = '';
+    protected $Surname = '';
     /**
      * Generated from protobuf field <code>string FirstName = 2;</code>
      */
-    private $FirstName = '';
+    protected $FirstName = '';
     /**
      * Generated from protobuf field <code>string Patronymic = 3;</code>
      */
-    private $Patronymic = '';
+    protected $Patronymic = '';
     /**
      * Generated from protobuf field <code>string JobTitle = 4;</code>
      */
-    private $JobTitle = '';
+    protected $JobTitle = '';
 
     /**
      * Constructor.

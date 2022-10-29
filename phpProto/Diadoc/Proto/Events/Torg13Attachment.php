@@ -16,15 +16,15 @@ class Torg13Attachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.SignedContent SignedContent = 1;</code>
      */
-    private $SignedContent = null;
+    protected $SignedContent = null;
     /**
      * Generated from protobuf field <code>string FileName = 2;</code>
      */
-    private $FileName = '';
+    protected $FileName = '';
     /**
      * Generated from protobuf field <code>string Comment = 3;</code>
      */
-    private $Comment = '';
+    protected $Comment = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId InitialDocumentIds = 4;</code>
      */
@@ -36,29 +36,29 @@ class Torg13Attachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string DocumentDate = 6;</code>
      */
-    private $DocumentDate = '';
+    protected $DocumentDate = '';
     /**
      * Generated from protobuf field <code>string DocumentNumber = 7;</code>
      */
-    private $DocumentNumber = '';
+    protected $DocumentNumber = '';
     /**
      * Generated from protobuf field <code>string Total = 8;</code>
      */
-    private $Total = '';
+    protected $Total = '';
     /**
      * Generated from protobuf field <code>string CustomDocumentId = 9;</code>
      */
-    private $CustomDocumentId = '';
+    protected $CustomDocumentId = '';
     /**
      * reserved 10 for Vat
      *
      * Generated from protobuf field <code>string Grounds = 11;</code>
      */
-    private $Grounds = '';
+    protected $Grounds = '';
     /**
      * Generated from protobuf field <code>bool NeedReceipt = 12;</code>
      */
-    private $NeedReceipt = false;
+    protected $NeedReceipt = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.CustomDataItem CustomData = 13;</code>
      */

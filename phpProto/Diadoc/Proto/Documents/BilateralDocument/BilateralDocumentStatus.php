@@ -4,6 +4,8 @@
 
 namespace Diadoc\Proto\Documents\BilateralDocument;
 
+use UnexpectedValueException;
+
 /**
  * Protobuf type <code>Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentStatus</code>
  */
@@ -75,5 +77,44 @@ class BilateralDocumentStatus
      * Generated from protobuf enum <code>InternalInvalidRecipientSignature = 15;</code>
      */
     const InternalInvalidRecipientSignature = 15;
+
+    private static $valueToName = [
+        self::UnknownBilateralDocumentStatus => 'UnknownBilateralDocumentStatus',
+        self::OutboundWaitingForRecipientSignature => 'OutboundWaitingForRecipientSignature',
+        self::OutboundWithRecipientSignature => 'OutboundWithRecipientSignature',
+        self::OutboundRecipientSignatureRequestRejected => 'OutboundRecipientSignatureRequestRejected',
+        self::OutboundWaitingForSenderSignature => 'OutboundWaitingForSenderSignature',
+        self::OutboundInvalidSenderSignature => 'OutboundInvalidSenderSignature',
+        self::InboundWaitingForRecipientSignature => 'InboundWaitingForRecipientSignature',
+        self::InboundWithRecipientSignature => 'InboundWithRecipientSignature',
+        self::InboundRecipientSignatureRequestRejected => 'InboundRecipientSignatureRequestRejected',
+        self::InboundInvalidRecipientSignature => 'InboundInvalidRecipientSignature',
+        self::InternalWaitingForRecipientSignature => 'InternalWaitingForRecipientSignature',
+        self::InternalWithRecipientSignature => 'InternalWithRecipientSignature',
+        self::InternalRecipientSignatureRequestRejected => 'InternalRecipientSignatureRequestRejected',
+        self::InternalWaitingForSenderSignature => 'InternalWaitingForSenderSignature',
+        self::InternalInvalidSenderSignature => 'InternalInvalidSenderSignature',
+        self::InternalInvalidRecipientSignature => 'InternalInvalidRecipientSignature',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

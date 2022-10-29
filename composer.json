@@ -19,16 +19,26 @@
         "psr-4": {
             "MagDv\\Diadoc\\": "src/",
             "GPBMetadata\\": "phpProto/GPBMetadata/",
-            "Diadoc\\Proto\\": "phpProto/Diadoc/Proto"
+            "Diadoc\\Proto\\": "phpProto/Diadoc/Proto",
+            "Test\\": "tests/"
         }
     },
     "require-dev": {
         "rector/rector": "^0.14.6",
-        "friendsofphp/php-cs-fixer": "^3.12"
+        "squizlabs/php_codesniffer": "^3.5",
+        "vimeo/psalm": "^3.8",
+        "overtrue/phplint": "^2.0",
+        "phpunit/phpunit": "^8.5",
+        "divineomega/do-file-cache": "^2.0"
     },
     "scripts": {
-        "fix-style": "vendor/bin/php-cs-fixer fix src",
         "generate-proto": "php generate.php",
-        "rector": "vendor/bin/rector process src"
+        "rector": "vendor/bin/rector process src",
+        "lint": "phplint",
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "psalm": "psalm",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-html var/test/coverage"
     }
 }

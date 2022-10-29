@@ -16,7 +16,7 @@ class AcquireCounteragentResult extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string OrgId = 1;</code>
      */
-    private $OrgId = '';
+    protected $OrgId = '';
 
     /**
      * Constructor.

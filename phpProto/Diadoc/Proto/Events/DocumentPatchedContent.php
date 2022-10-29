@@ -16,15 +16,15 @@ class DocumentPatchedContent extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentId DocumentId = 1;</code>
      */
-    private $DocumentId = null;
+    protected $DocumentId = null;
     /**
      * Generated from protobuf field <code>string PatchedContentId = 2;</code>
      */
-    private $PatchedContentId = '';
+    protected $PatchedContentId = '';
     /**
      * Generated from protobuf field <code>bytes Content = 3;</code>
      */
-    private $Content = '';
+    protected $Content = '';
 
     /**
      * Constructor.

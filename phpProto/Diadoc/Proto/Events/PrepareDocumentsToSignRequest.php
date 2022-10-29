@@ -16,7 +16,7 @@ class PrepareDocumentsToSignRequest extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    private $BoxId = '';
+    protected $BoxId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.DraftDocumentToPatch DraftDocuments = 2;</code>
      */

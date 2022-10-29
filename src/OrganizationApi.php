@@ -111,7 +111,7 @@ class OrganizationApi
      * @return AsyncMethodResult
      * @throws DiadocApiException
      */
-    public function acquireCounteragentWithDocument(string $counteragentOrgId, string  $myDepartmentId, InvitationDocument $invitationDocument = null, ?string $messageToContragent = null): AsyncMethodResult
+    public function acquireCounteragentWithDocument(string $counteragentOrgId, string $myDepartmentId, InvitationDocument $invitationDocument = null, ?string $messageToContragent = null): AsyncMethodResult
     {
         return $this->diadocApi->acquireCounteragentWithDocument($this->orgId, $counteragentOrgId, $myDepartmentId, $invitationDocument, $messageToContragent);
     }

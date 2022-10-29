@@ -18,25 +18,25 @@ class TransferBase extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string BaseDocumentName = 1;</code>
      */
-    private $BaseDocumentName = '';
+    protected $BaseDocumentName = '';
     /**
      * Номер документа-основания отгрузки //НомОсн
      *
      * Generated from protobuf field <code>string BaseDocumentNumber = 2;</code>
      */
-    private $BaseDocumentNumber = '';
+    protected $BaseDocumentNumber = '';
     /**
      * Дата документа-основания отгрузки //ДатаОсн
      *
      * Generated from protobuf field <code>string BaseDocumentDate = 3;</code>
      */
-    private $BaseDocumentDate = '';
+    protected $BaseDocumentDate = '';
     /**
      * Дополнительные сведения документа-основания отгрузки //ДопСвОсн
      *
      * Generated from protobuf field <code>string BaseDocumentInfo = 4;</code>
      */
-    private $BaseDocumentInfo = '';
+    protected $BaseDocumentInfo = '';
 
     /**
      * Constructor.

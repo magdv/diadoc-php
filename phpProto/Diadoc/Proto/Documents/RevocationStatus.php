@@ -4,6 +4,8 @@
 
 namespace Diadoc\Proto\Documents;
 
+use UnexpectedValueException;
+
 /**
  * Protobuf type <code>Diadoc.Proto.Documents.RevocationStatus</code>
  */
@@ -35,5 +37,34 @@ class RevocationStatus
      * Generated from protobuf enum <code>RevocationRejected = 5;</code>
      */
     const RevocationRejected = 5;
+
+    private static $valueToName = [
+        self::UnknownRevocationStatus => 'UnknownRevocationStatus',
+        self::RevocationStatusNone => 'RevocationStatusNone',
+        self::RevocationIsRequestedByMe => 'RevocationIsRequestedByMe',
+        self::RequestsMyRevocation => 'RequestsMyRevocation',
+        self::RevocationAccepted => 'RevocationAccepted',
+        self::RevocationRejected => 'RevocationRejected',
+    ];
+
+    public static function name($value)
+    {
+        if (!isset(self::$valueToName[$value])) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no name defined for value %s', __CLASS__, $value));
+        }
+        return self::$valueToName[$value];
+    }
+
+
+    public static function value($name)
+    {
+        $const = __CLASS__ . '::' . strtoupper($name);
+        if (!defined($const)) {
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
+        }
+        return constant($const);
+    }
 }
 

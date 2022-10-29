@@ -16,39 +16,39 @@ class OutboundInvoiceDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    private $IsFinished = false;
+    protected $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.ReceiptDocflow ReceiptDocflow = 2;</code>
      */
-    private $ReceiptDocflow = null;
+    protected $ReceiptDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.InvoiceConfirmationDocflow ConfirmationDocflow = 3;</code>
      */
-    private $ConfirmationDocflow = null;
+    protected $ConfirmationDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.InvoiceCorrectionRequestDocflow CorrectionRequestDocflow = 4;</code>
      */
-    private $CorrectionRequestDocflow = null;
+    protected $CorrectionRequestDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp ConfirmationTimestamp = 5;</code>
      */
-    private $ConfirmationTimestamp = null;
+    protected $ConfirmationTimestamp = null;
     /**
      * Generated from protobuf field <code>bool IsAmendmentRequested = 6;</code>
      */
-    private $IsAmendmentRequested = false;
+    protected $IsAmendmentRequested = false;
     /**
      * Generated from protobuf field <code>bool IsRevised = 7;</code>
      */
-    private $IsRevised = false;
+    protected $IsRevised = false;
     /**
      * Generated from protobuf field <code>bool IsCorrected = 8;</code>
      */
-    private $IsCorrected = false;
+    protected $IsCorrected = false;
     /**
      * Generated from protobuf field <code>bool CanDocumentBeSignedBySender = 9;</code>
      */
-    private $CanDocumentBeSignedBySender = false;
+    protected $CanDocumentBeSignedBySender = false;
 
     /**
      * Constructor.

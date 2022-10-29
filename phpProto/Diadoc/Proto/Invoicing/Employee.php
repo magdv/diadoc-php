@@ -18,37 +18,37 @@ class Employee extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string EmployeePosition = 1;</code>
      */
-    private $EmployeePosition = '';
+    protected $EmployeePosition = '';
     /**
      * Иные сведения, идентифицирующие физическое лицо // ИныеСвед
      *
      * Generated from protobuf field <code>string EmployeeInfo = 2;</code>
      */
-    private $EmployeeInfo = '';
+    protected $EmployeeInfo = '';
     /**
      * Основание полномочий предстваителя // ОснПолн
      *
      * Generated from protobuf field <code>string EmployeeBase = 3;</code>
      */
-    private $EmployeeBase = '';
+    protected $EmployeeBase = '';
     /**
      * Фамилия //Фамилия
      *
      * Generated from protobuf field <code>string TransferSurname = 4;</code>
      */
-    private $TransferSurname = '';
+    protected $TransferSurname = '';
     /**
      * Имя //Имя
      *
      * Generated from protobuf field <code>string TransferFirstName = 5;</code>
      */
-    private $TransferFirstName = '';
+    protected $TransferFirstName = '';
     /**
      * Отчество //Отчество
      *
      * Generated from protobuf field <code>string TransferPatronymic = 6;</code>
      */
-    private $TransferPatronymic = '';
+    protected $TransferPatronymic = '';
 
     /**
      * Constructor.

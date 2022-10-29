@@ -20,37 +20,37 @@ class Torg12BuyerTitleInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string ShipmentReceiptDate = 1;</code>
      */
-    private $ShipmentReceiptDate = '';
+    protected $ShipmentReceiptDate = '';
     /**
      * сведения по доверенности
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Attorney Attorney = 2;</code>
      */
-    private $Attorney = null;
+    protected $Attorney = null;
     /**
      * лицо, принявшее груз
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Official AcceptedBy = 3;</code>
      */
-    private $AcceptedBy = null;
+    protected $AcceptedBy = null;
     /**
      * лицо, получившее груз
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Official ReceivedBy = 4;</code>
      */
-    private $ReceivedBy = null;
+    protected $ReceivedBy = null;
     /**
      * подписант
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 5;</code>
      */
-    private $Signer = null;
+    protected $Signer = null;
     /**
      * дополнительная информация
      *
      * Generated from protobuf field <code>string AdditionalInfo = 6;</code>
      */
-    private $AdditionalInfo = '';
+    protected $AdditionalInfo = '';
 
     /**
      * Constructor.

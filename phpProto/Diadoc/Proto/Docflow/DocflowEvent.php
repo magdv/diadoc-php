@@ -16,31 +16,31 @@ class DocflowEvent extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string EventId = 1;</code>
      */
-    private $EventId = '';
+    protected $EventId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp Timestamp = 2;</code>
      */
-    private $Timestamp = null;
+    protected $Timestamp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentId DocumentId = 3;</code>
      */
-    private $DocumentId = null;
+    protected $DocumentId = null;
     /**
      * Generated from protobuf field <code>bytes IndexKey = 4;</code>
      */
-    private $IndexKey = '';
+    protected $IndexKey = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentWithDocflow Document = 5;</code>
      */
-    private $Document = null;
+    protected $Document = null;
     /**
      * Generated from protobuf field <code>string PreviousEventId = 6;</code>
      */
-    private $PreviousEventId = '';
+    protected $PreviousEventId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentWithDocflow PreviousDocumentState = 7;</code>
      */
-    private $PreviousDocumentState = null;
+    protected $PreviousDocumentState = null;
 
     /**
      * Constructor.

@@ -110,9 +110,7 @@ enum AttachmentType {
 	InvoiceCorrectionRequest = 4;
 	AttachmentComment = 5;
 	DeliveryFailureNotification = 6;
-	EancomInvoic = 7;
 	SignatureRequestRejection = 8;
-	EcrCatConformanceCertificateMetadata = 9;
 	SignatureVerificationReport = 10;
 	TrustConnectionRequest = 11;
 	Torg12 = 12;
@@ -144,8 +142,21 @@ enum AttachmentType {
 	UniversalTransferDocument = 41;
 	UniversalTransferDocumentBuyerTitle = 42;
 	UniversalTransferDocumentRevision = 45;
+	UniversalCorrectionDocument = 49;
+	UniversalCorrectionDocumentRevision = 50;
+	UniversalCorrectionDocumentBuyerTitle = 51;
 	CustomData = 64;
 	MoveDocument = 65;
-	ResolutionChainAssignmentAttachment = 66;
-	//Неизвестные типы должны обрабатываться как Nonformalized
+	ResolutionRouteAssignment = 66;
+	ResolutionRouteRemoval = 67;
+	Title = 68;
+	Cancellation = 69;
+	Edition = 71;
+	DeletionRestoration = 72;
+	TemplateTransformation = 73;
+	TemplateRefusal = 74;
+	OuterDocflow = 75;
+	RoamingConfirmation = 76;
+	PowerOfAttorney = 77;
+	PowerOfAttorneyStatus = 78;
 }

@@ -16,19 +16,19 @@ class AcquireCounteragentRequest extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string OrgId = 1;</code>
      */
-    private $OrgId = '';
+    protected $OrgId = '';
     /**
      * Generated from protobuf field <code>string Inn = 2;</code>
      */
-    private $Inn = '';
+    protected $Inn = '';
     /**
      * Generated from protobuf field <code>string MessageToCounteragent = 3;</code>
      */
-    private $MessageToCounteragent = '';
+    protected $MessageToCounteragent = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.InvitationDocument InvitationDocument = 4;</code>
      */
-    private $InvitationDocument = null;
+    protected $InvitationDocument = null;
 
     /**
      * Constructor.

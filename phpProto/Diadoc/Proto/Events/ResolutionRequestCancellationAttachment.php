@@ -16,7 +16,7 @@ class ResolutionRequestCancellationAttachment extends \Google\Protobuf\Internal\
     /**
      * Generated from protobuf field <code>string InitialResolutionRequestId = 1;</code>
      */
-    private $InitialResolutionRequestId = '';
+    protected $InitialResolutionRequestId = '';
 
     /**
      * Constructor.

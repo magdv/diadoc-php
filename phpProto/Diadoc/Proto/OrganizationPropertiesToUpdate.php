@@ -16,23 +16,23 @@ class OrganizationPropertiesToUpdate extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string OrgId = 1;</code>
      */
-    private $OrgId = '';
+    protected $OrgId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.StringValue Ogrn = 2;</code>
      */
-    private $Ogrn = null;
+    protected $Ogrn = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.StringValue IfnsCode = 3;</code>
      */
-    private $IfnsCode = null;
+    protected $IfnsCode = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Address Address = 4;</code>
      */
-    private $Address = null;
+    protected $Address = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.HeadOrganizationPropertiesToUpdate HeadOrganizationProperties = 5;</code>
      */
-    private $HeadOrganizationProperties = null;
+    protected $HeadOrganizationProperties = null;
 
     /**
      * Constructor.

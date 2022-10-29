@@ -16,7 +16,7 @@ class CounteragentList extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>int32 TotalCount = 1;</code>
      */
-    private $TotalCount = 0;
+    protected $TotalCount = 0;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Counteragent Counteragents = 2;</code>
      */
@@ -24,7 +24,7 @@ class CounteragentList extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.TotalCountType TotalCountType = 3;</code>
      */
-    private $TotalCountType = 0;
+    protected $TotalCountType = 0;
 
     /**
      * Constructor.

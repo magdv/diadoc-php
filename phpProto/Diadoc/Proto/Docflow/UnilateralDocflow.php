@@ -16,23 +16,23 @@ class UnilateralDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    private $IsFinished = false;
+    protected $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.ReceiptDocflow ReceiptDocflow = 2;</code>
      */
-    private $ReceiptDocflow = null;
+    protected $ReceiptDocflow = null;
     /**
      * Generated from protobuf field <code>bool IsReceiptRequested = 3;</code>
      */
-    private $IsReceiptRequested = false;
+    protected $IsReceiptRequested = false;
     /**
      * Generated from protobuf field <code>bool CanDocumentBeReceipted = 4;</code>
      */
-    private $CanDocumentBeReceipted = false;
+    protected $CanDocumentBeReceipted = false;
     /**
      * Generated from protobuf field <code>bool CanDocumentBeSignedBySender = 5;</code>
      */
-    private $CanDocumentBeSignedBySender = false;
+    protected $CanDocumentBeSignedBySender = false;
 
     /**
      * Constructor.

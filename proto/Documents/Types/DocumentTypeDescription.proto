@@ -1,0 +1,13 @@
+syntax="proto3";
+
+package Diadoc.Proto.Documents.Types;
+
+message DetectedDocumentType {
+	string TypeNamedId = 1;
+	string Function = 2;
+	string Version = 3;
+}
+
+message DetectDocumentTypesResponse {
+	repeated DetectedDocumentType DocumentTypes = 1;
+}

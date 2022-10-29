@@ -16,19 +16,19 @@ class SupplementaryAgreementDocumentInfo extends \Google\Protobuf\Internal\Messa
     /**
      * Generated from protobuf field <code>string Total = 1;</code>
      */
-    private $Total = '';
+    protected $Total = '';
     /**
      * Generated from protobuf field <code>string ContractType = 2;</code>
      */
-    private $ContractType = '';
+    protected $ContractType = '';
     /**
      * Generated from protobuf field <code>string ContractNumber = 3;</code>
      */
-    private $ContractNumber = '';
+    protected $ContractNumber = '';
     /**
      * Generated from protobuf field <code>string ContractDate = 4;</code>
      */
-    private $ContractDate = '';
+    protected $ContractDate = '';
 
     /**
      * Constructor.

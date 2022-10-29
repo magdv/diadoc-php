@@ -16,15 +16,15 @@ class Attachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.Entity Entity = 1;</code>
      */
-    private $Entity = null;
+    protected $Entity = null;
     /**
      * Generated from protobuf field <code>string AttachmentFilename = 2;</code>
      */
-    private $AttachmentFilename = '';
+    protected $AttachmentFilename = '';
     /**
      * Generated from protobuf field <code>string DisplayFilename = 3;</code>
      */
-    private $DisplayFilename = '';
+    protected $DisplayFilename = '';
 
     /**
      * Constructor.
