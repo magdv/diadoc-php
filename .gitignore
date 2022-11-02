@@ -2,7 +2,5 @@
 /var/
 /vendor/
 *.iml
-/composer.lock
-/composer.phar
 /.php-cs-fixer.cache
 /.env
