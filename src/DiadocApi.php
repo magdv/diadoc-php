@@ -46,6 +46,7 @@ use Diadoc\Proto\TimeBasedFilter;
 use Diadoc\Proto\Timestamp;
 use Diadoc\Proto\User;
 use MagDv\Diadoc\Exception\DiadocApiException;
+use MagDv\Diadoc\Exception\DiadocApiUnauthorizedException;
 use MagDv\Diadoc\Filter\DocumentsFilter;
 use MagDv\Diadoc\Helper\DateHelper;
 
@@ -223,7 +224,11 @@ class DiadocApi
             throw new DiadocApiException(sprintf('Curl error: (%s) %s', curl_errno($ch), curl_error($ch)), curl_errno($ch));
         }
         if (!($httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE)) || ($httpCode !== 200 && $httpCode !== 204)) {
-            throw new DiadocApiException(sprintf('Curl error http code: (%s) %s', $httpCode, $response), $httpCode);
+            $message = sprintf('Curl error http code: (%s) %s', $httpCode, $response);
+            if ($httpCode === 401) {
+                throw new DiadocApiUnauthorizedException($message, $httpCode);
+            }
+            throw new DiadocApiException($message, $httpCode);
         }
         curl_close($ch);
 
