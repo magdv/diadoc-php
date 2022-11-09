@@ -192,6 +192,15 @@ class DiadocApi
         );
     }
 
+    /**
+     * @param $resource
+     * @param $params
+     * @param $method
+     * @param $data
+     * @return string
+     * @throws \MagDv\Diadoc\Exception\DiadocApiException
+     * @throws \MagDv\Diadoc\Exception\DiadocApiUnauthorizedException
+     */
     protected function doRequest($resource, $params = [], $method = self::METHOD_GET, $data): string
     {
         if (!$this->getToken() && !in_array($resource, [self::RESOURCE_AUTHENTICATE, self::RESOURCE_AUTHENTICATE_V2], true)) {
@@ -799,7 +808,8 @@ class DiadocApi
      * @param MessageToPost $messageToPost
      * @param string|null $operationId
      * @return Message| \Google\Protobuf\Internal\Message
-     * @throws DiadocApiException
+     * @throws \MagDv\Diadoc\Exception\DiadocApiException
+     * @throws \MagDv\Diadoc\Exception\DiadocApiUnauthorizedException
      */
     public function postMessage(MessageToPost $messageToPost, ?string $operationId = null): Message
     {
