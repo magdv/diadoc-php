@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "^7.2",
+        "php": ">=7.2",
         "google/protobuf": "^3.21",
         "ext-curl": "*",
         "ext-json": "*"
