@@ -201,7 +201,7 @@ class DiadocApi
      * @throws \MagDv\Diadoc\Exception\DiadocApiException
      * @throws \MagDv\Diadoc\Exception\DiadocApiUnauthorizedException
      */
-    protected function doRequest($resource, $params = [], $method = self::METHOD_GET, $data): string
+    protected function doRequest($resource, $params = [], $method = self::METHOD_GET, $data = null): string
     {
         if (!$this->getToken() && !in_array($resource, [self::RESOURCE_AUTHENTICATE, self::RESOURCE_AUTHENTICATE_V2], true)) {
             throw new Exception('Unauthorized request');
