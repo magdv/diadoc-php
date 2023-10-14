@@ -8,10 +8,7 @@ use DivineOmega\DOFileCache\DOFileCache;
 
 class Cache
 {
-    /**
-     * @var DOFileCache
-     */
-    private static $cache;
+    private static ?DOFileCache $cache = null;
 
     public static function getCache(): DOFileCache
     {

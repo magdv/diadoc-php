@@ -10,10 +10,11 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": "8.0.30",
         "google/protobuf": "^3.21",
         "ext-curl": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "symfony/process": "^5.4"
     },
     "autoload": {
         "psr-4": {

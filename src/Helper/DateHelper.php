@@ -11,7 +11,8 @@ class DateHelper
         if (is_null($dateTime)) {
             return null;
         }
-        return $dateTime->getTimestamp() * 10000000 + 621355968000000000;
+
+        return $dateTime->getTimestamp() * 10_000_000 + 621_355_968_000_000_000;
     }
 
     public static function convertTicksToDateTime(?int $ticks): ?DateTime
@@ -19,7 +20,8 @@ class DateHelper
         if (is_null($ticks)) {
             return null;
         }
-        $timestamp = floor(($ticks - 621355968000000000) / 10000000);
+
+        $timestamp = floor(($ticks - 621_355_968_000_000_000) / 10_000_000);
 
         $dateTime = new DateTime();
         $dateTime->setTimestamp($timestamp);
