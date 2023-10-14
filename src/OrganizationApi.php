@@ -18,32 +18,17 @@ use Diadoc\Proto\OrganizationUsersList;
 
 class OrganizationApi
 {
-    /** @var  DiadocApi */
-    private $diadocApi;
-    /** @var  string */
-    private $orgId;
-
-    /**
-     * @param DiadocApi $diadocApi
-     * @param string $orgId
-     */
-    public function __construct(DiadocApi $diadocApi, string $orgId)
+    public function __construct(private DiadocApi $diadocApi, private string $orgId)
     {
-        $this->diadocApi = $diadocApi;
-        $this->orgId = $orgId;
     }
 
 
-    /**
-     * @return DiadocApi
-     */
     public function getDiadocApi(): DiadocApi
     {
         return $this->diadocApi;
     }
 
     /**
-     * @return Organization
      * @throws DiadocApiException
      */
     public function getOrganization(): Organization
@@ -52,8 +37,6 @@ class OrganizationApi
     }
 
     /**
-     * @param string $departmentId
-     * @return Department
      * @throws DiadocApiException
      */
     public function getDepartment(string $departmentId): Department
@@ -62,7 +45,6 @@ class OrganizationApi
     }
 
     /**
-     * @return OrganizationUserPermissions
      * @throws DiadocApiException
      */
     public function getMyPermissions(): OrganizationUserPermissions
@@ -71,8 +53,6 @@ class OrganizationApi
     }
 
     /**
-     * @param array $innList
-     * @return GetOrganizationsByInnListResponse
      * @throws DiadocApiException
      */
     public function getOrganizationsByInnList(array $innList = []): GetOrganizationsByInnListResponse
@@ -81,7 +61,6 @@ class OrganizationApi
     }
 
     /**
-     * @return OrganizationUsersList
      * @throws DiadocApiException
      */
     public function getOrganizationUsers(): OrganizationUsersList
@@ -90,10 +69,7 @@ class OrganizationApi
     }
 
     /**
-     * @param string $counteragentOrgId
-     * @param string $myDepartmentId
      * @param null $comment
-     *
      * @return mixed
      * @throws DiadocApiException
      */
@@ -103,12 +79,8 @@ class OrganizationApi
     }
 
     /**
-     * @param string $counteragentOrgId
-     * @param string $myDepartmentId
      * @param InvitationDocument|null $invitationDocument
-     * @param string|null $messageToContragent
      *
-     * @return AsyncMethodResult
      * @throws DiadocApiException
      */
     public function acquireCounteragentWithDocument(string $counteragentOrgId, string $myDepartmentId, InvitationDocument $invitationDocument = null, ?string $messageToContragent = null): AsyncMethodResult
@@ -117,10 +89,8 @@ class OrganizationApi
     }
 
     /**
-     * @param string $counteragentInn
      * @param string|null $myDepartmentId
      * @param InvitationDocument|null $invitationDocument
-     * @param string|null $messageToContragent
      *
      * @return AsyncMethodResult|Message
      * @throws DiadocApiException
@@ -131,10 +101,7 @@ class OrganizationApi
     }
 
     /**
-     * @param string $counteragentOrgId
-     * @param string|null $comment
      *
-     * @return string
      * @throws DiadocApiException
      */
     public function breakWithCounteragent(string $counteragentOrgId, ?string $comment = null): string
@@ -143,9 +110,6 @@ class OrganizationApi
     }
 
     /**
-     * @param string $counteragentOrgId
-     *
-     * @return Counteragent
      * @throws DiadocApiException
      */
     public function getCountragent(string $counteragentOrgId): Counteragent
@@ -154,9 +118,6 @@ class OrganizationApi
     }
 
     /**
-     * @param string $counteragentOrgId
-     *
-     * @return Counteragent
      * @throws DiadocApiException
      */
     public function getCountragentV2(string $counteragentOrgId): Counteragent
@@ -166,9 +127,7 @@ class OrganizationApi
 
     /**
      * @param CounteragentStatus|null $counteragentStatus
-     * @param int|null $afterIndexKey
      *
-     * @return CounteragentList
      * @throws DiadocApiException
      */
     public function getCountragents(CounteragentStatus $counteragentStatus = null, ?int $afterIndexKey = null): CounteragentList
@@ -178,9 +137,7 @@ class OrganizationApi
 
     /**
      * @param CounteragentStatus|null $counteragentStatus
-     * @param int|null $afterIndexKey
      *
-     * @return CounteragentList
      * @throws DiadocApiException
      */
     public function getCountragentsV2(CounteragentStatus $counteragentStatus = null, ?int $afterIndexKey = null): CounteragentList
@@ -188,10 +145,6 @@ class OrganizationApi
         return $this->diadocApi->getCountragentsV2($this->orgId, $counteragentStatus, $afterIndexKey);
     }
 
-    /**
-     * @param string $counteragentOrgId
-     * @return CounteragentCertificateList
-     */
     public function getCounteragentCertificates(string $counteragentOrgId): CounteragentCertificateList
     {
         return $this->diadocApi->getCounteragentCertificates($this->orgId, $counteragentOrgId);

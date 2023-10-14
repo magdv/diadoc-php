@@ -1,4 +1,4 @@
-FROM php:7.2-cli-alpine
+FROM php:8.0-cli-alpine
 
 ENV XDEBUG_VERSION 3.1.2
 RUN apk update && apk upgrade

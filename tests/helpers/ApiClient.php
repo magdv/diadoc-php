@@ -4,24 +4,16 @@ declare(strict_types=1);
 
 namespace Test\helpers;
 
+use DivineOmega\DOFileCache\DOFileCache;
 use MagDv\Diadoc\DiadocApi;
+use MagDv\Diadoc\Signer\OpensslSignerProvider;
 use Test\enums\ConfigNames;
 
 class ApiClient
 {
-    /**
-     * @var DiadocApi
-     */
-    private $api;
-
-    /**
-     * @var null|string
-     */
-    private $token;
-    /**
-     * @var \DivineOmega\DOFileCache\DOFileCache
-     */
-    private $cache;
+    private DiadocApi $api;
+    private ?string $token = null;
+    private DOFileCache $cache;
 
     private function auth(): void
     {
@@ -52,9 +44,14 @@ class ApiClient
      */
     public function getApi(): DiadocApi
     {
+        $caFile = dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . 'files' . DIRECTORY_SEPARATOR . 'domain.crt';
+        $certFile = dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . 'files' . DIRECTORY_SEPARATOR . 'domain.csr';
+        $keyFile = dirname(__DIR__, 1) . DIRECTORY_SEPARATOR . 'files' . DIRECTORY_SEPARATOR . 'domain.key';
+        $signedProvider = new OpensslSignerProvider($caFile, $certFile, $keyFile);
         $this->api = new DiadocApi(
             getenv(ConfigNames::DD_AUTH),
-            getenv(ConfigNames::DIADOC_URL)
+            getenv(ConfigNames::DIADOC_URL),
+            $signedProvider
         );
         $this->cache = Cache::getCache();
         $this->auth();

@@ -80,3 +80,6 @@ foreach ($contragents->getCounteragents() as $item) {
 - Теперь надо заиспользовать новые поля в нашем коде.
 
 Можно также использовать `Makefile` для всех перечисленных выше возможностей.
+
+## Генерация тестового сертификата
+https://losst.pro/sozdanie-sertifikata-openssl
