@@ -25,10 +25,12 @@ class SignTest extends BaseTest
         } catch (\Throwable $exception) {
             // Мы ловим эксепшен, т.к. в сборке у меня не настроены все бибилиотеки Openssl
             self::assertInstanceOf(SignerProviderException::class, $exception);
-            self::assertEquals('Ошибка при подписании файла ERR > smime: Unrecognized flag gost89
+            self::assertEquals(
+                'Ошибка при подписании файла ERR > smime: Unrecognized flag gost89
 smime: Use -help for summary.
-', $exception->getMessage());
+',
+                $exception->getMessage()
+            );
         }
-
     }
 }

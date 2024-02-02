@@ -468,8 +468,8 @@ class DiadocApi
         private string $ddauthApiClientId,
         private string $serviceUrl = 'https://diadoc-api.kontur.ru/',
         private ?SignerProviderInterface $signerProvider = null
-    )
-    {}
+    ) {
+    }
 
     public function authenticateLogin(string $login, string $password): string
     {
@@ -495,7 +495,7 @@ class DiadocApi
             $header .= sprintf(', ddauth_token=%s', $token);
         }
 
-        return ['Authorization: ' . $header, "Content-type: ".($contentType ?:'application/x-protobuf')];
+        return ['Authorization: ' . $header, "Content-type: " . ($contentType ?: 'application/x-protobuf')];
     }
 
     /**
@@ -1399,7 +1399,7 @@ class DiadocApi
         $this->token = $token;
     }
 
-    public function generateInvitationDocument(string $content,string  $title,bool $signatureRequested = false): InvitationDocument
+    public function generateInvitationDocument(string $content, string $title, bool $signatureRequested = false): InvitationDocument
     {
         $invitationDocument = new InvitationDocument();
         $invitationDocument->setFileName($title);
@@ -1409,7 +1409,7 @@ class DiadocApi
         return $invitationDocument;
     }
 
-    public function generateSignedContentFromFile(string $fileName) : SignedContent
+    public function generateSignedContentFromFile(string $fileName): SignedContent
     {
         if (!file_exists($fileName)) {
             throw new \Exception('File not found');
@@ -1420,7 +1420,7 @@ class DiadocApi
         return $this->generateSignedContent($content);
     }
 
-    public function generateSignedContent(string $content) : SignedContent
+    public function generateSignedContent(string $content): SignedContent
     {
         $signedContent = new SignedContent();
         $signedContent->setContent($content);

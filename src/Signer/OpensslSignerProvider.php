@@ -82,11 +82,13 @@ class OpensslSignerProvider implements SignerProviderInterface
         try {
             $out = $process->mustRun();
 
-            $process->run(static function ($type, $buffer) {
-                if (Process::ERR === $type) {
-                    throw new SignerProviderException('Ошибка при подписании файла ERR > '.$buffer, 500);
+            $process->run(
+                static function ($type, $buffer) {
+                    if (Process::ERR === $type) {
+                        throw new SignerProviderException('Ошибка при подписании файла ERR > ' . $buffer, 500);
+                    }
                 }
-            });
+            );
             return $out->getOutput();
         } catch (\Throwable $throwable) {
             throw new SignerProviderException($throwable->getMessage(), $throwable->getCode(), $throwable);
