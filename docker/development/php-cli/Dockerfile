@@ -13,7 +13,7 @@ RUN apk add --no-cache unzip
 RUN apk update && apk add curl bash unzip build-base autoconf automake libtool make g++
 ENV PROTOBUF_VERSION 3.6.1
 ENV PROTOBUF_URL https://github.com/google/protobuf/releases/download/v"$PROTOBUF_VERSION"/protobuf-cpp-"$PROTOBUF_VERSION".zip
-RUN curl --silent -L -o protobuf.zip "$PROTOBUF_URL" && \
+RUN curl -L -o protobuf.zip "$PROTOBUF_URL" && \
     unzip protobuf.zip && \
     cd protobuf-"$PROTOBUF_VERSION" && \
     ./configure && \
