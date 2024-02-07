@@ -16,11 +16,11 @@ class MessagePatchToPost extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    protected $BoxId = '';
+    private $BoxId = '';
     /**
      * Generated from protobuf field <code>string MessageId = 2;</code>
      */
-    protected $MessageId = '';
+    private $MessageId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.ReceiptAttachment Receipts = 3;</code>
      */

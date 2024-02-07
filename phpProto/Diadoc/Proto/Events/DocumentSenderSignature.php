@@ -16,19 +16,19 @@ class DocumentSenderSignature extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ParentEntityId = 1;</code>
      */
-    protected $ParentEntityId = '';
+    private $ParentEntityId = '';
     /**
      * Generated from protobuf field <code>bytes Signature = 2;</code>
      */
-    protected $Signature = '';
+    private $Signature = '';
     /**
      * Generated from protobuf field <code>bool SignWithTestSignature = 4;</code>
      */
-    protected $SignWithTestSignature = false;
+    private $SignWithTestSignature = false;
     /**
      * Generated from protobuf field <code>string PatchedContentId = 5;</code>
      */
-    protected $PatchedContentId = '';
+    private $PatchedContentId = '';
 
     /**
      * Constructor.

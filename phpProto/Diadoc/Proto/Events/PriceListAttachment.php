@@ -16,15 +16,15 @@ class PriceListAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.SignedContent SignedContent = 1;</code>
      */
-    protected $SignedContent = null;
+    private $SignedContent = null;
     /**
      * Generated from protobuf field <code>string FileName = 2;</code>
      */
-    protected $FileName = '';
+    private $FileName = '';
     /**
      * Generated from protobuf field <code>string Comment = 3;</code>
      */
-    protected $Comment = '';
+    private $Comment = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId InitialDocumentIds = 4;</code>
      */
@@ -36,31 +36,31 @@ class PriceListAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string CustomDocumentId = 6;</code>
      */
-    protected $CustomDocumentId = '';
+    private $CustomDocumentId = '';
     /**
      * Generated from protobuf field <code>string DocumentDate = 7;</code>
      */
-    protected $DocumentDate = '';
+    private $DocumentDate = '';
     /**
      * Generated from protobuf field <code>string DocumentNumber = 8;</code>
      */
-    protected $DocumentNumber = '';
+    private $DocumentNumber = '';
     /**
      * Generated from protobuf field <code>string PriceListEffectiveDate = 9;</code>
      */
-    protected $PriceListEffectiveDate = '';
+    private $PriceListEffectiveDate = '';
     /**
      * Generated from protobuf field <code>string ContractDocumentDate = 10;</code>
      */
-    protected $ContractDocumentDate = '';
+    private $ContractDocumentDate = '';
     /**
      * Generated from protobuf field <code>string ContractDocumentNumber = 11;</code>
      */
-    protected $ContractDocumentNumber = '';
+    private $ContractDocumentNumber = '';
     /**
      * Generated from protobuf field <code>bool NeedReceipt = 12;</code>
      */
-    protected $NeedReceipt = false;
+    private $NeedReceipt = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.CustomDataItem CustomData = 13;</code>
      */

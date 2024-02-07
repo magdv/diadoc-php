@@ -16,19 +16,19 @@ class EncryptedDocumentMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string FileId = 1;</code>
      */
-    protected $FileId = '';
+    private $FileId = '';
     /**
      * Generated from protobuf field <code>string BuyerFnsParticipantId = 2;</code>
      */
-    protected $BuyerFnsParticipantId = '';
+    private $BuyerFnsParticipantId = '';
     /**
      * Generated from protobuf field <code>string SenderFnsParticipantId = 3;</code>
      */
-    protected $SenderFnsParticipantId = '';
+    private $SenderFnsParticipantId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber DocumentDateAndNumber = 4;</code>
      */
-    protected $DocumentDateAndNumber = null;
+    private $DocumentDateAndNumber = null;
 
     /**
      * Constructor.

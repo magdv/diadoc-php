@@ -16,15 +16,15 @@ class SignatureVerificationResult extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsValid = 1;</code>
      */
-    protected $IsValid = false;
+    private $IsValid = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.CertificateVerificationResult CertificateStatus = 2;</code>
      */
-    protected $CertificateStatus = null;
+    private $CertificateStatus = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp SignatureTimestamp = 3;</code>
      */
-    protected $SignatureTimestamp = null;
+    private $SignatureTimestamp = null;
 
     /**
      * Constructor.

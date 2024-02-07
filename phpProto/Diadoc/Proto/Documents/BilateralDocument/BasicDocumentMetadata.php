@@ -16,23 +16,23 @@ class BasicDocumentMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentStatus DocumentStatus = 1;</code>
      */
-    protected $DocumentStatus = 0;
+    private $DocumentStatus = 0;
     /**
      * Generated from protobuf field <code>string Total = 2;</code>
      */
-    protected $Total = '';
+    private $Total = '';
     /**
      * Generated from protobuf field <code>string Vat = 3;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * Generated from protobuf field <code>string Grounds = 4;</code>
      */
-    protected $Grounds = '';
+    private $Grounds = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ReceiptStatus ReceiptStatus = 5;</code>
      */
-    protected $ReceiptStatus = 0;
+    private $ReceiptStatus = 0;
 
     /**
      * Constructor.

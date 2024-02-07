@@ -16,23 +16,23 @@ class DocumentVersionV2 extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Version = 1;</code>
      */
-    protected $Version = '';
+    private $Version = '';
     /**
      * Generated from protobuf field <code>bool SupportsContentPatching = 2;</code>
      */
-    protected $SupportsContentPatching = false;
+    private $SupportsContentPatching = false;
     /**
      * Generated from protobuf field <code>bool SupportsEncrypting = 3;</code>
      */
-    protected $SupportsEncrypting = false;
+    private $SupportsEncrypting = false;
     /**
      * Generated from protobuf field <code>bool SupportsPredefinedRecipientTitle = 7;</code>
      */
-    protected $SupportsPredefinedRecipientTitle = false;
+    private $SupportsPredefinedRecipientTitle = false;
     /**
      * Generated from protobuf field <code>bool SupportsAmendmentRequest = 8;</code>
      */
-    protected $SupportsAmendmentRequest = false;
+    private $SupportsAmendmentRequest = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Documents.Types.DocumentTitleV2 Titles = 4;</code>
      */
@@ -40,7 +40,7 @@ class DocumentVersionV2 extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsActual = 5;</code>
      */
-    protected $IsActual = false;
+    private $IsActual = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Documents.Types.DocumentWorkflowV2 Workflows = 6;</code>
      */

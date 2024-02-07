@@ -16,23 +16,23 @@ class DocumentWithDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentId DocumentId = 1;</code>
      */
-    protected $DocumentId = null;
+    private $DocumentId = null;
     /**
      * Generated from protobuf field <code>string LastEventId = 2;</code>
      */
-    protected $LastEventId = '';
+    private $LastEventId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp LastEventTimestamp = 3;</code>
      */
-    protected $LastEventTimestamp = null;
+    private $LastEventTimestamp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentInfo DocumentInfo = 4;</code>
      */
-    protected $DocumentInfo = null;
+    private $DocumentInfo = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.Docflow Docflow = 5;</code>
      */
-    protected $Docflow = null;
+    private $Docflow = null;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId InitialDocumentIds = 6;</code>
      */

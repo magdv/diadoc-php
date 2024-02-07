@@ -16,7 +16,7 @@ class TrustConnectionRequestMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentStatus TrustConnectionRequestStatus = 1;</code>
      */
-    protected $TrustConnectionRequestStatus = 0;
+    private $TrustConnectionRequestStatus = 0;
 
     /**
      * Constructor.

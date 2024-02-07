@@ -20,25 +20,25 @@ class Grounds extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string DocumentName = 1;</code>
      */
-    protected $DocumentName = '';
+    private $DocumentName = '';
     /**
      * номер документа
      *
      * Generated from protobuf field <code>string DocumentNumber = 2;</code>
      */
-    protected $DocumentNumber = '';
+    private $DocumentNumber = '';
     /**
      * дата документа
      *
      * Generated from protobuf field <code>string DocumentDate = 3;</code>
      */
-    protected $DocumentDate = '';
+    private $DocumentDate = '';
     /**
      * дополнительные сведения
      *
      * Generated from protobuf field <code>string AdditionalInfo = 4;</code>
      */
-    protected $AdditionalInfo = '';
+    private $AdditionalInfo = '';
 
     /**
      * Constructor.

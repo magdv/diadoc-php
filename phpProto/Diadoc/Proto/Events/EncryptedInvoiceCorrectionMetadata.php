@@ -16,15 +16,15 @@ class EncryptedInvoiceCorrectionMetadata extends \Google\Protobuf\Internal\Messa
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber OriginalInvoiceDateAndNumber = 1;</code>
      */
-    protected $OriginalInvoiceDateAndNumber = null;
+    private $OriginalInvoiceDateAndNumber = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber OriginalInvoiceRevisionDateAndNumber = 2;</code>
      */
-    protected $OriginalInvoiceRevisionDateAndNumber = null;
+    private $OriginalInvoiceRevisionDateAndNumber = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber InvoiceCorrectionRevisionDateAndNumber = 3;</code>
      */
-    protected $InvoiceCorrectionRevisionDateAndNumber = null;
+    private $InvoiceCorrectionRevisionDateAndNumber = null;
 
     /**
      * Constructor.

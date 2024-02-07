@@ -16,47 +16,47 @@ class BilateralDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    protected $IsFinished = false;
+    private $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.ReceiptDocflow ReceiptDocflow = 2;</code>
      */
-    protected $ReceiptDocflow = null;
+    private $ReceiptDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.RecipientSignatureDocflow RecipientSignatureDocflow = 3;</code>
      */
-    protected $RecipientSignatureDocflow = null;
+    private $RecipientSignatureDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.RecipientSignatureRejectionDocflow RecipientSignatureRejectionDocflow = 4;</code>
      */
-    protected $RecipientSignatureRejectionDocflow = null;
+    private $RecipientSignatureRejectionDocflow = null;
     /**
      * Generated from protobuf field <code>bool IsReceiptRequested = 5;</code>
      */
-    protected $IsReceiptRequested = false;
+    private $IsReceiptRequested = false;
     /**
      * Generated from protobuf field <code>bool IsRecipientSignatureRequested = 6;</code>
      */
-    protected $IsRecipientSignatureRequested = false;
+    private $IsRecipientSignatureRequested = false;
     /**
      * Generated from protobuf field <code>bool IsDocumentSignedByRecipient = 7;</code>
      */
-    protected $IsDocumentSignedByRecipient = false;
+    private $IsDocumentSignedByRecipient = false;
     /**
      * Generated from protobuf field <code>bool IsDocumentRejectedByRecipient = 8;</code>
      */
-    protected $IsDocumentRejectedByRecipient = false;
+    private $IsDocumentRejectedByRecipient = false;
     /**
      * Generated from protobuf field <code>bool CanDocumentBeReceipted = 9;</code>
      */
-    protected $CanDocumentBeReceipted = false;
+    private $CanDocumentBeReceipted = false;
     /**
      * Generated from protobuf field <code>bool CanDocumentBeSignedBySender = 10;</code>
      */
-    protected $CanDocumentBeSignedBySender = false;
+    private $CanDocumentBeSignedBySender = false;
     /**
      * Generated from protobuf field <code>bool CanDocumentBeSignedOrRejectedByRecipient = 11;</code>
      */
-    protected $CanDocumentBeSignedOrRejectedByRecipient = false;
+    private $CanDocumentBeSignedOrRejectedByRecipient = false;
 
     /**
      * Constructor.

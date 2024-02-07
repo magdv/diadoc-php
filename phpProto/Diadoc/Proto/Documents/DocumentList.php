@@ -16,7 +16,7 @@ class DocumentList extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>int32 TotalCount = 1;</code>
      */
-    protected $TotalCount = 0;
+    private $TotalCount = 0;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Documents.Document Documents = 2;</code>
      */

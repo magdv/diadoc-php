@@ -16,23 +16,23 @@ class SearchDocflowsRequest extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string QueryString = 1;</code>
      */
-    protected $QueryString = '';
+    private $QueryString = '';
     /**
      * Generated from protobuf field <code>int32 Count = 2;</code>
      */
-    protected $Count = 0;
+    private $Count = 0;
     /**
      * Generated from protobuf field <code>int32 FirstIndex = 3;</code>
      */
-    protected $FirstIndex = 0;
+    private $FirstIndex = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.SearchScope Scope = 4;</code>
      */
-    protected $Scope = 0;
+    private $Scope = 0;
     /**
      * Generated from protobuf field <code>bool InjectEntityContent = 5;</code>
      */
-    protected $InjectEntityContent = false;
+    private $InjectEntityContent = false;
 
     /**
      * Constructor.

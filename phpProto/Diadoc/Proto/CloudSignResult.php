@@ -16,7 +16,7 @@ class CloudSignResult extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Token = 1;</code>
      */
-    protected $Token = '';
+    private $Token = '';
 
     /**
      * Constructor.

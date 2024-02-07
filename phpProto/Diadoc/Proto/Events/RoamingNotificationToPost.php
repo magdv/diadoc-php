@@ -16,19 +16,19 @@ class RoamingNotificationToPost extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    protected $BoxId = '';
+    private $BoxId = '';
     /**
      * Generated from protobuf field <code>string EventId = 2;</code>
      */
-    protected $EventId = '';
+    private $EventId = '';
     /**
      * Generated from protobuf field <code>bool Success = 3;</code>
      */
-    protected $Success = false;
+    private $Success = false;
     /**
      * Generated from protobuf field <code>string Description = 4;</code>
      */
-    protected $Description = '';
+    private $Description = '';
 
     /**
      * Constructor.

@@ -16,27 +16,27 @@ class Box extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    protected $BoxId = '';
+    private $BoxId = '';
     /**
      * Generated from protobuf field <code>string Title = 2;</code>
      */
-    protected $Title = '';
+    private $Title = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Organization Organization = 3;</code>
      */
-    protected $Organization = null;
+    private $Organization = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.OrganizationInvoiceFormatVersion InvoiceFormatVersion = 4;</code>
      */
-    protected $InvoiceFormatVersion = 0;
+    private $InvoiceFormatVersion = 0;
     /**
      * Generated from protobuf field <code>bool EncryptedDocumentsAllowed = 5;</code>
      */
-    protected $EncryptedDocumentsAllowed = false;
+    private $EncryptedDocumentsAllowed = false;
     /**
      * Generated from protobuf field <code>string BoxIdGuid = 6;</code>
      */
-    protected $BoxIdGuid = '';
+    private $BoxIdGuid = '';
 
     /**
      * Constructor.

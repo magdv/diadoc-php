@@ -16,27 +16,27 @@ class OrganizationUserPermissions extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string UserDepartmentId = 1;</code>
      */
-    protected $UserDepartmentId = '';
+    private $UserDepartmentId = '';
     /**
      * Generated from protobuf field <code>bool IsAdministrator = 2;</code>
      */
-    protected $IsAdministrator = false;
+    private $IsAdministrator = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentAccessLevel DocumentAccessLevel = 3;</code>
      */
-    protected $DocumentAccessLevel = 0;
+    private $DocumentAccessLevel = 0;
     /**
      * Generated from protobuf field <code>bool CanSignDocuments = 4;</code>
      */
-    protected $CanSignDocuments = false;
+    private $CanSignDocuments = false;
     /**
      * Generated from protobuf field <code>bool CanAddResolutions = 7;</code>
      */
-    protected $CanAddResolutions = false;
+    private $CanAddResolutions = false;
     /**
      * Generated from protobuf field <code>bool CanRequestResolutions = 8;</code>
      */
-    protected $CanRequestResolutions = false;
+    private $CanRequestResolutions = false;
     /**
      * Generated from protobuf field <code>repeated string SelectedDepartmentIds = 9;</code>
      */
@@ -44,7 +44,7 @@ class OrganizationUserPermissions extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string JobTitle = 10;</code>
      */
-    protected $JobTitle = '';
+    private $JobTitle = '';
 
     /**
      * Constructor.

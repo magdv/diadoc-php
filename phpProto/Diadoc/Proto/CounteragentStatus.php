@@ -4,8 +4,6 @@
 
 namespace Diadoc\Proto;
 
-use UnexpectedValueException;
-
 /**
  * Protobuf type <code>Diadoc.Proto.CounteragentStatus</code>
  */
@@ -39,35 +37,5 @@ class CounteragentStatus
      * Generated from protobuf enum <code>NotInCounteragentList = 7;</code>
      */
     const NotInCounteragentList = 7;
-
-    private static $valueToName = [
-        self::UnknownCounteragentStatus => 'UnknownCounteragentStatus',
-        self::IsMyCounteragent => 'IsMyCounteragent',
-        self::InvitesMe => 'InvitesMe',
-        self::IsInvitedByMe => 'IsInvitedByMe',
-        self::RejectsMe => 'RejectsMe',
-        self::IsRejectedByMe => 'IsRejectedByMe',
-        self::NotInCounteragentList => 'NotInCounteragentList',
-    ];
-
-    public static function name($value)
-    {
-        if (!isset(self::$valueToName[$value])) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no name defined for value %s', __CLASS__, $value));
-        }
-        return self::$valueToName[$value];
-    }
-
-
-    public static function value($name)
-    {
-        $const = __CLASS__ . '::' . strtoupper($name);
-        if (!defined($const)) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no value defined for name %s', __CLASS__, $name));
-        }
-        return constant($const);
-    }
 }
 

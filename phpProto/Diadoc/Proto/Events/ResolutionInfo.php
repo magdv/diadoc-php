@@ -16,17 +16,17 @@ class ResolutionInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionType ResolutionType = 1;</code>
      */
-    protected $ResolutionType = 0;
+    private $ResolutionType = 0;
     /**
      * ФИО согласователя
      *
      * Generated from protobuf field <code>string Author = 2;</code>
      */
-    protected $Author = '';
+    private $Author = '';
     /**
      * Generated from protobuf field <code>string InitialRequestId = 3;</code>
      */
-    protected $InitialRequestId = '';
+    private $InitialRequestId = '';
 
     /**
      * Constructor.

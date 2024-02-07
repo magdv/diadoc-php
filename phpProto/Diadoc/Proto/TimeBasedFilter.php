@@ -16,15 +16,15 @@ class TimeBasedFilter extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp FromTimestamp = 1;</code>
      */
-    protected $FromTimestamp = null;
+    private $FromTimestamp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp ToTimestamp = 2;</code>
      */
-    protected $ToTimestamp = null;
+    private $ToTimestamp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.SortDirection SortDirection = 3;</code>
      */
-    protected $SortDirection = 0;
+    private $SortDirection = 0;
 
     /**
      * Constructor.

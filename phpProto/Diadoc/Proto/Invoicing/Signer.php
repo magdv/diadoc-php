@@ -16,15 +16,15 @@ class Signer extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bytes SignerCertificate = 1;</code>
      */
-    protected $SignerCertificate = '';
+    private $SignerCertificate = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.SignerDetails SignerDetails = 2;</code>
      */
-    protected $SignerDetails = null;
+    private $SignerDetails = null;
     /**
      * Generated from protobuf field <code>string SignerCertificateThumbprint = 3;</code>
      */
-    protected $SignerCertificateThumbprint = '';
+    private $SignerCertificateThumbprint = '';
 
     /**
      * Constructor.

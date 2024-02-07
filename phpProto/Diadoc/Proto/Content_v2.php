@@ -16,19 +16,19 @@ class Content_v2 extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bytes Content = 1;</code>
      */
-    protected $Content = '';
+    private $Content = '';
     /**
      * Generated from protobuf field <code>string NameOnShelf = 2;</code>
      */
-    protected $NameOnShelf = '';
+    private $NameOnShelf = '';
     /**
      * Generated from protobuf field <code>string PatchedContentId = 3;</code>
      */
-    protected $PatchedContentId = '';
+    private $PatchedContentId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentIdEx DocumentId = 4;</code>
      */
-    protected $DocumentId = null;
+    private $DocumentId = null;
 
     /**
      * Constructor.

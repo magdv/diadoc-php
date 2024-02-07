@@ -16,11 +16,11 @@ class ServiceDetailsMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.UnilateralDocument.UnilateralDocumentStatus DocumentStatus = 1;</code>
      */
-    protected $DocumentStatus = 0;
+    private $DocumentStatus = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ReceiptStatus ReceiptStatus = 2;</code>
      */
-    protected $ReceiptStatus = 0;
+    private $ReceiptStatus = 0;
 
     /**
      * Constructor.

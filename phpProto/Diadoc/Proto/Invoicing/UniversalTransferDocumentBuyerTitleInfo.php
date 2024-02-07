@@ -18,49 +18,49 @@ class UniversalTransferDocumentBuyerTitleInfo extends \Google\Protobuf\Internal\
      *
      * Generated from protobuf field <code>string DocumentCreator = 1;</code>
      */
-    protected $DocumentCreator = '';
+    private $DocumentCreator = '';
     /**
      * ОснДоверОргСост - Основание, по которому экономический субъект является составителем файла обмена информации покупателя
      *
      * Generated from protobuf field <code>string DocumentCreatorBase = 2;</code>
      */
-    protected $DocumentCreatorBase = '';
+    private $DocumentCreatorBase = '';
     /**
      * ВидОперации - ВидОперации
      *
      * Generated from protobuf field <code>string OperationCode = 3;</code>
      */
-    protected $OperationCode = '';
+    private $OperationCode = '';
     /**
      * СодОпер - Содержание операции
      *
      * Generated from protobuf field <code>string OperationContent = 4;</code>
      */
-    protected $OperationContent = '';
+    private $OperationContent = '';
     /**
      * ДатаПрин - Дата принятия товаров (результатов выполненных работ), имущественных прав (подтверждения факта оказания услуг)
      *
      * Generated from protobuf field <code>string AcceptanceDate = 5;</code>
      */
-    protected $AcceptanceDate = '';
+    private $AcceptanceDate = '';
     /**
      * РабОргПок - работник организации покупателя
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Employee Employee = 6;</code>
      */
-    protected $Employee = null;
+    private $Employee = null;
     /**
      * ИнЛицо - Иное Лицо
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.OtherIssuer OtherIssuer = 7;</code>
      */
-    protected $OtherIssuer = null;
+    private $OtherIssuer = null;
     /**
      * ИнфПолФХЖ4
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.AdditionalInfoId AdditionalInfoId = 8;</code>
      */
-    protected $AdditionalInfoId = null;
+    private $AdditionalInfoId = null;
     /**
      * Подписант
      *

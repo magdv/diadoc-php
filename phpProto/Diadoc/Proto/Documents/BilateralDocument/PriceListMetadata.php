@@ -16,23 +16,23 @@ class PriceListMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentStatus DocumentStatus = 1;</code>
      */
-    protected $DocumentStatus = 0;
+    private $DocumentStatus = 0;
     /**
      * Generated from protobuf field <code>string PriceListEffectiveDate = 2;</code>
      */
-    protected $PriceListEffectiveDate = '';
+    private $PriceListEffectiveDate = '';
     /**
      * Generated from protobuf field <code>string ContractDocumentDate = 3;</code>
      */
-    protected $ContractDocumentDate = '';
+    private $ContractDocumentDate = '';
     /**
      * Generated from protobuf field <code>string ContractDocumentNumber = 4;</code>
      */
-    protected $ContractDocumentNumber = '';
+    private $ContractDocumentNumber = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ReceiptStatus ReceiptStatus = 5;</code>
      */
-    protected $ReceiptStatus = 0;
+    private $ReceiptStatus = 0;
 
     /**
      * Constructor.

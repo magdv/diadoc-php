@@ -4,8 +4,6 @@
 
 namespace Diadoc\Proto\Events;
 
-use UnexpectedValueException;
-
 /**
  * Protobuf type <code>Diadoc.Proto.Events.ResolutionRequestType</code>
  */
@@ -27,32 +25,5 @@ class ResolutionRequestType
      * Generated from protobuf enum <code>ApprovementSignatureRequest = 2;</code>
      */
     const ApprovementSignatureRequest = 2;
-
-    private static $valueToName = [
-        self::ApprovementRequest => 'ApprovementRequest',
-        self::UnknownResolutionRequestType => 'UnknownResolutionRequestType',
-        self::SignatureRequest => 'SignatureRequest',
-        self::ApprovementSignatureRequest => 'ApprovementSignatureRequest',
-    ];
-
-    public static function name($value)
-    {
-        if (!isset(self::$valueToName[$value])) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no name defined for value %s', __CLASS__, $value));
-        }
-        return self::$valueToName[$value];
-    }
-
-
-    public static function value($name)
-    {
-        $const = __CLASS__ . '::' . strtoupper($name);
-        if (!defined($const)) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no value defined for name %s', __CLASS__, $name));
-        }
-        return constant($const);
-    }
 }
 

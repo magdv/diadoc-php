@@ -16,15 +16,15 @@ class Entity extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string EntityId = 1;</code>
      */
-    protected $EntityId = '';
+    private $EntityId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp CreationTimestamp = 2;</code>
      */
-    protected $CreationTimestamp = null;
+    private $CreationTimestamp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Content Content = 3;</code>
      */
-    protected $Content = null;
+    private $Content = null;
 
     /**
      * Constructor.

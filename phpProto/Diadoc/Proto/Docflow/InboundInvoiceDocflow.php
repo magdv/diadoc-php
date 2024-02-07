@@ -16,35 +16,35 @@ class InboundInvoiceDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    protected $IsFinished = false;
+    private $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.InboundInvoiceReceiptDocflow ReceiptDocflow = 2;</code>
      */
-    protected $ReceiptDocflow = null;
+    private $ReceiptDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.InvoiceConfirmationDocflow ConfirmationDocflow = 3;</code>
      */
-    protected $ConfirmationDocflow = null;
+    private $ConfirmationDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.InvoiceCorrectionRequestDocflow CorrectionRequestDocflow = 4;</code>
      */
-    protected $CorrectionRequestDocflow = null;
+    private $CorrectionRequestDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp ConfirmationTimestamp = 5;</code>
      */
-    protected $ConfirmationTimestamp = null;
+    private $ConfirmationTimestamp = null;
     /**
      * Generated from protobuf field <code>bool IsAmendmentRequested = 6;</code>
      */
-    protected $IsAmendmentRequested = false;
+    private $IsAmendmentRequested = false;
     /**
      * Generated from protobuf field <code>bool IsRevised = 7;</code>
      */
-    protected $IsRevised = false;
+    private $IsRevised = false;
     /**
      * Generated from protobuf field <code>bool IsCorrected = 8;</code>
      */
-    protected $IsCorrected = false;
+    private $IsCorrected = false;
 
     /**
      * Constructor.

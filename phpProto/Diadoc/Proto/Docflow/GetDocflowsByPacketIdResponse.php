@@ -20,7 +20,7 @@ class GetDocflowsByPacketIdResponse extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bytes NextPageIndexKey = 2;</code>
      */
-    protected $NextPageIndexKey = '';
+    private $NextPageIndexKey = '';
 
     /**
      * Constructor.

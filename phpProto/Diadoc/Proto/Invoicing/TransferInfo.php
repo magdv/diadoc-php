@@ -18,19 +18,19 @@ class TransferInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string OperationInfo = 1;</code>
      */
-    protected $OperationInfo = '';
+    private $OperationInfo = '';
     /**
      * Вид операции // ВидОпер
      *
      * Generated from protobuf field <code>string OperationType = 2;</code>
      */
-    protected $OperationType = '';
+    private $OperationType = '';
     /**
      * Дата отгрузки // ДатаПер
      *
      * Generated from protobuf field <code>string TransferDate = 3;</code>
      */
-    protected $TransferDate = '';
+    private $TransferDate = '';
     /**
      * Основание отгрузки //ОснПер
      *
@@ -42,7 +42,7 @@ class TransferInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string TransferTextInfo = 5;</code>
      */
-    protected $TransferTextInfo = '';
+    private $TransferTextInfo = '';
     /**
      * Транспортная накладная //ТранНакл
      *
@@ -54,37 +54,37 @@ class TransferInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Organizations.ExtendedOrganizationInfo Carrier = 7;</code>
      */
-    protected $Carrier = null;
+    private $Carrier = null;
     /**
      * Работник организации продавца //РабОргПрод
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Employee Employee = 8;</code>
      */
-    protected $Employee = null;
+    private $Employee = null;
     /**
      * Иное лицо //ИнЛицо
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.OtherIssuer OtherIssuer = 9;</code>
      */
-    protected $OtherIssuer = null;
+    private $OtherIssuer = null;
     /**
      * Дата передачи вещи, изготовленной по договору //ДатаПерВещ
      *
      * Generated from protobuf field <code>string CreatedThingTransferDate = 10;</code>
      */
-    protected $CreatedThingTransferDate = '';
+    private $CreatedThingTransferDate = '';
     /**
      * Сведения о передаче, изготовленной по договору //СвПерВещ
      *
      * Generated from protobuf field <code>string CreatedThingInfo = 11;</code>
      */
-    protected $CreatedThingInfo = '';
+    private $CreatedThingInfo = '';
     /**
      * Информационное поле документа // ИнфПолФХЖ3
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.AdditionalInfoId AdditionalInfoId = 12;</code>
      */
-    protected $AdditionalInfoId = null;
+    private $AdditionalInfoId = null;
 
     /**
      * Constructor.

@@ -18,13 +18,13 @@ class DiadocOrganizationInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    protected $BoxId = '';
+    private $BoxId = '';
     /**
      * реквизиты организации
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.OrganizationInfo OrgInfo = 2;</code>
      */
-    protected $OrgInfo = null;
+    private $OrgInfo = null;
 
     /**
      * Constructor.

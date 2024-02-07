@@ -16,7 +16,7 @@ class AsyncMethodResult extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string TaskId = 1;</code>
      */
-    protected $TaskId = '';
+    private $TaskId = '';
 
     /**
      * Constructor.

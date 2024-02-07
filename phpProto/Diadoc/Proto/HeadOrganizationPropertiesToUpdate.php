@@ -16,15 +16,15 @@ class HeadOrganizationPropertiesToUpdate extends \Google\Protobuf\Internal\Messa
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.StringValue Kpp = 1;</code>
      */
-    protected $Kpp = null;
+    private $Kpp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.StringValue FullName = 2;</code>
      */
-    protected $FullName = null;
+    private $FullName = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Address Address = 3;</code>
      */
-    protected $Address = null;
+    private $Address = null;
 
     /**
      * Constructor.

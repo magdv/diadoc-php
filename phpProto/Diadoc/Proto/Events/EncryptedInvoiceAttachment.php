@@ -16,11 +16,11 @@ class EncryptedInvoiceAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.SignedContent SignedContent = 1;</code>
      */
-    protected $SignedContent = null;
+    private $SignedContent = null;
     /**
      * Generated from protobuf field <code>string Comment = 3;</code>
      */
-    protected $Comment = '';
+    private $Comment = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId InitialDocumentIds = 4;</code>
      */
@@ -32,7 +32,7 @@ class EncryptedInvoiceAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string CustomDocumentId = 6;</code>
      */
-    protected $CustomDocumentId = '';
+    private $CustomDocumentId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.CustomDataItem CustomData = 7;</code>
      */
@@ -40,15 +40,15 @@ class EncryptedInvoiceAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.EncryptedDocumentMetadata Metadata = 8;</code>
      */
-    protected $Metadata = null;
+    private $Metadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.EncryptedInvoiceMetadata InvoiceMetadata = 9;</code>
      */
-    protected $InvoiceMetadata = null;
+    private $InvoiceMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.EncryptedInvoiceCorrectionMetadata InvoiceCorrectionMetadata = 10;</code>
      */
-    protected $InvoiceCorrectionMetadata = null;
+    private $InvoiceCorrectionMetadata = null;
 
     /**
      * Constructor.

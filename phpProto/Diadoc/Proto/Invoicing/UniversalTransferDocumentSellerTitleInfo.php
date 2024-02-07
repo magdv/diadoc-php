@@ -18,49 +18,49 @@ class UniversalTransferDocumentSellerTitleInfo extends \Google\Protobuf\Internal
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.FunctionType Function = 1;</code>
      */
-    protected $Function = 0;
+    private $Function = 0;
     /**
      * Наименование первичного документа, определенное организацией // НаимДокОпр
      *
      * Generated from protobuf field <code>string DocumentName = 2;</code>
      */
-    protected $DocumentName = '';
+    private $DocumentName = '';
     /**
      * дата УПД // ДатаСчФ
      *
      * Generated from protobuf field <code>string DocumentDate = 3;</code>
      */
-    protected $DocumentDate = '';
+    private $DocumentDate = '';
     /**
      * номер УПД // НомерСчФ
      *
      * Generated from protobuf field <code>string DocumentNumber = 4;</code>
      */
-    protected $DocumentNumber = '';
+    private $DocumentNumber = '';
     /**
      * продавец // СвПрод
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Organizations.ExtendedOrganizationInfo Seller = 5;</code>
      */
-    protected $Seller = null;
+    private $Seller = null;
     /**
      * покупатель //СвПокуп
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Organizations.ExtendedOrganizationInfo Buyer = 6;</code>
      */
-    protected $Buyer = null;
+    private $Buyer = null;
     /**
      * грузоотправитель //ГрузОт
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Shipper Shipper = 7;</code>
      */
-    protected $Shipper = null;
+    private $Shipper = null;
     /**
      * грузополучатель //ГрузПолуч
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Organizations.ExtendedOrganizationInfo Consignee = 8;</code>
      */
-    protected $Consignee = null;
+    private $Consignee = null;
     /**
      * подписант // Подписант
      *
@@ -78,61 +78,61 @@ class UniversalTransferDocumentSellerTitleInfo extends \Google\Protobuf\Internal
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.InvoiceTable InvoiceTable = 11;</code>
      */
-    protected $InvoiceTable = null;
+    private $InvoiceTable = null;
     /**
      * валюта (код) // КодОКВ
      *
      * Generated from protobuf field <code>string Currency = 12;</code>
      */
-    protected $Currency = '';
+    private $Currency = '';
     /**
      * Курс валюты // КурсВал
      *
      * Generated from protobuf field <code>string CurrencyRate = 13;</code>
      */
-    protected $CurrencyRate = '';
+    private $CurrencyRate = '';
     /**
      * дата ИСФ (обязательно при формировании UniversalTransferDocumentSellerTitleRevision) // ДатаИспрСчФ
      *
      * Generated from protobuf field <code>string RevisionDate = 14;</code>
      */
-    protected $RevisionDate = '';
+    private $RevisionDate = '';
     /**
      * номер ИСФ (обязательно при формировании UniversalTransferDocumentSellerTitleRevision) // НомИспрСчФ
      *
      * Generated from protobuf field <code>string RevisionNumber = 15;</code>
      */
-    protected $RevisionNumber = '';
+    private $RevisionNumber = '';
     /**
      * информационное поле документа // ИнфПолФХЖ1
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.AdditionalInfoId AdditionalInfoId = 16;</code>
      */
-    protected $AdditionalInfoId = null;
+    private $AdditionalInfoId = null;
     /**
      * Сведения о передаче (сдаче) // СвПер
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.TransferInfo TransferInfo = 17;</code>
      */
-    protected $TransferInfo = null;
+    private $TransferInfo = null;
     /**
      * Составитель файла обмена счета-фактуры (информации продавца) // НаимЭконСубСост
      *
      * Generated from protobuf field <code>string DocumentCreator = 18;</code>
      */
-    protected $DocumentCreator = '';
+    private $DocumentCreator = '';
     /**
      * Основание, по которому экономический субъект является составителем файла обмена счета-фактуры //ОснДоверОргСост
      *
      * Generated from protobuf field <code>string DocumentCreatorBase = 19;</code>
      */
-    protected $DocumentCreatorBase = '';
+    private $DocumentCreatorBase = '';
     /**
      * ИдГосКон
      *
      * Generated from protobuf field <code>string GovermentContractInfo = 20;</code>
      */
-    protected $GovermentContractInfo = '';
+    private $GovermentContractInfo = '';
 
     /**
      * Constructor.

@@ -18,37 +18,37 @@ class InvoiceCorrectionItem extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Product = 1;</code>
      */
-    protected $Product = '';
+    private $Product = '';
     /**
      * значения до изменения
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.CorrectableInvoiceItemFields OriginalValues = 2;</code>
      */
-    protected $OriginalValues = null;
+    private $OriginalValues = null;
     /**
      * значения после изменения
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.CorrectableInvoiceItemFields CorrectedValues = 3;</code>
      */
-    protected $CorrectedValues = null;
+    private $CorrectedValues = null;
     /**
      * суммы к увеличению
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.InvoiceItemAmountsDiff AmountsInc = 4;</code>
      */
-    protected $AmountsInc = null;
+    private $AmountsInc = null;
     /**
      * суммы к уменьшению
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.InvoiceItemAmountsDiff AmountsDec = 5;</code>
      */
-    protected $AmountsDec = null;
+    private $AmountsDec = null;
     /**
      * информационное поле товара v5.01
      *
      * Generated from protobuf field <code>string AdditionalInfo = 6;</code>
      */
-    protected $AdditionalInfo = '';
+    private $AdditionalInfo = '';
     /**
      * информационное поле документа v5.02
      *

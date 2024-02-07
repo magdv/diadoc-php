@@ -16,11 +16,11 @@ class ContractDocumentInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ContractPrice = 1;</code>
      */
-    protected $ContractPrice = '';
+    private $ContractPrice = '';
     /**
      * Generated from protobuf field <code>string ContractType = 2;</code>
      */
-    protected $ContractType = '';
+    private $ContractType = '';
 
     /**
      * Constructor.

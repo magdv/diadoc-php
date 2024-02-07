@@ -20,73 +20,73 @@ class Torg12SellerTitleInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string DocumentDate = 1;</code>
      */
-    protected $DocumentDate = '';
+    private $DocumentDate = '';
     /**
      * номер товарной накладной
      *
      * Generated from protobuf field <code>string DocumentNumber = 2;</code>
      */
-    protected $DocumentNumber = '';
+    private $DocumentNumber = '';
     /**
      * участник документооборота, отпустивший товар
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.DocflowParticipant SellerDocflowParticipant = 3;</code>
      */
-    protected $SellerDocflowParticipant = null;
+    private $SellerDocflowParticipant = null;
     /**
      * участник документооборота, которому отпущен товар
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.DocflowParticipant BuyerDocflowParticipant = 4;</code>
      */
-    protected $BuyerDocflowParticipant = null;
+    private $BuyerDocflowParticipant = null;
     /**
      * грузоотправитель
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.OrganizationInfo Shipper = 5;</code>
      */
-    protected $Shipper = null;
+    private $Shipper = null;
     /**
      * грузополучатель
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.OrganizationInfo Consignee = 6;</code>
      */
-    protected $Consignee = null;
+    private $Consignee = null;
     /**
      * поставщик
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.OrganizationInfo Supplier = 7;</code>
      */
-    protected $Supplier = null;
+    private $Supplier = null;
     /**
      * плательщик
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.OrganizationInfo Payer = 8;</code>
      */
-    protected $Payer = null;
+    private $Payer = null;
     /**
      * основание
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Grounds Grounds = 9;</code>
      */
-    protected $Grounds = null;
+    private $Grounds = null;
     /**
      * дата составления транспортной накладной
      *
      * Generated from protobuf field <code>string WaybillDate = 10;</code>
      */
-    protected $WaybillDate = '';
+    private $WaybillDate = '';
     /**
      * номер транспортной накладной
      *
      * Generated from protobuf field <code>string WaybillNumber = 11;</code>
      */
-    protected $WaybillNumber = '';
+    private $WaybillNumber = '';
     /**
      * код вида операции
      *
      * Generated from protobuf field <code>string OperationCode = 12;</code>
      */
-    protected $OperationCode = '';
+    private $OperationCode = '';
     /**
      * табличные сведения товарной накладной
      *
@@ -98,109 +98,109 @@ class Torg12SellerTitleInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string ParcelsQuantityTotal = 14;</code>
      */
-    protected $ParcelsQuantityTotal = '';
+    private $ParcelsQuantityTotal = '';
     /**
      * количество мест, штук - всего по накладной, прописью
      *
      * Generated from protobuf field <code>string ParcelsQuantityTotalInWords = 15;</code>
      */
-    protected $ParcelsQuantityTotalInWords = '';
+    private $ParcelsQuantityTotalInWords = '';
     /**
      * брутто - всего по накладной
      *
      * Generated from protobuf field <code>string GrossQuantityTotal = 16;</code>
      */
-    protected $GrossQuantityTotal = '';
+    private $GrossQuantityTotal = '';
     /**
      * брутто - всего по накладной, прописью
      *
      * Generated from protobuf field <code>string GrossQuantityTotalInWords = 17;</code>
      */
-    protected $GrossQuantityTotalInWords = '';
+    private $GrossQuantityTotalInWords = '';
     /**
      * нетто - всего по накладной
      *
      * Generated from protobuf field <code>string NetQuantityTotal = 18;</code>
      */
-    protected $NetQuantityTotal = '';
+    private $NetQuantityTotal = '';
     /**
      * нетто - всего по накладной, прописью
      *
      * Generated from protobuf field <code>string NetQuantityTotalInWords = 19;</code>
      */
-    protected $NetQuantityTotalInWords = '';
+    private $NetQuantityTotalInWords = '';
     /**
      * количество (масса нетто) - всего по накладной
      *
      * Generated from protobuf field <code>string QuantityTotal = 20;</code>
      */
-    protected $QuantityTotal = '';
+    private $QuantityTotal = '';
     /**
      * сумма без учета НДС - всего по накладной
      *
      * Generated from protobuf field <code>string TotalWithVatExcluded = 21;</code>
      */
-    protected $TotalWithVatExcluded = '';
+    private $TotalWithVatExcluded = '';
     /**
      * сумма НДС - всего по накладной
      *
      * Generated from protobuf field <code>string Vat = 22;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * сумма с учетом НДС - всего по накладной
      *
      * Generated from protobuf field <code>string Total = 23;</code>
      */
-    protected $Total = '';
+    private $Total = '';
     /**
      * сумма с учетом НДС - всего по накладной, прописью
      *
      * Generated from protobuf field <code>string TotalInWords = 24;</code>
      */
-    protected $TotalInWords = '';
+    private $TotalInWords = '';
     /**
      * дата отпуска
      *
      * Generated from protobuf field <code>string SupplyDate = 25;</code>
      */
-    protected $SupplyDate = '';
+    private $SupplyDate = '';
     /**
      * отпуск разрешил
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Official SupplyAllowedBy = 26;</code>
      */
-    protected $SupplyAllowedBy = null;
+    private $SupplyAllowedBy = null;
     /**
      * отпуск произвел
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Official SupplyPerformedBy = 27;</code>
      */
-    protected $SupplyPerformedBy = null;
+    private $SupplyPerformedBy = null;
     /**
      * главный бухгалтер
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Official ChiefAccountant = 28;</code>
      */
-    protected $ChiefAccountant = null;
+    private $ChiefAccountant = null;
     /**
      * подписант
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 29;</code>
      */
-    protected $Signer = null;
+    private $Signer = null;
     /**
      * дополнительные сведения
      *
      * Generated from protobuf field <code>string AdditionalInfo = 30;</code>
      */
-    protected $AdditionalInfo = '';
+    private $AdditionalInfo = '';
     /**
      * приложение, количество листов
      *
      * Generated from protobuf field <code>string AttachmentSheetsQuantity = 31;</code>
      */
-    protected $AttachmentSheetsQuantity = '';
+    private $AttachmentSheetsQuantity = '';
 
     /**
      * Constructor.

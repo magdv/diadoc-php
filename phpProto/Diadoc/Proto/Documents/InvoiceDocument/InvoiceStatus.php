@@ -4,8 +4,6 @@
 
 namespace Diadoc\Proto\Documents\InvoiceDocument;
 
-use UnexpectedValueException;
-
 /**
  * Protobuf type <code>Diadoc.Proto.Documents.InvoiceDocument.InvoiceStatus</code>
  */
@@ -45,36 +43,5 @@ class InvoiceStatus
      * Generated from protobuf enum <code>InboundFinished = 5;</code>
      */
     const InboundFinished = 5;
-
-    private static $valueToName = [
-        self::UnknownInvoiceStatus => 'UnknownInvoiceStatus',
-        self::OutboundWaitingForInvoiceReceipt => 'OutboundWaitingForInvoiceReceipt',
-        self::OutboundNotFinished => 'OutboundNotFinished',
-        self::OutboundFinished => 'OutboundFinished',
-        self::OutboundWaitingForSenderSignature => 'OutboundWaitingForSenderSignature',
-        self::OutboundInvalidSenderSignature => 'OutboundInvalidSenderSignature',
-        self::InboundNotFinished => 'InboundNotFinished',
-        self::InboundFinished => 'InboundFinished',
-    ];
-
-    public static function name($value)
-    {
-        if (!isset(self::$valueToName[$value])) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no name defined for value %s', __CLASS__, $value));
-        }
-        return self::$valueToName[$value];
-    }
-
-
-    public static function value($name)
-    {
-        $const = __CLASS__ . '::' . strtoupper($name);
-        if (!defined($const)) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no value defined for name %s', __CLASS__, $name));
-        }
-        return constant($const);
-    }
 }
 

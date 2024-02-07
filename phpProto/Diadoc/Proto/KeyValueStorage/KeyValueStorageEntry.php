@@ -18,11 +18,11 @@ class KeyValueStorageEntry extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Key = 1;</code>
      */
-    protected $Key = '';
+    private $Key = '';
     /**
      * Generated from protobuf field <code>string Value = 2;</code>
      */
-    protected $Value = '';
+    private $Value = '';
 
     /**
      * Constructor.

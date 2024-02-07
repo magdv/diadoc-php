@@ -22,4 +22,16 @@ class AuthTest extends BaseTest
         self::assertNotEmpty($token);
         self::assertTrue(strlen($token) > 50);
     }
+    public function testAuthenticateV3(): void
+    {
+        $api = new DiadocApi(
+            getenv(ConfigNames::DD_AUTH),
+            getenv(ConfigNames::DIADOC_URL)
+        );
+
+        $token = $api->authenticateLoginV3(getenv(ConfigNames::AUTH_LOGIN), getenv(ConfigNames::AUTH_PASSWORD));
+
+        self::assertNotEmpty($token);
+        self::assertTrue(strlen($token) > 50);
+    }
 }

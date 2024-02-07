@@ -16,19 +16,19 @@ class InvitationDocument extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.SignedContent SignedContent = 1;</code>
      */
-    protected $SignedContent = null;
+    private $SignedContent = null;
     /**
      * Generated from protobuf field <code>string FileName = 2;</code>
      */
-    protected $FileName = '';
+    private $FileName = '';
     /**
      * Generated from protobuf field <code>bool SignatureRequested = 3;</code>
      */
-    protected $SignatureRequested = false;
+    private $SignatureRequested = false;
     /**
      * Generated from protobuf field <code>string Type = 4;</code>
      */
-    protected $Type = '';
+    private $Type = '';
 
     /**
      * Constructor.

@@ -16,11 +16,11 @@ class RevocationRequestInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Comment = 1;</code>
      */
-    protected $Comment = '';
+    private $Comment = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 2;</code>
      */
-    protected $Signer = null;
+    private $Signer = null;
 
     /**
      * Constructor.

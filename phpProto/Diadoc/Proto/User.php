@@ -16,19 +16,19 @@ class User extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Id = 1;</code>
      */
-    protected $Id = '';
+    private $Id = '';
     /**
      * Generated from protobuf field <code>string LastName = 2;</code>
      */
-    protected $LastName = '';
+    private $LastName = '';
     /**
      * Generated from protobuf field <code>string FirstName = 3;</code>
      */
-    protected $FirstName = '';
+    private $FirstName = '';
     /**
      * Generated from protobuf field <code>string MiddleName = 4;</code>
      */
-    protected $MiddleName = '';
+    private $MiddleName = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.CertificateInfo CloudCertificates = 5;</code>
      */

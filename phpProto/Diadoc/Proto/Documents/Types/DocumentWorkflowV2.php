@@ -16,11 +16,11 @@ class DocumentWorkflowV2 extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>int32 Id = 1;</code>
      */
-    protected $Id = 0;
+    private $Id = 0;
     /**
      * Generated from protobuf field <code>bool IsDefault = 2;</code>
      */
-    protected $IsDefault = false;
+    private $IsDefault = false;
 
     /**
      * Constructor.

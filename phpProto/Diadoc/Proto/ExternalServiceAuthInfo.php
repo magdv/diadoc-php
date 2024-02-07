@@ -16,11 +16,11 @@ class ExternalServiceAuthInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ServiceUserId = 1;</code>
      */
-    protected $ServiceUserId = '';
+    private $ServiceUserId = '';
     /**
      * Generated from protobuf field <code>string Thumbprint = 2;</code>
      */
-    protected $Thumbprint = '';
+    private $Thumbprint = '';
 
     /**
      * Constructor.

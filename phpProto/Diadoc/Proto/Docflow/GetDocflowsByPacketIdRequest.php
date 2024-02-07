@@ -16,19 +16,19 @@ class GetDocflowsByPacketIdRequest extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string PacketId = 1;</code>
      */
-    protected $PacketId = '';
+    private $PacketId = '';
     /**
      * Generated from protobuf field <code>int32 Count = 2;</code>
      */
-    protected $Count = 0;
+    private $Count = 0;
     /**
      * Generated from protobuf field <code>bool InjectEntityContent = 3;</code>
      */
-    protected $InjectEntityContent = false;
+    private $InjectEntityContent = false;
     /**
      * Generated from protobuf field <code>bytes AfterIndexKey = 4;</code>
      */
-    protected $AfterIndexKey = '';
+    private $AfterIndexKey = '';
 
     /**
      * Constructor.

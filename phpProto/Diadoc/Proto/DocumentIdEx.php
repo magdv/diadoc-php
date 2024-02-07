@@ -16,15 +16,15 @@ class DocumentIdEx extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string MessageId = 1;</code>
      */
-    protected $MessageId = '';
+    private $MessageId = '';
     /**
      * Generated from protobuf field <code>string EntityId = 2;</code>
      */
-    protected $EntityId = '';
+    private $EntityId = '';
     /**
      * Generated from protobuf field <code>string BoxId = 3;</code>
      */
-    protected $BoxId = '';
+    private $BoxId = '';
 
     /**
      * Constructor.

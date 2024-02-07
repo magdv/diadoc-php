@@ -18,61 +18,61 @@ class ExtendedInvoiceItem extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Product = 1;</code>
      */
-    protected $Product = '';
+    private $Product = '';
     /**
      * единицы измерения товара (код) // ОКЕИ_Тов
      *
      * Generated from protobuf field <code>string Unit = 2;</code>
      */
-    protected $Unit = '';
+    private $Unit = '';
     /**
      * наименование единицы измерения товара. Пользователь заполняет, если ОКЕИ_Тов=’0000’               // НаимЕдИзм
      *
      * Generated from protobuf field <code>string UnitName = 3;</code>
      */
-    protected $UnitName = '';
+    private $UnitName = '';
     /**
      * количество единиц товара // КолТов
      *
      * Generated from protobuf field <code>string Quantity = 4;</code>
      */
-    protected $Quantity = '';
+    private $Quantity = '';
     /**
      * цена за единицу товара // ЦенаТов
      *
      * Generated from protobuf field <code>string Price = 5;</code>
      */
-    protected $Price = '';
+    private $Price = '';
     /**
      * акциз // СумАкциз
      *
      * Generated from protobuf field <code>string Excise = 6;</code>
      */
-    protected $Excise = '';
+    private $Excise = '';
     /**
      * ставка налога // НалСт
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.TaxRate TaxRate = 7;</code>
      */
-    protected $TaxRate = 0;
+    private $TaxRate = 0;
     /**
      * сумма без учета налога // СтТовБезНДС
      *
      * Generated from protobuf field <code>string SubtotalWithVatExcluded = 8;</code>
      */
-    protected $SubtotalWithVatExcluded = '';
+    private $SubtotalWithVatExcluded = '';
     /**
      * сумма налога // СумНал
      *
      * Generated from protobuf field <code>string Vat = 9;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * сумма всего // СтТовУчНал
      *
      * Generated from protobuf field <code>string Subtotal = 10;</code>
      */
-    protected $Subtotal = '';
+    private $Subtotal = '';
     /**
      * номера таможенных деклараций // СвТД
      *
@@ -84,37 +84,37 @@ class ExtendedInvoiceItem extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.ItemMark ItemMark = 12;</code>
      */
-    protected $ItemMark = 0;
+    private $ItemMark = 0;
     /**
      * Дополнительная информация о признаке //ДопПризн
      *
      * Generated from protobuf field <code>string AdditionalProperty = 13;</code>
      */
-    protected $AdditionalProperty = '';
+    private $AdditionalProperty = '';
     /**
      * Характеристика/код/артикул/сорт товара // КодТов
      *
      * Generated from protobuf field <code>string ItemVendorCode = 14;</code>
      */
-    protected $ItemVendorCode = '';
+    private $ItemVendorCode = '';
     /**
      * Количество надлежит отпустить // НадлОтп
      *
      * Generated from protobuf field <code>string ItemToRelease = 15;</code>
      */
-    protected $ItemToRelease = '';
+    private $ItemToRelease = '';
     /**
      * Корреспондирующие счета: дебет // КорСчДебет
      *
      * Generated from protobuf field <code>string ItemAccountDebit = 16;</code>
      */
-    protected $ItemAccountDebit = '';
+    private $ItemAccountDebit = '';
     /**
      * Корреспондирующие счета: кредит // КорСчКредит
      *
      * Generated from protobuf field <code>string ItemAccountCredit = 17;</code>
      */
-    protected $ItemAccountCredit = '';
+    private $ItemAccountCredit = '';
     /**
      * информационное поле документа // ИнфПолФХЖ2
      *

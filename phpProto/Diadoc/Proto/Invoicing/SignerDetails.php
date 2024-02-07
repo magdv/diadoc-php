@@ -16,27 +16,27 @@ class SignerDetails extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Surname = 1;</code>
      */
-    protected $Surname = '';
+    private $Surname = '';
     /**
      * Generated from protobuf field <code>string FirstName = 2;</code>
      */
-    protected $FirstName = '';
+    private $FirstName = '';
     /**
      * Generated from protobuf field <code>string Patronymic = 3;</code>
      */
-    protected $Patronymic = '';
+    private $Patronymic = '';
     /**
      * Generated from protobuf field <code>string JobTitle = 4;</code>
      */
-    protected $JobTitle = '';
+    private $JobTitle = '';
     /**
      * Generated from protobuf field <code>string Inn = 5;</code>
      */
-    protected $Inn = '';
+    private $Inn = '';
     /**
      * Generated from protobuf field <code>string SoleProprietorRegistrationCertificate = 6;</code>
      */
-    protected $SoleProprietorRegistrationCertificate = '';
+    private $SoleProprietorRegistrationCertificate = '';
 
     /**
      * Constructor.

@@ -24,25 +24,25 @@ class InvoiceTable extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string TotalWithVatExcluded = 2;</code>
      */
-    protected $TotalWithVatExcluded = '';
+    private $TotalWithVatExcluded = '';
     /**
      * Сумма налога // СумНалВсего
      *
      * Generated from protobuf field <code>string Vat = 3;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * Сумма всего // СтТовУчНалВсего
      *
      * Generated from protobuf field <code>string Total = 4;</code>
      */
-    protected $Total = '';
+    private $Total = '';
     /**
      * Нетто всего // НеттоВс}
      *
      * Generated from protobuf field <code>string TotalNet = 5;</code>
      */
-    protected $TotalNet = '';
+    private $TotalNet = '';
 
     /**
      * Constructor.

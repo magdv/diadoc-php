@@ -4,8 +4,6 @@
 
 namespace Diadoc\Proto\Invoicing;
 
-use UnexpectedValueException;
-
 /**
  * Protobuf type <code>Diadoc.Proto.Invoicing.TaxRate</code>
  */
@@ -39,35 +37,5 @@ class TaxRate
      * Generated from protobuf enum <code>Fraction_18_118 = 6;</code>
      */
     const Fraction_18_118 = 6;
-
-    private static $valueToName = [
-        self::NoVat => 'NoVat',
-        self::Percent_0 => 'Percent_0',
-        self::Percent_10 => 'Percent_10',
-        self::Percent_18 => 'Percent_18',
-        self::Percent_20 => 'Percent_20',
-        self::Fraction_10_110 => 'Fraction_10_110',
-        self::Fraction_18_118 => 'Fraction_18_118',
-    ];
-
-    public static function name($value)
-    {
-        if (!isset(self::$valueToName[$value])) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no name defined for value %s', __CLASS__, $value));
-        }
-        return self::$valueToName[$value];
-    }
-
-
-    public static function value($name)
-    {
-        $const = __CLASS__ . '::' . strtoupper($name);
-        if (!defined($const)) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no value defined for name %s', __CLASS__, $name));
-        }
-        return constant($const);
-    }
 }
 

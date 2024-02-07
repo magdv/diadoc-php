@@ -16,31 +16,31 @@ class Department extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string DepartmentId = 1;</code>
      */
-    protected $DepartmentId = '';
+    private $DepartmentId = '';
     /**
      * Generated from protobuf field <code>string ParentDepartmentId = 2;</code>
      */
-    protected $ParentDepartmentId = '';
+    private $ParentDepartmentId = '';
     /**
      * Generated from protobuf field <code>string Name = 3;</code>
      */
-    protected $Name = '';
+    private $Name = '';
     /**
      * Generated from protobuf field <code>string Abbreviation = 4;</code>
      */
-    protected $Abbreviation = '';
+    private $Abbreviation = '';
     /**
      * Generated from protobuf field <code>string Kpp = 5;</code>
      */
-    protected $Kpp = '';
+    private $Kpp = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Address Address = 6;</code>
      */
-    protected $Address = null;
+    private $Address = null;
     /**
      * Generated from protobuf field <code>bool IsDisabled = 7;</code>
      */
-    protected $IsDisabled = false;
+    private $IsDisabled = false;
 
     /**
      * Constructor.

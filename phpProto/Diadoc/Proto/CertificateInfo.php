@@ -16,15 +16,15 @@ class CertificateInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Thumbprint = 1;</code>
      */
-    protected $Thumbprint = '';
+    private $Thumbprint = '';
     /**
      * Generated from protobuf field <code>sfixed64 ValidFrom = 2;</code>
      */
-    protected $ValidFrom = 0;
+    private $ValidFrom = 0;
     /**
      * Generated from protobuf field <code>sfixed64 ValidTo = 3;</code>
      */
-    protected $ValidTo = 0;
+    private $ValidTo = 0;
 
     /**
      * Constructor.

@@ -16,27 +16,27 @@ class EntityPatch extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string EntityId = 1;</code>
      */
-    protected $EntityId = '';
+    private $EntityId = '';
     /**
      * Generated from protobuf field <code>bool DocumentIsDeleted = 2;</code>
      */
-    protected $DocumentIsDeleted = false;
+    private $DocumentIsDeleted = false;
     /**
      * Generated from protobuf field <code>string MovedToDepartment = 3;</code>
      */
-    protected $MovedToDepartment = '';
+    private $MovedToDepartment = '';
     /**
      * Generated from protobuf field <code>bool DocumentIsRestored = 4;</code>
      */
-    protected $DocumentIsRestored = false;
+    private $DocumentIsRestored = false;
     /**
      * Generated from protobuf field <code>bool ContentIsPatched = 5;</code>
      */
-    protected $ContentIsPatched = false;
+    private $ContentIsPatched = false;
     /**
      * Generated from protobuf field <code>string ForwardedToBoxId = 6;</code>
      */
-    protected $ForwardedToBoxId = '';
+    private $ForwardedToBoxId = '';
 
     /**
      * Constructor.

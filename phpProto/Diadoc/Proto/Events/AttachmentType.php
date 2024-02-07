@@ -4,8 +4,6 @@
 
 namespace Diadoc\Proto\Events;
 
-use UnexpectedValueException;
-
 /**
  * Protobuf type <code>Diadoc.Proto.Events.AttachmentType</code>
  */
@@ -241,85 +239,5 @@ class AttachmentType
      * Generated from protobuf enum <code>PowerOfAttorneyStatus = 78;</code>
      */
     const PowerOfAttorneyStatus = 78;
-
-    private static $valueToName = [
-        self::Nonformalized => 'Nonformalized',
-        self::UnknownAttachmentType => 'UnknownAttachmentType',
-        self::Invoice => 'Invoice',
-        self::InvoiceReceipt => 'InvoiceReceipt',
-        self::InvoiceConfirmation => 'InvoiceConfirmation',
-        self::InvoiceCorrectionRequest => 'InvoiceCorrectionRequest',
-        self::AttachmentComment => 'AttachmentComment',
-        self::DeliveryFailureNotification => 'DeliveryFailureNotification',
-        self::SignatureRequestRejection => 'SignatureRequestRejection',
-        self::SignatureVerificationReport => 'SignatureVerificationReport',
-        self::TrustConnectionRequest => 'TrustConnectionRequest',
-        self::Torg12 => 'Torg12',
-        self::InvoiceRevision => 'InvoiceRevision',
-        self::InvoiceCorrection => 'InvoiceCorrection',
-        self::InvoiceCorrectionRevision => 'InvoiceCorrectionRevision',
-        self::AcceptanceCertificate => 'AcceptanceCertificate',
-        self::StructuredData => 'StructuredData',
-        self::ProformaInvoice => 'ProformaInvoice',
-        self::XmlTorg12 => 'XmlTorg12',
-        self::XmlAcceptanceCertificate => 'XmlAcceptanceCertificate',
-        self::XmlTorg12BuyerTitle => 'XmlTorg12BuyerTitle',
-        self::XmlAcceptanceCertificateBuyerTitle => 'XmlAcceptanceCertificateBuyerTitle',
-        self::Resolution => 'Resolution',
-        self::ResolutionRequest => 'ResolutionRequest',
-        self::ResolutionRequestDenial => 'ResolutionRequestDenial',
-        self::PriceList => 'PriceList',
-        self::Receipt => 'Receipt',
-        self::XmlSignatureRejection => 'XmlSignatureRejection',
-        self::RevocationRequest => 'RevocationRequest',
-        self::PriceListAgreement => 'PriceListAgreement',
-        self::CertificateRegistry => 'CertificateRegistry',
-        self::ReconciliationAct => 'ReconciliationAct',
-        self::Contract => 'Contract',
-        self::Torg13 => 'Torg13',
-        self::ServiceDetails => 'ServiceDetails',
-        self::RoamingNotification => 'RoamingNotification',
-        self::SupplementaryAgreement => 'SupplementaryAgreement',
-        self::UniversalTransferDocument => 'UniversalTransferDocument',
-        self::UniversalTransferDocumentBuyerTitle => 'UniversalTransferDocumentBuyerTitle',
-        self::UniversalTransferDocumentRevision => 'UniversalTransferDocumentRevision',
-        self::UniversalCorrectionDocument => 'UniversalCorrectionDocument',
-        self::UniversalCorrectionDocumentRevision => 'UniversalCorrectionDocumentRevision',
-        self::UniversalCorrectionDocumentBuyerTitle => 'UniversalCorrectionDocumentBuyerTitle',
-        self::CustomData => 'CustomData',
-        self::MoveDocument => 'MoveDocument',
-        self::ResolutionRouteAssignment => 'ResolutionRouteAssignment',
-        self::ResolutionRouteRemoval => 'ResolutionRouteRemoval',
-        self::Title => 'Title',
-        self::Cancellation => 'Cancellation',
-        self::Edition => 'Edition',
-        self::DeletionRestoration => 'DeletionRestoration',
-        self::TemplateTransformation => 'TemplateTransformation',
-        self::TemplateRefusal => 'TemplateRefusal',
-        self::OuterDocflow => 'OuterDocflow',
-        self::RoamingConfirmation => 'RoamingConfirmation',
-        self::PowerOfAttorney => 'PowerOfAttorney',
-        self::PowerOfAttorneyStatus => 'PowerOfAttorneyStatus',
-    ];
-
-    public static function name($value)
-    {
-        if (!isset(self::$valueToName[$value])) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no name defined for value %s', __CLASS__, $value));
-        }
-        return self::$valueToName[$value];
-    }
-
-
-    public static function value($name)
-    {
-        $const = __CLASS__ . '::' . strtoupper($name);
-        if (!defined($const)) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no value defined for name %s', __CLASS__, $name));
-        }
-        return constant($const);
-    }
 }
 

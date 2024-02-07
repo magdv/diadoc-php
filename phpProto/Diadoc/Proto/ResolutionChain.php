@@ -16,11 +16,11 @@ class ResolutionChain extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ChainId = 1;</code>
      */
-    protected $ChainId = '';
+    private $ChainId = '';
     /**
      * Generated from protobuf field <code>string Name = 2;</code>
      */
-    protected $Name = '';
+    private $Name = '';
 
     /**
      * Constructor.

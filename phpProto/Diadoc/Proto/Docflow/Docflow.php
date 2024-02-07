@@ -16,77 +16,77 @@ class Docflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    protected $IsFinished = false;
+    private $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.SignedAttachment DocumentAttachment = 2;</code>
      */
-    protected $DocumentAttachment = null;
+    private $DocumentAttachment = null;
     /**
      * Generated from protobuf field <code>string DepartmentId = 3;</code>
      */
-    protected $DepartmentId = '';
+    private $DepartmentId = '';
     /**
      * Generated from protobuf field <code>bool DocumentIsDeleted = 4;</code>
      */
-    protected $DocumentIsDeleted = false;
+    private $DocumentIsDeleted = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocflowStatus DocflowStatus = 5;</code>
      */
-    protected $DocflowStatus = null;
+    private $DocflowStatus = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp SendTimestamp = 6;</code>
      */
-    protected $SendTimestamp = null;
+    private $SendTimestamp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp DeliveryTimestamp = 7;</code>
      */
-    protected $DeliveryTimestamp = null;
+    private $DeliveryTimestamp = null;
     /**
      * for Invoice, InvoiceRevision, InvoiceCorrection, InvoiceCorrectionRevision
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.InboundInvoiceDocflow InboundInvoiceDocflow = 8;</code>
      */
-    protected $InboundInvoiceDocflow = null;
+    private $InboundInvoiceDocflow = null;
     /**
      * for Invoice, InvoiceRevision, InvoiceCorrection, InvoiceCorrectionRevision
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.OutboundInvoiceDocflow OutboundInvoiceDocflow = 9;</code>
      */
-    protected $OutboundInvoiceDocflow = null;
+    private $OutboundInvoiceDocflow = null;
     /**
      * for XmlTorg12, XmlAcceptanceCertificate
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.XmlBilateralDocflow XmlBilateralDocflow = 10;</code>
      */
-    protected $XmlBilateralDocflow = null;
+    private $XmlBilateralDocflow = null;
     /**
      * for Nonformalized, Torg12, AcceptanceCertificate, TrustConnectionRequest, PriceList, PriceListAgreement, CertificateRegistry, ReconciliationAct, Contract, Torg13
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.BilateralDocflow BilateralDocflow = 11;</code>
      */
-    protected $BilateralDocflow = null;
+    private $BilateralDocflow = null;
     /**
      * for ProformaInvoice, ServiceDetails
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.UnilateralDocflow UnilateralDocflow = 12;</code>
      */
-    protected $UnilateralDocflow = null;
+    private $UnilateralDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.RevocationDocflow RevocationDocflow = 13;</code>
      */
-    protected $RevocationDocflow = null;
+    private $RevocationDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.ResolutionDocflow ResolutionDocflow = 14;</code>
      */
-    protected $ResolutionDocflow = null;
+    private $ResolutionDocflow = null;
     /**
      * Generated from protobuf field <code>bool CanDocumentBeRevokedUnilaterallyBySender = 15;</code>
      */
-    protected $CanDocumentBeRevokedUnilaterallyBySender = false;
+    private $CanDocumentBeRevokedUnilaterallyBySender = false;
     /**
      * Generated from protobuf field <code>string PacketId = 16;</code>
      */
-    protected $PacketId = '';
+    private $PacketId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.CustomDataItem CustomData = 17;</code>
      */

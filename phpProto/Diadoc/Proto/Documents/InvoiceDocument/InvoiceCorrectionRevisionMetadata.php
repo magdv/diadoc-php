@@ -16,59 +16,59 @@ class InvoiceCorrectionRevisionMetadata extends \Google\Protobuf\Internal\Messag
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.InvoiceDocument.InvoiceStatus InvoiceCorrectionRevisionStatus = 1;</code>
      */
-    protected $InvoiceCorrectionRevisionStatus = 0;
+    private $InvoiceCorrectionRevisionStatus = 0;
     /**
      * Generated from protobuf field <code>string OriginalInvoiceNumber = 2;</code>
      */
-    protected $OriginalInvoiceNumber = '';
+    private $OriginalInvoiceNumber = '';
     /**
      * Generated from protobuf field <code>string OriginalInvoiceDate = 3;</code>
      */
-    protected $OriginalInvoiceDate = '';
+    private $OriginalInvoiceDate = '';
     /**
      * Generated from protobuf field <code>string OriginalInvoiceRevisionNumber = 4;</code>
      */
-    protected $OriginalInvoiceRevisionNumber = '';
+    private $OriginalInvoiceRevisionNumber = '';
     /**
      * Generated from protobuf field <code>string OriginalInvoiceRevisionDate = 5;</code>
      */
-    protected $OriginalInvoiceRevisionDate = '';
+    private $OriginalInvoiceRevisionDate = '';
     /**
      * Generated from protobuf field <code>string OriginalInvoiceCorrectionNumber = 6;</code>
      */
-    protected $OriginalInvoiceCorrectionNumber = '';
+    private $OriginalInvoiceCorrectionNumber = '';
     /**
      * Generated from protobuf field <code>string OriginalInvoiceCorrectionDate = 7;</code>
      */
-    protected $OriginalInvoiceCorrectionDate = '';
+    private $OriginalInvoiceCorrectionDate = '';
     /**
      * Generated from protobuf field <code>string TotalInc = 8;</code>
      */
-    protected $TotalInc = '';
+    private $TotalInc = '';
     /**
      * Generated from protobuf field <code>string TotalDec = 9;</code>
      */
-    protected $TotalDec = '';
+    private $TotalDec = '';
     /**
      * Generated from protobuf field <code>string VatInc = 10;</code>
      */
-    protected $VatInc = '';
+    private $VatInc = '';
     /**
      * Generated from protobuf field <code>string VatDec = 11;</code>
      */
-    protected $VatDec = '';
+    private $VatDec = '';
     /**
      * Generated from protobuf field <code>int32 Currency = 12;</code>
      */
-    protected $Currency = 0;
+    private $Currency = 0;
     /**
      * Generated from protobuf field <code>sfixed64 ConfirmationDateTimeTicks = 13;</code>
      */
-    protected $ConfirmationDateTimeTicks = 0;
+    private $ConfirmationDateTimeTicks = 0;
     /**
      * Generated from protobuf field <code>int32 InvoiceAmendmentFlags = 14;</code>
      */
-    protected $InvoiceAmendmentFlags = 0;
+    private $InvoiceAmendmentFlags = 0;
 
     /**
      * Constructor.

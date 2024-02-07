@@ -16,7 +16,7 @@ class StringValue extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Value = 1;</code>
      */
-    protected $Value = '';
+    private $Value = '';
 
     /**
      * Constructor.

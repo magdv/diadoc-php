@@ -4,8 +4,6 @@
 
 namespace Diadoc\Proto;
 
-use UnexpectedValueException;
-
 /**
  * Protobuf type <code>Diadoc.Proto.OrganizationInvoiceFormatVersion</code>
  */
@@ -25,31 +23,5 @@ class OrganizationInvoiceFormatVersion
      * Generated from protobuf enum <code>v5_02 = 2;</code>
      */
     const v5_02 = 2;
-
-    private static $valueToName = [
-        self::PBdefault => 'PBdefault',
-        self::v5_01 => 'v5_01',
-        self::v5_02 => 'v5_02',
-    ];
-
-    public static function name($value)
-    {
-        if (!isset(self::$valueToName[$value])) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no name defined for value %s', __CLASS__, $value));
-        }
-        return self::$valueToName[$value];
-    }
-
-
-    public static function value($name)
-    {
-        $const = __CLASS__ . '::' . strtoupper($name);
-        if (!defined($const)) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no value defined for name %s', __CLASS__, $name));
-        }
-        return constant($const);
-    }
 }
 

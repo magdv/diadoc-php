@@ -16,19 +16,19 @@ class BuyerTitleDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    protected $IsFinished = false;
+    private $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.SignedAttachment BuyerTitleAttachment = 2;</code>
      */
-    protected $BuyerTitleAttachment = null;
+    private $BuyerTitleAttachment = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp SendTimestamp = 3;</code>
      */
-    protected $SendTimestamp = null;
+    private $SendTimestamp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp DeliveryTimestamp = 4;</code>
      */
-    protected $DeliveryTimestamp = null;
+    private $DeliveryTimestamp = null;
 
     /**
      * Constructor.

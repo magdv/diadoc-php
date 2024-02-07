@@ -18,19 +18,19 @@ class AcceptanceCertificateSignatureInfo extends \Google\Protobuf\Internal\Messa
      *
      * Generated from protobuf field <code>string SignatureDate = 1;</code>
      */
-    protected $SignatureDate = '';
+    private $SignatureDate = '';
     /**
      * лицо, подписывающее со стороны исполнителя / заказчика
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Official Official = 2;</code>
      */
-    protected $Official = null;
+    private $Official = null;
     /**
      * сведения о доверенности подписывающего со стороны исполнителя / заказчика
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Attorney Attorney = 3;</code>
      */
-    protected $Attorney = null;
+    private $Attorney = null;
 
     /**
      * Constructor.

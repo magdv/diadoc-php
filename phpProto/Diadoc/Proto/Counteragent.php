@@ -16,27 +16,27 @@ class Counteragent extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string IndexKey = 1;</code>
      */
-    protected $IndexKey = '';
+    private $IndexKey = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Organization Organization = 2;</code>
      */
-    protected $Organization = null;
+    private $Organization = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.CounteragentStatus CurrentStatus = 3;</code>
      */
-    protected $CurrentStatus = 0;
+    private $CurrentStatus = 0;
     /**
      * Generated from protobuf field <code>sfixed64 LastEventTimestampTicks = 4;</code>
      */
-    protected $LastEventTimestampTicks = 0;
+    private $LastEventTimestampTicks = 0;
     /**
      * Generated from protobuf field <code>string MessageFromCounteragent = 6;</code>
      */
-    protected $MessageFromCounteragent = '';
+    private $MessageFromCounteragent = '';
     /**
      * Generated from protobuf field <code>string MessageToCounteragent = 7;</code>
      */
-    protected $MessageToCounteragent = '';
+    private $MessageToCounteragent = '';
 
     /**
      * Constructor.

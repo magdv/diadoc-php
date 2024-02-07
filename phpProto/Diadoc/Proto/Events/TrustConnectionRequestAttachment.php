@@ -16,19 +16,19 @@ class TrustConnectionRequestAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.SignedContent SignedContent = 1;</code>
      */
-    protected $SignedContent = null;
+    private $SignedContent = null;
     /**
      * Generated from protobuf field <code>string FileName = 2;</code>
      */
-    protected $FileName = '';
+    private $FileName = '';
     /**
      * Generated from protobuf field <code>string Comment = 3;</code>
      */
-    protected $Comment = '';
+    private $Comment = '';
     /**
      * Generated from protobuf field <code>string CustomDocumentId = 4;</code>
      */
-    protected $CustomDocumentId = '';
+    private $CustomDocumentId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.CustomDataItem CustomData = 5;</code>
      */

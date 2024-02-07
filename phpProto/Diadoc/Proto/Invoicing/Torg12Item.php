@@ -18,109 +18,109 @@ class Torg12Item extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Name = 1;</code>
      */
-    protected $Name = '';
+    private $Name = '';
     /**
      * характеристика
      *
      * Generated from protobuf field <code>string Feature = 2;</code>
      */
-    protected $Feature = '';
+    private $Feature = '';
     /**
      * сорт товара
      *
      * Generated from protobuf field <code>string Sort = 3;</code>
      */
-    protected $Sort = '';
+    private $Sort = '';
     /**
      * артикул
      *
      * Generated from protobuf field <code>string NomenclatureArticle = 4;</code>
      */
-    protected $NomenclatureArticle = '';
+    private $NomenclatureArticle = '';
     /**
      * код товара
      *
      * Generated from protobuf field <code>string Code = 5;</code>
      */
-    protected $Code = '';
+    private $Code = '';
     /**
      * код единицы измерения
      *
      * Generated from protobuf field <code>string UnitCode = 6;</code>
      */
-    protected $UnitCode = '';
+    private $UnitCode = '';
     /**
      * наименование единицы измерения
      *
      * Generated from protobuf field <code>string UnitName = 7;</code>
      */
-    protected $UnitName = '';
+    private $UnitName = '';
     /**
      * вид упаковки
      *
      * Generated from protobuf field <code>string ParcelType = 8;</code>
      */
-    protected $ParcelType = '';
+    private $ParcelType = '';
     /**
      * количество в одном месте
      *
      * Generated from protobuf field <code>string ParcelCapacity = 9;</code>
      */
-    protected $ParcelCapacity = '';
+    private $ParcelCapacity = '';
     /**
      * количество мест
      *
      * Generated from protobuf field <code>string ParcelsQuantity = 10;</code>
      */
-    protected $ParcelsQuantity = '';
+    private $ParcelsQuantity = '';
     /**
      * брутто
      *
      * Generated from protobuf field <code>string GrossQuantity = 11;</code>
      */
-    protected $GrossQuantity = '';
+    private $GrossQuantity = '';
     /**
      * нетто // количество (масса)
      *
      * Generated from protobuf field <code>string Quantity = 12;</code>
      */
-    protected $Quantity = '';
+    private $Quantity = '';
     /**
      * цена
      *
      * Generated from protobuf field <code>string Price = 13;</code>
      */
-    protected $Price = '';
+    private $Price = '';
     /**
      * ставка налога
      *
      * Generated from protobuf field <code>string TaxRate = 14;</code>
      */
-    protected $TaxRate = '';
+    private $TaxRate = '';
     /**
      * сумма без учета налога
      *
      * Generated from protobuf field <code>string SubtotalWithVatExcluded = 15;</code>
      */
-    protected $SubtotalWithVatExcluded = '';
+    private $SubtotalWithVatExcluded = '';
     /**
      * сумма налога
      *
      * Generated from protobuf field <code>string Vat = 16;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * сумма всего
      *
      * Generated from protobuf field <code>string Subtotal = 17;</code>
      */
-    protected $Subtotal = '';
+    private $Subtotal = '';
     /**
      * информационное поле сведений о товаре
      *
      * Generated from protobuf field <code>string AdditionalInfo = 18;</code>
      */
-    protected $AdditionalInfo = '';
+    private $AdditionalInfo = '';
 
     /**
      * Constructor.

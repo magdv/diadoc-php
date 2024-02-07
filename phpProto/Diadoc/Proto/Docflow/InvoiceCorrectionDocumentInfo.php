@@ -16,37 +16,37 @@ class InvoiceCorrectionDocumentInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string TotalInc = 1;</code>
      */
-    protected $TotalInc = '';
+    private $TotalInc = '';
     /**
      * Generated from protobuf field <code>string TotalDec = 2;</code>
      */
-    protected $TotalDec = '';
+    private $TotalDec = '';
     /**
      * Generated from protobuf field <code>string VatInc = 3;</code>
      */
-    protected $VatInc = '';
+    private $VatInc = '';
     /**
      * Generated from protobuf field <code>string VatDec = 4;</code>
      */
-    protected $VatDec = '';
+    private $VatDec = '';
     /**
      * Generated from protobuf field <code>int32 CurrencyCode = 5;</code>
      */
-    protected $CurrencyCode = 0;
+    private $CurrencyCode = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber OriginalInvoiceDateAndNumber = 6;</code>
      */
-    protected $OriginalInvoiceDateAndNumber = null;
+    private $OriginalInvoiceDateAndNumber = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber OriginalInvoiceRevisionDateAndNumber = 7;</code>
      */
-    protected $OriginalInvoiceRevisionDateAndNumber = null;
+    private $OriginalInvoiceRevisionDateAndNumber = null;
     /**
      * for InvoiceCorrectionRevision
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber OriginalInvoiceCorrectionDateAndNumber = 8;</code>
      */
-    protected $OriginalInvoiceCorrectionDateAndNumber = null;
+    private $OriginalInvoiceCorrectionDateAndNumber = null;
 
     /**
      * Constructor.

@@ -20,25 +20,25 @@ class AcceptanceCertificateBuyerTitleInfo extends \Google\Protobuf\Internal\Mess
      *
      * Generated from protobuf field <code>string Complaints = 1;</code>
      */
-    protected $Complaints = '';
+    private $Complaints = '';
     /**
      * сведения о подписи акта
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.AcceptanceCertificateSignatureInfo Signature = 2;</code>
      */
-    protected $Signature = null;
+    private $Signature = null;
     /**
      * подписант
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 3;</code>
      */
-    protected $Signer = null;
+    private $Signer = null;
     /**
      * дополнительная информация
      *
      * Generated from protobuf field <code>string AdditionalInfo = 4;</code>
      */
-    protected $AdditionalInfo = '';
+    private $AdditionalInfo = '';
 
     /**
      * Constructor.

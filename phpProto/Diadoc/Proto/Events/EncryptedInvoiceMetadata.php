@@ -16,7 +16,7 @@ class EncryptedInvoiceMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber RevisionDateAndNumber = 1;</code>
      */
-    protected $RevisionDateAndNumber = null;
+    private $RevisionDateAndNumber = null;
 
     /**
      * Constructor.

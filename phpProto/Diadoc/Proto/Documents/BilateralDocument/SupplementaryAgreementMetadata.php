@@ -16,27 +16,27 @@ class SupplementaryAgreementMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentStatus DocumentStatus = 1;</code>
      */
-    protected $DocumentStatus = 0;
+    private $DocumentStatus = 0;
     /**
      * Generated from protobuf field <code>string Total = 2;</code>
      */
-    protected $Total = '';
+    private $Total = '';
     /**
      * Generated from protobuf field <code>string ContractType = 3;</code>
      */
-    protected $ContractType = '';
+    private $ContractType = '';
     /**
      * Generated from protobuf field <code>string ContractNumber = 4;</code>
      */
-    protected $ContractNumber = '';
+    private $ContractNumber = '';
     /**
      * Generated from protobuf field <code>string ContractDate = 5;</code>
      */
-    protected $ContractDate = '';
+    private $ContractDate = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ReceiptStatus ReceiptStatus = 6;</code>
      */
-    protected $ReceiptStatus = 0;
+    private $ReceiptStatus = 0;
 
     /**
      * Constructor.

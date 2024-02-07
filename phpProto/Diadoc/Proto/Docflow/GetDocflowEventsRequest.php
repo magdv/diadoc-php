@@ -16,23 +16,23 @@ class GetDocflowEventsRequest extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.TimeBasedFilter Filter = 1;</code>
      */
-    protected $Filter = null;
+    private $Filter = null;
     /**
      * Generated from protobuf field <code>bytes AfterIndexKey = 2;</code>
      */
-    protected $AfterIndexKey = '';
+    private $AfterIndexKey = '';
     /**
      * Generated from protobuf field <code>bool PopulateDocuments = 3;</code>
      */
-    protected $PopulateDocuments = false;
+    private $PopulateDocuments = false;
     /**
      * Generated from protobuf field <code>bool InjectEntityContent = 4;</code>
      */
-    protected $InjectEntityContent = false;
+    private $InjectEntityContent = false;
     /**
      * Generated from protobuf field <code>bool PopulatePreviousDocumentStates = 5;</code>
      */
-    protected $PopulatePreviousDocumentStates = false;
+    private $PopulatePreviousDocumentStates = false;
 
     /**
      * Constructor.

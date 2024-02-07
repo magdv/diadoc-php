@@ -16,11 +16,11 @@ class ForwardDocumentResponse extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp ForwardTimestamp = 1;</code>
      */
-    protected $ForwardTimestamp = null;
+    private $ForwardTimestamp = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Forwarding.ForwardedDocumentId ForwardedDocumentId = 2;</code>
      */
-    protected $ForwardedDocumentId = null;
+    private $ForwardedDocumentId = null;
 
     /**
      * Constructor.

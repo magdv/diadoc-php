@@ -16,7 +16,7 @@ class DocumentFunctionV2 extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Name = 1;</code>
      */
-    protected $Name = '';
+    private $Name = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Documents.Types.DocumentVersionV2 Versions = 2;</code>
      */
