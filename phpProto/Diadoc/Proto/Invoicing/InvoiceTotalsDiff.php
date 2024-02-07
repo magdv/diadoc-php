@@ -18,19 +18,19 @@ class InvoiceTotalsDiff extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string TotalWithVatExcluded = 1;</code>
      */
-    protected $TotalWithVatExcluded = '';
+    private $TotalWithVatExcluded = '';
     /**
      * сумма налога
      *
      * Generated from protobuf field <code>string Vat = 2;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * сумма всего
      *
      * Generated from protobuf field <code>string Total = 3;</code>
      */
-    protected $Total = '';
+    private $Total = '';
 
     /**
      * Constructor.

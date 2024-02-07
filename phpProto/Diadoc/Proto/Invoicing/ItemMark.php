@@ -4,8 +4,6 @@
 
 namespace Diadoc\Proto\Invoicing;
 
-use UnexpectedValueException;
-
 /**
  * Protobuf type <code>Diadoc.Proto.Invoicing.ItemMark</code>
  */
@@ -47,34 +45,5 @@ class ItemMark
      * Generated from protobuf enum <code>Other = 5;</code>
      */
     const Other = 5;
-
-    private static $valueToName = [
-        self::NotSpecified => 'NotSpecified',
-        self::Property => 'Property',
-        self::Job => 'Job',
-        self::Service => 'Service',
-        self::PropertyRights => 'PropertyRights',
-        self::Other => 'Other',
-    ];
-
-    public static function name($value)
-    {
-        if (!isset(self::$valueToName[$value])) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no name defined for value %s', __CLASS__, $value));
-        }
-        return self::$valueToName[$value];
-    }
-
-
-    public static function value($name)
-    {
-        $const = __CLASS__ . '::' . strtoupper($name);
-        if (!defined($const)) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no value defined for name %s', __CLASS__, $name));
-        }
-        return constant($const);
-    }
 }
 

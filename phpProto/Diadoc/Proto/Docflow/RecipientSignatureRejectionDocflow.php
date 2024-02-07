@@ -16,15 +16,15 @@ class RecipientSignatureRejectionDocflow extends \Google\Protobuf\Internal\Messa
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    protected $IsFinished = false;
+    private $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.SignedAttachment RecipientSignatureRejectionAttachment = 2;</code>
      */
-    protected $RecipientSignatureRejectionAttachment = null;
+    private $RecipientSignatureRejectionAttachment = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp DeliveryTimestamp = 3;</code>
      */
-    protected $DeliveryTimestamp = null;
+    private $DeliveryTimestamp = null;
 
     /**
      * Constructor.

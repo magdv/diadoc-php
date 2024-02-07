@@ -16,11 +16,11 @@ class ForwardDocumentRequest extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ToBoxId = 1;</code>
      */
-    protected $ToBoxId = '';
+    private $ToBoxId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentId DocumentId = 2;</code>
      */
-    protected $DocumentId = null;
+    private $DocumentId = null;
 
     /**
      * Constructor.

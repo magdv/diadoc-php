@@ -20,7 +20,7 @@ class OrganizationUsersList extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string CurrentUserId = 2;</code>
      */
-    protected $CurrentUserId = '';
+    private $CurrentUserId = '';
 
     /**
      * Constructor.

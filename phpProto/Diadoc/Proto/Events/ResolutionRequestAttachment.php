@@ -16,23 +16,23 @@ class ResolutionRequestAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string InitialDocumentId = 1;</code>
      */
-    protected $InitialDocumentId = '';
+    private $InitialDocumentId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestType Type = 2;</code>
      */
-    protected $Type = 0;
+    private $Type = 0;
     /**
      * Generated from protobuf field <code>string TargetUserId = 3;</code>
      */
-    protected $TargetUserId = '';
+    private $TargetUserId = '';
     /**
      * Generated from protobuf field <code>string TargetDepartmentId = 4;</code>
      */
-    protected $TargetDepartmentId = '';
+    private $TargetDepartmentId = '';
     /**
      * Generated from protobuf field <code>string Comment = 5;</code>
      */
-    protected $Comment = '';
+    private $Comment = '';
 
     /**
      * Constructor.

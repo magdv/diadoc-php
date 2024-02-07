@@ -16,19 +16,19 @@ class DraftToSend extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    protected $BoxId = '';
+    private $BoxId = '';
     /**
      * Generated from protobuf field <code>string DraftId = 2;</code>
      */
-    protected $DraftId = '';
+    private $DraftId = '';
     /**
      * Generated from protobuf field <code>string ToBoxId = 3;</code>
      */
-    protected $ToBoxId = '';
+    private $ToBoxId = '';
     /**
      * Generated from protobuf field <code>string ToDepartmentId = 4;</code>
      */
-    protected $ToDepartmentId = '';
+    private $ToDepartmentId = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.DocumentSenderSignature DocumentSignatures = 5;</code>
      */
@@ -36,11 +36,11 @@ class DraftToSend extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ProxyBoxId = 6;</code>
      */
-    protected $ProxyBoxId = '';
+    private $ProxyBoxId = '';
     /**
      * Generated from protobuf field <code>string ProxyDepartmentId = 7;</code>
      */
-    protected $ProxyDepartmentId = '';
+    private $ProxyDepartmentId = '';
 
     /**
      * Constructor.

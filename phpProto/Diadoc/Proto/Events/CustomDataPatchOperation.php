@@ -4,8 +4,6 @@
 
 namespace Diadoc\Proto\Events;
 
-use UnexpectedValueException;
-
 /**
  * Protobuf type <code>Diadoc.Proto.Events.CustomDataPatchOperation</code>
  */
@@ -19,30 +17,5 @@ class CustomDataPatchOperation
      * Generated from protobuf enum <code>Remove = 1;</code>
      */
     const Remove = 1;
-
-    private static $valueToName = [
-        self::Set => 'Set',
-        self::Remove => 'Remove',
-    ];
-
-    public static function name($value)
-    {
-        if (!isset(self::$valueToName[$value])) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no name defined for value %s', __CLASS__, $value));
-        }
-        return self::$valueToName[$value];
-    }
-
-
-    public static function value($name)
-    {
-        $const = __CLASS__ . '::' . strtoupper($name);
-        if (!defined($const)) {
-            throw new UnexpectedValueException(sprintf(
-                    'Enum %s has no value defined for name %s', __CLASS__, $name));
-        }
-        return constant($const);
-    }
 }
 

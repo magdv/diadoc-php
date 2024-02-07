@@ -20,31 +20,31 @@ class WorkDescription extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string StartingDate = 1;</code>
      */
-    protected $StartingDate = '';
+    private $StartingDate = '';
     /**
      * окончание периода выполнения работ
      *
      * Generated from protobuf field <code>string CompletionDate = 2;</code>
      */
-    protected $CompletionDate = '';
+    private $CompletionDate = '';
     /**
      * сумма без учета НДС - итого
      *
      * Generated from protobuf field <code>string TotalWithVatExcluded = 3;</code>
      */
-    protected $TotalWithVatExcluded = '';
+    private $TotalWithVatExcluded = '';
     /**
      * сумма НДС - итого
      *
      * Generated from protobuf field <code>string Vat = 4;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * сумма с учетом НДС - итого
      *
      * Generated from protobuf field <code>string Total = 5;</code>
      */
-    protected $Total = '';
+    private $Total = '';
     /**
      * сведения о произведенной работе
      *

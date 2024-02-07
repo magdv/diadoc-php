@@ -16,19 +16,19 @@ class CustomDataPatch extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ParentEntityId = 1;</code>
      */
-    protected $ParentEntityId = '';
+    private $ParentEntityId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.CustomDataPatchOperation Operation = 2;</code>
      */
-    protected $Operation = 0;
+    private $Operation = 0;
     /**
      * Generated from protobuf field <code>string Key = 3;</code>
      */
-    protected $Key = '';
+    private $Key = '';
     /**
      * Generated from protobuf field <code>string Value = 4;</code>
      */
-    protected $Value = '';
+    private $Value = '';
 
     /**
      * Constructor.

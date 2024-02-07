@@ -18,49 +18,49 @@ class OtherIssuer extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string TransferEmployeePosition = 1;</code>
      */
-    protected $TransferEmployeePosition = '';
+    private $TransferEmployeePosition = '';
     /**
      * Иные сведения, идентифицирующие физическое лицо // ИныеСвед
      *
      * Generated from protobuf field <code>string TransferEmployeeInfo = 2;</code>
      */
-    protected $TransferEmployeeInfo = '';
+    private $TransferEmployeeInfo = '';
     /**
      *Наименование организации, которой доверена передача // НаимОргПер
      *
      * Generated from protobuf field <code>string TransferOrganizationName = 3;</code>
      */
-    protected $TransferOrganizationName = '';
+    private $TransferOrganizationName = '';
     /**
      * Основание, по которому организации доверена передача // ОснДоверОргПер
      *
      * Generated from protobuf field <code>string TransferOrganizationBase = 4;</code>
      */
-    protected $TransferOrganizationBase = '';
+    private $TransferOrganizationBase = '';
     /**
      *Основание полномочий предстваителя // ОснПолнПредПер (ОснДоверФЛ)
      *
      * Generated from protobuf field <code>string TransferEmployeeBase = 5;</code>
      */
-    protected $TransferEmployeeBase = '';
+    private $TransferEmployeeBase = '';
     /**
      *Фамилия //Фамилия
      *
      * Generated from protobuf field <code>string TransferSurname = 6;</code>
      */
-    protected $TransferSurname = '';
+    private $TransferSurname = '';
     /**
      *Имя //Имя
      *
      * Generated from protobuf field <code>string TransferFirstName = 7;</code>
      */
-    protected $TransferFirstName = '';
+    private $TransferFirstName = '';
     /**
      *Отчество //Отчество
      *
      * Generated from protobuf field <code>string TransferPatronymic = 8;</code>
      */
-    protected $TransferPatronymic = '';
+    private $TransferPatronymic = '';
 
     /**
      * Constructor.

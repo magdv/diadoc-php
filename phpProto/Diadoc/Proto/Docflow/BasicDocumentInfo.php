@@ -16,19 +16,19 @@ class BasicDocumentInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Total = 1;</code>
      */
-    protected $Total = '';
+    private $Total = '';
     /**
      * Generated from protobuf field <code>bool NoVat = 2;</code>
      */
-    protected $NoVat = false;
+    private $NoVat = false;
     /**
      * Generated from protobuf field <code>string Vat = 3;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * Generated from protobuf field <code>string Grounds = 4;</code>
      */
-    protected $Grounds = '';
+    private $Grounds = '';
 
     /**
      * Constructor.

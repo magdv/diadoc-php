@@ -16,27 +16,27 @@ class Document extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string IndexKey = 1;</code>
      */
-    protected $IndexKey = '';
+    private $IndexKey = '';
     /**
      * Generated from protobuf field <code>string MessageId = 2;</code>
      */
-    protected $MessageId = '';
+    private $MessageId = '';
     /**
      * Generated from protobuf field <code>string EntityId = 3;</code>
      */
-    protected $EntityId = '';
+    private $EntityId = '';
     /**
      * Generated from protobuf field <code>sfixed64 CreationTimestampTicks = 4;</code>
      */
-    protected $CreationTimestampTicks = 0;
+    private $CreationTimestampTicks = 0;
     /**
      * Generated from protobuf field <code>string CounteragentBoxId = 5;</code>
      */
-    protected $CounteragentBoxId = '';
+    private $CounteragentBoxId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentType DocumentType = 6;</code>
      */
-    protected $DocumentType = 0;
+    private $DocumentType = 0;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.DocumentId InitialDocumentIds = 7;</code>
      */
@@ -48,107 +48,107 @@ class Document extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Content Content = 9;</code>
      */
-    protected $Content = null;
+    private $Content = null;
     /**
      * Generated from protobuf field <code>string FileName = 10;</code>
      */
-    protected $FileName = '';
+    private $FileName = '';
     /**
      * Generated from protobuf field <code>string DocumentDate = 11;</code>
      */
-    protected $DocumentDate = '';
+    private $DocumentDate = '';
     /**
      * Generated from protobuf field <code>string DocumentNumber = 12;</code>
      */
-    protected $DocumentNumber = '';
+    private $DocumentNumber = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.NonformalizedDocument.NonformalizedDocumentMetadata NonformalizedDocumentMetadata = 13;</code>
      */
-    protected $NonformalizedDocumentMetadata = null;
+    private $NonformalizedDocumentMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.InvoiceDocument.InvoiceMetadata InvoiceMetadata = 14;</code>
      */
-    protected $InvoiceMetadata = null;
+    private $InvoiceMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.TrustConnectionRequestMetadata TrustConnectionRequestMetadata = 15;</code>
      */
-    protected $TrustConnectionRequestMetadata = null;
+    private $TrustConnectionRequestMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata Torg12Metadata = 16;</code>
      */
-    protected $Torg12Metadata = null;
+    private $Torg12Metadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.InvoiceDocument.InvoiceRevisionMetadata InvoiceRevisionMetadata = 17;</code>
      */
-    protected $InvoiceRevisionMetadata = null;
+    private $InvoiceRevisionMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.InvoiceDocument.InvoiceCorrectionMetadata InvoiceCorrectionMetadata = 18;</code>
      */
-    protected $InvoiceCorrectionMetadata = null;
+    private $InvoiceCorrectionMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.InvoiceDocument.InvoiceCorrectionRevisionMetadata InvoiceCorrectionRevisionMetadata = 19;</code>
      */
-    protected $InvoiceCorrectionRevisionMetadata = null;
+    private $InvoiceCorrectionRevisionMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.AcceptanceCertificateDocument.AcceptanceCertificateMetadata AcceptanceCertificateMetadata = 20;</code>
      */
-    protected $AcceptanceCertificateMetadata = null;
+    private $AcceptanceCertificateMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.UnilateralDocument.ProformaInvoiceMetadata ProformaInvoiceMetadata = 21;</code>
      */
-    protected $ProformaInvoiceMetadata = null;
+    private $ProformaInvoiceMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata XmlTorg12Metadata = 22;</code>
      */
-    protected $XmlTorg12Metadata = null;
+    private $XmlTorg12Metadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata XmlAcceptanceCertificateMetadata = 23;</code>
      */
-    protected $XmlAcceptanceCertificateMetadata = null;
+    private $XmlAcceptanceCertificateMetadata = null;
     /**
      * Generated from protobuf field <code>bool IsDeleted = 24;</code>
      */
-    protected $IsDeleted = false;
+    private $IsDeleted = false;
     /**
      * Generated from protobuf field <code>string DepartmentId = 25;</code>
      */
-    protected $DepartmentId = '';
+    private $DepartmentId = '';
     /**
      * Generated from protobuf field <code>bool IsTest = 26;</code>
      */
-    protected $IsTest = false;
+    private $IsTest = false;
     /**
      * Generated from protobuf field <code>string FromDepartmentId = 27;</code>
      */
-    protected $FromDepartmentId = '';
+    private $FromDepartmentId = '';
     /**
      * Generated from protobuf field <code>string ToDepartmentId = 28;</code>
      */
-    protected $ToDepartmentId = '';
+    private $ToDepartmentId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.PriceListMetadata PriceListMetadata = 29;</code>
      */
-    protected $PriceListMetadata = null;
+    private $PriceListMetadata = null;
     /**
      * Generated from protobuf field <code>string CustomDocumentId = 30;</code>
      */
-    protected $CustomDocumentId = '';
+    private $CustomDocumentId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ResolutionStatus ResolutionStatus = 31;</code>
      */
-    protected $ResolutionStatus = null;
+    private $ResolutionStatus = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.RevocationStatus RevocationStatus = 32;</code>
      */
-    protected $RevocationStatus = 0;
+    private $RevocationStatus = 0;
     /**
      * Generated from protobuf field <code>sfixed64 SendTimestampTicks = 33;</code>
      */
-    protected $SendTimestampTicks = 0;
+    private $SendTimestampTicks = 0;
     /**
      * Generated from protobuf field <code>sfixed64 DeliveryTimestampTicks = 34;</code>
      */
-    protected $DeliveryTimestampTicks = 0;
+    private $DeliveryTimestampTicks = 0;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.ForwardDocumentEvent ForwardDocumentEvents = 35;</code>
      */
@@ -156,27 +156,27 @@ class Document extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentMetadata ReconciliationActMetadata = 38;</code>
      */
-    protected $ReconciliationActMetadata = null;
+    private $ReconciliationActMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.ContractMetadata ContractMetadata = 39;</code>
      */
-    protected $ContractMetadata = null;
+    private $ContractMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata Torg13Metadata = 40;</code>
      */
-    protected $Torg13Metadata = null;
+    private $Torg13Metadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.UnilateralDocument.ServiceDetailsMetadata ServiceDetailsMetadata = 41;</code>
      */
-    protected $ServiceDetailsMetadata = null;
+    private $ServiceDetailsMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.RoamingNotificationStatus RoamingNotificationStatus = 42;</code>
      */
-    protected $RoamingNotificationStatus = 0;
+    private $RoamingNotificationStatus = 0;
     /**
      * Generated from protobuf field <code>bool HasCustomPrintForm = 43;</code>
      */
-    protected $HasCustomPrintForm = false;
+    private $HasCustomPrintForm = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.CustomDataItem CustomData = 44;</code>
      */
@@ -184,51 +184,51 @@ class Document extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string PacketId = 45;</code>
      */
-    protected $PacketId = '';
+    private $PacketId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentDirection DocumentDirection = 46;</code>
      */
-    protected $DocumentDirection = 0;
+    private $DocumentDirection = 0;
     /**
      * Generated from protobuf field <code>sfixed64 LastModificationTimestampTicks = 47;</code>
      */
-    protected $LastModificationTimestampTicks = 0;
+    private $LastModificationTimestampTicks = 0;
     /**
      * Generated from protobuf field <code>bool IsEncryptedContent = 48;</code>
      */
-    protected $IsEncryptedContent = false;
+    private $IsEncryptedContent = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.SenderSignatureStatus SenderSignatureStatus = 49;</code>
      */
-    protected $SenderSignatureStatus = 0;
+    private $SenderSignatureStatus = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.SupplementaryAgreementMetadata SupplementaryAgreementMetadata = 50;</code>
      */
-    protected $SupplementaryAgreementMetadata = null;
+    private $SupplementaryAgreementMetadata = null;
     /**
      * Generated from protobuf field <code>bool IsRead = 51;</code>
      */
-    protected $IsRead = false;
+    private $IsRead = false;
     /**
      * Generated from protobuf field <code>string RoamingNotificationStatusDescription = 52;</code>
      */
-    protected $RoamingNotificationStatusDescription = '';
+    private $RoamingNotificationStatusDescription = '';
     /**
      * Generated from protobuf field <code>bool PacketIsLocked = 53;</code>
      */
-    protected $PacketIsLocked = false;
+    private $PacketIsLocked = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.NonformalizedDocument.NonformalizedDocumentMetadata PriceListAgreementMetadata = 54;</code>
      */
-    protected $PriceListAgreementMetadata = null;
+    private $PriceListAgreementMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.NonformalizedDocument.NonformalizedDocumentMetadata CertificateRegistryMetadata = 55;</code>
      */
-    protected $CertificateRegistryMetadata = null;
+    private $CertificateRegistryMetadata = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalTransferDocumentMetadata UniversalTransferDocumentMetadata = 56;</code>
      */
-    protected $UniversalTransferDocumentMetadata = null;
+    private $UniversalTransferDocumentMetadata = null;
 
     /**
      * Constructor.

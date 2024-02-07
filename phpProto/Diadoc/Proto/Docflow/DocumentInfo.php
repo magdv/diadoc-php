@@ -16,65 +16,65 @@ class DocumentInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentType DocumentType = 1;</code>
      */
-    protected $DocumentType = 0;
+    private $DocumentType = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentDirection DocumentDirection = 2;</code>
      */
-    protected $DocumentDirection = 0;
+    private $DocumentDirection = 0;
     /**
      * Generated from protobuf field <code>bool IsTest = 3;</code>
      */
-    protected $IsTest = false;
+    private $IsTest = false;
     /**
      * Generated from protobuf field <code>string CustomDocumentId = 4;</code>
      */
-    protected $CustomDocumentId = '';
+    private $CustomDocumentId = '';
     /**
      * Generated from protobuf field <code>string FromDepartmentId = 5;</code>
      */
-    protected $FromDepartmentId = '';
+    private $FromDepartmentId = '';
     /**
      * Generated from protobuf field <code>string ToDepartmentId = 6;</code>
      */
-    protected $ToDepartmentId = '';
+    private $ToDepartmentId = '';
     /**
      * Generated from protobuf field <code>string CounteragentBoxId = 7;</code>
      */
-    protected $CounteragentBoxId = '';
+    private $CounteragentBoxId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber DocumentDateAndNumber = 8;</code>
      */
-    protected $DocumentDateAndNumber = null;
+    private $DocumentDateAndNumber = null;
     /**
      * for XmlTorg12, XmlAcceptanceCertificate, Torg12, AcceptanceCertificate, ProformaInvoice, Torg13
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.BasicDocumentInfo BasicDocumentInfo = 9;</code>
      */
-    protected $BasicDocumentInfo = null;
+    private $BasicDocumentInfo = null;
     /**
      * for Invoice, InvoiceRevision
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.InvoiceDocumentInfo InvoiceInfo = 10;</code>
      */
-    protected $InvoiceInfo = null;
+    private $InvoiceInfo = null;
     /**
      * for InvoiceCorrection, InvoiceCorrectionRevision
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.InvoiceCorrectionDocumentInfo InvoiceCorrectionInfo = 11;</code>
      */
-    protected $InvoiceCorrectionInfo = null;
+    private $InvoiceCorrectionInfo = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.PriceListDocumentInfo PriceListInfo = 12;</code>
      */
-    protected $PriceListInfo = null;
+    private $PriceListInfo = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.ContractDocumentInfo ContractInfo = 13;</code>
      */
-    protected $ContractInfo = null;
+    private $ContractInfo = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.SupplementaryAgreementDocumentInfo SupplementaryAgreementInfo = 14;</code>
      */
-    protected $SupplementaryAgreementInfo = null;
+    private $SupplementaryAgreementInfo = null;
 
     /**
      * Constructor.

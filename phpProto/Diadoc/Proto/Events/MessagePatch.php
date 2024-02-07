@@ -16,13 +16,13 @@ class MessagePatch extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string MessageId = 1;</code>
      */
-    protected $MessageId = '';
+    private $MessageId = '';
     /**
      * DateTime.Ticks in UTC
      *
      * Generated from protobuf field <code>sfixed64 TimestampTicks = 2;</code>
      */
-    protected $TimestampTicks = 0;
+    private $TimestampTicks = 0;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.Entity Entities = 3;</code>
      */
@@ -30,11 +30,11 @@ class MessagePatch extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool ForDraft = 4;</code>
      */
-    protected $ForDraft = false;
+    private $ForDraft = false;
     /**
      * Generated from protobuf field <code>bool DraftIsRecycled = 5;</code>
      */
-    protected $DraftIsRecycled = false;
+    private $DraftIsRecycled = false;
     /**
      * Generated from protobuf field <code>repeated string DraftIsTransformedToMessageIdList = 6;</code>
      */
@@ -42,11 +42,11 @@ class MessagePatch extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool DraftIsLocked = 7;</code>
      */
-    protected $DraftIsLocked = false;
+    private $DraftIsLocked = false;
     /**
      * Generated from protobuf field <code>bool MessageIsDeleted = 8;</code>
      */
-    protected $MessageIsDeleted = false;
+    private $MessageIsDeleted = false;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.EntityPatch EntityPatches = 9;</code>
      */
@@ -54,19 +54,19 @@ class MessagePatch extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool MessageIsRestored = 10;</code>
      */
-    protected $MessageIsRestored = false;
+    private $MessageIsRestored = false;
     /**
      * Generated from protobuf field <code>bool MessageIsDelivered = 11;</code>
      */
-    protected $MessageIsDelivered = false;
+    private $MessageIsDelivered = false;
     /**
      * Generated from protobuf field <code>string DeliveredPatchId = 12;</code>
      */
-    protected $DeliveredPatchId = '';
+    private $DeliveredPatchId = '';
     /**
      * Generated from protobuf field <code>string PatchId = 13;</code>
      */
-    protected $PatchId = '';
+    private $PatchId = '';
 
     /**
      * Constructor.

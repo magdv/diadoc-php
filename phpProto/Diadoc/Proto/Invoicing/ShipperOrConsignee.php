@@ -18,13 +18,13 @@ class ShipperOrConsignee extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>bool SameAsSellerOrBuyer = 1;</code>
      */
-    protected $SameAsSellerOrBuyer = false;
+    private $SameAsSellerOrBuyer = false;
     /**
      * реквизиты организации
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.OrganizationInfo OrgInfo = 2;</code>
      */
-    protected $OrgInfo = null;
+    private $OrgInfo = null;
 
     /**
      * Constructor.

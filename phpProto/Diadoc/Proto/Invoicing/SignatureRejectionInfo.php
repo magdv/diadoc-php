@@ -16,11 +16,11 @@ class SignatureRejectionInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ErrorMessage = 1;</code>
      */
-    protected $ErrorMessage = '';
+    private $ErrorMessage = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 2;</code>
      */
-    protected $Signer = null;
+    private $Signer = null;
 
     /**
      * Constructor.

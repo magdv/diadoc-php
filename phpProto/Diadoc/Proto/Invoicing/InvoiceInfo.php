@@ -18,43 +18,43 @@ class InvoiceInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string InvoiceDate = 1;</code>
      */
-    protected $InvoiceDate = '';
+    private $InvoiceDate = '';
     /**
      * номер СФ
      *
      * Generated from protobuf field <code>string InvoiceNumber = 2;</code>
      */
-    protected $InvoiceNumber = '';
+    private $InvoiceNumber = '';
     /**
      * продавец
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.DiadocOrganizationInfo Seller = 3;</code>
      */
-    protected $Seller = null;
+    private $Seller = null;
     /**
      * покупатель
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.DiadocOrganizationInfo Buyer = 4;</code>
      */
-    protected $Buyer = null;
+    private $Buyer = null;
     /**
      * грузоотправитель
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.ShipperOrConsignee Shipper = 5;</code>
      */
-    protected $Shipper = null;
+    private $Shipper = null;
     /**
      * грузополучатель
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.ShipperOrConsignee Consignee = 6;</code>
      */
-    protected $Consignee = null;
+    private $Consignee = null;
     /**
      * подписант
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 7;</code>
      */
-    protected $Signer = null;
+    private $Signer = null;
     /**
      * платежно-расчетные документы
      *
@@ -72,43 +72,43 @@ class InvoiceInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Currency = 10;</code>
      */
-    protected $Currency = '';
+    private $Currency = '';
     /**
      * сумма без учета налога
      *
      * Generated from protobuf field <code>string TotalWithVatExcluded = 11;</code>
      */
-    protected $TotalWithVatExcluded = '';
+    private $TotalWithVatExcluded = '';
     /**
      * сумма налога
      *
      * Generated from protobuf field <code>string Vat = 12;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * сумма всего
      *
      * Generated from protobuf field <code>string Total = 13;</code>
      */
-    protected $Total = '';
+    private $Total = '';
     /**
      * информационное поле документа v5.01
      *
      * Generated from protobuf field <code>string AdditionalInfo = 14;</code>
      */
-    protected $AdditionalInfo = '';
+    private $AdditionalInfo = '';
     /**
      * дата ИСФ (обязательно при формировании InvoiceRevision)
      *
      * Generated from protobuf field <code>string InvoiceRevisionDate = 15;</code>
      */
-    protected $InvoiceRevisionDate = '';
+    private $InvoiceRevisionDate = '';
     /**
      * номер ИСФ (обязательно при формировании InvoiceRevision)
      *
      * Generated from protobuf field <code>string InvoiceRevisionNumber = 16;</code>
      */
-    protected $InvoiceRevisionNumber = '';
+    private $InvoiceRevisionNumber = '';
     /**
      * информационное поле документа v5.02
      *
@@ -120,7 +120,7 @@ class InvoiceInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.InvoiceFormatVersion Version = 18;</code>
      */
-    protected $Version = 0;
+    private $Version = 0;
 
     /**
      * Constructor.

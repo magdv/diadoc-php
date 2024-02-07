@@ -18,61 +18,61 @@ class WorkItem extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Name = 1;</code>
      */
-    protected $Name = '';
+    private $Name = '';
     /**
      * описание работы
      *
      * Generated from protobuf field <code>string Description = 2;</code>
      */
-    protected $Description = '';
+    private $Description = '';
     /**
      * код единицы измерения
      *
      * Generated from protobuf field <code>string UnitCode = 3;</code>
      */
-    protected $UnitCode = '';
+    private $UnitCode = '';
     /**
      * наименование единицы измерения
      *
      * Generated from protobuf field <code>string UnitName = 4;</code>
      */
-    protected $UnitName = '';
+    private $UnitName = '';
     /**
      * цена
      *
      * Generated from protobuf field <code>string Price = 5;</code>
      */
-    protected $Price = '';
+    private $Price = '';
     /**
      * количество
      *
      * Generated from protobuf field <code>string Quantity = 6;</code>
      */
-    protected $Quantity = '';
+    private $Quantity = '';
     /**
      * сумма без учета НДС
      *
      * Generated from protobuf field <code>string SubtotalWithVatExcluded = 7;</code>
      */
-    protected $SubtotalWithVatExcluded = '';
+    private $SubtotalWithVatExcluded = '';
     /**
      * сумма НДС
      *
      * Generated from protobuf field <code>string Vat = 8;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * сумма с учетом НДС
      *
      * Generated from protobuf field <code>string Subtotal = 9;</code>
      */
-    protected $Subtotal = '';
+    private $Subtotal = '';
     /**
      * информационное поле сведений о работе (услуге)
      *
      * Generated from protobuf field <code>string AdditionalInfo = 10;</code>
      */
-    protected $AdditionalInfo = '';
+    private $AdditionalInfo = '';
 
     /**
      * Constructor.

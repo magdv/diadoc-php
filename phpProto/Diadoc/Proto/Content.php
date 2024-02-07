@@ -18,13 +18,13 @@ class Content extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>sfixed32 Size = 1;</code>
      */
-    protected $Size = 0;
+    private $Size = 0;
     /**
      * null <=> entity content exists but is not included in proto buffer
      *
      * Generated from protobuf field <code>bytes Data = 2;</code>
      */
-    protected $Data = '';
+    private $Data = '';
 
     /**
      * Constructor.

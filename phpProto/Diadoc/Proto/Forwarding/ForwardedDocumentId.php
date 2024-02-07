@@ -16,15 +16,15 @@ class ForwardedDocumentId extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string FromBoxId = 1;</code>
      */
-    protected $FromBoxId = '';
+    private $FromBoxId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentId DocumentId = 2;</code>
      */
-    protected $DocumentId = null;
+    private $DocumentId = null;
     /**
      * Generated from protobuf field <code>string ForwardEventId = 3;</code>
      */
-    protected $ForwardEventId = '';
+    private $ForwardEventId = '';
 
     /**
      * Constructor.

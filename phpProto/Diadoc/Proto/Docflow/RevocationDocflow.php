@@ -16,31 +16,31 @@ class RevocationDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    protected $IsFinished = false;
+    private $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.SignedAttachment RevocationRequestAttachment = 2;</code>
      */
-    protected $RevocationRequestAttachment = null;
+    private $RevocationRequestAttachment = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.RecipientSignatureDocflow RecipientSignatureDocflow = 3;</code>
      */
-    protected $RecipientSignatureDocflow = null;
+    private $RecipientSignatureDocflow = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.RecipientSignatureRejectionDocflow RecipientSignatureRejectionDocflow = 4;</code>
      */
-    protected $RecipientSignatureRejectionDocflow = null;
+    private $RecipientSignatureRejectionDocflow = null;
     /**
      * Generated from protobuf field <code>string InitiatorBoxId = 5;</code>
      */
-    protected $InitiatorBoxId = '';
+    private $InitiatorBoxId = '';
     /**
      * Generated from protobuf field <code>bool IsRevocationAccepted = 6;</code>
      */
-    protected $IsRevocationAccepted = false;
+    private $IsRevocationAccepted = false;
     /**
      * Generated from protobuf field <code>bool IsRevocationRejected = 7;</code>
      */
-    protected $IsRevocationRejected = false;
+    private $IsRevocationRejected = false;
 
     /**
      * Constructor.

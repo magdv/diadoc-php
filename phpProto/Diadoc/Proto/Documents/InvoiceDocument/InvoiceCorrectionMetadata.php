@@ -16,51 +16,51 @@ class InvoiceCorrectionMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.InvoiceDocument.InvoiceStatus InvoiceCorrectionStatus = 1;</code>
      */
-    protected $InvoiceCorrectionStatus = 0;
+    private $InvoiceCorrectionStatus = 0;
     /**
      * Generated from protobuf field <code>string OriginalInvoiceNumber = 2;</code>
      */
-    protected $OriginalInvoiceNumber = '';
+    private $OriginalInvoiceNumber = '';
     /**
      * Generated from protobuf field <code>string OriginalInvoiceDate = 3;</code>
      */
-    protected $OriginalInvoiceDate = '';
+    private $OriginalInvoiceDate = '';
     /**
      * Generated from protobuf field <code>string OriginalInvoiceRevisionNumber = 4;</code>
      */
-    protected $OriginalInvoiceRevisionNumber = '';
+    private $OriginalInvoiceRevisionNumber = '';
     /**
      * Generated from protobuf field <code>string OriginalInvoiceRevisionDate = 5;</code>
      */
-    protected $OriginalInvoiceRevisionDate = '';
+    private $OriginalInvoiceRevisionDate = '';
     /**
      * Generated from protobuf field <code>string TotalInc = 6;</code>
      */
-    protected $TotalInc = '';
+    private $TotalInc = '';
     /**
      * Generated from protobuf field <code>string TotalDec = 7;</code>
      */
-    protected $TotalDec = '';
+    private $TotalDec = '';
     /**
      * Generated from protobuf field <code>string VatInc = 8;</code>
      */
-    protected $VatInc = '';
+    private $VatInc = '';
     /**
      * Generated from protobuf field <code>string VatDec = 9;</code>
      */
-    protected $VatDec = '';
+    private $VatDec = '';
     /**
      * Generated from protobuf field <code>int32 Currency = 10;</code>
      */
-    protected $Currency = 0;
+    private $Currency = 0;
     /**
      * Generated from protobuf field <code>sfixed64 ConfirmationDateTimeTicks = 11;</code>
      */
-    protected $ConfirmationDateTimeTicks = 0;
+    private $ConfirmationDateTimeTicks = 0;
     /**
      * Generated from protobuf field <code>int32 InvoiceAmendmentFlags = 12;</code>
      */
-    protected $InvoiceAmendmentFlags = 0;
+    private $InvoiceAmendmentFlags = 0;
 
     /**
      * Constructor.

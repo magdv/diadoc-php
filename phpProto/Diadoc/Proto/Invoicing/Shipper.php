@@ -18,13 +18,13 @@ class Shipper extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>bool SameAsSeller = 1;</code>
      */
-    protected $SameAsSeller = false;
+    private $SameAsSeller = false;
     /**
      * реквизиты организации // ГрузОтпр
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Organizations.ExtendedOrganizationInfo OrgInfo = 2;</code>
      */
-    protected $OrgInfo = null;
+    private $OrgInfo = null;
 
     /**
      * Constructor.

@@ -16,11 +16,11 @@ class ReceiptDocflow extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsFinished = 1;</code>
      */
-    protected $IsFinished = false;
+    private $IsFinished = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.SignedAttachment ReceiptAttachment = 2;</code>
      */
-    protected $ReceiptAttachment = null;
+    private $ReceiptAttachment = null;
 
     /**
      * Constructor.

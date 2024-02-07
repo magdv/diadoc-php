@@ -16,7 +16,7 @@ class GetForwardedDocumentEventsResponse extends \Google\Protobuf\Internal\Messa
     /**
      * Generated from protobuf field <code>int32 TotalCount = 1;</code>
      */
-    protected $TotalCount = 0;
+    private $TotalCount = 0;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Forwarding.ForwardedDocumentEvent Events = 2;</code>
      */

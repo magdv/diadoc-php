@@ -18,25 +18,25 @@ class InvoiceItemAmountsDiff extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Excise = 1;</code>
      */
-    protected $Excise = '';
+    private $Excise = '';
     /**
      * сумма без учета налога
      *
      * Generated from protobuf field <code>string SubtotalWithVatExcluded = 2;</code>
      */
-    protected $SubtotalWithVatExcluded = '';
+    private $SubtotalWithVatExcluded = '';
     /**
      * сумма налога
      *
      * Generated from protobuf field <code>string Vat = 3;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * сумма с учетом налога
      *
      * Generated from protobuf field <code>string Subtotal = 4;</code>
      */
-    protected $Subtotal = '';
+    private $Subtotal = '';
 
     /**
      * Constructor.

@@ -18,11 +18,11 @@ class CertificateChainElement extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>int32 CertificateChainStatusFlags = 1;</code>
      */
-    protected $CertificateChainStatusFlags = 0;
+    private $CertificateChainStatusFlags = 0;
     /**
      * Generated from protobuf field <code>bytes DerCertificate = 2;</code>
      */
-    protected $DerCertificate = '';
+    private $DerCertificate = '';
 
     /**
      * Constructor.

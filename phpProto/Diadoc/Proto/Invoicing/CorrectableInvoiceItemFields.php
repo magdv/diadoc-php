@@ -18,49 +18,49 @@ class CorrectableInvoiceItemFields extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Unit = 1;</code>
      */
-    protected $Unit = '';
+    private $Unit = '';
     /**
      * количество единиц товара
      *
      * Generated from protobuf field <code>string Quantity = 2;</code>
      */
-    protected $Quantity = '';
+    private $Quantity = '';
     /**
      * цена за единицу товара
      *
      * Generated from protobuf field <code>string Price = 3;</code>
      */
-    protected $Price = '';
+    private $Price = '';
     /**
      * акциз
      *
      * Generated from protobuf field <code>string Excise = 4;</code>
      */
-    protected $Excise = '';
+    private $Excise = '';
     /**
      * ставка налога
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.TaxRate TaxRate = 5;</code>
      */
-    protected $TaxRate = 0;
+    private $TaxRate = 0;
     /**
      * сумма без учета налога
      *
      * Generated from protobuf field <code>string SubtotalWithVatExcluded = 6;</code>
      */
-    protected $SubtotalWithVatExcluded = '';
+    private $SubtotalWithVatExcluded = '';
     /**
      * сумма налога
      *
      * Generated from protobuf field <code>string Vat = 7;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * сумма с учетом налога
      *
      * Generated from protobuf field <code>string Subtotal = 8;</code>
      */
-    protected $Subtotal = '';
+    private $Subtotal = '';
 
     /**
      * Constructor.

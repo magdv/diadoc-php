@@ -16,11 +16,11 @@ class PaymentDocumentInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string DocumentDate = 1;</code>
      */
-    protected $DocumentDate = '';
+    private $DocumentDate = '';
     /**
      * Generated from protobuf field <code>string DocumentNumber = 2;</code>
      */
-    protected $DocumentNumber = '';
+    private $DocumentNumber = '';
 
     /**
      * Constructor.

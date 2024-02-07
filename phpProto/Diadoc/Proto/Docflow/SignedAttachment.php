@@ -16,15 +16,15 @@ class SignedAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.Attachment Attachment = 1;</code>
      */
-    protected $Attachment = null;
+    private $Attachment = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.Signature Signature = 2;</code>
      */
-    protected $Signature = null;
+    private $Signature = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.Entity Comment = 3;</code>
      */
-    protected $Comment = null;
+    private $Comment = null;
 
     /**
      * Constructor.

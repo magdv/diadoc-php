@@ -18,13 +18,13 @@ class Waybill extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string TransferDocumentNumber = 1;</code>
      */
-    protected $TransferDocumentNumber = '';
+    private $TransferDocumentNumber = '';
     /**
      * Дата траспортной накладной // ДатаТранНакл
      *
      * Generated from protobuf field <code>string TransferDocumentDate = 2;</code>
      */
-    protected $TransferDocumentDate = '';
+    private $TransferDocumentDate = '';
 
     /**
      * Constructor.

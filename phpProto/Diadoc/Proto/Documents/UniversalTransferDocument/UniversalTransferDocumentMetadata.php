@@ -16,37 +16,37 @@ class UniversalTransferDocumentMetadata extends \Google\Protobuf\Internal\Messag
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalTransferDocumentStatus DocumentStatus = 1;</code>
      */
-    protected $DocumentStatus = 0;
+    private $DocumentStatus = 0;
     /**
      * TotalSum;
      *
      * Generated from protobuf field <code>string Total = 2;</code>
      */
-    protected $Total = '';
+    private $Total = '';
     /**
      *TotalVat;
      *
      * Generated from protobuf field <code>string Vat = 3;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * DocumentGrounds
      *
      * Generated from protobuf field <code>string Grounds = 4;</code>
      */
-    protected $Grounds = '';
+    private $Grounds = '';
     /**
      * Generated from protobuf field <code>string DocumentFunction = 5;</code>
      */
-    protected $DocumentFunction = '';
+    private $DocumentFunction = '';
     /**
      * Generated from protobuf field <code>int32 Currency = 6;</code>
      */
-    protected $Currency = 0;
+    private $Currency = 0;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ReceiptStatus ReceiptStatus = 7;</code>
      */
-    protected $ReceiptStatus = 0;
+    private $ReceiptStatus = 0;
 
     /**
      * Constructor.

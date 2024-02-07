@@ -16,7 +16,7 @@ class CertificateVerificationResult extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsValid = 2;</code>
      */
-    protected $IsValid = false;
+    private $IsValid = false;
     /**
      * first element corresponds to signer certificate
      *
@@ -26,7 +26,7 @@ class CertificateVerificationResult extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Timestamp VerificationTime = 4;</code>
      */
-    protected $VerificationTime = null;
+    private $VerificationTime = null;
 
     /**
      * Constructor.

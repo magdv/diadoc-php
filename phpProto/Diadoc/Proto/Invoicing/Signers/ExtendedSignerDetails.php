@@ -16,69 +16,69 @@ class ExtendedSignerDetails extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Surname = 1;</code>
      */
-    protected $Surname = '';
+    private $Surname = '';
     /**
      * Generated from protobuf field <code>string FirstName = 2;</code>
      */
-    protected $FirstName = '';
+    private $FirstName = '';
     /**
      * Generated from protobuf field <code>string Patronymic = 3;</code>
      */
-    protected $Patronymic = '';
+    private $Patronymic = '';
     /**
      * Generated from protobuf field <code>string JobTitle = 4;</code>
      */
-    protected $JobTitle = '';
+    private $JobTitle = '';
     /**
      * Generated from protobuf field <code>string Inn = 5;</code>
      */
-    protected $Inn = '';
+    private $Inn = '';
     /**
      * Generated from protobuf field <code>string RegistrationCertificate = 6;</code>
      */
-    protected $RegistrationCertificate = '';
+    private $RegistrationCertificate = '';
     /**
      * Физическое лицо-Индивидуальный предприниматель – представитель юридического лица (ФЛ-ИП-ЮЛ)
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signers.SignerType SignerType = 7;</code>
      */
-    protected $SignerType = 0;
+    private $SignerType = 0;
     /**
      * Наименование (НаимОрг)
      *
      * Generated from protobuf field <code>string SignerOrganizationName = 8;</code>
      */
-    protected $SignerOrganizationName = '';
+    private $SignerOrganizationName = '';
     /**
      * Иные сведения, идентифицирующие физическое лицо (ИныеСвед)
      *
      * Generated from protobuf field <code>string SignerInfo = 9;</code>
      */
-    protected $SignerInfo = '';
+    private $SignerInfo = '';
     /**
      * Область полномочий (ОблПолн)
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signers.SignerPowers SignerPowers = 10;</code>
      */
-    protected $SignerPowers = 0;
+    private $SignerPowers = 0;
     /**
      * Статус (Статус)
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signers.SignerStatus SignerStatus = 11;</code>
      */
-    protected $SignerStatus = 0;
+    private $SignerStatus = 0;
     /**
      * Основание полномочий (доверия) (ОснПолн)
      *
      * Generated from protobuf field <code>string SignerPowersBase = 12;</code>
      */
-    protected $SignerPowersBase = '';
+    private $SignerPowersBase = '';
     /**
      * Основание полномочий (доверия) организации (ОснПолнОрг)
      *
      * Generated from protobuf field <code>string SignerOrgPowersBase = 13;</code>
      */
-    protected $SignerOrgPowersBase = '';
+    private $SignerOrgPowersBase = '';
 
     /**
      * Constructor.

@@ -16,23 +16,23 @@ class Signature extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.Entity Entity = 1;</code>
      */
-    protected $Entity = null;
+    private $Entity = null;
     /**
      * Generated from protobuf field <code>string SignerBoxId = 2;</code>
      */
-    protected $SignerBoxId = '';
+    private $SignerBoxId = '';
     /**
      * Generated from protobuf field <code>string SignerDepartmentId = 3;</code>
      */
-    protected $SignerDepartmentId = '';
+    private $SignerDepartmentId = '';
     /**
      * Generated from protobuf field <code>bool IsValid = 4;</code>
      */
-    protected $IsValid = false;
+    private $IsValid = false;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.SignatureVerificationResult VerificationResult = 5;</code>
      */
-    protected $VerificationResult = null;
+    private $VerificationResult = null;
 
     /**
      * Constructor.

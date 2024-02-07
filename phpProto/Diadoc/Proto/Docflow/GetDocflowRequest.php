@@ -16,15 +16,15 @@ class GetDocflowRequest extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentId DocumentId = 1;</code>
      */
-    protected $DocumentId = null;
+    private $DocumentId = null;
     /**
      * Generated from protobuf field <code>string LastEventId = 2;</code>
      */
-    protected $LastEventId = '';
+    private $LastEventId = '';
     /**
      * Generated from protobuf field <code>bool InjectEntityContent = 3;</code>
      */
-    protected $InjectEntityContent = false;
+    private $InjectEntityContent = false;
 
     /**
      * Constructor.

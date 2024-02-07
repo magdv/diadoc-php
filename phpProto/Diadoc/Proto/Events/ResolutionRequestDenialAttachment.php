@@ -16,11 +16,11 @@ class ResolutionRequestDenialAttachment extends \Google\Protobuf\Internal\Messag
     /**
      * Generated from protobuf field <code>string InitialResolutionRequestId = 1;</code>
      */
-    protected $InitialResolutionRequestId = '';
+    private $InitialResolutionRequestId = '';
     /**
      * Generated from protobuf field <code>string Comment = 2;</code>
      */
-    protected $Comment = '';
+    private $Comment = '';
 
     /**
      * Constructor.

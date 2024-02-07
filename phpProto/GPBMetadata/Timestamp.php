@@ -15,8 +15,10 @@ class Timestamp
           return;
         }
         $pool->internalAddGeneratedFile(hex2bin(
-            "0a430a0f54696d657374616d702e70726f746f120c446961646f632e50726f746f221a0a0954696d657374616d70120d0a055469636b73180120012810620670726f746f33"
-        ), true);
+            "0a430a0f54696d657374616d702e70726f746f120c446961646f632e5072" .
+            "6f746f221a0a0954696d657374616d70120d0a055469636b731801200128" .
+            "10620670726f746f33"
+        ));
 
         static::$is_initialized = true;
     }

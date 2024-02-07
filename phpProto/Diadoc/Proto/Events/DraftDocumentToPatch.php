@@ -16,15 +16,15 @@ class DraftDocumentToPatch extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.DocumentId DocumentId = 1;</code>
      */
-    protected $DocumentId = null;
+    private $DocumentId = null;
     /**
      * Generated from protobuf field <code>string ToBoxId = 2;</code>
      */
-    protected $ToBoxId = '';
+    private $ToBoxId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signer Signer = 3;</code>
      */
-    protected $Signer = null;
+    private $Signer = null;
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Invoicing.Signers.ExtendedSigner ExtendedSigner = 4;</code>
      */

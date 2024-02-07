@@ -16,11 +16,11 @@ class DocflowStatus extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocflowStatusModel PrimaryStatus = 1;</code>
      */
-    protected $PrimaryStatus = null;
+    private $PrimaryStatus = null;
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocflowStatusModel SecondaryStatus = 2;</code>
      */
-    protected $SecondaryStatus = null;
+    private $SecondaryStatus = null;
 
     /**
      * Constructor.

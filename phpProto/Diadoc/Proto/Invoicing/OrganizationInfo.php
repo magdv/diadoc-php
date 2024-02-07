@@ -18,91 +18,91 @@ class OrganizationInfo extends \Google\Protobuf\Internal\Message
      *
      * Generated from protobuf field <code>string Name = 1;</code>
      */
-    protected $Name = '';
+    private $Name = '';
     /**
      * ИНН
      *
      * Generated from protobuf field <code>string Inn = 2;</code>
      */
-    protected $Inn = '';
+    private $Inn = '';
     /**
      * КПП
      *
      * Generated from protobuf field <code>string Kpp = 3;</code>
      */
-    protected $Kpp = '';
+    private $Kpp = '';
     /**
      * адрес
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Address Address = 4;</code>
      */
-    protected $Address = null;
+    private $Address = null;
     /**
      * организация - это ИП
      *
      * Generated from protobuf field <code>bool IsSoleProprietor = 5;</code>
      */
-    protected $IsSoleProprietor = false;
+    private $IsSoleProprietor = false;
     /**
      * код организационно-правовой формы по ОКОПФ
      *
      * Generated from protobuf field <code>string Okopf = 6;</code>
      */
-    protected $Okopf = '';
+    private $Okopf = '';
     /**
      * код в общероссийском классификаторе предприятий и организаций
      *
      * Generated from protobuf field <code>string Okpo = 7;</code>
      */
-    protected $Okpo = '';
+    private $Okpo = '';
     /**
      * код основного вида деятельности по ОКДП
      *
      * Generated from protobuf field <code>string Okdp = 8;</code>
      */
-    protected $Okdp = '';
+    private $Okdp = '';
     /**
      * телефон
      *
      * Generated from protobuf field <code>string Phone = 9;</code>
      */
-    protected $Phone = '';
+    private $Phone = '';
     /**
      * факс
      *
      * Generated from protobuf field <code>string Fax = 10;</code>
      */
-    protected $Fax = '';
+    private $Fax = '';
     /**
      * номер банковского счета
      *
      * Generated from protobuf field <code>string BankAccountNumber = 11;</code>
      */
-    protected $BankAccountNumber = '';
+    private $BankAccountNumber = '';
     /**
      * название банка
      *
      * Generated from protobuf field <code>string BankName = 12;</code>
      */
-    protected $BankName = '';
+    private $BankName = '';
     /**
      * БИК
      *
      * Generated from protobuf field <code>string BankId = 13;</code>
      */
-    protected $BankId = '';
+    private $BankId = '';
     /**
      * структурное подразделение
      *
      * Generated from protobuf field <code>string Department = 14;</code>
      */
-    protected $Department = '';
+    private $Department = '';
     /**
      * идентификатор участника ЭДО
      *
      * Generated from protobuf field <code>string FnsParticipantId = 15;</code>
      */
-    protected $FnsParticipantId = '';
+    private $FnsParticipantId = '';
 
     /**
      * Constructor.

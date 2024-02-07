@@ -4,6 +4,7 @@ namespace MagDv\Diadoc;
 
 use Diadoc\Proto\Documents\Types\GetDocumentTypesResponseV2;
 use Diadoc\Proto\Events\SignedContent;
+use Diadoc\Proto\LoginPassword;
 use Exception;
 use DateTime;
 use Diadoc\Proto\AcquireCounteragentRequest;
@@ -78,6 +79,11 @@ class DiadocApi
      * @var string
      */
     public const RESOURCE_AUTHENTICATE_V2 = '/V2/Authenticate';
+
+    /**
+     * @var string
+     */
+    public const RESOURCE_AUTHENTICATE_V3 = '/V3/Authenticate';
 
     /**
      * @var string
@@ -488,6 +494,26 @@ class DiadocApi
         return $response;
     }
 
+    public function authenticateLoginV3(string $login, string $password): string
+    {
+        $form = new LoginPassword();
+        $form->setLogin($login);
+        $form->setPassword($password);
+
+        $response = $this->doRequest(
+            self::RESOURCE_AUTHENTICATE_V3,
+            $form->serializeToString(),
+            [
+                'type' => 'password'
+            ],
+            self::METHOD_POST
+        );
+
+        $this->setToken($response);
+
+        return $response;
+    }
+
     private function buildRequestHeaders(?string $contentType = null): array
     {
         $header = sprintf('DiadocAuth ddauth_api_client_id=%s', $this->ddauthApiClientId);
@@ -504,7 +530,7 @@ class DiadocApi
      */
     protected function doRequest(string $resource, mixed $postData = [], array $queryParams = [], string $method = self::METHOD_GET, ?string $contentType = null): string
     {
-        if (!$this->getToken() && !in_array($resource, [self::RESOURCE_AUTHENTICATE, self::RESOURCE_AUTHENTICATE_V2], true)) {
+        if (!$this->getToken() && !in_array($resource, [self::RESOURCE_AUTHENTICATE, self::RESOURCE_AUTHENTICATE_V2, self::RESOURCE_AUTHENTICATE_V3], true)) {
             throw new Exception('Unauthorized request');
         }
 

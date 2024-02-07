@@ -16,19 +16,19 @@ class ExtendedSigner extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string BoxId = 1;</code>
      */
-    protected $BoxId = '';
+    private $BoxId = '';
     /**
      * Generated from protobuf field <code>bytes SignerCertificate = 2;</code>
      */
-    protected $SignerCertificate = '';
+    private $SignerCertificate = '';
     /**
      * Generated from protobuf field <code>string SignerCertificateThumbprint = 3;</code>
      */
-    protected $SignerCertificateThumbprint = '';
+    private $SignerCertificateThumbprint = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Invoicing.Signers.ExtendedSignerDetails SignerDetails = 4;</code>
      */
-    protected $SignerDetails = null;
+    private $SignerDetails = null;
 
     /**
      * Constructor.

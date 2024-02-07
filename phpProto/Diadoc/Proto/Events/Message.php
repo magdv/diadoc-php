@@ -16,35 +16,35 @@ class Message extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string MessageId = 1;</code>
      */
-    protected $MessageId = '';
+    private $MessageId = '';
     /**
      * DateTime.Ticks in UTC
      *
      * Generated from protobuf field <code>sfixed64 TimestampTicks = 2;</code>
      */
-    protected $TimestampTicks = 0;
+    private $TimestampTicks = 0;
     /**
      * DateTime.Ticks in UTC
      *
      * Generated from protobuf field <code>sfixed64 LastPatchTimestampTicks = 3;</code>
      */
-    protected $LastPatchTimestampTicks = 0;
+    private $LastPatchTimestampTicks = 0;
     /**
      * Generated from protobuf field <code>string FromBoxId = 4;</code>
      */
-    protected $FromBoxId = '';
+    private $FromBoxId = '';
     /**
      * Generated from protobuf field <code>string FromTitle = 5;</code>
      */
-    protected $FromTitle = '';
+    private $FromTitle = '';
     /**
      * Generated from protobuf field <code>string ToBoxId = 6;</code>
      */
-    protected $ToBoxId = '';
+    private $ToBoxId = '';
     /**
      * Generated from protobuf field <code>string ToTitle = 7;</code>
      */
-    protected $ToTitle = '';
+    private $ToTitle = '';
     /**
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.Entity Entities = 8;</code>
      */
@@ -52,19 +52,19 @@ class Message extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsDraft = 9;</code>
      */
-    protected $IsDraft = false;
+    private $IsDraft = false;
     /**
      * Generated from protobuf field <code>bool DraftIsLocked = 10;</code>
      */
-    protected $DraftIsLocked = false;
+    private $DraftIsLocked = false;
     /**
      * Generated from protobuf field <code>bool DraftIsRecycled = 11;</code>
      */
-    protected $DraftIsRecycled = false;
+    private $DraftIsRecycled = false;
     /**
      * Generated from protobuf field <code>string CreatedFromDraftId = 12;</code>
      */
-    protected $CreatedFromDraftId = '';
+    private $CreatedFromDraftId = '';
     /**
      * Generated from protobuf field <code>repeated string DraftIsTransformedToMessageIdList = 13;</code>
      */
@@ -72,31 +72,31 @@ class Message extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>bool IsDeleted = 14;</code>
      */
-    protected $IsDeleted = false;
+    private $IsDeleted = false;
     /**
      * Generated from protobuf field <code>bool IsTest = 15;</code>
      */
-    protected $IsTest = false;
+    private $IsTest = false;
     /**
      * Generated from protobuf field <code>bool IsInternal = 16;</code>
      */
-    protected $IsInternal = false;
+    private $IsInternal = false;
     /**
      * Generated from protobuf field <code>bool IsProxified = 17;</code>
      */
-    protected $IsProxified = false;
+    private $IsProxified = false;
     /**
      * Generated from protobuf field <code>string ProxyBoxId = 18;</code>
      */
-    protected $ProxyBoxId = '';
+    private $ProxyBoxId = '';
     /**
      * Generated from protobuf field <code>string ProxyTitle = 19;</code>
      */
-    protected $ProxyTitle = '';
+    private $ProxyTitle = '';
     /**
      * Generated from protobuf field <code>bool PacketIsLocked = 20;</code>
      */
-    protected $PacketIsLocked = false;
+    private $PacketIsLocked = false;
 
     /**
      * Constructor.

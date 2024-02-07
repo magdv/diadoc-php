@@ -16,11 +16,11 @@ class XmlSignatureRejectionAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string ParentEntityId = 1;</code>
      */
-    protected $ParentEntityId = '';
+    private $ParentEntityId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.SignedContent SignedContent = 2;</code>
      */
-    protected $SignedContent = null;
+    private $SignedContent = null;
 
     /**
      * Constructor.

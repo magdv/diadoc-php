@@ -16,15 +16,15 @@ class ResolutionAttachment extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string InitialDocumentId = 1;</code>
      */
-    protected $InitialDocumentId = '';
+    private $InitialDocumentId = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionType ResolutionType = 2;</code>
      */
-    protected $ResolutionType = 0;
+    private $ResolutionType = 0;
     /**
      * Generated from protobuf field <code>string Comment = 3;</code>
      */
-    protected $Comment = '';
+    private $Comment = '';
 
     /**
      * Constructor.

@@ -16,19 +16,19 @@ class ContractMetadata extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentStatus DocumentStatus = 1;</code>
      */
-    protected $DocumentStatus = 0;
+    private $DocumentStatus = 0;
     /**
      * Generated from protobuf field <code>string ContractPrice = 2;</code>
      */
-    protected $ContractPrice = '';
+    private $ContractPrice = '';
     /**
      * Generated from protobuf field <code>string ContractType = 3;</code>
      */
-    protected $ContractType = '';
+    private $ContractType = '';
     /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ReceiptStatus ReceiptStatus = 4;</code>
      */
-    protected $ReceiptStatus = 0;
+    private $ReceiptStatus = 0;
 
     /**
      * Constructor.

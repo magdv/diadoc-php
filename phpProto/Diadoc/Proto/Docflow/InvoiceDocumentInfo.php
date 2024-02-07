@@ -16,21 +16,21 @@ class InvoiceDocumentInfo extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string Total = 1;</code>
      */
-    protected $Total = '';
+    private $Total = '';
     /**
      * Generated from protobuf field <code>string Vat = 2;</code>
      */
-    protected $Vat = '';
+    private $Vat = '';
     /**
      * Generated from protobuf field <code>int32 CurrencyCode = 3;</code>
      */
-    protected $CurrencyCode = 0;
+    private $CurrencyCode = 0;
     /**
      * for InvoiceRevision
      *
      * Generated from protobuf field <code>.Diadoc.Proto.Docflow.DocumentDateAndNumber OriginalInvoiceDateAndNumber = 4;</code>
      */
-    protected $OriginalInvoiceDateAndNumber = null;
+    private $OriginalInvoiceDateAndNumber = null;
 
     /**
      * Constructor.

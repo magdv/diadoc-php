@@ -16,15 +16,15 @@ class DetectedDocumentType extends \Google\Protobuf\Internal\Message
     /**
      * Generated from protobuf field <code>string TypeNamedId = 1;</code>
      */
-    protected $TypeNamedId = '';
+    private $TypeNamedId = '';
     /**
      * Generated from protobuf field <code>string Function = 2;</code>
      */
-    protected $Function = '';
+    private $Function = '';
     /**
      * Generated from protobuf field <code>string Version = 3;</code>
      */
-    protected $Version = '';
+    private $Version = '';
 
     /**
      * Constructor.
