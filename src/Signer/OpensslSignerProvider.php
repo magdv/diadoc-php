@@ -10,10 +10,10 @@ use Symfony\Component\Process\Process;
 class OpensslSignerProvider implements SignerProviderInterface
 {
     public function __construct(
-        private string $caFile,
-        private string $certFile,
-        private string $privateKey,
-        private string $opensslBin = '/usr/bin/openssl'
+        private readonly string $caFile,
+        private readonly string $certFile,
+        private readonly string $privateKey,
+        private readonly string $opensslBin = '/usr/bin/openssl'
     ) {
     }
 
@@ -83,7 +83,7 @@ class OpensslSignerProvider implements SignerProviderInterface
             $out = $process->mustRun();
 
             $process->run(
-                static function ($type, $buffer) {
+                static function ($type, $buffer): void {
                     if (Process::ERR === $type) {
                         throw new SignerProviderException('Ошибка при подписании файла ERR > ' . $buffer, 500);
                     }

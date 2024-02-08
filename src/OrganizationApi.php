@@ -18,7 +18,7 @@ use Diadoc\Proto\OrganizationUsersList;
 
 class OrganizationApi
 {
-    public function __construct(private DiadocApi $diadocApi, private string $orgId)
+    public function __construct(private readonly DiadocApi $diadocApi, private readonly string $orgId)
     {
     }
 
