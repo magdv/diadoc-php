@@ -473,6 +473,7 @@ class DiadocApi
     public function __construct(
         private readonly string $ddauthApiClientId,
         private readonly string $serviceUrl = 'https://diadoc-api.kontur.ru/',
+        private readonly bool $debugRequest = false,
         private readonly ?SignerProviderInterface $signerProvider = null
     ) {
     }
@@ -553,6 +554,11 @@ class DiadocApi
         } elseif ($method === self::METHOD_GET) {
             curl_setopt($ch, CURLOPT_HTTPGET, 1);
             curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
+        }
+
+        if ($this->debugRequest) {
+            curl_setopt($ch, CURLOPT_VERBOSE, true);
+            curl_setopt($ch, CURLOPT_STDERR, STDOUT);
         }
 
         $response = curl_exec($ch);
