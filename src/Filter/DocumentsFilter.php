@@ -15,7 +15,7 @@ class DocumentsFilter
      * @see DocumentType
      * @var string
      */
-    public const DOCUMENT_TYPE_ANY = 'Any';
+    final public const DOCUMENT_TYPE_ANY = 'Any';
 
     /**
      * соответствует любому типу двусторонних документов
@@ -27,7 +27,7 @@ class DocumentsFilter
      * @see DocumentType
      * @var string
      */
-    public const DOCUMENT_TYPE_ANY_INVOICE = 'AnyInvoiceDocumentType';
+    final public const DOCUMENT_TYPE_ANY_INVOICE = 'AnyInvoiceDocumentType';
 
     /**
      * соответствует любому типу односторонних документов
@@ -36,7 +36,7 @@ class DocumentsFilter
      * @see DocumentType
      * @var string
      */
-    public const DOCUMENT_TYPE_ANY_BILATERAL = 'AnyBilateralDocumentType';
+    final public const DOCUMENT_TYPE_ANY_BILATERAL = 'AnyBilateralDocumentType';
 
     /**
      * соответствует любому типу документа.
@@ -44,155 +44,155 @@ class DocumentsFilter
      * @see DocumentType
      * @var string
      */
-    public const DOCUMENT_TYPE_ANY_UNILATERAL = 'AnyUnilateralDocumentType';
+    final public const DOCUMENT_TYPE_ANY_UNILATERAL = 'AnyUnilateralDocumentType';
 
     /** входящий документ
      * @var string */
-    public const DOCUMENT_CLASS_INBOUND = 'Inbound';
+    final public const DOCUMENT_CLASS_INBOUND = 'Inbound';
 
     /** исходящий документ
      * @var string */
-    public const DOCUMENT_CLASS_OUTBOUND = 'Outbound';
+    final public const DOCUMENT_CLASS_OUTBOUND = 'Outbound';
 
     /** внутренний документ
      * @var string */
-    public const DOCUMENT_CLASS_INTERNAL = 'Internal';
+    final public const DOCUMENT_CLASS_INTERNAL = 'Internal';
 
     /** любой документ указанного класса
      * @var string */
-    public const DOCUMENT_STATUS_ANY = '';
+    final public const DOCUMENT_STATUS_ANY = '';
 
     /** документ не прочитан
      * @var string */
-    public const DOCUMENT_STATUS_NOT_READ = 'NotRead';
+    final public const DOCUMENT_STATUS_NOT_READ = 'NotRead';
 
     /** документ без запроса ответной подписи
      * @var string */
-    public const DOCUMENT_STATUS_NO_RECIPIENT_SIGNATURE_REQUEST = 'NoRecipientSignatureRequest';
+    final public const DOCUMENT_STATUS_NO_RECIPIENT_SIGNATURE_REQUEST = 'NoRecipientSignatureRequest';
 
     /** документ в ожидании ответной подписи
      * @var string */
-    public const DOCUMENT_STATUS_WAIT_FOR_RECIPIENT_SIGNATURE = 'WaitingForRecipientSignature';
+    final public const DOCUMENT_STATUS_WAIT_FOR_RECIPIENT_SIGNATURE = 'WaitingForRecipientSignature';
 
     /** документ с ответной подписью
      * @var string */
-    public const DOCUMENT_STATUS_WITH_RECIPIENT_SIGNATURE = 'WithRecipientSignature';
+    final public const DOCUMENT_STATUS_WITH_RECIPIENT_SIGNATURE = 'WithRecipientSignature';
 
     /** документ с подписью отправителя
      * @var string */
-    public const DOCUMENT_STATUS_WITH_SENDER_SIGNATURE = 'WithSenderSignature';
+    final public const DOCUMENT_STATUS_WITH_SENDER_SIGNATURE = 'WithSenderSignature';
 
     /** документ с отказом от формирования ответной подписи
      * @var string */
-    public const DOCUMENT_STATUS_RECIPIENT_SIGNATURE_REQUEST_REJECT = 'RecipientSignatureRequestRejected';
+    final public const DOCUMENT_STATUS_RECIPIENT_SIGNATURE_REQUEST_REJECT = 'RecipientSignatureRequestRejected';
 
     /** документ, требующий подписания и отправки
      * @var string */
-    public const DOCUMENT_STATUS_WAIT_FOR_SENDER_SIGNATURE = 'WaitingForSenderSignature';
+    final public const DOCUMENT_STATUS_WAIT_FOR_SENDER_SIGNATURE = 'WaitingForSenderSignature';
 
     /** документ с невалидной подписью отправителя, требующий повторного подписания и отправки
      * @var string */
-    public const DOCUMENT_STATUS_INVALID_SENDER_SIGNATURE = 'InvalidSenderSignature';
+    final public const DOCUMENT_STATUS_INVALID_SENDER_SIGNATURE = 'InvalidSenderSignature';
 
     /** документ с невалидной подписью получателя, требующий повторного подписания и отправки
      * @var string */
-    public const DOCUMENT_STATUS_INVALID_RECIPIENT_SIGNATURE = 'InvalidRecipientSignature';
+    final public const DOCUMENT_STATUS_INVALID_RECIPIENT_SIGNATURE = 'InvalidRecipientSignature';
 
     /** согласованный документ
      * @var string */
-    public const DOCUMENT_STATUS_APPROVED = 'Approved';
+    final public const DOCUMENT_STATUS_APPROVED = 'Approved';
 
     /** документ с отказом согласования
      * @var string */
-    public const DOCUMENT_STATUS_DISAPPROVED = 'Disapproved';
+    final public const DOCUMENT_STATUS_DISAPPROVED = 'Disapproved';
 
     /** документ, находящийся на согласовании или подписи
      * @var string */
-    public const DOCUMENT_STATUS_WAITING_FOR_RESOLUTION = 'WaitingForResolution';
+    final public const DOCUMENT_STATUS_WAITING_FOR_RESOLUTION = 'WaitingForResolution';
 
     /** документ с отказом в запросе подписи сотруднику
      * @var string */
-    public const DOCUMENT_STATUS_SIGNATURE_REQUEST_REJECTED = 'SignatureRequestRejected';
+    final public const DOCUMENT_STATUS_SIGNATURE_REQUEST_REJECTED = 'SignatureRequestRejected';
 
     /** документ с завершенным документооборотом
      * @var string */
-    public const DOCUMENT_STATUS_FINISHED = 'Finished';
+    final public const DOCUMENT_STATUS_FINISHED = 'Finished';
 
     /** требуется подписать извещение о получении
      * @var string */
-    public const DOCUMENT_STATUS_HAVE_TO_CREATE_RECEIPT = 'HaveToCreateReceipt';
+    final public const DOCUMENT_STATUS_HAVE_TO_CREATE_RECEIPT = 'HaveToCreateReceipt';
 
     /** документ с незавершенным документооборотом
      * @var string */
-    public const DOCUMENT_STATUS_NOT_FINISHED = 'NotFinished';
+    final public const DOCUMENT_STATUS_NOT_FINISHED = 'NotFinished';
 
     /** имеет смысл только для счетов-фактур; документ, по которому было запрошено уточнение
      * @var string */
-    public const DOCUMENT_STATUS_INVOICE_AMENDMENT_REQUESTED = 'InvoiceAmendmentRequested';
+    final public const DOCUMENT_STATUS_INVOICE_AMENDMENT_REQUESTED = 'InvoiceAmendmentRequested';
 
     /** документ, по которому было запрошено аннулирование
      * @var string */
-    public const DOCUMENT_STATUS_REVOCATION_IS_REQUESTED_BY_ME = 'RevocationIsRequestedByMe';
+    final public const DOCUMENT_STATUS_REVOCATION_IS_REQUESTED_BY_ME = 'RevocationIsRequestedByMe';
 
     /** документ, по которому контрагент запросил аннулирование
      * @var string */
-    public const DOCUMENT_STATUS_REQUESTS_MY_REVOCATION = 'RequestsMyRevocation';
+    final public const DOCUMENT_STATUS_REQUESTS_MY_REVOCATION = 'RequestsMyRevocation';
 
     /** аннулированный документ
      * @var string */
-    public const DOCUMENT_STATUS_REVOCATION_ACCEPTED = 'RevocationAccepted';
+    final public const DOCUMENT_STATUS_REVOCATION_ACCEPTED = 'RevocationAccepted';
 
     /** документ, запрос на аннулирование которого был отклонен
      * @var string */
-    public const DOCUMENT_STATUS_REVOCATION_REJECTED = 'RevocationRejected';
+    final public const DOCUMENT_STATUS_REVOCATION_REJECTED = 'RevocationRejected';
 
     /** документ, запрос на аннулирование которого был согласован
      * @var string */
-    public const DOCUMENT_STATUS_REVOCATION_APPROVED = 'RevocationApproved';
+    final public const DOCUMENT_STATUS_REVOCATION_APPROVED = 'RevocationApproved';
 
     /** документ с отказом согласования запроса на аннулирование
      * @var string */
-    public const DOCUMENT_STATUS_REVOCATION_DISAPPROVED = 'RevocationDisapproved';
+    final public const DOCUMENT_STATUS_REVOCATION_DISAPPROVED = 'RevocationDisapproved';
 
     /** документ, находящийся на согласовании запроса аннулирования
      * @var string */
-    public const DOCUMENT_STATUS_WAITING_FOR_REVOCATION_APPROVEMENT = 'WaitingForRevocationApprovement';
+    final public const DOCUMENT_STATUS_WAITING_FOR_REVOCATION_APPROVEMENT = 'WaitingForRevocationApprovement';
 
     /** неаннулированный документ
      * @var string */
-    public const DOCUMENT_STATUS_NOT_REVOKED = 'NotRevoked';
+    final public const DOCUMENT_STATUS_NOT_REVOKED = 'NotRevoked';
 
     /** документ в ожидании подписи промежуточного получателя
      * @var string */
-    public const DOCUMENT_STATUS_WAITING_FOR_PROXY_SIGNATURE = 'WaitingForProxySignature';
+    final public const DOCUMENT_STATUS_WAITING_FOR_PROXY_SIGNATURE = 'WaitingForProxySignature';
 
     /** документ с подписью промежуточного получателя
      * @var string */
-    public const DOCUMENT_STATUS_WITH_PROXY_SIGNATURE = 'WithProxySignature';
+    final public const DOCUMENT_STATUS_WITH_PROXY_SIGNATURE = 'WithProxySignature';
 
     /** документ с невалидной подписью промежуточного получателя, требующий повторного подписания и отправки
      * @var string */
-    public const DOCUMENT_STATUS_INVALID_PROXY_SIGNATURE = 'InvalidProxySignature';
+    final public const DOCUMENT_STATUS_INVALID_PROXY_SIGNATURE = 'InvalidProxySignature';
 
     /** документ с отказом от формирования подписи промежуточным получателем
      * @var string */
-    public const DOCUMENT_STATUS_PROXY_SIGNATURE_REJECTED = 'ProxySignatureRejected';
+    final public const DOCUMENT_STATUS_PROXY_SIGNATURE_REJECTED = 'ProxySignatureRejected';
 
     /** документ в ожидании получения извещения о получении счета-фактуры
      * @var string */
-    public const DOCUMENT_STATUS_WAITING_FOR_INVOICE_RECEIPT = 'WaitingForInvoiceReceipt';
+    final public const DOCUMENT_STATUS_WAITING_FOR_INVOICE_RECEIPT = 'WaitingForInvoiceReceipt';
 
     /** документ в ожидании получения извещения о получении
      * @var string */
-    public const DOCUMENT_STATUS_WAITING_FOR_RECEIPT = 'WaitingForReceipt';
+    final public const DOCUMENT_STATUS_WAITING_FOR_RECEIPT = 'WaitingForReceipt';
 
     /** документ, по которому контрагент запросил подпись
      * @var string */
-    public const DOCUMENT_STATUS_REQUESTS_MY_SIGNATURE = 'RequestsMySignature';
+    final public const DOCUMENT_STATUS_REQUESTS_MY_SIGNATURE = 'RequestsMySignature';
 
     /** документ, с ошибкой доставки в роуминге
      * @var string */
-    public const DOCUMENT_STATUS_ROAMING_NOTIFICATION_ERROR = 'RoamingNotificationError';
+    final public const DOCUMENT_STATUS_ROAMING_NOTIFICATION_ERROR = 'RoamingNotificationError';
 
 
     private string $filterDocumentType = self::DOCUMENT_TYPE_ANY;
@@ -217,7 +217,7 @@ class DocumentsFilter
 
     private ?bool $excludeSubdepartments = null;
 
-    public static function create()
+    public static function create(): self
     {
         return new self();
     }
@@ -304,12 +304,12 @@ class DocumentsFilter
     }
 
     /**
-     * @param \DateTime|null $fromDate
+     * @param \DateTime|null $dateTime
      * @return $this
      */
-    public function setFromDate(DateTime $fromDate = null): self
+    public function setFromDate(DateTime $dateTime = null): self
     {
-        $this->fromDate = $fromDate;
+        $this->fromDate = $dateTime;
         return $this;
     }
 
@@ -319,12 +319,12 @@ class DocumentsFilter
     }
 
     /**
-     * @param \DateTime|null $toDate
+     * @param \DateTime|null $dateTime
      * @return $this
      */
-    public function setToDate(DateTime $toDate = null): self
+    public function setToDate(DateTime $dateTime = null): self
     {
-        $this->toDate = $toDate;
+        $this->toDate = $dateTime;
         return $this;
     }
 
@@ -336,9 +336,9 @@ class DocumentsFilter
     /**
      * @return $this
      */
-    public function setFromDocumentDate(DateTime $fromDocumentDate = null): self
+    public function setFromDocumentDate(DateTime $dateTime = null): self
     {
-        $this->fromDocumentDate = $fromDocumentDate;
+        $this->fromDocumentDate = $dateTime;
         return $this;
     }
 
@@ -350,9 +350,9 @@ class DocumentsFilter
     /**
      * @return $this
      */
-    public function setToDocumentDate(DateTime $toDocumentDate = null): self
+    public function setToDocumentDate(DateTime $dateTime = null): self
     {
-        $this->toDocumentDate = $toDocumentDate;
+        $this->toDocumentDate = $dateTime;
         return $this;
     }
 
@@ -389,6 +389,9 @@ class DocumentsFilter
         return sprintf('%s.%s%s', $this->filterDocumentType, $this->filterDocumentClass, $this->filterDocumentStatus);
     }
 
+    /**
+     * @return array{filterCategory: string, counteragentBoxId: string|null, toDepartmentId: string|null, timestampFromTicks: int|null, timestampToTicks: int|null, fromDocumentDate: string|null, toDocumentDate: string|null, departmentId: string|null, excludeSubdepartments: bool|null}
+     */
     public function toFilter(): array
     {
         return [

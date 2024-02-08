@@ -57,423 +57,423 @@ class DiadocApi
     /**
      * @var string
      */
-    public const METHOD_GET = 'GET';
+    final public const METHOD_GET = 'GET';
 
     /**
      * @var string
      */
-    public const CONTENT_FORM_URL_ENCODED = 'application/x-www-form-urlencoded';
+    final public const CONTENT_FORM_URL_ENCODED = 'application/x-www-form-urlencoded';
 
     /**
      * @var string
      */
-    public const METHOD_POST = 'POST';
+    final public const METHOD_POST = 'POST';
 
     // Authorization
     /**
      * @var string
      */
-    public const RESOURCE_AUTHENTICATE = '/Authenticate';
+    final public const RESOURCE_AUTHENTICATE = '/Authenticate';
 
     /**
      * @var string
      */
-    public const RESOURCE_AUTHENTICATE_V2 = '/V2/Authenticate';
+    final public const RESOURCE_AUTHENTICATE_V2 = '/V2/Authenticate';
 
     /**
      * @var string
      */
-    public const RESOURCE_AUTHENTICATE_V3 = '/V3/Authenticate';
+    final public const RESOURCE_AUTHENTICATE_V3 = '/V3/Authenticate';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_EXTERNAL_SERVICE_AUTH_INFO = '/GetExternalServiceAuthInfo';
+    final public const RESOURCE_GET_EXTERNAL_SERVICE_AUTH_INFO = '/GetExternalServiceAuthInfo';
 
     // Organizations
     /**
      * @var string
      */
-    public const RESOURCE_GET_BOX = '/GetBox';
+    final public const RESOURCE_GET_BOX = '/GetBox';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_DEPARTMENT = '/GetDepartment';
+    final public const RESOURCE_GET_DEPARTMENT = '/GetDepartment';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_MY_ORGANIZATION = '/GetMyOrganizations';
+    final public const RESOURCE_GET_MY_ORGANIZATION = '/GetMyOrganizations';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_MY_PERMISSIONS = '/GetMyPermissions';
+    final public const RESOURCE_GET_MY_PERMISSIONS = '/GetMyPermissions';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_MY_USER = '/GetMyUser';
+    final public const RESOURCE_GET_MY_USER = '/GetMyUser';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_ORGANIZATION = '/GetOrganization';
+    final public const RESOURCE_GET_ORGANIZATION = '/GetOrganization';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_ORGANIZATIONS_BY_INN_KPP = '/GetOrganizationsByInnKpp';
+    final public const RESOURCE_GET_ORGANIZATIONS_BY_INN_KPP = '/GetOrganizationsByInnKpp';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST = '/GetOrganizationsByInnList';
+    final public const RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST = '/GetOrganizationsByInnList';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_ORGANIZATION_USERS = '/GetOrganizationUsers';
+    final public const RESOURCE_GET_ORGANIZATION_USERS = '/GetOrganizationUsers';
 
     /**
      * @var string
      */
-    public const RESOURCE_PARSE_RUSSIAN_ADDRESS = '/ParseRussianAddress';
+    final public const RESOURCE_PARSE_RUSSIAN_ADDRESS = '/ParseRussianAddress';
 
     // Counteragents
     /**
      * @var string
      */
-    public const RESOURCE_ACQUIRE_COUNTERAGENTS = '/AcquireCounteragent';
+    final public const RESOURCE_ACQUIRE_COUNTERAGENTS = '/AcquireCounteragent';
 
     /**
      * @var string
      */
-    public const RESOURCE_ACQUIRE_COUNTERAGENTS_V2 = '/V2/AcquireCounteragent';
+    final public const RESOURCE_ACQUIRE_COUNTERAGENTS_V2 = '/V2/AcquireCounteragent';
 
     /**
      * @var string
      */
-    public const RESOURCE_ACQUIRE_COUNTERAGENT_RESULT = '/AcquireCounteragentResult';
+    final public const RESOURCE_ACQUIRE_COUNTERAGENT_RESULT = '/AcquireCounteragentResult';
 
     /**
      * @var string
      */
-    public const RESOURCE_BREAK_WITH_COUNTERAGENT = '/BreakWithCounteragent';
+    final public const RESOURCE_BREAK_WITH_COUNTERAGENT = '/BreakWithCounteragent';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_COUNTERAGENT = '/GetCounteragent';
+    final public const RESOURCE_GET_COUNTERAGENT = '/GetCounteragent';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_COUNTERAGENT_V2 = '/V2/GetCounteragent';
+    final public const RESOURCE_GET_COUNTERAGENT_V2 = '/V2/GetCounteragent';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_COUNTERAGENTS = '/GetCounteragents';
+    final public const RESOURCE_GET_COUNTERAGENTS = '/GetCounteragents';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_COUNTERAGENTS_V2 = '/V2/GetCounteragents';
+    final public const RESOURCE_GET_COUNTERAGENTS_V2 = '/V2/GetCounteragents';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_COUNTERAGENT_CERTIFICATES = '/GetCounteragentCertificates';
+    final public const RESOURCE_GET_COUNTERAGENT_CERTIFICATES = '/GetCounteragentCertificates';
 
     // Messages
     /**
      * @var string
      */
-    public const RESOURCE_GET_ENTITY_CONTENT = ' /V4/GetEntityContent';
+    final public const RESOURCE_GET_ENTITY_CONTENT = ' /V4/GetEntityContent';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_MESSAGE = '/V3/GetMessage';
+    final public const RESOURCE_GET_MESSAGE = '/V3/GetMessage';
 
     /**
      * @var string
      */
-    public const RESOURCE_POST_MESSAGE = '/V3/PostMessage';
+    final public const RESOURCE_POST_MESSAGE = '/V3/PostMessage';
 
     /**
      * @var string
      */
-    public const RESOURCE_POST_MESSAGE_PATCH = '/V3/PostMessagePatch';
+    final public const RESOURCE_POST_MESSAGE_PATCH = '/V3/PostMessagePatch';
 
     // Documents
     /**
      * @var string
      */
-    public const RESOURCE_DELETE = '/Delete';
+    final public const RESOURCE_DELETE = '/Delete';
 
     /**
      * @var string
      */
-    public const RESOURCE_FORWARD_DOCUMENT = '/V2/ForwardDocument';
+    final public const RESOURCE_FORWARD_DOCUMENT = '/V2/ForwardDocument';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_BUYER = '/GenerateAcceptanceCertificateXmlForBuyer';
+    final public const RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_BUYER = '/GenerateAcceptanceCertificateXmlForBuyer';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_SELLER = '/GenerateAcceptanceCertificateXmlForSeller';
+    final public const RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_SELLER = '/GenerateAcceptanceCertificateXmlForSeller';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_DOCUMENT_PROTOCOL = '/GenerateDocumentProtocol';
+    final public const RESOURCE_GENERATE_DOCUMENT_PROTOCOL = '/GenerateDocumentProtocol';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_DOCUMENT_ZIP = '/GenerateDocumentZip';
+    final public const RESOURCE_GENERATE_DOCUMENT_ZIP = '/GenerateDocumentZip';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_FORWARDED_DOCUMENT_PROTOCOL = '/V2/GenerateForwardedDocumentProtocol';
+    final public const RESOURCE_GENERATE_FORWARDED_DOCUMENT_PROTOCOL = '/V2/GenerateForwardedDocumentProtocol';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_PRINT_FORM = '/GeneratePrintForm';
+    final public const RESOURCE_GENERATE_PRINT_FORM = '/GeneratePrintForm';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_PRINT_FORM_FROM_ATTACHMENT = '/GeneratePrintFormFromAttachment';
+    final public const RESOURCE_GENERATE_PRINT_FORM_FROM_ATTACHMENT = '/GeneratePrintFormFromAttachment';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_REVOCATION_REQUEST_XML = '/GenerateRevocationRequestXml';
+    final public const RESOURCE_GENERATE_REVOCATION_REQUEST_XML = '/GenerateRevocationRequestXml';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_SIGNATURE_REJECTION_XML = '/GenerateSignatureRejectionXml';
+    final public const RESOURCE_GENERATE_SIGNATURE_REJECTION_XML = '/GenerateSignatureRejectionXml';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_TORG_12_XML_FOR_BUYER = '/GenerateTorg12XmlForBuyer';
+    final public const RESOURCE_GENERATE_TORG_12_XML_FOR_BUYER = '/GenerateTorg12XmlForBuyer';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_TORG_12_XML_FOR_SELLER = '/GenerateTorg12XmlForSeller';
+    final public const RESOURCE_GENERATE_TORG_12_XML_FOR_SELLER = '/GenerateTorg12XmlForSeller';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_DOCUMENT = '/V3/GetDocument';
+    final public const RESOURCE_GET_DOCUMENT = '/V3/GetDocument';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_DOCUMENTS = '/V3/GetDocuments';
+    final public const RESOURCE_GET_DOCUMENTS = '/V3/GetDocuments';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_DOCUMENT_TYPES = '/V2/GetDocumentTypes';
+    final public const RESOURCE_GET_DOCUMENT_TYPES = '/V2/GetDocumentTypes';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_FORWARDED_DOCUMENT_EVENTS = '/V2/GetForwardedDocumentEvents';
+    final public const RESOURCE_GET_FORWARDED_DOCUMENT_EVENTS = '/V2/GetForwardedDocumentEvents';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_FORWARDED_DOCUMENT_PRINT_FORM = '/GenerateForwardedDocumentPrintForm';
+    final public const RESOURCE_GENERATE_FORWARDED_DOCUMENT_PRINT_FORM = '/GenerateForwardedDocumentPrintForm';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_FORWARDED_ENTITY_CONTENT = '/V2/GetForwardedEntityContent';
+    final public const RESOURCE_GET_FORWARDED_ENTITY_CONTENT = '/V2/GetForwardedEntityContent';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_FORWARDED_DOCUMENT = '/V2/GetForwardedDocuments';
+    final public const RESOURCE_GET_FORWARDED_DOCUMENT = '/V2/GetForwardedDocuments';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_GENERATED_PRINT_FORM = '/GetGeneratedPrintForm';
+    final public const RESOURCE_GET_GENERATED_PRINT_FORM = '/GetGeneratedPrintForm';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_RECOGNIZED = '/GetRecognized';
+    final public const RESOURCE_GET_RECOGNIZED = '/GetRecognized';
 
     /**
      * @var string
      */
-    public const RESOURCE_MOVE_DOCUMENTS = '/MoveDocuments';
+    final public const RESOURCE_MOVE_DOCUMENTS = '/MoveDocuments';
 
     /**
      * @var string
      */
-    public const RESOURCE_PARSE_ACCEPTANCE_CERTIFICATE_SELLER_TITLE_XML = '/ParseAcceptanceCertificateSellerTitleXml';
+    final public const RESOURCE_PARSE_ACCEPTANCE_CERTIFICATE_SELLER_TITLE_XML = '/ParseAcceptanceCertificateSellerTitleXml';
 
     /**
      * @var string
      */
-    public const RESOURCE_PARSE_REVOCATION_REQUEST_XML = '/ParseRevocationRequestXml';
+    final public const RESOURCE_PARSE_REVOCATION_REQUEST_XML = '/ParseRevocationRequestXml';
 
     /**
      * @var string
      */
-    public const RESOURCE_PARSE_SIGNATURE_REJECTION_XML = '/ParseSignatureRejectionXml';
+    final public const RESOURCE_PARSE_SIGNATURE_REJECTION_XML = '/ParseSignatureRejectionXml';
 
     /**
      * @var string
      */
-    public const RESOURCE_PARSE_TORG_12_SELLER_TITLE_XML = '/ParseTorg12SellerTitleXml';
+    final public const RESOURCE_PARSE_TORG_12_SELLER_TITLE_XML = '/ParseTorg12SellerTitleXml';
 
     /**
      * @var string
      */
-    public const RESOURCE_PREPARE_DOCUMENTS_TO_SIGN = '/PrepareDocumentsToSign';
+    final public const RESOURCE_PREPARE_DOCUMENTS_TO_SIGN = '/PrepareDocumentsToSign';
 
     /**
      * @var string
      */
-    public const RESOURCE_RECOGNIZE = '/Recognize';
+    final public const RESOURCE_RECOGNIZE = '/Recognize';
 
     /**
      * @var string
      */
-    public const RESOURCE_RECYCLE_DRAFT = '/RecycleDraft';
+    final public const RESOURCE_RECYCLE_DRAFT = '/RecycleDraft';
 
     /**
      * @var string
      */
-    public const RESOURCE_RESTORE = '/Restore';
+    final public const RESOURCE_RESTORE = '/Restore';
 
     /**
      * @var string
      */
-    public const RESOURCE_SHELF_UPLOAD = '/ShelfUpload';
+    final public const RESOURCE_SHELF_UPLOAD = '/ShelfUpload';
 
     /**
      * @var string
      */
-    public const RESOURCE_SEND_DRAFT = '/SendDraft';
+    final public const RESOURCE_SEND_DRAFT = '/SendDraft';
 
     // SF/ISF/KSF
     /**
      * @var string
      */
-    public const RESOURCE_CAN_SEND_INVOICE = '/CanSendInvoice';
+    final public const RESOURCE_CAN_SEND_INVOICE = '/CanSendInvoice';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_INVOICE_XML = '/GenerateInvoiceXml';
+    final public const RESOURCE_GENERATE_INVOICE_XML = '/GenerateInvoiceXml';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_INVOICE_CORRECTION_REQUEST_XML = '/GenerateInvoiceCorrectionRequestXml';
+    final public const RESOURCE_GENERATE_INVOICE_CORRECTION_REQUEST_XML = '/GenerateInvoiceCorrectionRequestXml';
 
     /**
      * @var string
      */
-    public const RESOURCE_GENERATE_INVOICE_DOCUMENT_RECEIPT_XML = '/GenerateInvoiceDocumentReceiptXml';
+    final public const RESOURCE_GENERATE_INVOICE_DOCUMENT_RECEIPT_XML = '/GenerateInvoiceDocumentReceiptXml';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_INVOICE_CORRECTION_REQUEST_INFO = '/GetInvoiceCorrectionRequestInfo';
+    final public const RESOURCE_GET_INVOICE_CORRECTION_REQUEST_INFO = '/GetInvoiceCorrectionRequestInfo';
 
     /**
      * @var string
      */
-    public const RESOURCE_PARSE_INVOICE_XML = '/ParseInvoiceXml';
+    final public const RESOURCE_PARSE_INVOICE_XML = '/ParseInvoiceXml';
 
     // Events
     /**
      * @var string
      */
-    public const RESOURCE_GET_EVENT = '/V2/GetEvent';
+    final public const RESOURCE_GET_EVENT = '/V2/GetEvent';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_NEW_EVENTS = '/V4/GetNewEvents';
+    final public const RESOURCE_GET_NEW_EVENTS = '/V4/GetNewEvents';
 
     //Docflow API
     /**
      * @var string
      */
-    public const RESOURCE_GET_DOCFLOWS = '/V2/GetDocflows';
+    final public const RESOURCE_GET_DOCFLOWS = '/V2/GetDocflows';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_DOCFLOWS_BY_PACKET_ID = '/V2/GetDocflowsByPacketId';
+    final public const RESOURCE_GET_DOCFLOWS_BY_PACKET_ID = '/V2/GetDocflowsByPacketId';
 
     /**
      * @var string
      */
-    public const RESOURCE_SEARCH_DOCFLOWS = '/V2/SearchDocflows';
+    final public const RESOURCE_SEARCH_DOCFLOWS = '/V2/SearchDocflows';
 
     /**
      * @var string
      */
-    public const RESOURCE_GET_DOCFLOWS_EVENTS = '/V2/GetDocflowEvents';
+    final public const RESOURCE_GET_DOCFLOWS_EVENTS = '/V2/GetDocflowEvents';
 
     // Cloud sign
     /**
      * @var string
      */
-    public const RESOURCE_CLOUD_SIGN = '/CloudSign';
+    final public const RESOURCE_CLOUD_SIGN = '/CloudSign';
 
     /**
      * @var string
      */
-    public const RESOURCE_CLOUD_SIGN_CONFIRM = '/CloudSignConfirm';
+    final public const RESOURCE_CLOUD_SIGN_CONFIRM = '/CloudSignConfirm';
 
     /**
      * @var string
      */
-    public const RESOURCE_CLOUD_SIGN_CONFIRM_RESULT = '/CloudSignConfirmResult';
+    final public const RESOURCE_CLOUD_SIGN_CONFIRM_RESULT = '/CloudSignConfirmResult';
 
     /**
      * @var string
      */
-    public const RESOURCE_CLOUD_SIGN_RESULT = '/CloudSignResult';
+    final public const RESOURCE_CLOUD_SIGN_RESULT = '/CloudSignResult';
 
     /**
      * @var string
      */
-    public const RESOURCE_AUTO_SIGN_RECEIPTS = '/AutoSignReceipts';
+    final public const RESOURCE_AUTO_SIGN_RECEIPTS = '/AutoSignReceipts';
 
     /**
      * @var string
      */
-    public const RESOURCE_AUTO_SIGN_RECEIPTS_RESULT = '/AutoSignReceiptsResult';
+    final public const RESOURCE_AUTO_SIGN_RECEIPTS_RESULT = '/AutoSignReceiptsResult';
 
     private ?string $token = null;
 
     public function __construct(
-        private string $ddauthApiClientId,
-        private string $serviceUrl = 'https://diadoc-api.kontur.ru/',
-        private ?SignerProviderInterface $signerProvider = null
+        private readonly string $ddauthApiClientId,
+        private readonly string $serviceUrl = 'https://diadoc-api.kontur.ru/',
+        private readonly ?SignerProviderInterface $signerProvider = null
     ) {
     }
 
@@ -496,13 +496,13 @@ class DiadocApi
 
     public function authenticateLoginV3(string $login, string $password): string
     {
-        $form = new LoginPassword();
-        $form->setLogin($login);
-        $form->setPassword($password);
+        $loginPassword = new LoginPassword();
+        $loginPassword->setLogin($login);
+        $loginPassword->setPassword($password);
 
         $response = $this->doRequest(
             self::RESOURCE_AUTHENTICATE_V3,
-            $form->serializeToString(),
+            $loginPassword->serializeToString(),
             [
                 'type' => 'password'
             ],
@@ -629,10 +629,10 @@ class DiadocApi
     {
         $response = $this->doRequest(self::RESOURCE_GET_MY_ORGANIZATION);
 
-        $list = new OrganizationList();
-        $list->mergeFromString($response);
+        $organizationList = new OrganizationList();
+        $organizationList->mergeFromString($response);
 
-        return $list;
+        return $organizationList;
     }
 
     /**
@@ -649,10 +649,10 @@ class DiadocApi
                 'orgId' => $orgId
             ]
         );
-        $permission = new OrganizationUserPermissions();
-        $permission->mergeFromString($response);
+        $organizationUserPermissions = new OrganizationUserPermissions();
+        $organizationUserPermissions->mergeFromString($response);
 
-        return $permission;
+        return $organizationUserPermissions;
     }
 
     /**
@@ -683,10 +683,10 @@ class DiadocApi
             ]
         );
 
-        $org = new Organization();
-        $org->mergeFromString($response);
+        $organization = new Organization();
+        $organization->mergeFromString($response);
 
-        return $org;
+        return $organization;
     }
 
     /**
@@ -703,10 +703,10 @@ class DiadocApi
             ]
         );
 
-        $org = new Organization();
-        $org->mergeFromString($response);
+        $organization = new Organization();
+        $organization->mergeFromString($response);
 
-        return $org;
+        return $organization;
     }
 
 
@@ -724,10 +724,10 @@ class DiadocApi
             ]
         );
 
-        $org = new Organization();
-        $org->mergeFromString($response);
+        $organization = new Organization();
+        $organization->mergeFromString($response);
 
-        return $org;
+        return $organization;
     }
 
     /**
@@ -748,10 +748,10 @@ class DiadocApi
             ]
         );
 
-        $org = new OrganizationList();
-        $org->mergeFromString($response);
+        $organizationList = new OrganizationList();
+        $organizationList->mergeFromString($response);
 
-        return $org;
+        return $organizationList;
     }
 
     /**
@@ -760,22 +760,22 @@ class DiadocApi
      */
     public function getOrganizationsByInnList(string $myOrgId, array $innList = []): GetOrganizationsByInnListResponse
     {
-        $request = new GetOrganizationsByInnListRequest();
-        $request->setInnList($innList);
+        $getOrganizationsByInnListRequest = new GetOrganizationsByInnListRequest();
+        $getOrganizationsByInnListRequest->setInnList($innList);
 
         $response = $this->doRequest(
             self::RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST,
-            $request->serializeToString(),
+            $getOrganizationsByInnListRequest->serializeToString(),
             [
                 'myOrgId'   => $myOrgId
             ],
             self::METHOD_POST
         );
 
-        $data = new GetOrganizationsByInnListResponse();
-        $data->mergeFromString($response);
+        $getOrganizationsByInnListResponse = new GetOrganizationsByInnListResponse();
+        $getOrganizationsByInnListResponse->mergeFromString($response);
 
-        return $data;
+        return $getOrganizationsByInnListResponse;
     }
 
     /**
@@ -793,10 +793,10 @@ class DiadocApi
             ]
         );
 
-        $data = new OrganizationUsersList();
-        $data->mergeFromString($response);
+        $organizationUsersList = new OrganizationUsersList();
+        $organizationUsersList->mergeFromString($response);
 
-        return $data;
+        return $organizationUsersList;
     }
 
     /**
@@ -814,10 +814,10 @@ class DiadocApi
             ]
         );
 
-        $data = new RussianAddress();
-        $data->mergeFromString($response);
+        $russianAddress = new RussianAddress();
+        $russianAddress->mergeFromString($response);
 
-        return $data;
+        return $russianAddress;
     }
 
     /**
@@ -849,14 +849,14 @@ class DiadocApi
      */
     public function acquireCounteragentWithDocument(string $myOrgId, string $counteragentOrgId, string $myDepartmentId, InvitationDocument $invitationDocument = null, string $messageToContragent = ''): AsyncMethodResult
     {
-        $request = new AcquireCounteragentRequest();
-        $request->setOrgId($counteragentOrgId);
-        $request->setMessageToCounteragent($messageToContragent);
-        $request->setInvitationDocument($invitationDocument);
+        $acquireCounteragentRequest = new AcquireCounteragentRequest();
+        $acquireCounteragentRequest->setOrgId($counteragentOrgId);
+        $acquireCounteragentRequest->setMessageToCounteragent($messageToContragent);
+        $acquireCounteragentRequest->setInvitationDocument($invitationDocument);
 
         $response = $this->doRequest(
             self::RESOURCE_ACQUIRE_COUNTERAGENTS_V2,
-            $request->serializeToString(),
+            $acquireCounteragentRequest->serializeToString(),
             [
                 'myOrgId' => $myOrgId,
                 'myDepartmentId'    => $myDepartmentId,
@@ -864,10 +864,10 @@ class DiadocApi
             self::METHOD_POST
         );
 
-        $data = new AsyncMethodResult();
-        $data->mergeFromString($response);
+        $asyncMethodResult = new AsyncMethodResult();
+        $asyncMethodResult->mergeFromString($response);
 
-        return $data;
+        return $asyncMethodResult;
     }
 
     /**
@@ -878,14 +878,14 @@ class DiadocApi
      */
     public function acquireCounteragentByInnWithDocument(string $myOrgId, string $counteragentInn, ?string $myDepartmentId = null, InvitationDocument $invitationDocument = null, string $messageToContragent = ''): AsyncMethodResult
     {
-        $request = new AcquireCounteragentRequest();
-        $request->setInn($counteragentInn);
-        $request->setMessageToCounteragent($messageToContragent);
-        $request->setInvitationDocument($invitationDocument);
+        $acquireCounteragentRequest = new AcquireCounteragentRequest();
+        $acquireCounteragentRequest->setInn($counteragentInn);
+        $acquireCounteragentRequest->setMessageToCounteragent($messageToContragent);
+        $acquireCounteragentRequest->setInvitationDocument($invitationDocument);
 
         $response = $this->doRequest(
             self::RESOURCE_ACQUIRE_COUNTERAGENTS_V2,
-            $request->serializeToString(),
+            $acquireCounteragentRequest->serializeToString(),
             [
                 'myOrgId' => $myOrgId,
                 'myDepartmentId'    => $myDepartmentId,
@@ -893,10 +893,10 @@ class DiadocApi
             self::METHOD_POST
         );
 
-        $data = new AsyncMethodResult();
-        $data->mergeFromString($response);
+        $asyncMethodResult = new AsyncMethodResult();
+        $asyncMethodResult->mergeFromString($response);
 
-        return $data;
+        return $asyncMethodResult;
     }
 
     /**
@@ -914,10 +914,10 @@ class DiadocApi
             ]
         );
 
-        $data = new AcquireCounteragentResult();
-        $data->mergeFromString($response);
+        $acquireCounteragentResult = new AcquireCounteragentResult();
+        $acquireCounteragentResult->mergeFromString($response);
 
-        return $data;
+        return $acquireCounteragentResult;
     }
 
     /**
@@ -951,10 +951,10 @@ class DiadocApi
                 'counteragentOrgId' => $counteragentOrgId
             ]
         );
-        $data = new Counteragent();
-        $data->mergeFromString($response);
+        $counteragent = new Counteragent();
+        $counteragent->mergeFromString($response);
 
-        return $data;
+        return $counteragent;
     }
 
 
@@ -973,10 +973,10 @@ class DiadocApi
             ]
         );
 
-        $data = new Counteragent();
-        $data->mergeFromString($response);
+        $counteragent = new Counteragent();
+        $counteragent->mergeFromString($response);
 
-        return $data;
+        return $counteragent;
     }
 
 
@@ -996,10 +996,10 @@ class DiadocApi
                 'afterIndexKey'  => $afterIndexKey
             ]
         );
-        $data = new CounteragentList();
-        $data->mergeFromString($response);
+        $counteragentList = new CounteragentList();
+        $counteragentList->mergeFromString($response);
 
-        return $data;
+        return $counteragentList;
     }
 
     /**
@@ -1019,10 +1019,10 @@ class DiadocApi
                 'afterIndexKey'  => $afterIndexKey
             ]
         );
-        $list = (new CounteragentList());
-        $list->mergeFromString($response);
+        $counteragentList = (new CounteragentList());
+        $counteragentList->mergeFromString($response);
 
-        return $list;
+        return $counteragentList;
     }
 
     public function getCounteragentCertificates(string $myOrgId, string $counteragentOrgId): CounteragentCertificateList
@@ -1036,10 +1036,10 @@ class DiadocApi
             ]
         );
 
-        $list = new CounteragentCertificateList();
-        $list->mergeFromString($response);
+        $counteragentCertificateList = new CounteragentCertificateList();
+        $counteragentCertificateList->mergeFromString($response);
 
-        return $list;
+        return $counteragentCertificateList;
     }
 
     /**
@@ -1078,10 +1078,10 @@ class DiadocApi
                 'originalSignature' => $originalSignature
             ]
         );
-        $data = new Message();
-        $data->mergeFromString($response);
+        $message = new Message();
+        $message->mergeFromString($response);
 
-        return $data;
+        return $message;
     }
 
     /**
@@ -1100,10 +1100,10 @@ class DiadocApi
             self::METHOD_POST
         );
 
-        $data = new Message();
-        $data->mergeFromString($response);
+        $message = new Message();
+        $message->mergeFromString($response);
 
-        return $data;
+        return $message;
     }
 
     /**
@@ -1121,10 +1121,10 @@ class DiadocApi
             self::METHOD_POST
         );
 
-        $data = new MessagePatch();
-        $data->mergeFromString($response);
+        $messagePatch = new MessagePatch();
+        $messagePatch->mergeFromString($response);
 
-        return $data;
+        return $messagePatch;
     }
 
     /**
@@ -1171,7 +1171,7 @@ class DiadocApi
      * @return Document| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function getDocument(string $boxId, string $messageId, string $entityId): Document
+    public function getDocument(string $boxId, string $messageId, string $entityId, bool $injectEntityContent = true): Document
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_DOCUMENT,
@@ -1179,13 +1179,14 @@ class DiadocApi
             [
                 'boxId' => $boxId,
                 'messageId' => $messageId,
-                'entityId'  => $entityId
+                'entityId'  => $entityId,
+                'injectEntityContent'  => $injectEntityContent
             ]
         );
-        $data = new Document();
-        $data->mergeFromString($response);
+        $document = new Document();
+        $document->mergeFromString($response);
 
-        return $data;
+        return $document;
     }
 
 
@@ -1213,10 +1214,10 @@ class DiadocApi
             $params
         );
 
-        $data = new DocumentList();
-        $data->mergeFromString($response);
+        $documentList = new DocumentList();
+        $documentList->mergeFromString($response);
 
-        return $data;
+        return $documentList;
     }
 
     public function getDocumentTypes(string $boxId): GetDocumentTypesResponseV2
@@ -1231,10 +1232,10 @@ class DiadocApi
             $params
         );
 
-        $data = new GetDocumentTypesResponseV2();
-        $data->mergeFromString($response);
+        $getDocumentTypesResponseV2 = new GetDocumentTypesResponseV2();
+        $getDocumentTypesResponseV2->mergeFromString($response);
 
-        return $data;
+        return $getDocumentTypesResponseV2;
     }
 
 
@@ -1242,21 +1243,21 @@ class DiadocApi
      *
      * @throws DiadocApiException
      */
-    public function getDocflows(string $boxId, GetDocflowBatchRequest $batchRequest): GetDocflowBatchResponse
+    public function getDocflows(string $boxId, GetDocflowBatchRequest $getDocflowBatchRequest): GetDocflowBatchResponse
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_DOCFLOWS,
-            $batchRequest->serializeToString(),
+            $getDocflowBatchRequest->serializeToString(),
             [
                 'boxId' => $boxId
             ],
             self::METHOD_POST
         );
 
-        $data = new GetDocflowBatchResponse();
-        $data->mergeFromString($response);
+        $getDocflowBatchResponse = new GetDocflowBatchResponse();
+        $getDocflowBatchResponse->mergeFromString($response);
 
-        return $data;
+        return $getDocflowBatchResponse;
     }
 
     /**
@@ -1281,10 +1282,10 @@ class DiadocApi
             self::METHOD_POST
         );
 
-        $data = new GetDocflowsByPacketIdResponse();
-        $data->mergeFromString($response);
+        $getDocflowsByPacketIdResponse = new GetDocflowsByPacketIdResponse();
+        $getDocflowsByPacketIdResponse->mergeFromString($response);
 
-        return $data;
+        return $getDocflowsByPacketIdResponse;
     }
 
     /**
@@ -1295,31 +1296,31 @@ class DiadocApi
      */
     public function searchDocflows(string $boxId, string $queryString, int $searchScope = null, int $firstIndex = null, int $count = 100): SearchDocflowsResponse
     {
-        $searchDocflowRequest = new SearchDocflowsRequest();
-        $searchDocflowRequest->setQueryString($queryString);
+        $searchDocflowsRequest = new SearchDocflowsRequest();
+        $searchDocflowsRequest->setQueryString($queryString);
         if ($searchScope) {
-            $searchDocflowRequest->setScope($searchScope);
+            $searchDocflowsRequest->setScope($searchScope);
         }
 
         if ($firstIndex) {
-            $searchDocflowRequest->setFirstIndex($firstIndex);
+            $searchDocflowsRequest->setFirstIndex($firstIndex);
         }
 
-        $searchDocflowRequest->setCount($count);
+        $searchDocflowsRequest->setCount($count);
 
         $response = $this->doRequest(
             self::RESOURCE_SEARCH_DOCFLOWS,
-            $searchDocflowRequest->serializeToString(),
+            $searchDocflowsRequest->serializeToString(),
             [
                 'boxId' => $boxId
             ],
             self::METHOD_POST
         );
 
-        $data = new SearchDocflowsResponse();
-        $data->mergeFromString($response);
+        $searchDocflowsResponse = new SearchDocflowsResponse();
+        $searchDocflowsResponse->mergeFromString($response);
 
-        return $data;
+        return $searchDocflowsResponse;
     }
 
     /**
@@ -1372,10 +1373,10 @@ class DiadocApi
             self::METHOD_POST
         );
 
-        $data = new GetDocflowEventsResponse();
-        $data->mergeFromString($response);
+        $getDocflowEventsResponse = new GetDocflowEventsResponse();
+        $getDocflowEventsResponse->mergeFromString($response);
 
-        return $data;
+        return $getDocflowEventsResponse;
     }
 
 
@@ -1393,10 +1394,10 @@ class DiadocApi
             ]
         );
 
-        $data = new BoxEvent();
-        $data->mergeFromString($response);
+        $boxEvent = new BoxEvent();
+        $boxEvent->mergeFromString($response);
 
-        return $data;
+        return $boxEvent;
     }
 
     public function getNewEvents(string $boxId, string $afterEventId = null): BoxEventList
@@ -1409,10 +1410,10 @@ class DiadocApi
                 'afterEventId' => $afterEventId
             ]
         );
-        $data = new BoxEventList();
-        $data->mergeFromString($response);
+        $boxEventList = new BoxEventList();
+        $boxEventList->mergeFromString($response);
 
-        return $data;
+        return $boxEventList;
     }
 
     protected function getToken(): ?string

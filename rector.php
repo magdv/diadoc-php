@@ -21,9 +21,12 @@ return static function (RectorConfig $rectorConfig): void
 
     // define sets of rules
     $rectorConfig->sets([
-        LevelSetList::UP_TO_PHP_80,
+        LevelSetList::UP_TO_PHP_82,
         SetList::CODE_QUALITY,
         SetList::CODING_STYLE,
+        SetList::PSR_4,
+        SetList::NAMING,
+        SetList::TYPE_DECLARATION_STRICT,
         JMSSetList::ANNOTATIONS_TO_ATTRIBUTES,
     ]);
 

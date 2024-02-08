@@ -25,7 +25,7 @@ class BoxApi
 {
     private ?OrganizationApi $organizationApi = null;
 
-    public function __construct(private DiadocApi $diadocApi, private string $boxId)
+    public function __construct(private readonly DiadocApi $diadocApi, private readonly string $boxId)
     {
     }
 
@@ -114,9 +114,9 @@ class BoxApi
     /**
      * @throws DiadocApiException
      */
-    public function getDocflows(GetDocflowBatchRequest $batchRequest): GetDocflowBatchResponse
+    public function getDocflows(GetDocflowBatchRequest $getDocflowBatchRequest): GetDocflowBatchResponse
     {
-        return $this->diadocApi->getDocflows($this->boxId, $batchRequest);
+        return $this->diadocApi->getDocflows($this->boxId, $getDocflowBatchRequest);
     }
 
     /**
