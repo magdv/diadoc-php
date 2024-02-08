@@ -51,6 +51,7 @@ class ApiClient
         $this->api = new DiadocApi(
             getenv(ConfigNames::DD_AUTH),
             getenv(ConfigNames::DIADOC_URL),
+            false,
             $signedProvider
         );
         $this->cache = Cache::getCache();
