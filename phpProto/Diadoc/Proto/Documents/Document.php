@@ -229,6 +229,10 @@ class Document extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalTransferDocumentMetadata UniversalTransferDocumentMetadata = 56;</code>
      */
     private $UniversalTransferDocumentMetadata = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.RecipientResponseStatus RecipientResponseStatus = 70;</code>
+     */
+    private $RecipientResponseStatus = 0;
 
     /**
      * Constructor.
@@ -290,6 +294,7 @@ class Document extends \Google\Protobuf\Internal\Message
      *     @type \Diadoc\Proto\Documents\NonformalizedDocument\NonformalizedDocumentMetadata $PriceListAgreementMetadata
      *     @type \Diadoc\Proto\Documents\NonformalizedDocument\NonformalizedDocumentMetadata $CertificateRegistryMetadata
      *     @type \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalTransferDocumentMetadata $UniversalTransferDocumentMetadata
+     *     @type int $RecipientResponseStatus
      * }
      */
     public function __construct($data = NULL) {
@@ -1481,6 +1486,28 @@ class Document extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalTransferDocumentMetadata::class);
         $this->UniversalTransferDocumentMetadata = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.RecipientResponseStatus RecipientResponseStatus = 70;</code>
+     * @return int
+     */
+    public function getRecipientResponseStatus()
+    {
+        return $this->RecipientResponseStatus;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.RecipientResponseStatus RecipientResponseStatus = 70;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setRecipientResponseStatus($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\Documents\RecipientResponseStatus::class);
+        $this->RecipientResponseStatus = $var;
 
         return $this;
     }
