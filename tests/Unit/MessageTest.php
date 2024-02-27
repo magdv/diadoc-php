@@ -42,8 +42,10 @@ class MessageTest extends BaseTest
         self::assertNotEmpty($response->getToBoxId());
         self::assertNotEmpty($response->getToTitle());
 
+        $entityId = null;
         /** @var \Diadoc\Proto\Events\Entity $item */
         foreach ($response->getEntities() as $item) {
+            $entityId = $item->getEntityId();
             self::assertNotEmpty($item->getEntityId());
             self::assertEquals(AttachmentType::Title, $item->getAttachmentType());
             self::assertEquals(
@@ -53,5 +55,15 @@ class MessageTest extends BaseTest
         }
 
         self::assertTrue(true);
+
+//        Это было для проверки. Оставлю на будущее.
+//        $documentResponse = $api->getApi()->getDocument(
+//            'a187f153-8fae-4c3b-b7f6-348e2d018b9d',
+//            '8b78b11d-3154-4127-8727-f487328d2ce6',
+//            '18e82bb2-b77a-4ff5-b064-f25ff5615b8b',
+//            'false'
+//        );
+//
+//        self::assertEquals($documentResponse->getMessageId(), $response->getMessageId());
     }
 }
