@@ -1177,7 +1177,7 @@ class DiadocApi
      * @return Document| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function getDocument(string $boxId, string $messageId, string $entityId, bool $injectEntityContent = true): Document
+    public function getDocument(string $boxId, string $messageId, string $entityId, string $injectEntityContent = 'true'): Document
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_DOCUMENT,
