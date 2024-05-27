@@ -1008,13 +1008,7 @@ class DiadocApi
         return $counteragentList;
     }
 
-    /**
-     * @param $myOrgId
-     * @param CounteragentStatus|null $counteragentStatus
-     *
-     * @throws DiadocApiException
-     */
-    public function getCountragentsV2($myOrgId, CounteragentStatus $counteragentStatus = null, ?string $afterIndexKey = null): CounteragentList
+    public function getCountragentsV2($myOrgId, CounteragentStatus $counteragentStatus = null, ?string $afterIndexKey = null, ?string $query = null): CounteragentList
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_COUNTERAGENTS_V2,
@@ -1022,7 +1016,8 @@ class DiadocApi
             [
                 'myOrgId'   => $myOrgId,
                 'counteragentStatus' => $counteragentStatus,
-                'afterIndexKey'  => $afterIndexKey
+                'afterIndexKey'  => $afterIndexKey,
+                'query'  => $query,
             ]
         );
         $counteragentList = (new CounteragentList());
