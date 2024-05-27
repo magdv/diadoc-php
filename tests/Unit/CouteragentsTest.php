@@ -11,9 +11,9 @@ class CouteragentsTest extends BaseTest
 {
     public function testGetCounteragents(): void
     {
-        $api = $this->auth();
+        $api = $this->auth()->getApi();
 
-        $contragents = $api->getApi()->getCountragentsV2(getenv(ConfigNames::ORG_ID));
+        $contragents = $api->getCountragentsV2(getenv(ConfigNames::ORG_ID));
         self::assertNotEmpty($contragents);
 
         $d = [];
@@ -37,5 +37,18 @@ class CouteragentsTest extends BaseTest
         }
 
         self::assertTrue(count($d) > 0);
+
+        $contragents = $api->getCountragentsV2(
+            myOrgId: getenv(ConfigNames::ORG_ID),
+            query: '7715290822'
+        );
+        self::assertNotEmpty($contragents);
+        $count = $contragents->getTotalCount();
+
+        self::assertTrue($count === 1);
+        $result = $contragents->getCounteragents()[0];
+//        $result->getCurrentStatus();
+//        CounteragentStatus::IsMyCounteragent
+//        IsMyCounteragent
     }
 }
