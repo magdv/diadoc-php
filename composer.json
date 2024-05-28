@@ -14,7 +14,7 @@
         "google/protobuf": "^3.21",
         "ext-curl": "*",
         "ext-json": "*",
-        "symfony/process": "^7.0"
+        "symfony/process": "^6.4"
     },
     "autoload": {
         "psr-4": {
