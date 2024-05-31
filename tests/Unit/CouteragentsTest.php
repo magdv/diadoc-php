@@ -50,5 +50,16 @@ class CouteragentsTest extends BaseTest
 //        $result->getCurrentStatus();
 //        CounteragentStatus::IsMyCounteragent
 //        IsMyCounteragent
+
+        $contragents = $api->getCountragentsV2(
+            myOrgId: getenv(ConfigNames::ORG_ID),
+            query: '7017094419'
+        );
+        self::assertNotEmpty($contragents);
+        $count = $contragents->getTotalCount();
+
+        self::assertTrue($count === 1);
+        $result = $contragents->getCounteragents()[0];
+        $ddd = $result->getCurrentStatus();
     }
 }

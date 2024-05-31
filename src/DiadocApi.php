@@ -991,7 +991,7 @@ class DiadocApi
      * @return CounteragentList| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function getCountragents(string $myOrgId, CounteragentStatus $counteragentStatus = null, ?int $afterIndexKey = null): CounteragentList
+    public function getCountragents(string $myOrgId, int $counteragentStatus = null, ?int $afterIndexKey = null): CounteragentList
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_COUNTERAGENTS,
@@ -1008,7 +1008,7 @@ class DiadocApi
         return $counteragentList;
     }
 
-    public function getCountragentsV2($myOrgId, CounteragentStatus $counteragentStatus = null, ?string $afterIndexKey = null, ?string $query = null): CounteragentList
+    public function getCountragentsV2(string $myOrgId, int $counteragentStatus = null, ?string $afterIndexKey = null, ?string $query = null): CounteragentList
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_COUNTERAGENTS_V2,
