@@ -26,7 +26,7 @@ class SignTest extends BaseTest
             // Мы ловим эксепшен, т.к. в сборке у меня не настроены все бибилиотеки Openssl
             self::assertInstanceOf(SignerProviderException::class, $exception);
             self::assertEquals(
-                'Ошибка при подписании файла ERR > smime: Unknown cipher: gost89
+                'Ошибка при подписании файла ERR > smime: Unknown option or cipher: gost89
 smime: Use -help for summary.
 ',
                 $exception->getMessage()
