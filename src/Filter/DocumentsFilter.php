@@ -398,10 +398,10 @@ class DocumentsFilter
             'filterCategory'    => $this->buildFilterCategory(),
             'counteragentBoxId' => $this->counteragentBoxId,
             'toDepartmentId'    => $this->toDepartmentId,
-            'timestampFromTicks' => $this->fromDate !== null ? DateHelper::convertDateTimeToTicks($this->fromDate) : null,
-            'timestampToTicks'  => $this->toDate !== null ? DateHelper::convertDateTimeToTicks($this->toDate) : null,
-            'fromDocumentDate'  => $this->fromDocumentDate !== null ? $this->fromDocumentDate->format('d.m.Y') : null,
-            'toDocumentDate'    => $this->toDocumentDate !== null ? $this->toDocumentDate->format('d.m.Y') : null,
+            'timestampFromTicks' => $this->fromDate instanceof \DateTime ? DateHelper::convertDateTimeToTicks($this->fromDate) : null,
+            'timestampToTicks'  => $this->toDate instanceof \DateTime ? DateHelper::convertDateTimeToTicks($this->toDate) : null,
+            'fromDocumentDate'  => $this->fromDocumentDate instanceof \DateTime ? $this->fromDocumentDate->format('d.m.Y') : null,
+            'toDocumentDate'    => $this->toDocumentDate instanceof \DateTime ? $this->toDocumentDate->format('d.m.Y') : null,
             'departmentId'      => $this->departmentId,
             'excludeSubdepartments' => $this->excludeSubdepartments
         ];

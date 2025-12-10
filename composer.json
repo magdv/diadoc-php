@@ -25,9 +25,9 @@
         }
     },
     "require-dev": {
-        "rector/rector": "^0.14.6",
-        "squizlabs/php_codesniffer": "^3.5",
-        "vimeo/psalm": "^3.8",
+        "rector/rector": "^1.2",
+        "squizlabs/php_codesniffer": "^4.0",
+        "vimeo/psalm": "^4.30",
         "phpunit/phpunit": "^8.5",
         "divineomega/do-file-cache": "^2.0",
         "overtrue/phplint": "^9.0"
