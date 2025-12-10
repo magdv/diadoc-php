@@ -990,9 +990,9 @@ class DiadocApi
      * @param string $myOrgId
      * @param string|null $counteragentStatus
      * @param int|null $afterIndexKey
-     * @return \Diadoc\Proto\CounteragentList
-     * @throws \MagDv\Diadoc\Exception\DiadocApiException
-     * @throws \MagDv\Diadoc\Exception\DiadocApiUnauthorizedException
+     * @return CounteragentList
+     * @throws DiadocApiException
+     * @throws DiadocApiUnauthorizedException
      */
     public function getCountragents(string $myOrgId, ?string $counteragentStatus = null, ?int $afterIndexKey = null): CounteragentList
     {
@@ -1346,12 +1346,12 @@ class DiadocApi
         $fromTimestamp = null;
         $toTimestamp = null;
 
-        if ($from !== null) {
+        if ($from instanceof \DateTime) {
             $fromTimestamp = new Timestamp();
             $fromTimestamp->setTicks(DateHelper::convertDateTimeToTicks($from));
         }
 
-        if ($to !== null) {
+        if ($to instanceof \DateTime) {
             $toTimestamp = new Timestamp();
             $toTimestamp->setTicks(DateHelper::convertDateTimeToTicks($to));
         }

@@ -46,7 +46,7 @@ class BoxApi
 
     public function getOrganizationApi(): OrganizationApi
     {
-        if ($this->organizationApi === null) {
+        if (!$this->organizationApi instanceof OrganizationApi) {
             $this->organizationApi = new OrganizationApi(
                 $this->diadocApi,
                 $this->getOrganization()->getOrgId()
