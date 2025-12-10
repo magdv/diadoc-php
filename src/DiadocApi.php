@@ -742,7 +742,7 @@ class DiadocApi
      * @return OrganizationList| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function getOrganizationsByInnKpp(string $inn, string $kpp = null, bool $includeRelations = false): OrganizationList
+    public function getOrganizationsByInnKpp(string $inn, ?string $kpp = null, bool $includeRelations = false): OrganizationList
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_ORGANIZATIONS_BY_INN_KPP,

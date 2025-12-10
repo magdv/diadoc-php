@@ -8,6 +8,9 @@ https://github.com/agentsib/diadoc-php
 
 Работа над ним давно тормознулась и пришлось добавлять новые методы, чтобы оно заработало.
 
+Документация
+https://developer.kontur.ru/Docs/diadoc-api/http/PostMessage.html
+
 ## Пример
 
 ```php
