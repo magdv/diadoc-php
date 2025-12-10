@@ -1334,8 +1334,8 @@ class DiadocApi
      */
     public function getDocflowEvents(
         string $boxId,
-        DateTime $from = null,
-        DateTime $to = null,
+        ?DateTime $from = null,
+        ?DateTime $to = null,
         ?int $sortDirection = null,
         bool $populateDocuments = false,
         bool $populatePreviousDocumentStates = false,
