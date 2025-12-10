@@ -832,7 +832,7 @@ class DiadocApi
      * @return mixed
      * @throws DiadocApiException
      */
-    public function acquireCounteragent(string $myOrgId, string $counteragentOrgId, string $myDepartmentId, string $comment = null): string
+    public function acquireCounteragent(string $myOrgId, string $counteragentOrgId, string $myDepartmentId, ?string $comment = null): string
     {
         return $this->doRequest(
             self::RESOURCE_ACQUIRE_COUNTERAGENTS,
@@ -853,7 +853,7 @@ class DiadocApi
      * @return AsyncMethodResult| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function acquireCounteragentWithDocument(string $myOrgId, string $counteragentOrgId, string $myDepartmentId, InvitationDocument $invitationDocument = null, string $messageToContragent = ''): AsyncMethodResult
+    public function acquireCounteragentWithDocument(string $myOrgId, string $counteragentOrgId, string $myDepartmentId, ?InvitationDocument $invitationDocument = null, string $messageToContragent = ''): AsyncMethodResult
     {
         $acquireCounteragentRequest = new AcquireCounteragentRequest();
         $acquireCounteragentRequest->setOrgId($counteragentOrgId);
@@ -882,7 +882,7 @@ class DiadocApi
      * @return AsyncMethodResult| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function acquireCounteragentByInnWithDocument(string $myOrgId, string $counteragentInn, ?string $myDepartmentId = null, InvitationDocument $invitationDocument = null, string $messageToContragent = ''): AsyncMethodResult
+    public function acquireCounteragentByInnWithDocument(string $myOrgId, string $counteragentInn, ?string $myDepartmentId = null, ?InvitationDocument $invitationDocument = null, string $messageToContragent = ''): AsyncMethodResult
     {
         $acquireCounteragentRequest = new AcquireCounteragentRequest();
         $acquireCounteragentRequest->setInn($counteragentInn);
@@ -994,7 +994,7 @@ class DiadocApi
      * @throws \MagDv\Diadoc\Exception\DiadocApiException
      * @throws \MagDv\Diadoc\Exception\DiadocApiUnauthorizedException
      */
-    public function getCountragents(string $myOrgId, string $counteragentStatus = null, ?int $afterIndexKey = null): CounteragentList
+    public function getCountragents(string $myOrgId, ?string $counteragentStatus = null, ?int $afterIndexKey = null): CounteragentList
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_COUNTERAGENTS,
@@ -1011,7 +1011,7 @@ class DiadocApi
         return $counteragentList;
     }
 
-    public function getCountragentsV2(string $myOrgId, string $counteragentStatus = null, ?string $afterIndexKey = null, ?string $query = null): CounteragentList
+    public function getCountragentsV2(string $myOrgId, ?string $counteragentStatus = null, ?string $afterIndexKey = null, ?string $query = null): CounteragentList
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_COUNTERAGENTS_V2,
@@ -1070,7 +1070,7 @@ class DiadocApi
      * @return Message| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function getMessage(string $boxId, string $messageId, string $entityId = null, ?string $originalSignature = null): Message
+    public function getMessage(string $boxId, string $messageId, ?string $entityId = null, ?string $originalSignature = null): Message
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_MESSAGE,
@@ -1136,7 +1136,7 @@ class DiadocApi
      *
      * @throws DiadocApiException
      */
-    public function delete(string $boxId, string $messageId, string $documentId = null): bool
+    public function delete(string $boxId, string $messageId, ?string $documentId = null): bool
     {
         $this->doRequest(
             self::RESOURCE_DELETE,
@@ -1195,7 +1195,7 @@ class DiadocApi
 
 
 
-    public function getDocuments(string $boxId, ?DocumentsFilter $documentsFilter = null, int $sortDirection = null, $afterIndexKey = null): DocumentList
+    public function getDocuments(string $boxId, ?DocumentsFilter $documentsFilter = null, ?int $sortDirection = null, ?int $afterIndexKey = null): DocumentList
     {
         if (is_null($sortDirection)) {
             $sortDirection = SortDirection::Ascending;
@@ -1269,7 +1269,7 @@ class DiadocApi
      * @return GetDocflowsByPacketIdResponse| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function getDocflowsByPacketId(string $boxId, string $packetId, bool $injectEntityContent = false, $afterIndexKey = null, int $count = 100): GetDocflowsByPacketIdResponse
+    public function getDocflowsByPacketId(string $boxId, string $packetId, bool $injectEntityContent = false, ?int $afterIndexKey = null, int $count = 100): GetDocflowsByPacketIdResponse
     {
         $getDocflowsByPacketIdRequest = new GetDocflowsByPacketIdRequest();
         $getDocflowsByPacketIdRequest->setPacketId($packetId);
@@ -1298,7 +1298,7 @@ class DiadocApi
      * @return SearchDocflowsResponse| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
-    public function searchDocflows(string $boxId, string $queryString, int $searchScope = null, int $firstIndex = null, int $count = 100): SearchDocflowsResponse
+    public function searchDocflows(string $boxId, string $queryString, ?int $searchScope = null, ?int $firstIndex = null, int $count = 100): SearchDocflowsResponse
     {
         $searchDocflowsRequest = new SearchDocflowsRequest();
         $searchDocflowsRequest->setQueryString($queryString);
@@ -1404,7 +1404,7 @@ class DiadocApi
         return $boxEvent;
     }
 
-    public function getNewEvents(string $boxId, string $afterEventId = null): BoxEventList
+    public function getNewEvents(string $boxId, ?string $afterEventId = null): BoxEventList
     {
         $response = $this->doRequest(
             self::RESOURCE_GET_NEW_EVENTS,
