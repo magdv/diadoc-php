@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/LastEvent.html
+// Информация о последнем событии в сообщении.
+
+message LastEvent
+{
+    // идентификатор последнего события в сообщении, которое было учтено при формировании данной структуры. Это событие может относиться к другому документу из того же сообщения.
+    string EventId = 1;
+    // время последнего учтенного события, представленное структурой Timestamp.
+    Timestamp Timestamp = 2;
+}
+
+
+
+

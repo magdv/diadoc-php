@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/InvoiceAmendmentFlags.html
+// Статус уведомления об уточнении (УоУ) или исправления/корректировки для документа.
+
+enum InvoiceAmendmentFlags
+{
+    None = 0;
+    AmendmentRequested = 1;
+    Revised = 2;
+    Corrected = 4;
+}
+
+
+
+

@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "PowerOfAttorneyFullId.proto";
+import "PowerOfAttorneySignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyToRegister.html
+// Данные для регистрации машиночитаемой доверенности (МЧД) методом RegisterPowerOfAttorney.
+
+message PowerOfAttorneyToRegister {
+    // идентификатор МЧД, представленный структурой PowerOfAttorneyFullId. Используется в случае регистрации по идентификатору.
+    PowerOfAttorneyFullId FullId = 1;
+    // содержимое файла МЧД с подписью. Используется в случае регистрации с помощью файла с подписью. Представлен структурой PowerOfAttorneySignedContent.
+    PowerOfAttorneySignedContent Content = 2;
+}
+
+
+
+

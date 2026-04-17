@@ -1,0 +1,15 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionRequestDenialCancellationAttachment.html
+// Данные отмены отказа от запроса на согласование или подпись под документом в отправляемом дополнении к сообщению.
+
+message ResolutionRequestDenialCancellationAttachment {
+    // идентификатор отменяемого отказа от запроса подписи к документу.
+    string InitialResolutionRequestDenialId = 1;
+}
+
+
+
+

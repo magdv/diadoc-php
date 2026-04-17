@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package Diadoc.Proto;
+
+enum ParticipantType {
+    Unknown = 0;
+    Sender = 1;
+    Proxy = 2;
+    Recipient = 3;
+}
+

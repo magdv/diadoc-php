@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Routing.html
+// Информация о доступном для подразделения способе маршрутизации.
+
+message Routing
+{
+    // маршрутизация по КПП. Если поле имеет значение `true`, то должно быть заполнено поле `Kpp` в структурах DepartmentToCreate или DepartmentToUpdate при создании или обновлении подразделения соответственно.
+    bool Kpp = 1;
+    // маршрутизация по адресу. Если поле имеет значение `true`, то должно быть заполнено поле `Address` в структурах DepartmentToCreate или DepartmentToUpdate при создании или обновлении подразделения соответственно.
+    bool Address = 2;
+}
+
+
+
+

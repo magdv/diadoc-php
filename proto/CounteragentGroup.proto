@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "DepartmentsInGroup.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/CounteragentGroup.html
+// Данные группы контрагентов.
+
+message CounteragentGroup {
+    // идентификатор группы контрагентов.
+    string CounteragentGroupId = 1;
+    // название группы контрагентов.
+    string Name = 2;
+    // список подразделений, в которые группы могут отправлять документы. Представлен структурой DepartmentsInGroup. Если отстутствует, контрагенты группы могут отправлять документы в любое подразделение.
+    DepartmentsInGroup Departments = 3;
+}
+
+
+
+

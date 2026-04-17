@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "SignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/CorrectionRequestAttachment.html
+// Данные уведомления об уточнении в отправляемом дополнении к сообщению.
+
+message CorrectionRequestAttachment {
+    // идентификатор документа, к которому относится уведомление. Принимает значение одной из сущностей родительского сообщения (поле `EntityId`).
+    string ParentEntityId = 1;
+    // содержимое файла уведомления с электронной подписью, представленное структурой SignedContent.
+    SignedContent SignedContent = 2;
+    // список меток.
+    repeated string Labels = 4;
+}
+
+
+
+

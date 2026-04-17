@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentWorkflow.html
+// Данные вида документооборота для конкретной версии документа.
+
+message DocumentWorkflow {
+    // идентификатор вида документооборота.
+    int32 Id = 1;
+    // признак того, что этот вид документооборота будет использован по умолчанию.
+    bool IsDefault = 2;
+}
+
+
+
+

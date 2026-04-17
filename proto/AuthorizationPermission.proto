@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/AuthorizationPermission.html
+// Информация об ограничениях доступа пользователя к сервису.
+
+message AuthorizationPermission
+{
+    // признак наличия ограничения доступа пользователя к сервису. Принимает значение:
+    bool IsBlocked = 1;
+    // причина ограничения доступа пользователя к сервису. Длина не более 500 символов.
+    string Comment = 2;
+}
+
+
+
+

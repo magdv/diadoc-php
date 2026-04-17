@@ -1,0 +1,24 @@
+syntax="proto3";
+
+import "LockMode.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PacketInfo.html
+// Информация о пакете документов.
+
+message PacketInfo
+{
+    // режим блокировки пакета, представленный структурой LockMode.
+    LockMode LockMode = 1;
+    // идентификатор пакета, в котором находится документ. Заполняется только для письма.
+    string PacketId = 2;
+    // время добавления документа в пакет, представленное структурой Timestamp. Заполняется только для письма.
+    Timestamp AddedAt = 3;
+}
+
+
+
+

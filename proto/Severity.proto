@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Severity.html
+// Уровень критичности статуса.
+
+enum Severity {
+    UnknownSeverity = 0;
+    Info = 1;
+    Success = 2;
+    Warning = 3;
+    Error = 4;
+}
+
+
+
+

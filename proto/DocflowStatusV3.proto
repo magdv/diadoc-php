@@ -1,0 +1,27 @@
+syntax="proto3";
+
+import "DocflowStatusModelV3.proto";
+import "PowerOfAttorneyValidationStatus.proto";
+import "RoamingSendingStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocflowStatusV3.html
+// Статус документооборота документа.
+
+message DocflowStatusV3
+{
+    // основная часть статуса, представленная структурой DocflowStatusModelV3.
+    DocflowStatusModelV3 PrimaryStatus = 1;
+    // второстепенная часть статуса, предназначенная для дополнительной информации, представленная структурой DocflowStatusModelV3.
+    DocflowStatusModelV3 SecondaryStatus = 2;
+    // информация о сводном статусе по всем машиночитаемым доверенностям (МЧД), представленная структурой PowerOfAttorneyValidationStatus. Сводный статус формируется на основании всех МЧД, которые были приложены к документу при совершении действий с ним, за исключением извещения о получении. Сводный статус будет сформирован по следующим правилам:
+    PowerOfAttorneyValidationStatus PowerOfAttorneyGeneralStatus = 3;
+    // статус отправки МЧД в роуминг, представленный структурой RoamingSendingStatus. Статус отправки в роуминг формируется на основании всех МЧД, которые были приложены к документу при совершении действий с ним, например: подписание, извещение о получении, аннулирование, согласующая подпись и т.п. Статус формируется по следующим правилам:
+    RoamingSendingStatus GeneralRoamingSendingStatus = 4;
+}
+
+
+
+

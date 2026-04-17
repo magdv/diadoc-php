@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionRouteRemovalInfo.html
+// Информация о снятии документа с маршрута согласования.
+
+message ResolutionRouteRemovalInfo {
+    // идентификатор маршрута согласования, с которого был снят документ.
+    string RouteId = 1;
+    // ФИО сотрудника, снявшего документ с маршрута согласования.
+    string Author = 2;
+}
+
+
+
+

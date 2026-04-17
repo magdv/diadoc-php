@@ -1,0 +1,23 @@
+syntax="proto3";
+
+import "DocumentId.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GetDocflowRequest.html
+// Запрос на получение документа с информацией о документообороте.
+
+message GetDocflowRequest
+{
+    // идентификатор документа, представленный структурой DocumentId.
+    DocumentId DocumentId = 1;
+    // идентификатор последнего события в письме, которое нужно учесть при формировании результата. Сервер вычисляет состояние документа по цепочке событий, которые с ним происходили, — параметр `LastEventId` позволяет ограничить эту цепочку определенным событием.
+    string LastEventId = 2;
+    // признак того, что в результат нужно включить содержимое документа.
+    bool InjectEntityContent = 3 ;
+}
+
+
+
+

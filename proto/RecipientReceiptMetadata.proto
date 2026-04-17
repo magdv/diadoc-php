@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "ConfirmationMetadata.proto";
+import "GeneralReceiptStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RecipientReceiptMetadata.html
+// Данные извещения о получении (ИоП).
+
+message RecipientReceiptMetadata {
+    // статус извещения о получении документа, принимает значения из перечисления GeneralReceiptStatus.
+    GeneralReceiptStatus ReceiptStatus = 1;
+    // состояние подтверждения оператором даты отправки или получения извещения о получении, представленное структурой ConfirmationMetadata. Используется только для входящего документа, поддерживающего подтверждение оператора, например, счета-фактуры или УПД с функциями СЧФ/СЧФДОП.
+    ConfirmationMetadata ConfirmationMetadata = 2;
+}
+
+
+
+

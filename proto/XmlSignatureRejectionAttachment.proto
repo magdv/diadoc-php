@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "SignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/XmlSignatureRejectionAttachment.html
+// Данные отказа от предложения об аннулировании документа или отказа в подписи под документом в отправляемом дополнении к сообщению.
+
+message XmlSignatureRejectionAttachment {
+    // идентификатор предложения об аннулировании или документа, к которому относится отказ. Принимает значение одной из сущностей родительского сообщения (поле `EntityId`).
+    string ParentEntityId = 1;
+    // содержимое файла отказа с электронной подписью, представленное структурой SignedContent.
+    SignedContent SignedContent = 2;
+    // список меток.
+    repeated string Labels = 3;
+}
+
+
+
+

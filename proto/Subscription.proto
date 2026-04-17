@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Subscription.html
+// Информация о том, подписан ли сотрудник на конкретное почтовое уведомление.
+
+message Subscription
+{
+    // строковой идентификатор уведомления
+    string Id = 1;
+    // признак наличия у сотрудника подписки на уведомление
+    bool IsSubscribed = 2;
+}
+
+
+
+

@@ -1,0 +1,19 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyFullId.html
+// Идентификатор машиночитаемой доверенности (МЧД).
+
+message PowerOfAttorneyFullId {
+    // регистрационный номер МЧД в формате GUID.
+    string RegistrationNumber = 1;
+    // ИНН доверителя из МЧД.
+    string IssuerInn = 2;
+    // ИНН представителя из МЧД.
+    string RepresentativeInn = 3;
+}
+
+
+
+

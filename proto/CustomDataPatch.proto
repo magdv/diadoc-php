@@ -1,0 +1,26 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/CustomDataPatch.html
+// Данные для изменения тегов документа.
+
+message CustomDataPatch {
+    // идентификатор документа, для которого нужно добавить или изменить тег.
+    string ParentEntityId = 1;
+    // тип операции. Принимает значения из перечисления `CustomDataPatchOperation`:
+    CustomDataPatchOperation Operation = 2;
+    // название тега. Не может быть пустым. Регистронезависимый. Может содержать только буквы латинского и русского алфавита, цифры и символы «-» и «_». Длина не более 60 символов.
+    string Key = 3;
+    // значение тега, соответствующее ключу `Key`. Регистронезависимый. Может быть пустым, длина не более 200 символов. Значение игнорируется, если тип операции — `Remove`.
+    string Value = 4;
+}
+
+enum CustomDataPatchOperation {
+    Set = 0;
+    Remove = 1;
+}
+
+
+
+

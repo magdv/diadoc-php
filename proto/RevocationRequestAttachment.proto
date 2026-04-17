@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "SignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RevocationRequestAttachment.html
+// Данные предложения об аннулировании документа в отправляемом дополнении к сообщению.
+
+message RevocationRequestAttachment {
+    // идентификатор документа, к которому относится предложение. Принимает значение одной из сущностей родительского сообщения (поле `EntityId`).
+    string ParentEntityId = 1;
+    // содержимое файла предложения с электронной подписью, представленное структурой SignedContent.
+    SignedContent SignedContent = 2;
+    // список меток.
+    repeated string Labels = 3;
+}
+
+
+
+

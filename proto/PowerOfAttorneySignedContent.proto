@@ -1,0 +1,20 @@
+syntax="proto3";
+
+import "Content_v3.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneySignedContent.html
+// Содержимое файла машиночитаемой доверенности (МЧД) с подписью.
+
+message PowerOfAttorneySignedContent {
+    // файл МЧД, представленный структурой Content_v3.
+    Content_v3 Content = 1;
+    // файл подписи под МЧД, представленный структурой Content_v3.
+    Content_v3 Signature = 2;
+}
+
+
+
+

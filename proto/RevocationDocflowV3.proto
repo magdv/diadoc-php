@@ -1,0 +1,44 @@
+syntax="proto3";
+
+import "Documents/Document.proto";
+import "OuterDocflowEntities.proto";
+import "ResolutionEntitiesV3.proto";
+import "RevocationRequestDocflow.proto";
+import "SignatureRejectionDocflow.proto";
+import "SignatureV3.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RevocationDocflowV3.html
+// Состояние аннулирования документа.
+
+message RevocationDocflowV3
+{
+    // признак завершения документооборота по аннулированию, дальнейшие действия не требуются.
+    bool IsFinished = 1;
+    // информация о предложении об аннулировании, представленная структурой RevocationRequestDocflow.
+    RevocationRequestDocflow RevocationRequest = 2;
+    // информация об ответе на предложение аннулирования, представленная структурой `RevocationResponseDocflow` с полями:
+    RevocationResponseDocflow RevocationResponse = 3;
+    // идентификатор ящика организации, инициировавшей аннулирование документа.
+    string InitiatorBoxId = 4;
+    // статус аннулирования документа, представленный структурой RevocationStatus.
+    Documents.RevocationStatus RevocationStatus = 5;
+    // информация о сущностях, относящихся к согласованию аннулирования, представленная структурой ResolutionEntitiesV3.
+    ResolutionEntitiesV3 ResolutionEntities = 6;
+    // информация о сущностях, относящихся к внешнему документообороту по аннулированию, представленная структурой OuterDocflowEntities.
+    repeated OuterDocflowEntities OuterDocflowEntities  = 7;
+}
+
+message RevocationResponseDocflow
+{
+    // данные ответной подписи под предложением об аннулировании, представленные структурой SignatureV3.
+    SignatureV3 RecipientSignature = 1;
+    // информация об отказе в подписи предложения об аннулировании, представленная структурой SignatureRejectionDocflow.
+    SignatureRejectionDocflow SignatureRejection = 2;
+}
+
+
+
+

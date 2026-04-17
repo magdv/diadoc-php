@@ -1,0 +1,54 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyPermissionsInfo.html
+// Информация о полномочиях из машиночитаемой доверенности (МЧД).
+
+message PowerOfAttorneyPermissionsInfo {
+    // список обязательных полномочий. Каждый элемент в списке представлен структурой `PowerOfAttorneyPermissions` с полями:
+    repeated PowerOfAttorneyPermissions Permissions = 1;
+    // признак утраты полномочий при передоверии. Может принимать значения:
+    string TransferPermissionLoss = 2;
+    // признак совместного осуществления полномочий. Обеспечивает совместные полномочия в случае, если в доверенности указано несколько представителей. Может принимать значения:
+    string JointPermissions = 3;
+}
+
+message PowerOfAttorneyPermissions {
+    // тип полномочия. Может принимать значения:
+    string Type = 1;
+    // текстовое содержание полномочия.
+    string TextPermission = 2;
+    // список машиночитаемых полномочий. Каждый элемент списка представлен структурой `PowerOfAttorneyMachineReadablePermission` с полями:
+    repeated PowerOfAttorneyMachineReadablePermission MachineReadablePermission = 3;
+}
+
+message PowerOfAttorneyMachineReadablePermission {
+    // мнемоника полномочия.
+    string Mnemonic = 1;
+    // код ограничения.
+    string Code = 2;
+    // наименование ограничения.
+    string Name = 3;
+    // список ограничений к полномочию. Каждый элемент списка представлен структурой `PowerOfAttorneyRestrictions` с полями:
+    repeated PowerOfAttorneyRestrictions Restrictions = 4;
+}
+
+message PowerOfAttorneyRestrictions {
+    // порядковый номер ограничения.
+    int32 Id = 1;
+    // код ограничения.
+    string Code = 2;
+    // наименование ограничения.
+    string Name = 3;
+    // наименование значения для ограничения.
+    string ValueName = 4;
+    // код значения для ограничения.
+    string ValueCode = 5;
+    // текстовое значение для ограничения.
+    string ValueText = 6;
+}
+
+
+
+

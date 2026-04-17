@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package Diadoc.Proto;
+
+enum ParticipantAction {
+    Unknown = 0;
+    Title = 1;
+    Signature = 2;
+    OptionalSignature = 3;
+}
+

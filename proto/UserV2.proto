@@ -1,0 +1,24 @@
+syntax="proto3";
+
+import "FullName.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/UserV2.html
+// Данные пользователя организации.
+
+message UserV2 {
+   // идентификатор пользователя в системе.
+   string UserId = 1;
+   // логин пользователя.
+   string Login = 2;
+   // фамилия, имя и отчество пользователя, представленные структурой FullName.
+   FullName FullName = 3;
+   // признак того, что пользователь зарегистрирован в системе. Значение `false` означает, что пользователь с указанным логином был создан в Диадоке, но еще не подтвердил почту.
+   bool IsRegistered = 4;
+}
+
+
+
+

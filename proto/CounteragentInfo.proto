@@ -1,0 +1,33 @@
+syntax="proto3";
+
+import "Counteragent.proto";
+import "DocumentId.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/CounteragentInfo.html
+// Информация о контрагенте.
+
+message CounteragentInfo {
+    // идентификатор ящика контрагента.
+    string CounteragentBoxId = 1;
+    // статус контрагента, принимает значения из перечисления CounteragentStatus.
+    CounteragentStatus Status = 2;
+    // время последнего изменения статуса контрагента, представляет собой целое число тиков, прошедших с момента времени 00:00:00 01.01.0001.
+    sfixed64 EventTimestampTicks = 3;
+    // текст сообщения из последнего события взаимодействия с контрагентом. Если статус контрагента `CounteragentStatus` `=` `IsMyCounteragent`, то поле будет отстутствовать, а текст последнего сообщения будет отображаться в поле `MessageFromCounteragent` или `MessageToCounteragent`.
+    string LastEventComment = 4;
+    // текст сообщения, полученного от контрагента.
+    string MessageFromCounteragent = 5;
+    // текст сообщения, отправленнонго контрагенту.
+    string MessageToCounteragent = 6;
+    // идентификатор документа, отправленного вместе с приглашением. Представлен структурой DocumentId.
+    DocumentId InvitationDocumentId = 7;
+    // идентификатор группы, в которую добавлен контрагент.
+    string CounteragentGroupId = 8;
+}
+
+
+
+

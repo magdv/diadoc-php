@@ -1,6 +1,9 @@
 syntax="proto3";
 import "Organization.proto";
 import "Counteragent.proto";
+import "DocumentId.proto";
+import "GetOrganizationsByInnList.proto";
+
 
 package Diadoc.Proto;
 
@@ -11,6 +14,16 @@ message GetOrganizationsByInnListRequest {
 message OrganizationWithCounteragentStatus {
 	 Organization Organization = 1;
 	 CounteragentStatus CounteragentStatus = 2;
+	// время последнего взаимодействия с контрагентом.
+	sfixed64 LastEventTimestampTicks = 3;
+	// сообщение, пришедшее от контрагента вместе с приглашением.
+	string MessageFromCounteragent = 4;
+	// сообщение, отправленное контрагенту вместе с приглашением.
+	string MessageToCounteragent = 5;
+	// идентификатор документа, пришедшего вместе с приглашением. Представлен структурой DocumentId.
+	DocumentId InvitationDocumentId = 6;
+	// идентификатор группы, в которую добавлен контрагент. Возвращается, если статус контрагента `CounteragentStatus` `=` `IsMyCounteragent`. Инструкция по работе с группами контрагентов приведена на странице Группы контрагентов.
+	string CounteragentGroupId = 7;
 }
 
 message GetOrganizationsByInnListResponse {

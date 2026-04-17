@@ -1,0 +1,18 @@
+syntax="proto3";
+
+import "Subscription.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EmployeeSubscriptions.html
+// Информация о подписках сотрудника организации на почтовые уведомления.
+
+message EmployeeSubscriptions {
+    // список статусов подписок на конкретные уведомления, представленных структурой Subscription.
+    repeated Subscription Subscriptions = 1;
+}
+
+
+
+

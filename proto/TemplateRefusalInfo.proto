@@ -1,0 +1,27 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TemplateRefusalInfo.html
+// Информация об отзыве или отклонении шаблона.
+
+message TemplateRefusalInfo {
+    // тип действия, принимает значение из перечисления `TemplateRefusalType`:
+    TemplateRefusalType Type = 1 ;
+    // идентификатор ящика, на стороне которого выполнено действие.
+    string BoxId = 2;
+    // ФИО пользователя, который выполнил действие.
+    string Author = 3;
+    // комментарий, указанный при отклонении или отзыве. Длина не более 2000 символов.
+    string Comment = 4;
+}
+
+enum TemplateRefusalType {
+    UnknownRefusalType = 0;
+    Refusal = 1;
+    Withdrawal = 2;
+}
+
+
+
+

@@ -1,0 +1,26 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TemplateToLetterTransformationInfo.html
+// Информация о документе, который уже создан или будет создан на основе шаблона.
+
+message TemplateToLetterTransformationInfo
+{
+    // идентификатор ящика отправителя документа, созданного на основе шаблона.
+    string LetterFromBoxId = 1;
+    // идентификатор ящика получателя документа, созданного на основе шаблона.
+    string LetterToBoxId = 2;
+    // идентификатор подразделения отправителя документа, созданного на основе шаблона.
+    string LetterFromDepartmentId = 3;
+    // идентификатор подразделения получателя документа, созданного на основе шаблона.
+    string LetterToDepartmentId = 4;
+    // идентификатор ящика промежуточного получателя документа, созданного на основе шаблонов.
+    string LetterProxyBoxId = 5;
+    // идентификатор подразделения промежуточного получателя документа, которое будет создано на основе отправляемого шаблона.
+    string LetterProxyDepartmentId = 6;
+}
+
+
+
+

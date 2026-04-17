@@ -1,0 +1,15 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RevocationRequestInfo_Entity.html
+// Информация о предложении об аннулировании.
+
+message RevocationRequestInfo {
+    // идентификатор ящика, от которого поступил запрос на аннулирование.
+    string InitiatorBoxId  = 1;
+}
+
+
+
+

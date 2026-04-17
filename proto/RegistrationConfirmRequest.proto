@@ -1,0 +1,21 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RegistrationConfirmRequest.html
+// Запрос на подтверждение владения закрытым ключом сертификата методом RegisterConfirm.
+
+message RegistrationConfirmRequest {
+    // X.509 сертификат пользователя в DER-кодировке.
+    bytes CertificateContent = 1;
+    // отпечаток сертификата пользователя.
+    string Thumbprint = 2;
+    // данные, полученные методом Register в поле `DataToSign` структуры RegistrationResponse.
+    bytes DataToSign  = 3;
+    // электронная подпись под данными `DataToSign` в формате CMS SignedData в DER-кодировке.
+    bytes Signature = 4;
+}
+
+
+
+

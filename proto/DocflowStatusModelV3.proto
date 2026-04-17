@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocflowStatusModelV3.html
+// Составная часть статуса документооборота документа.
+
+message DocflowStatusModelV3
+{
+    // уровень критичности статуса. Принимает значения:
+    string Severity = 1;
+    // текст статуса.
+    string StatusText = 2;
+}
+
+
+
+

@@ -1,0 +1,20 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionAction.html
+// Возможные действия по запросу на согласование.
+
+enum ResolutionAction {
+    UnknownAction = 0;
+    ApproveAction = 1;
+    DisapproveAction = 2;
+    SignWithApprovementSignature = 3;
+    SignWithPrimarySignature = 4;
+    DenySignatureRequest = 5;
+    RejectSigning = 6;
+}
+
+
+
+

@@ -1,0 +1,35 @@
+syntax="proto3";
+
+import "Address.proto";
+import "Routing.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Department_admin.html
+// Доступные для администратора данные подразделения организации.
+
+message Department
+{
+    // идентификатор подразделения. Если подразделение является головным, идентификатор будет иметь значение `00000000-0000-0000-0000-000000000000`.
+    string Id = 1;
+    // идентификатор родительского подразделения. Если родительским подразделением является головное, идентификатор будет иметь значение `00000000-0000-0000-0000-000000000000`.
+    string ParentDepartmentId = 2;
+    // полное наименование подразделения.
+    string Name = 3;
+    // краткое наименование подразделения.
+    string Abbreviation = 4;
+    // КПП подразделения.
+    string Kpp = 5;
+    // адрес подразделения, представленный структурой Address.
+    Address Address = 6;
+    // тип доступной маршрутизации, представленный структурой Routing.
+    Routing Routing = 7;
+    // дата создания подразделения, представленная структурой Timestamp. Если подразделение является головным, поле будет иметь значение `null`.
+    Timestamp CreationTimestamp = 8;
+}
+
+
+
+

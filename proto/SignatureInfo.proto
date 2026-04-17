@@ -1,0 +1,47 @@
+syntax="proto3";
+
+import "SignatureVerificationResult.proto";
+import "Timestamp.proto";
+import "CertificateSubjectType.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignatureInfo.html
+// Информация о подписи и сертификате.
+
+message SignatureInfo
+ {
+     // время формирования подписи, представленное структурой Timestamp.
+     Timestamp SigningTime = 1;
+     // время проверки подписи, представленное структурой Timestamp.
+     Timestamp SignatureVerificationTime = 2;
+     // результат проверки подписи, представленный структурой SignatureVerificationResult.
+     SignatureVerificationResult SignatureVerificationResult = 3;
+     // отпечаток сертификата.
+     string Thumbprint = 4;
+     // серийный номер сертификата.
+     string SerialNumber = 5;
+     // кем выдан сертификат.
+     string Issuer = 6;
+     // дата начала действия сертификата.
+     string StartDate = 7;
+     // дата окончания действия сертификата.
+     string EndDate = 8;
+     // наименование организации.
+     string OrgName = 9;
+     // ИНН организации.
+     string OrgInn = 10;
+     // должность владельца сертификата.
+     string JobTitle = 11;
+     // имя и отчество (если есть) владельца сертификата.
+     string FirstName = 12;
+     // фамилия владельца сертификата.
+     string Surname = 13;
+     // СНИЛС владельца сертификата.
+     string Snils = 14;
+     // электронная почта владельца сертификата.
+     string Email = 15;
+     // тип владельца сертификата, принимает значение из перечисления `CertificateSubjectType`:
+     CertificateSubjectType CertificateSubjectType = 16;
+ }

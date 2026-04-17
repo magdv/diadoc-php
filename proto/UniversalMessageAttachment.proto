@@ -1,0 +1,33 @@
+syntax="proto3";
+
+import "UniversalMessageCodeGroup.proto";
+import "UnsignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/UniversalMessageAttachment.html
+// Данные универсального сообщения (УС) в отправляемом дополнении к сообщению.
+
+message UniversalMessageAttachment {
+    // идентификатор документа, к которому относится УС. Принимает значение одной из сущностей родительского сообщения (поле `EntityId`).
+    string ParentEntityId = 1;
+    // группа кода УС, которая определяет его назначение — извещение о получении, уведомление об уточнении или отказ в подписи. Принимает значения из перечисления UniversalMessageCodeGroup.
+    UniversalMessageCodeGroup CodeGroup = 2;
+    // содержимое XML-файла универсального сообщения, представленное структурой UnsignedContent.
+    UnsignedContent UniversalMessageContent = 3;
+    // список меток.
+    repeated string Labels = 4;
+    // признак влияния УС на статус документооборота, по умолчанию имеет значение `Undefined`. Принимает значения из перечисления `UniversalMessageBehaviour`:
+    UniversalMessageBehaviour Behaviour = 5 ;
+}
+
+enum UniversalMessageBehaviour {
+    Undefined = 0;
+    AffectsWorkflow = 1;
+    DoesNotAffectWorkflow = 2;
+}
+
+
+
+

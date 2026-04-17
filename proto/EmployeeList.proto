@@ -1,0 +1,20 @@
+syntax="proto3";
+
+import "Employee.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EmployeeList.html
+// Cписок сотрудников организации.
+
+message EmployeeList {
+    // список сотрудников, представленных структурой Employees.
+    repeated Employee Employees = 1;
+    // общее количество найденных сотрудников в организации, соответствующих заданным параметрам.
+    int32 TotalCount = 2;
+}
+
+
+
+

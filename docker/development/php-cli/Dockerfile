@@ -1,6 +1,6 @@
 FROM php:8.2-cli-alpine
 
-ENV XDEBUG_VERSION 3.3.1
+ENV XDEBUG_VERSION 3.5.1
 RUN apk update && apk upgrade
 
 RUN apk add --no-cache bash linux-headers coreutils git \
@@ -11,15 +11,7 @@ RUN apk add --no-cache bash linux-headers coreutils git \
 RUN apk add --no-cache unzip
 
 RUN apk update && apk add curl bash unzip build-base autoconf automake libtool make g++
-ENV PROTOBUF_VERSION 3.6.1
-ENV PROTOBUF_URL https://github.com/google/protobuf/releases/download/v"$PROTOBUF_VERSION"/protobuf-cpp-"$PROTOBUF_VERSION".zip
-RUN curl -L -o protobuf.zip "$PROTOBUF_URL" && \
-    unzip protobuf.zip && \
-    cd protobuf-"$PROTOBUF_VERSION" && \
-    ./configure && \
-    make -j$(nproc) && \
-    make install && \
-    cd .. && rm protobuf.zip
+RUN apk add --no-cache protobuf protobuf-dev
 
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 

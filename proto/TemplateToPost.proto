@@ -1,0 +1,41 @@
+syntax="proto3";
+
+import "LockMode.proto";
+import "TemplateDocumentAttachment.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TemplateToPost.html
+// Данные сообщения для отправки методом PostTemplate.
+
+message TemplateToPost {
+    // идентификатор ящика отправителя сообщения.
+    string FromBoxId = 1;
+    // идентификатор ящика получателя сообщения. Должен отличаться от идентификатора ящика отправителя. Для внутреннего документа (`IsInternal` `=` `true`) должен быть пустым — отсутствовать или содержать пустую строку.
+    string ToBoxId = 2;
+    // идентификатор ящика отправителя документов, созданных на основе шаблонов.
+    string MessageFromBoxId = 3;
+    // идентификатор ящика получателя документов, созданных на основе шаблонов.
+    string MessageToBoxId = 4;
+    // идентификатор подразделения получателя документов, созданных на основе шаблонов.
+    string MessageToDepartmentId = 5;
+    // список документов любых типов, представленных структурой TemplateDocumentAttachment.
+    repeated TemplateDocumentAttachment DocumentAttachments = 6;
+    // режим блокировки сообщения с шаблонами, принимает значение из перечисления LockMode.
+    LockMode LockMode = 7 ;
+    // идентификатор подразделения отправителя сообщения.
+    string FromDepartmentId = 8;
+    // идентификатор подразделения получателя, в которое будут отправлены все шаблоны из сообщения. Если отсутствует, то шаблоны будут отправлены в головное подразделение.
+    string ToDepartmentId = 9;
+    // идентификатор ящика промежуточного получателя документов, созданных на основе шаблонов.
+    string MessageProxyBoxId = 10;
+    // идентификатор подразделения промежуточного получателя документов, созданных на основе шаблонов.
+    string MessageProxyDepartmentId = 11;
+    // признак того, что шаблон можно использовать больше одного раза.
+    bool IsReusable = 12 ;
+}
+
+
+
+

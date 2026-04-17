@@ -1,0 +1,28 @@
+syntax="proto3";
+
+import "DocumentFunctionV2.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentTypeDescriptionV3.html
+// Описание типа документа.
+
+message DocumentTypeDescriptionV3 {
+    // строковый идентификатор типа документа.
+    string Name = 1;
+    // заголовок типа документа, например, «Счет-фактура».
+    string Title = 2;
+    // поддерживаемые типы документооборота. Каждый элемент списка может принимать одно из значений:
+    repeated int32 SupportedDocflows = 3;
+    // признак того, что для работы требуется заявление участника ЭДО.
+    bool RequiresFnsRegistration = 4;
+    // список функций документа. Каждая функция представлена структурой DocumentFunctionV2.
+    repeated DocumentFunctionV2 Functions = 9;
+    // дата перехода на универсальные сообщения.
+    string UniversalMessagesStartDate = 10;
+}
+
+
+
+

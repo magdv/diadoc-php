@@ -1,0 +1,134 @@
+syntax="proto3";
+
+import "CustomDataItem.proto";
+import "DocumentDirection.proto";
+import "DocumentId.proto";
+import "DocumentLinks.proto";
+import "DocumentParticipants.proto";
+import "Events/DiadocMessage-PostApi.proto";
+import "ForwardDocumentEvent.proto";
+import "FullVersion.proto";
+import "PacketInfo.proto";
+import "TemplateTransformationChangeType.proto";
+import "Documents/MessageType.proto";
+import "Documents/Origin.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentInfoV3.html
+// Информация о документе, которая не зависит от статуса документооборота.
+
+message DocumentInfoV3
+{
+    // тип, функция и версия документа, представленные структурой FullVersion.
+    FullVersion FullVersion = 1;
+    // тип сообщения, представленный структурой MessageType.
+    Documents.MessageType MessageType = 2;
+    // идентификатор вида документооборота.
+    int32 WorkflowId = 3;
+    // участники документооборота, представленные структурой DocumentParticipants.
+    DocumentParticipants Participants = 4;
+    // направление движения документа, представленное структурой DocumentDirection.
+    DocumentDirection DocumentDirection = 5;
+    // идентификатор подразделения, в котором находится документ.
+    string DepartmentId = 6;
+    // идентификатор документа во внешней системе.
+    string CustomDocumentId = 7;
+    // список метаданных документа, представленных структурой MetadataItem.
+    repeated Events.MetadataItem Metadata = 8;
+    // список пользовательских данных (тегов), привязанных к документу. Каждый элемент списка представлен структурой CustomDataItem.
+    repeated CustomDataItem CustomData = 9;
+    // идентификаторы документов, на которые ссылается этот документ, и которые ссылаются на этот документ, представленные структурой DocumentLinks.
+    DocumentLinks DocumentLinks = 10;
+    // информация о пакете, в котором содержится документ, представленная структурой PacketInfo.
+    PacketInfo PacketInfo = 11;
+    // признак того, что документ был прочитан сотрудником организации.
+    bool IsRead = 12;
+    // признак того, что документ был удален.
+    bool IsDeleted = 13;
+    // признак того, что документ является приглашением к ЭДО (тип документа — `TrustConnectionRequest`, или он поддерживает работу в режиме приглашения и отправлен в таком режиме).
+    bool IsInvitation = 14;
+    // информация о письме. Заполняется, если `MessageType` `=` `Letter`. Представлена структурой `DocumentLetterInfo` с полями:
+    DocumentLetterInfo LetterInfo = 15;
+    // информация о черновике. Заполняется, если `MessageType` `=` `Draft`. Представлена структурой `DocumentDraftInfo` с полями:
+    DocumentDraftInfo DraftInfo = 16;
+    // информация о шаблоне. Заполняется, если `MessageType` `=` `Template`. Представлена структурой `DocumentTemplateInfo` с полями:
+    DocumentTemplateInfo TemplateInfo = 17;
+    // ссылка на письмо, на основе которого был создан документ, представленная структурой Origin.
+    Documents.Origin Origin = 18;
+    // идентификатор настройки редактирования содержимого документа.
+    string EditingSettingId = 19 ;
+}
+
+message DocumentLetterInfo
+{
+    // признак того, что документ передается в зашифрованном виде.
+    bool IsEncrypted = 1;
+    // список событий пересылки документа третьим сторонам, представленных структурой ForwardDocumentEvent.
+    repeated ForwardDocumentEvent ForwardDocumentEvents = 2;
+    // признак того, что документ является тестовым.
+    bool IsTest = 3;
+}
+
+message DocumentDraftInfo
+{
+    // признак того, что черновик удален.
+    bool IsRecycled = 1;
+    // признак того, что черновик заблокирован.
+    bool IsLocked = 2;
+    // список идентификаторов писем, созданных на основе данного черновика.
+    repeated string TransformedToLetterIds = 3;
+}
+
+message DocumentTemplateInfo
+{
+    // информация об отправителе и получателе письма, которое можно создать на основе шаблона. Представлена структурой DocumentParticipants.
+    DocumentParticipants LetterParticipants = 1;
+    // список идентификаторов писем, созданных на основе данного черновика.
+    repeated string TransformedToLetterIds = 2;
+    // список идентификаторов писем, созданных на основе шаблона и содержащих данный документ. Каждый элемент списка представлен структурой `TemplateTransformationInfo` с полями:
+    repeated TemplateTransformationInfo TemplateTransformationInfos = 3;
+    // информация об отклонении или отзыве шаблона, представленная структурой `TemplateRefusalInfo` с полями:
+    TemplateRefusalInfo TemplateRefusalInfo = 4;
+    // признак того, что из шаблона можно создать больше одного документа.
+    bool IsReusable = 5 ;
+}
+
+message TemplateTransformationInfo
+{
+    // идентификатор преобразования из шаблона.
+    string TransformationId = 1;
+    // список идентификаторов письма и документа, созданных на основе шаблона. Представлены структурой DocumentId.
+    DocumentId TransformedToLetterId = 2;
+    // идентификатор пользователя, отклонившего или отозвавшего шаблон.
+    string AuthorUserId = 3;
+    // список изменений, произошедших с документами, созданными на основе шаблона. Каждый элемент списка представлен структурой `TemplateTransformationChangeInfo` с полями:
+    repeated TemplateTransformationChangeInfo Changes = 4;
+}
+
+message TemplateTransformationChangeInfo
+{
+    // идентификатор изменения документа, созданного на основе шаблона.
+    string ChangeId = 1;
+    // тип изменения документа, принимает значения из перечисления TemplateTransformationChangeType.
+    TemplateTransformationChangeType ChangeType = 2 ;
+    // идентификатор ящика инициатора изменений.
+    string ChangeInitiatorBoxId = 3;
+    // идентификатор пользователя, отклонившего или отозвавшего шаблон.
+    string AuthorUserId = 4;
+}
+
+message TemplateRefusalInfo
+{
+    // идентификатор ящика организации, на стороне которого шаблон отклонили или отозвали.
+    string BoxId = 1;
+    // идентификатор пользователя, отклонившего или отозвавшего шаблон.
+    string AuthorUserId = 2;
+    // комментарий, указанный при отклонении или отзыве.
+    string Comment = 3;
+}
+
+
+
+

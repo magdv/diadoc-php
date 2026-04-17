@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EmployeeAction.html
+// Информация о том, может ли сотрудник совершить конкретное действие.
+
+message EmployeeAction {
+    // строковой идентификатор действия. Принимает одно из следующих значений:
+    string Name = 1;
+    // признак того, что сотруднику разрешено это действие.
+    bool IsAllowed = 2;
+}
+
+
+
+

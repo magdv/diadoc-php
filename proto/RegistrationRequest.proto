@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RegistrationRequest.html
+// Запрос на регистрацию организации по сертификату методом Register.
+
+message RegistrationRequest {
+    // X.509 сертификат пользователя в DER-кодировке.
+    bytes CertificateContent = 1;
+    // отпечаток сертификата пользователя.
+    string Thumbprint = 2;
+}
+
+
+
+

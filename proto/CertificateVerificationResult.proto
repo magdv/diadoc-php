@@ -1,0 +1,20 @@
+syntax="proto3";
+
+import "CertificateChainElement.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/CertificateVerificationResult.html
+// Результат проверки сертификата пользователя.
+
+message CertificateVerificationResult
+{
+    // признак того, что все проверки сертификата прошли успешно.
+    bool IsValid = 2;
+    // информация о цепочке сертификатов, участвовавших в проверке электронной подписи. Представлена структурой CertificateChainElement. Первый элемент в массиве описывает конечный сертификат пользователя, а последний — сертификат корневого УЦ.
+    repeated CertificateChainElement CertificateChain = 3;
+    // время проверки, представленное структурой Timestamp.
+    Timestamp VerificationTime = 4;
+}

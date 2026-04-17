@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TotalCountType.html
+// Тип подсчета найденных элементов.
+
+enum TotalCountType
+{
+    STATUS_UNSPECIFIED = 0; // Обязательное значение по умолчанию
+    Equal = 1;
+    GreaterThanOrEqual = 2;
+}
+
+
+
+

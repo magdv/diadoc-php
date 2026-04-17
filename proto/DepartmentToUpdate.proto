@@ -1,0 +1,45 @@
+syntax="proto3";
+import "Address.proto";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DepartmentToUpdate.html
+// На этой странице, помимо DepartmentToUpdate, описаны следующие структуры:
+
+message DepartmentToUpdate
+{
+    // идентификатор родительского подразделения, представленный структурой ParentDepartmentPatch.
+    ParentDepartmentPatch ParentDepartment = 1;
+    DepartmentNamingPatch DepartmentNaming = 2;
+    // маршрутизация по КПП. Если поле имеет значение `true`, то должно быть заполнено поле `Kpp` в структурах DepartmentToCreate или DepartmentToUpdate при создании или обновлении подразделения соответственно.
+    DepartmentKppPatch Kpp = 3;
+    // маршрутизация по адресу. Если поле имеет значение `true`, то должно быть заполнено поле `Address` в структурах DepartmentToCreate или DepartmentToUpdate при создании или обновлении подразделения соответственно.
+    DepartmentAddressPatch Address = 4;
+    // тип доступной маршрутизации, представленный структурой DepartmentRoutingPatch.
+    DepartmentRoutingPatch Routing = 5;
+}
+
+message DepartmentNamingPatch
+{
+    string Name = 1;
+    string Abbreviation = 2;
+}
+
+
+message ParentDepartmentPatch
+{
+    string ParentDepartmentId = 1;
+}
+message DepartmentKppPatch
+{
+    optional string Kpp = 1;
+}
+message DepartmentAddressPatch
+{
+    optional Address Address = 1;
+}
+message DepartmentRoutingPatch
+{
+    bool Kpp = 1;
+    bool Address = 2;
+}

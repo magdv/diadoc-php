@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "SignedAttachmentV3.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/OperatorConfirmationDocflow.html
+// Состояние подтверждения оператора ЭДО об отправке или получении документа и извещения о получении.
+
+message OperatorConfirmationDocflow
+{
+    // данные файла подтверждения оператора и подписи под ним, представленные структурой SignedAttachmentV3.
+    SignedAttachmentV3 ConfirmationAttachment = 1;
+    // дата подтверждения оператора, представленная структурой Timestamp.
+    Timestamp ConfirmedAt = 2;
+}
+
+
+
+

@@ -1,0 +1,32 @@
+syntax="proto3";
+
+import "SignedAttachmentV3.proto";
+import "Status.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/OuterDocflowEntities.html
+// Данные сущностей, относящихся к внешнему документообороту документа или запроса на аннулирование.
+
+message OuterDocflowEntities
+{
+    // идентификатор внешнего документооборота.
+    string DocflowNamedId = 1;
+    // название внешнего документооборота, которое используется для отображения в веб-интерфейсе.
+    string DocflowFriendlyName = 2;
+    // список статусов, полученных в рамках внешнего документооборота, представленных структурой `StatusEntity` с полями:
+    repeated StatusEntity StatusEntities = 3;
+}
+
+message StatusEntity
+{
+    // информация о квитанции, которая была получена в рамках внешнего документооборота, представленная структурой SignedAttachmentV3.
+    SignedAttachmentV3 Attachment = 1;
+    // статус обработки документа в рамках документооборота, представленный структурой Status.
+    Status Status = 2;
+}
+
+
+
+

@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "DocumentId.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EditDocumentPacketCommand.html
+// Данные для редактирования состава пакета одного из документов в исходном сообщении в отправляемом дополнении к сообщению.
+
+message EditDocumentPacketCommand {
+    // идентификатор документа, пакет которого редактируется.
+    string DocumentId = 1;
+    // список идентификаторов документов, которые нужно добавить в пакет к заданному документу. Каждый элемент списка представлен структурой DocumentId.
+    repeated DocumentId AddDocumentsToPacket = 2;
+    // список идентификаторов документов, которые нужно удалить из пакета заданного документа. Каждый элемент списка представлен структурой DocumentId.
+    repeated DocumentId RemoveDocumentsFromPacket = 3;
+}
+
+
+
+

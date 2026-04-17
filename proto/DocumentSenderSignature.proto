@@ -1,0 +1,26 @@
+syntax="proto3";
+
+import "PowerOfAttorneyToPost.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentSenderSignature.html
+// Данные электронной подписи (ЭП) к документам в отправляемом черновике.
+
+message DocumentSenderSignature {
+    // идентификатор подписываемых данных в отправляемом сообщении. Должен соответствовать содержимому поля Entity.EntityId какой-либо сущности в модифицируемом черновике Message. Набор сущностей в сообщении и их идентификаторы можно получить либо из ответа метода PostMessage (V3) при создании черновика, либо с помощью метода GetMessage (V6).
+    string ParentEntityId = 1;
+    // электронная подпись в формате CMS SignedData в DER-кодировке. В некоторых случаях может отсутствовать.
+    bytes Signature = 2;
+    // признак того, что документ должен быть подписан тестовой подписью.
+    bool SignWithTestSignature = 4 ;
+    // идентификатор содержимого документа, подготовленного к подписанию. Должен быть получен методом PrepareDocumentsToSign: идентификатор хранится в поле `PatchedContentId` структуры PrepareDocumentsToSignResponse.
+    string PatchedContentId = 5;
+    // данные машиночитаемой доверенности, представленные структурой PowerOfAttorneyToPost.
+    PowerOfAttorneyToPost PowerOfAttorney = 6;
+}
+
+
+
+

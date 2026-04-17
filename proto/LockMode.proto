@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/LockMode.html
+// Режим блокировки пакета с документами.
+
+enum LockMode
+{
+    STATUS_UNSPECIFIED = 0; // Обязательное значение по умолчанию
+    None = 1;
+    Send = 2;
+    Full = 3;
+}
+
+
+
+

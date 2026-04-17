@@ -1,0 +1,21 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionRouteAssignment.html
+// Данные для постановки документа на маршрут согласования в отправляемом дополнении к сообщению.
+
+message ResolutionRouteAssignment {
+    // идентификатор документа, который нужно поставить на маршрут согласования.
+    string InitialDocumentId = 1;
+    // идентификатор маршрута согласования, на который нужно поставить документ.
+    string RouteId = 2;
+    // комментарий. Длина не более 500 символов.
+    string Comment = 3;
+    // список меток.
+    repeated string Labels = 4;
+}
+
+
+
+

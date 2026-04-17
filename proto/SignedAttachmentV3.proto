@@ -1,0 +1,26 @@
+syntax="proto3";
+
+import "Docflow/Attachment.proto";
+import "Entity.proto";
+import "SignatureV3.proto";
+
+package Diadoc.Proto;
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignedAttachmentV3.html
+// Данные документа с подписью.
+
+message SignedAttachmentV3
+{
+    // данные файла документа, представленные структурой Attachment.
+    Docflow.Attachment Attachment = 1;
+    // данные электронной подписи, представленные структурой SignatureV3.
+    SignatureV3 Signature = 2;
+    // комментарий к файлу, представленный структурой Entity.
+    Entity Comment = 3;
+    // идентификатор типа содержимого документа, единый для документов с одинаковой структурой и одинаковыми правилами обработки. То есть каждый тип документа, титул и служебный документ имеет свой идентификатор. Например, УПД формата приказа №970 с функцией СЧФДОП будет иметь идентифкатор для первого титула `utd970_schfdop_orig_t1_05_03_01`, для второго титула — `utd970_schfdop_t2_05_03_01`, а для отказа в подписи в формате уведомления об уточнении — `signature_rejection_02`.
+    string ContentTypeId = 4;
+}
+
+
+
+

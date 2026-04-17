@@ -1,0 +1,21 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionRouteRemoval.html
+// Данные для снятия документа с маршрута согласования в отправляемом дополнении к сообщению.
+
+message ResolutionRouteRemoval {
+    // идентификатор документа, который нужно снять с маршрута согласования.
+    string ParentEntityId = 1;
+    // идентификатор маршрута согласования, с которого нужно снять документ.
+    string RouteId = 2;
+    // комментарий. Длина не более 500 символов.
+    string Comment = 3;
+    // список меток.
+    repeated string Labels = 4;
+}
+
+
+
+

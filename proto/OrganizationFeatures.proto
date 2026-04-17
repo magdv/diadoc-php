@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "BlockStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/OrganizationFeatures.html
+// Информация о статусе блокировки ящика на отправку документов и о включенных дополнительных функциях.
+
+message OrganizationFeatures
+{
+    // статус блокировки ящика на отправку документов, представленный структурой BlockStatus.
+    BlockStatus BlockStatus = 1;
+    // список включенных дополнительных функций ящика. Дополнительные функции принимают значения:
+    repeated string Features = 2;
+}
+
+
+
+

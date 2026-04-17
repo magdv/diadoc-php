@@ -1,0 +1,19 @@
+syntax="proto3";
+
+import "GetDocflowRequest.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GetDocflowBatchRequest.html
+// Список запросов на получение документов с информацией о документообороте методом GetDocflows (V4).
+
+message GetDocflowBatchRequest
+{
+    // список запросов, представленных структурой GetDocflowRequest. Один запрос соответствует одному документу. Максимальное количество запросов — 100.
+    repeated GetDocflowRequest Requests = 1;
+}
+
+
+
+

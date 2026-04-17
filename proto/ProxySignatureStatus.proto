@@ -1,0 +1,19 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ProxySignatureStatus.html
+// Cтатус промежуточной подписи.
+
+enum ProxySignatureStatus {
+    UnknownProxySignatureStatus = 0;
+    ProxySignatureStatusNone = 1;
+    WaitingForProxySignature = 2;
+    WithProxySignature = 3;
+    ProxySignatureRejected = 4;
+    InvalidProxySignature = 5;
+}
+
+
+
+

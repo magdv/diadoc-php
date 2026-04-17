@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SortDirection.html
+// Порядок сортировки событий по метке времени.
+
+enum SortDirection
+{
+    UnknownSortDirection = 0;
+    Ascending = 1;
+    Descending = 2;
+}
+
+
+
+

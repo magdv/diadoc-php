@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "DocumentTransformation.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TemplateTransformationToPost.html
+// Данные для создания документов на основе шаблонов методом TransformTemplateToMessage.
+
+message TemplateTransformationToPost {
+    // идентификатор ящика отправителя.
+    string BoxId = 1;
+    // идентификатор шаблона с документами, на основе которого будет создан документ.
+    string TemplateId = 2;
+    // список сообщений с идентификаторами обрабатываемых документов, представленных структурой DocumentTransformation.
+    repeated DocumentTransformation DocumentTransformations = 3;
+}
+
+
+
+

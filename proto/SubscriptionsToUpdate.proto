@@ -1,0 +1,18 @@
+syntax="proto3";
+
+import "Subscription.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SubscriptionsToUpdate.html
+// Данные для изменения подписок сотрудника организации на почтовые уведомления методом UpdateSubscriptions.
+
+message SubscriptionsToUpdate {
+    // список желаемых статусов подписок на конкретные уведомления, представленных структурой Subscription.
+    repeated Subscription Subscriptions = 1;
+}
+
+
+
+

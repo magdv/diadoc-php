@@ -1,0 +1,20 @@
+syntax="proto3";
+
+import "GeneralReceiptStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ConfirmationMetadata.html
+// Данные подтверждения оператора ЭДО об отправке или получении документа и извещения о получении.
+
+message ConfirmationMetadata {
+    // статус извещения о получении под подтверждением даты, принимает значения из перечисления GeneralReceiptStatus.
+    GeneralReceiptStatus ReceiptStatus = 1;
+    // время создания оператором подтверждения даты отправки/получения. Представляет целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001. Для документов, которые не поддерживают подтверждение, будет равно нулю.
+    sfixed64 DateTimeTicks = 2;
+}
+
+
+
+

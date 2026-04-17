@@ -10,6 +10,7 @@ class ShelfTest extends BaseTest
 {
     public function testSign(): void
     {
+        $this->markTestSkipped('Метод устарел и будет удален из API после 30 сентября 2026 года. Подробнее в истории изменений. Используйте актуальную версию метода: ShelfUpload (V2).');
         $api = $this->auth();
         $content = 'ssss';
         $response = $api->getApi()->shelfUpload('sd', 1, $content, 0);

@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/UnsignedContent.html
+// Подписываемые данные в отправляемом сообщении.
+
+message UnsignedContent {
+    // бинарное содержимое подписываемого документа. Значение должно быть пустым, если заполнено поле `NameOnShelf`.
+    bytes Content = 1;
+    // имя подписываемого документа на полке документов. Значение должно быть пустым, если заполнено поле `Content`.
+    string NameOnShelf = 2;
+}
+
+
+
+

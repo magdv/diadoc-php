@@ -1,0 +1,15 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentZipGenerationResult.html
+// Результат формирования ZIP-архива с документами по документообороту методом GenerateDocumentZip.
+
+message DocumentZipGenerationResult {
+    // полный путь к архиву на полке документов:
+    string ZipFileNameOnShelf = 1;
+}
+
+
+
+

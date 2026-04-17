@@ -1,0 +1,19 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/FullVersion.html
+// Информация о типе, функции и версии документа.
+
+message FullVersion {
+    // строковый идентификатор типа документа. Доступные типы можно получить с помощью метода GetDocumentTypes (V3).
+    string TypeNamedId = 1;
+    // функция документа.
+    string Function = 2;
+    // версия документа.
+    string Version = 3;
+}
+
+
+
+

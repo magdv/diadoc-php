@@ -1,0 +1,29 @@
+syntax="proto3";
+
+import "SignedAttachmentV3.proto";
+import "Timestamp.proto";
+import "UniversalMessageAttachmentDocflow.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignatureRejectionDocflowV4.html
+// Состояние отказа в подписи под документом.
+
+message SignatureRejectionDocflowV4
+{
+    // данные файла отказа в подписи и подписи под ним, представленные структурой SignedAttachmentV3.
+    SignedAttachmentV3 SignatureRejection = 1;
+    // признак того, что отказ в подписи является формализованным.
+    bool IsFormal = 2;
+    // время доставки отказа в подписи контрагенту, представленное структурой Timestamp.
+    Timestamp DeliveredAt = 3;
+    // текст сообщения об отказе в подписи. Длина не более 5000 символов.
+    string PlainText = 4;
+    // универсальное сообщение с отказом в подписи, представленное структурой UniversalMessageAttachmentDocflow.
+    UniversalMessageAttachmentDocflow UniversalMessage = 5;
+}
+
+
+
+

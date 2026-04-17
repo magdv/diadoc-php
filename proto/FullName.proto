@@ -1,0 +1,19 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/FullName.html
+// Полное имя.
+
+message FullName {
+    // фамилия.
+    string LastName = 1;
+    // имя.
+    string FirstName = 2;
+    // отчество.
+    string MiddleName = 3;
+}
+
+
+
+

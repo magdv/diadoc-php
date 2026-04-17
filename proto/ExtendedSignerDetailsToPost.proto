@@ -1,0 +1,34 @@
+syntax="proto3";
+
+import "SignerPowers.proto";
+import "SignerStatus.proto";
+import "SignerType.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ExtendedSignerDetailsToPost.html
+// Информация для заполнения данных подписанта методом ExtendedSignerDetails (POST) (V2).
+
+message ExtendedSignerDetailsToPost {
+    // должность подписанта.
+    string JobTitle = 1;
+    // реквизиты свидетельства о регистрации индивидуального предпринимателя.
+    string RegistrationCertificate = 2;
+    // тип подписанта, принимает значения из перечисления SignerType. По умолчанию имеет значение `SignerTypeUnspecified`.
+    SignerType SignerType = 3 ;
+    // иные сведения, идентифицирующие подписанта.
+    string SignerInfo = 4;
+    // область полномочий подписанта, принимает значения из перечисления SignerPowers.
+    SignerPowers SignerPowers = 5 ;
+    // статус подписанта, принимает значения из перечисления SignerStatus.
+    SignerStatus SignerStatus = 6 ;
+    // основания полномочий подписанта. Обязателен, если `SignerStatus` `=` `4`.
+    string SignerPowersBase = 7;
+    // основания полномочий организации. Обязателен, если `SignerStatus` `=` `3`.
+    string SignerOrgPowersBase = 8;
+ }
+
+
+
+

@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionType.html
+// Тип действия по согласованию.
+
+enum ResolutionType {
+    UndefinedResolutionType = 0;
+    Approve = 1;
+    Disapprove = 2;
+    UnknownResolutionType = 3;
+}
+
+
+
+

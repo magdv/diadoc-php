@@ -1,0 +1,19 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SearchScope.html
+// Область поиска метода SearchDocflows (V4).
+
+enum SearchScope
+{
+    SearchScopeAny = 0;
+    SearchScopeInbound = 1;
+    SearchScopeOutbound = 2;
+    SearchScopeDeleted = 3;
+    SearchScopeInternal = 4;
+}
+
+
+
+

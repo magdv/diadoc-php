@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "FetchedDocumentV4.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GetDocflowsByPacketIdResponseV4.html
+// Cписок документов с информацией о документообороте, полученный методом GetDocflowsByPacketId (V4).
+
+message GetDocflowsByPacketIdResponseV4
+{
+    // список документов в пакете, представленных структурой FetchedDocumentV4.
+    repeated FetchedDocumentV4 Documents = 1;
+    // ключ для постраничного получения списка найденных документов. Его можно передавать в качестве параметра `AfterIndexKey` структуры GetDocflowsByPacketIdRequest в метод GetDocflowsByPacketId (V4). Возвращается в случае, если количество найденных документов превышает допустимый размер страницы.
+    bytes NextPageIndexKey = 2;
+}
+
+
+
+

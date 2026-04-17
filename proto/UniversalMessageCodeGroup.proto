@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/UniversalMessageCodeGroup.html
+// Группа кода универсального сообщения (УС).
+
+enum UniversalMessageCodeGroup {
+    UnknownCodeGroup = 0;
+    Receipt = 1;
+    AmendmentRequest = 2;
+    Rejection = 3;
+    InformationMessage = 4;
+}
+
+
+
+

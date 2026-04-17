@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "DocumentWithDocflowV4.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SearchDocflowsResponseV4.html
+// Результат поиска документов с информацией о документообороте методом SearchDocflows (V4).
+
+message SearchDocflowsResponseV4
+{
+    // список найденных документов с информацией о документообороте, представленных структурой DocumentWithDocflowV4.
+    repeated DocumentWithDocflowV4 Documents = 1;
+    // признак того, что поле `Documents` содержит не все найденные документы. Остальные документы можно получить постранично, передавая в метод SearchDocflows (V4) индекс первого документа очередной страницы: пример использования приведен в описании метода.
+    bool HaveMoreDocuments = 2;
+}
+
+
+
+

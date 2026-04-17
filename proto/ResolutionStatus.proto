@@ -1,0 +1,34 @@
+syntax="proto3";
+
+import "ResolutionTarget.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionStatus.html
+// Статус согласования документа.
+
+message ResolutionStatus {
+    // тип статуса согласования, принимает значения из перечисления `ResolutionStatusType`:
+    ResolutionStatusType Type = 1;
+    // информация о том, кому направлен запрос, представленная структурой ResolutionTarget.
+    ResolutionTarget Target = 2;
+    // идентификатор пользователя, совершившего действие, описываемое данным статусом: согласование, отказ или передача на согласование или подпись.
+    string AuthorUserId = 3;
+    // ФИО пользователя, совершившего действие, описываемое данным статусом: согласование, отказ или передача на согласование или подпись.
+    string AuthorFIO = 4;
+}
+
+enum ResolutionStatusType {
+    None = 0;
+    Approved = 1;
+    Disapproved = 2;
+    ApprovementRequested = 3;
+    SignatureRequested = 4;
+    SignatureDenied = 5;
+    ActionsRequested = 6;
+}
+
+
+
+

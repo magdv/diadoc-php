@@ -1,0 +1,25 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionStatusDocflow.html
+// Статус согласования документа или запроса на аннулирование.
+
+enum ResolutionStatus {
+    UnknownStatus = 0;
+    None = 1;
+    Approved = 2;
+    Disapproved = 3;
+    ApprovementRequested = 4;
+    ApprovementSignatureRequested = 5;
+    PrimarySignatureRequested = 6;
+    SignatureRequestRejected = 7;
+    SignedWithApprovingSignature = 8;
+    SignedWithPrimarySignature = 9;
+    PrimarySignatureRejected = 10;
+    ActionsRequested = 11;
+}
+
+
+
+

@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentAccessLevel.html
+// Уровень доступа сотрудника к документам организации.
+
+enum DocumentAccessLevel {
+    DepartmentOnly = 0;
+    UnknownDocumentAccessLevel = -1;
+    DepartmentAndSubdepartments = 1;
+    AllDocuments = 2;
+    SelectedDepartments = 3;
+}
+
+
+
+

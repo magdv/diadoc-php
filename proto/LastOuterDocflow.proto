@@ -1,0 +1,20 @@
+syntax="proto3";
+
+import "OuterDocflowInfo.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/LastOuterDocflow.html
+// Последнее состояние внешнего документооборота.
+
+message LastOuterDocflow {
+    // идентификатор сущности, по которой получено последнее состояние внешнего документооборота. Это может быть документ или запрос на аннулирование.
+    string ParentEntityId = 1;
+    // информация о внешнем документообороте, представленная структурой OuterDocflowInfo.
+    OuterDocflowInfo OuterDocflow = 2;
+}
+
+
+
+

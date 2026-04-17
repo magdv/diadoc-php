@@ -1,0 +1,23 @@
+syntax="proto3";
+
+import "TemplateTransformationChangeType.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TemplateTransformationChangeInfo.html
+// Информация об изменении документа, созданного на основе шаблона.
+
+message TemplateTransformationChangeInfo
+{
+    // тип изменения документа, принимает значения из перечисления TemplateTransformationChangeType.
+    TemplateTransformationChangeType ChangeType = 1 ;
+    // идентификатор ящика инициатора изменений.
+    string ChangeInitiatorBoxId = 2;
+    // ФИО пользователя, который произвел изменения по документу, созданному на основе шаблона.
+    string Author = 3;
+}
+
+
+
+

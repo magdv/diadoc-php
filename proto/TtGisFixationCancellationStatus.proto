@@ -1,0 +1,16 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TtGisFixationCancellationStatus.html
+// Cтатус документа для отмены сведений об отгрузке маркированных товаров.
+
+enum TtGisFixationCancellationStatus {
+    TtGisFixationCancellationStatusNone = 0;
+    HaveToCreateTtGisFixationCancellationRequest = 1;
+    TtGisFixationCancellationRequestSigned = 2;
+}
+
+
+
+

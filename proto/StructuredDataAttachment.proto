@@ -1,0 +1,19 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/StructuredDataAttachment.html
+// Файл со структурированными данными в отправляемом сообщении.
+
+message StructuredDataAttachment {
+    // содержимое файла размером до 10 Мбайт.
+    bytes Content = 1;
+    // имя файла.
+    string FileName = 2;
+    // идентификатор, уникальный в рамках структуры `MessageToPost`, с помощью которого файл связывается с соответствующим документом внутри отправляемого сообщения.
+    string DocumentId = 3;
+}
+
+
+
+

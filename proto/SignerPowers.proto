@@ -1,0 +1,27 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignerPowers.html
+// Область полномочий подписанта.
+
+enum SignerPowers {
+    InvoiceSigner = 0;
+    SignerPowersUnspecified = -1;
+    PersonMadeOperation = 1;
+    MadeAndSignOperation = 2;
+    PersonDocumentedOperation = 3;
+    MadeOperationAndSignedInvoice = 4;
+    MadeAndResponsibleForOperationAndSignedInvoice = 5;
+    ResponsibleForOperationAndSignerForInvoice = 6;
+    ChairmanCommission = 7;
+    MemberCommission = 8;
+    PersonApprovedDocument = 21;
+    PersonConfirmedDocument = 22;
+    PersonAgreedOnDocument = 23;
+    PersonOtherPower = 29;
+}
+
+
+
+

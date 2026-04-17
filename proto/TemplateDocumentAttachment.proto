@@ -1,0 +1,49 @@
+syntax="proto3";
+
+import "CustomDataItem.proto";
+import "MetadataItem.proto";
+import "UnsignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TemplateDocumentAttachment.html
+// Данные документа любого типа в отправляемом сообщении.
+
+message TemplateDocumentAttachment {
+    // содержимое файла, представленное структурой UnsignedContent.
+    UnsignedContent UnsignedContent = 1;
+    // комментарий к документу. Длина не более 5000 символов.
+    string Comment = 2;
+    // строковый идентификатор типа документа. Доступные типы можно получить с помощью метода GetDocumentTypes (V3).
+    string TypeNamedId = 3;
+    // функция документа. Обязательна при отправке зашифрованных документов.
+    string Function = 4;
+    // версия документа. Обязательна при отправке зашифрованных документов.
+    string Version = 5;
+    // список метаданных документа, представленных структурой MetadataItem. Список доступных метаданных для типа можно получить с помощью метода GetDocumentTypes (V3). Инструкция о получении данных из метода `GetDocumentTypes` приведена на странице Получение информации о типе документа.
+    repeated MetadataItem Metadata = 6;
+    // идентификатор вида документооборота.
+    int32 WorkflowId = 7;
+    // идентификатор документа во внешней системе, уникальный в рамках структуры TemplateToPost. Используется для выстраивания связей между документами внутри отправляемого сообщения. После создания шаблона идентификатор хранится в поле `Document.CustomDocumentId`.
+    string CustomDocumentId = 8;
+    // идентификатор настройки редактирования содержимого документа. Наличие настройки означает, что в содержимом файла могут отсутствовать данные, редактирование которых разрешено этой настройкой.
+    string EditingSettingId = 9;
+    // признак того, что под документом, созданным на основе шаблона, требуется подпись получателя.
+    bool NeedRecipientSignature = 10 ;
+    // данные титула получателя. Предназначено для двухтитульных документов с версией, поддерживающей предопределенный титул получателя.
+    PredefinedRecipientTitle PredefinedRecipientTitle = 11;
+    // признак, управляющий возможностью отклонять шаблон на стороне получателя. Если указано значение `true`, то у получателя нет возможности отклонить шаблон.
+    bool RefusalDisabled = 12 ;
+    // список пользовательских данных (тегов), привязанных к документу. Каждый элемент списка представлен структурой CustomDataItem.
+    repeated CustomDataItem CustomData = 13;
+}
+
+message PredefinedRecipientTitle {
+    // содержимое файла, представленное структурой UnsignedContent.
+    UnsignedContent UnsignedContent = 1;
+}
+
+
+
+

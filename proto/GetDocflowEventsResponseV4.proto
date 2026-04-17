@@ -1,0 +1,24 @@
+syntax="proto3";
+
+import "Counteragent.proto";
+import "DocflowEventV4.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GetDocflowEventsResponseV4.html
+// Cписок событий, полученный методом GetDocflowEvents (V4).
+
+message GetDocflowEventsResponseV4
+{
+    // общее количество всех событий, соответствующих заданным параметрам.
+    int32 TotalCount = 1;
+    // список событий, представленных структурой DocflowEventV4.
+    repeated DocflowEventV4 Events = 2;
+    // параметр, указывающий, является ли значение `TotalCount` точным или подсчет был ограничен. Принимает значения из перечисления TotalCountType.
+    TotalCountType TotalCountType = 3;
+}
+
+
+
+

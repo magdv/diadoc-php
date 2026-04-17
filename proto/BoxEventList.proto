@@ -1,0 +1,23 @@
+syntax="proto3";
+
+import "BoxEvent.proto";
+import "Counteragent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/BoxEventList.html
+// Список событий в ящике.
+
+message BoxEventList {
+    // список событий в ящике, представленных структурой BoxEvent.
+    repeated BoxEvent Events = 1;
+    // общее количество найденных событий, соответствующих заданным параметрам.
+    int32 TotalCount = 2;
+    // параметр, указывающий, является ли значение `TotalCount` точным или подсчет был ограничен. Принимает значения из перечисления TotalCountType.
+    TotalCountType TotalCountType = 3;
+}
+
+
+
+

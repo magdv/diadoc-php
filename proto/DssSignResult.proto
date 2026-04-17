@@ -1,0 +1,60 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DssSignResult.html
+// Результат подписания файлов сертификатом без носителя методом DssSign.
+
+message DssSignResult {
+    // статус подписания, принимает значение из перечисления `DssOperationStatus`:
+    DssOperationStatus OperationStatus = 1 ;
+    // список результатов подписания каждого файла, представленных структурой `DssFileSigningResult` с полями:
+    repeated DssFileSigningResult FileSigningResults = 2;
+    // способ подтверждения, принимает значение из перечисления `DssConfirmType`:
+    DssConfirmType ConfirmType = 3 ;
+    DssOperator Operator = 4 ;
+    string PhoneLastNumbers = 5
+}
+
+message DssFileSigningResult {
+    // статус подписания файла, принимает значение из перечисления `DssFileSigningStatus`:
+    DssFileSigningStatus FileSigningStatus = 1 ;
+    // электронная подпись в формате CMS SignedData в DER-кодировке.
+    bytes Signature = 2;
+}
+
+enum DssOperationStatus {
+    Unknown = 0;
+    InProgress = 1;
+    Completed = 2;
+    CanceledByUser = 3;
+    Timeout = 4;
+    Crashed = 5;
+    UserHasUnconfirmedOperation = 6;
+    OperationRetryRequired = 7;
+}
+
+enum DssFileSigningStatus {
+    UnknownSigningStatus = 0;
+    SigningCompleted = 1;
+    SigningError = 2;
+}
+
+enum DssConfirmType {
+    None = 0;
+    ConfirmTypeUnknown = -1;
+    Sms = 1;
+    MyDss = 2;
+    Applet = 3;
+    MobileSdk = 4;
+}
+
+enum DssOperator {
+    OperatorUnknown = 0;
+    Megafon = 1;
+    Kontur = 2;
+}
+
+
+
+

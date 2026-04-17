@@ -1,0 +1,19 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionRequestCancellationAttachment.html
+// Данные отмены запроса на согласование или подпись под документом в отправляемом дополнении к сообщению.
+
+message ResolutionRequestCancellationAttachment {
+    // идентификатор отменяемого запроса на согласование.
+    string InitialResolutionRequestId = 1;
+    // комментарий к отмене запроса на согласование. Длина не более 256 символов.
+    string Comment = 2;
+    // список меток.
+    repeated string Labels = 3;
+}
+
+
+
+

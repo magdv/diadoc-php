@@ -1,0 +1,28 @@
+syntax="proto3";
+
+import "ResolutionRequestType.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionRequestAttachment.html
+// Данные запроса на согласование или подпись под документом в отправляемом дополнении к сообщению.
+
+message ResolutionRequestAttachment {
+    // идентификатор документа, для которого формируется запрос на согласование.
+    string InitialDocumentId = 1;
+    // тип запроса на согласование. Принимает следующие значения из перечисления ResolutionRequestType:
+    ResolutionRequestType Type = 2;
+    // идентификатор пользователя, которому будет направлен запрос на согласование. Обязательно, если не заполнено `TargetDepartmentId`.
+    string TargetUserId = 3;
+    // идентификатор подразделения, в которое будет направлен запрос на согласование. Обязательно, если не заполнено `TargetUserId`.
+    string TargetDepartmentId = 4;
+    // комментарий к запросу согласования. Длина не более 500 символов.
+    string Comment = 5;
+    // список меток.
+    repeated string Labels = 6;
+}
+
+
+
+

@@ -63,6 +63,19 @@ foreach ($contragents->getCounteragents() as $item) {
      Тест не дает полной картины работоспособности апи. 
      Мы не можем быть уверены, что нам всегда возвращают нужные данные, т.к. стенд тестовый.
      Тут я скорее проверяют, что обращаюсь куда надо и что плюс-минус все работает.
+     
+     Для запуска тестов требуется установленное расширение `ext-curl`.
+
+### Протестированные методы (гарантия есть только на них)
+
+- **`MagDv\Diadoc\DiadocApi::authenticateLogin()`** (`tests/Unit/AuthTest.php`)
+- **`MagDv\Diadoc\DiadocApi::authenticateLoginV3()`** (`tests/Unit/AuthTest.php`)
+- **`MagDv\Diadoc\DiadocApi::getMyOrganizations()`** (`tests/Unit/GetMyOrganizationsTest.php`)
+- **`MagDv\Diadoc\DiadocApi::getCountragentsV2()`** (`tests/Unit/CouteragentsTest.php`)
+- **`MagDv\Diadoc\DiadocApi::getDocumentTypes()`** (`tests/Unit/DocumentTypesTest.php`)
+- **`MagDv\Diadoc\DiadocApi::postMessage()`** (`tests/Unit/MessageTest.php`)
+- **`MagDv\Diadoc\DiadocApi::generateSignedContentFromFile()`** (`tests/Unit/SignTest.php`)
+- **`MagDv\Diadoc\DiadocApi::shelfUpload()`** (`tests/Unit/ShelfTest.php`, тест помечен как skipped)
 
 ## Как вести разработку
 

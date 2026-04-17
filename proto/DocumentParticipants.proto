@@ -1,0 +1,26 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentParticipants.html
+// Данные участников документооборота.
+
+message DocumentParticipants
+{
+    // отправитель документа, представленный структурой DocumentParticipant.
+    DocumentParticipant Sender = 1;
+    // промежуточный получатель документа, представленный структурой DocumentParticipant.
+    DocumentParticipant Proxy = 2;
+    // получатель документа, представленный структурой DocumentParticipant.
+    DocumentParticipant Recipient = 3;
+    // признак того, что документ является внутренним.
+    bool IsInternal = 4;
+    // признак того, что документ участвует в трансграничном документообороте (ТЭДО).
+    bool IsCrossBorder = 5;
+}
+
+message DocumentParticipant
+{
+    string BoxId = 1;
+    optional string DepartmentId = 2;
+}

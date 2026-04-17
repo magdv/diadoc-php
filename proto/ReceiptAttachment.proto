@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "SignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ReceiptAttachment.html
+// Данные извещения о получении документа в отправляемом дополнении к сообщению.
+
+message ReceiptAttachment {
+    // идентификатор документа, к которому относится извещение. Принимает значение одной из сущностей родительского сообщения (поле `EntityId`).
+    string ParentEntityId = 1;
+    // содержимое файла извещения вместе с электронной подписью, представленное структурой SignedContent.
+    SignedContent SignedContent = 2;
+    // список меток.
+    repeated string Labels = 4;
+}
+
+
+
+

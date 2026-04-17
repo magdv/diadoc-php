@@ -1,0 +1,35 @@
+syntax="proto3";
+
+import "DocumentId.proto";
+import "Timestamp.proto";
+import "DocumentWithDocflowV4.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GetPartnerEventsResponse.html
+// Cписок событий, произошедших с документами во всех ящиках, доступных технологическому партнеру, полученный методом GetPartnerEvents.
+
+message GetPartnerEventsResponse
+{
+    // список событий, представленных структурой `PartnerEvent` с полями:
+    repeated PartnerEvent Events = 1;
+    // ключ последнего события по заданным параметрам. Может быть пустым, если ответ не содержит событий.
+    string LastCursor = 2;
+}
+
+message PartnerEvent
+{
+    // идентификатор события. Может быть одинаковым для нескольких событий, если они относятся к одному изменению сообщения.
+    string EventId = 1;
+    // время возникновения события, представленное структурой Timestamp.
+    Timestamp Timestamp = 2;
+    // идентификатор документа, с которым произошло событие, представленный структурой DocumentId.
+    DocumentId DocumentId = 3;
+    // информация о документе и состоянии его документооборота после возникновения данного события, представленная структурой DocumentWithDocflowV4.
+    DocumentWithDocflowV4 Document = 4;
+}
+
+
+
+

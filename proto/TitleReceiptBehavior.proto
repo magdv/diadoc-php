@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package Diadoc.Proto;
+
+enum TitleReceiptBehavior {
+    Unknown = 0;
+    Never = 1;
+    DefineByUser = 2;
+    Always = 3;
+}
+

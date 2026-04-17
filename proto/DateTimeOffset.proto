@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DateTimeOffset.html
+// Момент времени с привязкой к часовому поясу.
+
+message DateTimeOffsetDto
+{
+    // целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001 в UTC. Отражает момент времени без привязки к часовому поясу.
+    sfixed64 UtcTicks = 1;
+    // смещение времени относительно UTC. Отражает смещение времени относительно UTC соответственно часовому поясу.
+    sfixed64 OffsetTicks = 2;
+}
+
+
+
+

@@ -1,0 +1,9 @@
+syntax="proto3";
+
+package Diadoc.Proto;
+
+enum ReceiptOperatorConfirmationReceiptBehavior {
+    Unknown = 0;
+    Never = 1;
+    Always = 2;
+}

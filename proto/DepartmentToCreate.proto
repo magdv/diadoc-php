@@ -1,0 +1,30 @@
+syntax="proto3";
+
+import "Address.proto";
+import "Routing.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DepartmentToCreate.html
+// Данные для создания подразделения организации методом CreateDepartment.
+
+message DepartmentToCreate
+{
+    // идентификатор родительского подразделения. Если не указан, то подразделение будет создано внутри головного подразделения.
+    string ParentDepartmentId = 1;
+    // название подразделения.
+    string Name = 2;
+    // краткое название подразделения.
+    string Abbreviation = 3;
+    // КПП подразделения.
+    string Kpp = 4;
+    // адрес подразделения, представленный структурой Address.
+    Address Address = 5;
+    // тип доступной маршрутизации, представленный структурой Routing.
+    Routing Routing = 6;
+}
+
+
+
+

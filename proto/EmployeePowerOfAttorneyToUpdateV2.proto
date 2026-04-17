@@ -1,0 +1,25 @@
+syntax="proto3";
+
+import "PowerOfAttorneyFullId.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EmployeePowerOfAttorneyToUpdateV2.html
+// Данные для изменения свойств машиночитаемой доверенности (МЧД) сотрудника методом UpdateEmployeePowerOfAttorney (V2).
+
+message EmployeePowerOfAttorneyToUpdateV2 {
+    // идентификатор МЧД, представленный структурой PowerOfAttorneyFullId.
+    PowerOfAttorneyFullId PowerOfAttorneyFullId = 1;
+    // параметр, управляющий настройкой «Использовать по умолчанию» для МЧД. Представлен структурой `EmployeePowerOfAttorneyIsDefaultPatch` с полями:
+    EmployeePowerOfAttorneyIsDefaultPatch IsDefaultPatch = 2;
+}
+
+message EmployeePowerOfAttorneyIsDefaultPatch {
+    // признак того, что выбранная МЧД используется для сотрудника по умолчанию.
+    bool IsDefault = 1;
+}
+
+
+
+

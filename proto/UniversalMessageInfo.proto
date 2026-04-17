@@ -1,0 +1,36 @@
+syntax="proto3";
+
+import "UniversalMessageCodeGroup.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/UniversalMessageInfo.html
+// Информация об универсальном сообщении (УС).
+
+message UniversalMessageInfo {
+    // группа кода УС, которая определяет его назначение — извещение о получении, уведомление об уточнении или отказ в подписи. Принимает значения из перечисления UniversalMessageCodeGroup. При получении УС из роуминга для группы `Rejection` возможны коды 2999 и 3999.
+    UniversalMessageCodeGroup CodeGroup = 1;
+    // список событий обработки документа, представленных структурой `UniversalMessageEvent` с полями:
+    repeated UniversalMessageEvent Events = 2;
+    // данные отправителя УС, представленные структурой `UniversalMessageCreator` с полями:
+    UniversalMessageCreator UniversalMessageCreator = 3;
+}
+
+message UniversalMessageEvent {
+    // код статуса обработки.
+    int32 StatusCode = 1;
+    // комментарий.
+    string PlainText = 2;
+}
+
+message UniversalMessageCreator {
+    // идентификатор ящика, из которого отправлено УС.
+    string BoxId = 1;
+    // идентификатор подразделения, из которого отправлено УС.
+    string DepartmentId = 2;
+}
+
+
+
+

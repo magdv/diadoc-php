@@ -1,0 +1,20 @@
+syntax="proto3";
+
+import "GeneralReceiptStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/AmendmentRequestMetadata.html
+// Данные уведомления об уточнении (УоУ).
+
+message AmendmentRequestMetadata {
+    // статус УоУ или исправления/корректировки. Указывает, было ли затребовано уточнение, передавалось ли исправление документа, передавалась ли корректировка документа. Представляет собой битовую маску, составленную из одного или нескольких значений перечисления InvoiceAmendmentFlags.
+    int32 AmendmentFlags = 1;
+    // статус извещения о получении под УоУ со стороны отправителя документа, принимает значения из перечисления GeneralReceiptStatus.
+    GeneralReceiptStatus ReceiptStatus = 2;
+}
+
+
+
+

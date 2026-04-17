@@ -1,0 +1,21 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/InvoiceCorrectionRequestGenerationRequestV2.html
+// Запрос на формирование уведомления об уточнении (УоУ) методом GenerateInvoiceCorrectionRequestXml (V2).
+
+message InvoiceCorrectionRequestGenerationRequestV2 {
+    // обязательный текст уведомления об уточнении. Длина не более 20000 символов.
+    string ErrorMessage = 1;
+    // идентификатор сообщения.
+    string MessageId = 2;
+    // идентификатор сущности СФ/ИСФ/КСФ/ИКСФ, для которой нужно сформировать уведомление об уточнении.
+    string AttachmentId = 3;
+    // бинарное представление упрощенного XML-файла подписанта, сформированного в соответствии с XSD-схемой. Инструкция о формировании файла подписанта приведена в разделе Универсальный формат данных подписанта в служебных документах.
+    bytes SignerContent = 4;
+}
+
+
+
+

@@ -1,0 +1,20 @@
+syntax="proto3";
+
+import "PowerOfAttorney.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EmployeePowerOfAttorney.html
+// Данные машиночитаемой доверенности (МЧД), привязанной к сотруднику.
+
+message EmployeePowerOfAttorney {
+    // информация о доверенности, представленная структурой PowerOfAttorney.
+    PowerOfAttorney PowerOfAttorney = 1;
+    // признак того, что данная МЧД является доверенностью по умолчанию.
+    bool IsDefault = 2;
+}
+
+
+
+

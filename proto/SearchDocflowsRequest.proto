@@ -1,0 +1,27 @@
+syntax="proto3";
+
+import "SearchScope.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SearchDocflowsRequest.html
+// Запрос на поиск документов с информацией о документообороте методом SearchDocflows (V4).
+
+message SearchDocflowsRequest
+{
+    // строка запроса. Принимает значения:
+    string QueryString = 1;
+    // максимальное количество документов в выдаче, не должно превышать 100.
+    int32 Count = 2 ;
+    // индекс документа, с которого начинается страница. Используется для постраничного получения документов, если их количество в результате поиска превышает максимальное значение в 100 элементов.
+    int32 FirstIndex = 3;
+    // область действия поиска, представленная перечислением SearchScope.
+    SearchScope Scope = 4 ;
+    // признак того, что в результат нужно включить содержимое документа.
+    bool InjectEntityContent = 5 ;
+}
+
+
+
+

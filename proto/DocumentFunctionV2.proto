@@ -1,0 +1,57 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentFunctionV2.html
+// На этой странице, помимо DocumentFunctionV2, описаны следующие структуры:
+
+message DocumentFunctionV2 {
+    // строковой идентификатор функции. Уникальный в рамках типа документа.
+    string Name = 1;
+    // cписок версий документа. Каждая версия представлена структурой DocumentVersionV2.
+    repeated DocumentVersionV2 Versions = 2;
+}
+
+message DocumentVersionV2 {
+    string Version = 1;
+    bool SupportsContentPatching = 2;
+    bool SupportsEncrypting = 3;
+    bool SupportsPredefinedRecipientTitle = 7;
+    bool SupportsAmendmentRequest = 8;
+    repeated DocumentTitleV2 Titles = 4;
+    bool IsActual = 5;
+    repeated DocumentWorkflowV2 workflows = 6;
+    SupportedRejectionType RejectionType = 9;
+}
+message DocumentWorkflowV2 {
+    int32 Id = 1;
+    bool IsDefault = 2;
+}
+enum SupportedRejectionType {
+    None = 0;
+    TypeSpecificRejection = 1;
+    UniversalMessage = 2;
+}
+
+message DocumentTitleV2 {
+    int32 Index = 7;
+    bool IsFormal = 1;
+    optional string XsdUrl = 2;
+    optional string UserDataXsdUrl = 5;
+    SignerInfoV2 SignerInfo = 6;
+    repeated DocumentMetadataItemV2 MetadataItems = 3;
+    repeated DocumentMetadataItemV2 EncryptedMetadataItems = 4;
+}
+
+message SignerInfoV2 {
+    int32 SignerType = 1;
+    int32 ExtendedDocumentTitleType = 2;
+    optional string SignerUserDataXsdUrl = 3;
+}
+
+message DocumentMetadataItemV2 {
+    string Id = 1;
+    int32 Type = 2;
+    bool Is= 3;
+    int32 Source = 4;
+}

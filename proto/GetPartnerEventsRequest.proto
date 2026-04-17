@@ -1,0 +1,22 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GetPartnerEventsRequest.html
+// Запрос на получение списка событий, произошедших с документами во всех ящиках, доступных технологическому партнеру, методом GetPartnerEvents.
+
+message GetPartnerEventsRequest
+{
+    // ключ для постраничного получения найденных событий. Может быть пустым.
+    string Cursor = 1;
+    // список направлений документа относительно текущих ящиков. Направление документа принимает значения:
+    repeated string DocumentDirections = 2;
+    // список типов сообщения. Тип сообщения принимает значения:
+    repeated string MessageTypes = 3;
+    // максимальное количество событий, которое нужно загрузить в ответе. Не влияет на общее количество всех найденных событий. Принимает значения от 1 до 500. По умолчанию имеет значение 100.
+    int32 Limit = 4 ;
+}
+
+
+
+

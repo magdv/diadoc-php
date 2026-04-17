@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "Department.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DepartmentList.html
+// Список подразделений организации.
+
+message DepartmentList
+{
+    // список подразделений, представленных структурой Department.
+    repeated Department Departments = 1;
+    // общее количество найденных подразделений, соответствующих заданным параметрам.
+    int32 TotalCount = 2;
+}
+
+
+
+

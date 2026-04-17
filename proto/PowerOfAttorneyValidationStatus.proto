@@ -1,0 +1,50 @@
+syntax="proto3";
+
+import "Severity.proto";
+import "PowerOfAttorneyValidationCheckStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyValidationStatus.html
+// На этой странице, помимо PowerOfAttorneyValidationStatus, описаны следующие структуры:
+
+message PowerOfAttorneyValidationStatus {
+    // критичность статуса, принимает значение из перечисления Severity.
+    Severity Severity = 1;
+    // текстовый идентификатор статуса, принимает значение из перечисления `PowerOfAttorneyValidationStatusNamedId`:
+    PowerOfAttorneyValidationStatusNamedId StatusNamedId = 2;
+    // удобочитаемый текст статуса.
+    string StatusText = 3;
+    // поле устарело, используйте значения полей `ValidationProtocol` и `OperationError`.
+    repeated PowerOfAttorneyValidationError Errors = 4 [deprecated = true];
+    // протокол валидации с результатами выполнения проверок, представленный структурой ValidationProtocol. Возвращается в случае, когда `StatusNamedId` принимает значение:
+    ValidationProtocol ValidationProtocol = 5;
+    // описание ошибки, произошедшей в процессе выполнения операции, представленное структурой PowerOfAttorneyValidationError. Возвращается в случае, если `StatusNamedId` принимает значение `ValidationError` или `CanNotBeValidated`.
+    PowerOfAttorneyValidationError OperationError = 6;
+}
+
+enum PowerOfAttorneyValidationStatusNamedId {
+    UnknownStatus = 0;
+    CanNotBeValidated = 1;
+    IsValid = 2;
+    IsNotValid = 3;
+    ValidationError = 4;
+    IsNotAttached = 5;
+    HasWarnings = 6;
+}
+
+message ValidationProtocol {
+    repeated ValidationCheckResult CheckResults = 1;
+}
+
+message ValidationCheckResult {
+    optional POA.Proto.PowerOfAttorneyValidationCheckStatus Status = 1;
+    string Name = 2;
+    optional PowerOfAttorneyValidationError Error = 3;
+}
+
+message PowerOfAttorneyValidationError {
+    string Code = 1;
+    string Text = 2;
+}

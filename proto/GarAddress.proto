@@ -1,0 +1,64 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GarAddress.html
+// На этой странице, помимо GarAddress, описаны следующие структуры:
+
+message GarAddress {
+    // уникальный номер в ГАР.
+    string FiasId = 1;
+    // почтовый индекс.
+    string ZipCode = 2;
+    // код субъекта Российской Федерации.
+    string RegionCode = 3;
+    // муниципальный район/городской округ/внутригородская территория города федерального значения/муниципальный округ/федеральная территория, представленный структурой GarAddressNameElement.
+    GarAddressNameElement MunicipalDistrict = 4;
+    // городское поселение/сельское поселение/межселенная территория в составе муниципального района/внутригородской район городского округа, представленное структурой GarAddressNameElement.
+    GarAddressNameElement UrbanSettlement = 5;
+    // населенный пункт (город, деревня, село и прочее), представленный структурой GarAddressNameElement.
+    GarAddressNameElement City = 6;
+    // элемент планировочной структуры, представленный структурой GarAddressNameElement.
+    GarAddressNameElement PlanningStructure = 7;
+    // элемент улично-дорожной сети, представленный структурой GarAddressNameElement.
+    GarAddressNameElement Street = 8;
+    // номер земельного участка.
+    string Stead = 9;
+    // здание (строение) сооружение/объект незавершенного строительства, представленное структурой GarHouse.
+    GarHouse Garhouse = 10;
+    // помещение в пределах здания (строения) сооружения/машиноместо, представленное структурой GarAddressNumberElement.
+    GarAddressNumberElement RoomWithinBuilding = 11;
+    // помещение в пределах квартиры, представленное структурой GarAddressNumberElement.
+    GarAddressNumberElement RoomWithinApartment = 12;
+    // тип деления, принимает значения из перечисления `GarAddressDivisionType`:
+    GarAddressDivisionType Type = 13 ;
+    // район, представленный структурой GarAddressNameElement.
+    GarAddressNameElement District = 14;
+    // населенный пункт, представленный структурой GarAddressNameElement.
+    GarAddressNameElement Settlement = 15;
+}
+
+enum GarAddressDivisionType {
+    UnknownDivisionType = 0;
+    Municipal = 1;
+    Administrative = 2;
+}
+
+
+message GarAddressNameElement {
+    string Abbreviation = 1;
+    string Name = 2;
+}
+message GarHouse {
+    string Abbreviation = 1;
+    string Number = 2;
+    optional string AddNumber1 = 3;
+    optional string AddAbbreviation1 = 4;
+    optional string AddNumber2 = 5;
+    optional string AddAbbreviation2 = 6;
+}
+message GarAddressNumberElement {
+    string Abbreviation = 1;
+    string Number = 2;
+}
+

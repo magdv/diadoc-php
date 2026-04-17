@@ -1,0 +1,24 @@
+syntax="proto3";
+
+import "ResolutionType.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionAttachment.html
+// Данные согласования документа или запроса на аннулирование в отправляемом дополнении к сообщению.
+
+message ResolutionAttachment {
+    // идентификатор согласуемого документа
+    string InitialDocumentId  = 1;
+    // тип действия по согласованию, принимает значения из перечисления ResolutionType.
+    ResolutionType ResolutionType = 2;
+    // комментарий к согласованию или отказу от согласования. Длина не более 5000 символов.
+    string Comment = 3;
+    // список меток.
+    repeated string Labels = 4;
+}
+
+
+
+

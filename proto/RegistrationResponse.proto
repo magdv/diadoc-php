@@ -1,0 +1,28 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RegistrationResponse.html
+// На этой странице, помимо RegistrationResponse, описаны следующие структуры и перечисления:
+
+message RegistrationResponse {
+    // статус регистрации, принимает значение из перечисления RegistrationStatus.
+    RegistrationStatus RegistrationStatus = 1;
+    // идентификатор ящика найденной или созданной организации
+    string BoxId = 2;
+    // данные, которые нужно подписать, чтобы подтвердить владение закрытым ключом сертификата. Представляют собой строку в кодировке UTF8, содержащую идентификаторы пользователя и ящика, отпечаток сертификата и метку времени. Эти данные затем используются в структуре RegistrationConfirmRequest.
+    bytes DataToSign = 3;
+}
+
+enum RegistrationStatus {
+    Unknown = 0;
+    AccessIsDenied = 1;
+    AccessRequestIsRejected = 2;
+    CertificateOwnershipProofIsRequired = 3;
+    CertificateIsNotQualified = 4;
+    RegistrationIsCompleted = 5;
+    RegistrationIsInProgress = 6;
+    RegistrationInBranchIsForbidden = 7;
+    AccessRequestIsPending = 8;
+    OrganizationNotFound = 9;
+}

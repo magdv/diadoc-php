@@ -1,5 +1,6 @@
 syntax = "proto3";
 import "Address.proto";
+import "Department.proto";
 
 package Diadoc.Proto;
 
@@ -33,16 +34,6 @@ message Organization {
   string CertificateOfRegistryInfo = 24;
   bool IsForeign = 25;
   bool HasCertificateToSign = 26;
-}
-
-message Department {
-  string DepartmentId = 1;
-  string ParentDepartmentId = 2;
-  string Name = 3;
-  string Abbreviation = 4;
-  string Kpp = 5;
-  Address Address = 6;
-  bool IsDisabled = 7;
 }
 
 enum OrganizationInvoiceFormatVersion {

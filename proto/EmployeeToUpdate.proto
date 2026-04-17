@@ -1,0 +1,52 @@
+syntax="proto3";
+import "EmployeeDepartmentPatch.proto";
+import "EmployeeIsAdministratorPatch.proto";
+import "EmployeeAction.proto";
+import "DocumentAccessLevel.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EmployeeToUpdate.html
+// На этой странице, помимо EmployeeToUpdate, описаны следующие структуры и перечисления:
+
+message EmployeeToUpdate
+{
+    // информация о разрешениях сотрудника, представленные структурой EmployeePermissionsPatch.
+    EmployeePermissionsPatch Permissions = 1;
+    // должность сотрудника.
+    EmployeePositionPatch Position = 2;
+    // признак того, нужно ли отображать сотрудника в списке получателей сообщений в веб-интерфейсе.
+    EmployeeCanBeInvitedForChatPatch CanBeInvitedForChat = 3;
+}
+message EmployeePermissionsPatch
+{
+    optional EmployeeDepartmentPatch Department = 1;
+    optional EmployeeIsAdministratorPatch IsAdministrator = 2;
+    optional EmployeeDocumentAccessLevelPatch DocumentAccessLevel = 3;
+    optional EmployeeSelectedDepartmentsPatch SelectedDepartments = 4;
+    repeated EmployeeAction Actions = 5;
+    optional AuthorizationPermissionPatch AuthorizationPermission = 6;
+}
+message EmployeePositionPatch
+{
+    optional string Position = 1;
+}
+message EmployeeCanBeInvitedForChatPatch
+{
+    bool CanBeInvitedForChat = 1;
+}
+
+message EmployeeDocumentAccessLevelPatch
+{
+    DocumentAccessLevel DocumentAccessLevel = 1;
+}
+message EmployeeSelectedDepartmentsPatch
+{
+    repeated string SelectedDepartmentIds = 1;
+}
+message AuthorizationPermissionPatch
+{
+    bool IsBlocked = 1;
+    optional string Comment = 2;
+}

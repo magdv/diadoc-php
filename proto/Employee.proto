@@ -1,0 +1,28 @@
+syntax="proto3";
+
+import "EmployeePermissions.proto";
+import "Timestamp.proto";
+import "UserV2.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Employee.html
+// Данные сотрудника организации.
+
+message Employee {
+   // информация о пользователе, представленная структурой UserV2.
+   UserV2 User = 1;
+   // информация о правах сотрудника, представленная структурой EmployeePermissions.
+   EmployeePermissions Permissions = 2;
+   // должность сотрудника.
+   string Position = 3;
+   // признак того, что сотрудник отображается в списке получателей сообщений в веб-интерфейсе.
+   bool CanBeInvitedForChat = 4;
+   // дата создания сотрудника, представленная структурой Timestamp.
+   Timestamp CreationTimestamp = 5;
+}
+
+
+
+

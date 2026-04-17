@@ -1,0 +1,33 @@
+syntax="proto3";
+
+import "DocumentId.proto";
+import "DocumentWithDocflowV4.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocflowEventV4.html
+// Информация о событии документооборота документа.
+
+message DocflowEventV4
+{
+    // идентификатор события. Может быть одинаковым для нескольких событий, если они относятся к одному изменению сообщения.
+    string EventId = 1;
+    // время возникновения события, представленное структурой Timestamp.
+    Timestamp Timestamp = 2;
+    // идентификатор документа, с которым произошло событие, представленный структурой DocumentId.
+    DocumentId DocumentId = 3;
+    // ключ для постраничного получения списка найденных событий. Его можно передавать в качестве параметра `AfterIndexKey` структуры GetDocflowEventsRequest в метод GetDocflowEvents (V4).
+    bytes IndexKey = 4;
+    // информация о документе и состоянии его документооборота после возникновения данного события, представленная структурой DocumentWithDocflowV4.
+    DocumentWithDocflowV4 Document = 5;
+    // идентификатор предыдущего события по текущему документу.
+    string PreviousEventId = 6;
+    // информация о документе и состоянии его документооборота после возникновения предыдущего события — до возникновения данного события, представленная структурой DocumentWithDocflowV4.
+    DocumentWithDocflowV4 PreviousDocumentState = 7;
+}
+
+
+
+

@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "DocumentWithDocflowV3.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/FetchedDocumentV3.html
+// Данные документа из пакета.
+
+message FetchedDocumentV3
+{
+    // информация о документе и состоянии его документооборота, представленная структурой DocumentWithDocflowV3.
+    DocumentWithDocflowV3 Document = 1;
+    // ключ для постраничного получения списка документов из одного пакета. Его можно передавать в качестве параметра `AfterIndexKey` структуры GetDocflowsByPacketIdRequest в метод GetDocflowsByPacketId (V4).
+    bytes IndexKey = 2;
+}
+
+
+
+

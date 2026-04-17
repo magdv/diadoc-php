@@ -1,0 +1,16 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GetDocflowsByPacketIdRequest.html
+// Запрос на получение документов с информацией о документообороте методом GetDocflowsByPacketId (V4).
+
+message GetDocflowsByPacketIdRequest
+{
+    string PacketId = 1;
+    int32 Count = 2 ;
+    bool InjectEntityContent = 3 ;
+    bytes AfterIndexKey = 4;
+}
+
+

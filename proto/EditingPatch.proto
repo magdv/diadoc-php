@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "UnsignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EditingPatch.html
+// Данные для редактирования содержимого документа в отправляемом дополнении к сообщению.
+
+message EditingPatch {
+    // идентификатор документа, содержимое которого нужно отредактировать. Принимает значение одной из сущностей родительского сообщения (поле `EntityId`).
+    string ParentEntityId = 1;
+    // новое содержимое документа, представленное структурой UnsignedContent.
+    UnsignedContent Content = 2;
+    // список меток.
+    repeated string Labels = 3;
+}
+
+
+
+

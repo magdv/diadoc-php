@@ -1,0 +1,21 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignerStatus.html
+// Статус подписанта.
+
+enum SignerStatus {
+    STATUS_UNSPECIFIED = 0; // Обязательное значение по умолчанию
+    SignerStatusUnspecified = -1;
+    SellerEmployee = 1;
+    InformationCreatorEmployee = 2;
+    OtherOrganizationEmployee = 3;
+    AuthorizedPerson= 4;
+    BuyerEmployee = 5;
+    InformationCreatorBuyerEmployee = 6;
+}
+
+
+
+

@@ -1,0 +1,25 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyAttachmentStatus.html
+// Статус машиночитаемой доверенности (МЧД), приложенной к подписи.
+
+message PowerOfAttorneyAttachmentStatus {
+    // значение статуса, принимает значение из перечисления `StatusName`:
+    StatusName StatusName = 1;
+    // комментарий к статусу, заполняется только для статуса `PowerOfAttorneyRequired`.
+    string Comment = 2;
+}
+
+enum StatusName
+{
+    Unknown = 0;
+    PowerOfAttorneyAttached = 1;
+    PowerOfAttorneyNotRequired = 2;
+    PowerOfAttorneyRequired = 3;
+}
+
+
+
+

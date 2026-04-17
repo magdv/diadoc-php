@@ -1,0 +1,15 @@
+syntax="proto3";
+
+
+package Diadoc.Proto;
+
+ enum CertificateSubjectType {
+     UnknownCertificateSubjectType = 0;
+     LegalEntity = 1;
+     IndividualEntity = 2;
+     PhysicalPerson = 3;
+ }
+
+
+
+

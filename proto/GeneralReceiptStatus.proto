@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GeneralReceiptStatus.html
+// Обобщенный статус извещения о получении (ИоП) на документ или служебный документ.
+
+enum GeneralReceiptStatus {
+    GeneralReceiptStatusUnknown = 0;
+    GeneralReceiptStatusNotAcceptable = 1;
+    HaveToCreateReceipt = 2;
+    WaitingForReceipt = 3;
+    Finished = 4;
+}
+
+
+
+

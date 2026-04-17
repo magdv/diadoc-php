@@ -1,0 +1,15 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/CancellationInfo.html
+// Информация об отмене сущности.
+
+message CancellationInfo {
+   // ФИО сотрудника, выполнившего отмену.
+   string Author = 1;
+}
+
+
+
+

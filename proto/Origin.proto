@@ -1,0 +1,20 @@
+syntax="proto3";
+
+import "Documents/MessageType.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Origin.html
+// Данные исходного документа, из которого создан новый документ.
+
+message Origin {
+    // тип исходной сущности, принимает значения из перечисления MessageType.
+    Documents.MessageType MessageType = 1;
+    // идентификатор исходного сообщения.
+    string MessageId = 2;
+}
+
+
+
+

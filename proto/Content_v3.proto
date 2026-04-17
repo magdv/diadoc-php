@@ -1,0 +1,24 @@
+syntax="proto3";
+
+import "DocumentId.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Content_v3.html
+// Содержимое файла.
+
+message Content_v3 {
+    // содержимое файла в виде бинарных данных.
+    bytes Content = 1;
+    // имя файла на полке документов.
+    string NameOnShelf = 2;
+    // идентификатор сущности, представленный структурой DocumentId.
+    DocumentId EntityId = 3;
+    // идентификатор содержимого, подготовленного к отправке методом PrepareDocumentsToSign.
+    string PatchedContentId = 4;
+}
+
+
+
+

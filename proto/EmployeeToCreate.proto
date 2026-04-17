@@ -1,0 +1,39 @@
+syntax="proto3";
+
+import "EmployeePermissions.proto";
+import "FullName.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EmployeeToCreate.html
+// На этой странице, помимо EmployeeToCreate, описаны следующие структуры и перечисления:
+
+message EmployeeToCreate
+{
+    // реквизиты пользователя, представленные структурой EmployeeToCreateCredentials.
+    EmployeeToCreateCredentials Credentials = 1;
+    // должность сотрудника.
+    string Position = 2;
+    // признак того, что нужно отображать сотрудника в списке получателей сообщений в веб-интерфейсе.
+    bool CanBeInvitedForChat = 3;
+    // права, которые получит сотрудник, представленные структурой EmployeePermissions.
+    EmployeePermissions Permissions = 4;
+}
+
+message EmployeeToCreateCredentials
+{
+    optional EmployeeToCreateByLogin Login = 1;
+    optional EmployeeToCreateByCertificate Certificate = 2;
+}
+message EmployeeToCreateByLogin
+{
+    string Login = 1;
+    optional FullName FullName = 2;
+}
+message EmployeeToCreateByCertificate
+{
+    bytes Content = 1;
+    optional string AccessBasis = 2;
+    optional string Email = 3;
+}

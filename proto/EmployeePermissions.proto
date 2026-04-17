@@ -1,0 +1,30 @@
+syntax="proto3";
+
+import "AuthorizationPermission.proto";
+import "DocumentAccessLevel.proto";
+import "EmployeeAction.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/EmployeePermissions.html
+// На этой странице, помимо EmployeePermissions, описаны следующие структуры и перечисления:
+
+message EmployeePermissions {
+    // идентификатор подразделения организации, в котором состоит сотрудник. Для головного подразделения будет иметь значение `00000000-0000-0000-0000-000000000000`.
+    string UserDepartmentId = 1;
+    // признак того, что сотрудник является администратором и может редактировать структуру и реквизиты организации, добавлять и редактировать информацию о других сотрудниках.
+    bool IsAdministrator = 2;
+    // уровень доступа к документам, принимает значение из перечисления DocumentAccessLevel.
+    DocumentAccessLevel DocumentAccessLevel = 3 ;
+    // список идентификаторов подразделений, к которым сотрудник имеет доступ. Заполняется только в случае, если `DocumentAccessLevel` `=` `SelectedDepartments`.
+    repeated string SelectedDepartmentIds = 4;
+    // список с информацией о том, на выполнение каких действий сотрудник имеет право. Каждый элемент списка представлен структурой EmployeeAction.
+    repeated EmployeeAction Actions = 5;
+    // информация о наличии ограничения доступа пользователя к сервису, представленная структурой AuthorizationPermission.
+    AuthorizationPermission AuthorizationPermission = 6;
+}
+
+
+
+

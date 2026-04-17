@@ -1,0 +1,56 @@
+syntax="proto3";
+
+import "AmendmentRequestDocflow.proto";
+import "ConfirmationDocflow.proto";
+import "DocflowStatusV3.proto";
+import "OuterDocflow.proto";
+import "OuterDocflowEntities.proto";
+import "ParticipantResponseDocflow.proto";
+import "ReceiptDocflowV3.proto";
+import "ResolutionDocflowV3.proto";
+import "ResolutionEntitiesV3.proto";
+import "RevocationDocflowV3.proto";
+import "SenderTitleDocflow.proto";
+import "TtGisFixationDocflow.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocflowV3.html
+// Состояние документооборота документа.
+
+message DocflowV3
+{
+    // информация о титуле отправителя, представленная структурой SenderTitleDocflow.
+    SenderTitleDocflow SenderTitle = 1;
+    // информация о подтверждении даты доставки титула отправителя, представленная структурой ConfirmationDocflow. Подтверждение даты доставки формирует оператор.
+    ConfirmationDocflow Confirmation = 2;
+    // информация об ответе промежуточного получателя, представленная структурой ParticipantResponseDocflow. Поле `Confirmation` для ответа промежуточного получателя не заполняется.
+    ParticipantResponseDocflow ProxyResponse = 11;
+    // информация об извещении о получении документа или титула отправителя для двухтитульного документа, представленная структурой ReceiptDocflowV3.
+    ReceiptDocflowV3 RecipientReceipt = 4;
+    // информация об ответном действии получателя: подписании документа, отправке второго титула или отказе в подписи, представленная структурой ParticipantResponseDocflow. Отсутствует для документов, не требующих ответной подписи.
+    ParticipantResponseDocflow RecipientResponse = 5;
+    // информация о документообороте по запросу уточнения, представленная структурой AmendmentRequestDocflow.
+    AmendmentRequestDocflow AmendmentRequest = 6;
+    // информация об аннулировании, представленная структурой RevocationDocflowV3.
+    RevocationDocflowV3 Revocation = 7;
+    // информация об извещении о получении титула получателя для двухтитульного документа, представленная структурой ReceiptDocflowV3.
+    ReceiptDocflowV3 SenderReceipt = 8;
+    // информация об актуальном статусе согласования документа или его аннулирования, представленная структурой ResolutionDocflowV3.
+    ResolutionDocflowV3 Resolution = 9;
+    // информация о сущностях, относящихся к согласованию документа или его аннулированию, представленная структурой ResolutionEntitiesV3.
+    ResolutionEntitiesV3 ResolutionEntities = 10;
+    // список с информацией о внешнем документообороте по документу или аннулированию, например, о статусе обработки документа с маркированными товарами в ГИС МТ «Честный ЗНАК». Каждый элемент списка представлен структурой OuterDocflow.
+    repeated OuterDocflow OuterDocflows = 12;
+    // список сущностей, относящихся к внешнему документообороту по документу или аннулированию, представленный структурой OuterDocflowEntities.
+    repeated OuterDocflowEntities OuterDocflowEntities = 13;
+    // информация о статусе документооборота, представленная структурой DocflowStatusV3.
+    DocflowStatusV3 DocflowStatus = 14;
+    // информация о документе для отмены сведений об отгрузке маркированных товаров, представленная структурой TtGisFixationDocflow.
+    TtGisFixationDocflow TtGisFixation = 15;
+}
+
+
+
+

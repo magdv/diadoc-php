@@ -1,0 +1,28 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RoamingOperatorInformation.html
+// Информация об операторе ЭДО и о функциях, которые поддерживает этот оператор.
+
+message RoamingOperator {
+    // идентификатор оператора, содержит первые три знака `fnsParticipantId`.
+    string FnsId = 1;
+    // название функции.
+    string Name = 2;
+    // признак доступности оператора. Возвращает значение `false` для отключенных операторов и старых `fnsId`: документы таким операторам доставлены не будут.
+    bool IsActive = 3;
+    // список функций, которые поддерживает оператор. Представлены структурой `OperatorFeature` с полями:
+    repeated OperatorFeature Features = 4;
+}
+
+message OperatorFeature {
+    // название функции.
+    string Name = 1;
+    // описание функции.
+    string Description = 2;
+}
+
+
+
+

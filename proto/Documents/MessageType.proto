@@ -1,0 +1,18 @@
+syntax="proto3";
+
+package Diadoc.Proto.Documents;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/MessageType.html
+// Тип сообщения.
+
+enum MessageType {
+    Unknown = 0;
+    Letter = 1;
+    Draft = 2;
+    Template = 3;
+}
+
+
+
+

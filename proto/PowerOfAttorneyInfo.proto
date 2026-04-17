@@ -1,0 +1,27 @@
+syntax="proto3";
+
+import "PowerOfAttorneyFullId.proto";
+import "PowerOfAttorneySendingType.proto";
+import "PowerOfAttorneyValidationStatus.proto";
+import "RoamingSendingStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyInfo.html
+// Информация о машиночитаемой доверенности (МЧД) и статусе ее проверки.
+
+message PowerOfAttorneyInfo {
+    // идентификатор МЧД. Представлен структурой PowerOfAttorneyFullId.
+    PowerOfAttorneyFullId FullId = 1;
+    // статус проверки МЧД. Представлен структурой PowerOfAttorneyValidationStatus.
+    PowerOfAttorneyValidationStatus Status = 2;
+    // статус отправки МЧД в роуминг. Представлен структурой RoamingSendingStatus.
+    RoamingSendingStatus SendingStatus = 3;
+    // способ передачи МЧД. Принимает значения из перечисления PowerOfAttorneySendingType.
+    PowerOfAttorneySendingType SendingType = 4;
+}
+
+
+
+

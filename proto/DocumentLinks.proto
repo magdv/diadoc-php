@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "DocumentId.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentLinks.html
+// Информация о связанных документах.
+
+message DocumentLinks
+{
+    // список идентификаторов документов, на которые ссылается данный документ. Каждый элемент списка представлен структурой DocumentId.
+    repeated DocumentId InitialIds = 1;
+    // список идентификаторов документов, которые ссылаются на данный документ. Каждый элемент списка представлен структурой DocumentId.
+    repeated DocumentId SubordinateIds = 2;
+}
+
+
+
+

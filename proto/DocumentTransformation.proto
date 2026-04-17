@@ -1,0 +1,13 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentTransformation.html
+// Данные для трансформации документов из шаблона в сообщение.
+
+message DocumentTransformation {
+    // идентификатор документа из шаблона, который нужно трансформировать в письмо.
+    string DocumentId = 1;
+    // идентификатор документа во внешней системе; используется для выстраивания связей между документами внутри отправляемого сообщения. Должен быть уникальным в рамках структуры MessageToPost. После отправки сообщения этот идентификатор можно получить в поле `CustomDocumentId` структуры Document.
+    string CustomDocumentId = 2;
+}

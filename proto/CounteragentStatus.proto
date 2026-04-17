@@ -1,0 +1,20 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/CounteragentStatus.html
+// Статус контрагента.
+
+enum CounteragentStatus {
+    UnknownCounteragentStatus = 0;
+    IsMyCounteragent = 1;
+    InvitesMe = 2;
+    IsInvitedByMe = 3;
+    RejectsMe = 5;
+    IsRejectedByMe = 6;
+    NotInCounteragentList = 7;
+}
+
+
+
+

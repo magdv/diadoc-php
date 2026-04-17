@@ -1,0 +1,24 @@
+syntax="proto3";
+
+import "SignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RecipientTitleAttachment.html
+// Данные титула получателя любого типа документа в отправляемом дополнении к сообщению.
+
+message RecipientTitleAttachment {
+    // идентификатор титула исполнителя. Принимает значение одной из сущностей родительского сообщения (поле `EntityId`).
+    string ParentEntityId = 1;
+    // содержимое файла титула с электронной подписью, представленное структурой SignedContent.
+    SignedContent SignedContent = 2;
+    // список меток.
+    repeated string Labels = 4;
+    // признак того, что от получателя требуется сформировать извещение о получении документа. Необязательно указывать для типов документов, вид документооборота которых подразумевает обязательную отправку измещений.
+    bool NeedReceipt = 5 ;
+}
+
+
+
+

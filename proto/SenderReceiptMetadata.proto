@@ -1,0 +1,18 @@
+syntax="proto3";
+
+import "GeneralReceiptStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SenderReceiptMetadata.html
+// Данные извещения о получении (ИоП) титула получателя.
+
+message SenderReceiptMetadata {
+    // статус извещения о получении титула получателя, принимает значения из перечисления GeneralReceiptStatus.
+    GeneralReceiptStatus ReceiptStatus = 1;
+}
+
+
+
+

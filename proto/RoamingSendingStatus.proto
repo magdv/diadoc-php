@@ -1,0 +1,37 @@
+syntax="proto3";
+
+import "Severity.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RoamingSendingStatus.html
+// Статус отправки машиночитаемой доверенности (МЧД) в роуминг.
+
+message RoamingSendingStatus {
+    // критичность статуса, принимает значения из перечисления Severity.
+    Severity Severity = 1 ;
+    // статус отправки МЧД в роуминг, принимает значения из перечисления `RoamingSendingStatusNamedId`:
+    RoamingSendingStatusNamedId StatusNamedId = 2 ;
+    // текст статуса.
+    string StatusText = 3;
+    // список ошибок отправки в роуминг. Возвращается, если `StatusNamedId` `=` `SendingError`. Представлены структурой `RoamingSendingError` с полями:
+    repeated RoamingSendingError Errors = 4;
+}
+
+enum RoamingSendingStatusNamedId {
+    UnknownStatus = 0;
+    IsSent = 1;
+    SendingError = 2;
+}
+
+message RoamingSendingError {
+    // код ошибки.
+    string Code = 1;
+    // текст ошибки.
+    string Text = 2;
+}
+
+
+
+

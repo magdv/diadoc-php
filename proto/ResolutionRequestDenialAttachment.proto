@@ -1,0 +1,19 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionRequestDenialAttachment.html
+// Данные отказа от запроса на согласование или подпись под документом в отправляемом дополнении к сообщению.
+
+message ResolutionRequestDenialAttachment {
+    // идентификатор запроса на подпись, для которого формируется отказ.
+    string InitialResolutionRequestId = 1;
+    // комментарий к отказу от запроса подписи к документу. Длина не более 500 символов.
+    string Comment = 2;
+    // список меток.
+    repeated string Labels = 3;
+}
+
+
+
+

@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignerType.html
+// Тип подписанта.
+
+enum SignerType {
+    STATUS_UNSPECIFIED = 0; // Обязательное значение по умолчанию
+    SignerTypeUnspecified = -1;
+    LegalEntity = 1;
+    IndividualEntity = 2;
+    PhysicalPerson = 3;
+}
+
+
+
+

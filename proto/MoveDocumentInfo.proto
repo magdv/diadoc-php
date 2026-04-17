@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/MoveDocumentInfo.html
+// Информация о перемещении документа в другое подразделение.
+
+message MoveDocumentInfo {
+    // подразделение, из которого переместили документ.
+    string MovedFromDepartment = 1;
+    // подразделение, в которое переместили документ.
+    string MovedToDepartment = 2;
+}
+
+
+
+

@@ -1,0 +1,36 @@
+syntax="proto3";
+
+import "ConfirmationDocflow.proto";
+import "ReceiptDocflowV3.proto";
+import "SignedAttachmentV3.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/AmendmentRequestDocflow.html
+// Состояние уведомления об уточнении (УоУ).
+
+message AmendmentRequestDocflow
+{
+    // признак того, что документооборот по УоУ завершен и не требует дальнейших действий.
+    bool IsFinished = 1;
+    // информация о файле УоУ и подписи под ним, представленная структурой SignedAttachmentV3.
+    SignedAttachmentV3 AmendmentRequest = 2;
+    // время отправки УоУ, представленная структурой Timestamp.
+    Timestamp SentAt = 3;
+    // время доставки УоУ в ящик отправителя документа, представленная структурой Timestamp.
+    Timestamp DeliveredAt = 4;
+    // информация об извещении о получении УоУ отправителем документа, представленная структурой ReceiptDocflowV3.
+    ReceiptDocflowV3 Receipt = 5;
+    // статус УоУ или исправления/корректировки, принимает значения из перечисления InvoiceAmendmentFlags.
+    int32 AmendmentFlags = 6;
+    // текст уведомления об уточнении.
+    string PlainText = 7;
+    // информация о подтверждении оператором даты получения или доставки УОУ, представленная структурой ConfirmationDocflow.
+    ConfirmationDocflow ConfirmationDocflow = 8;
+}
+
+
+
+

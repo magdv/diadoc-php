@@ -1,0 +1,13 @@
+syntax="proto3";
+import "Documents/MessageType.proto";
+
+package Diadoc.Proto.Documents;
+
+message Origin {
+    MessageType MessageType = 1;
+    string MessageId = 2;
+}
+
+
+
+

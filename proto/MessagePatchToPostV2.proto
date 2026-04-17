@@ -1,0 +1,76 @@
+syntax="proto3";
+
+import "CorrectionRequestAttachment.proto";
+import "CustomDataPatch.proto";
+import "DocumentSignature.proto";
+import "EditDocumentPacketCommand.proto";
+import "EditingPatch.proto";
+import "ReceiptAttachment.proto";
+import "RecipientTitleAttachment.proto";
+import "ResolutionAttachment.proto";
+import "ResolutionRequestAttachment.proto";
+import "ResolutionRequestCancellationAttachment.proto";
+import "ResolutionRequestDenialAttachment.proto";
+import "ResolutionRequestDenialCancellationAttachment.proto";
+import "ResolutionRouteAssignment.proto";
+import "ResolutionRouteRemoval.proto";
+import "RevocationRequestAttachment.proto";
+import "SignatureVerification.proto";
+import "TtGisFixationCancellationRequestAttachment.proto";
+import "UniversalMessageAttachment.proto";
+import "XmlSignatureRejectionAttachment.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/MessagePatchToPostV2.html
+// Данные дополнения к сообщению для отправки методом PostMessagePatch (V4).
+
+message MessagePatchToPostV2 {
+    // идентификатор ящика организации, в котором находится исходное сообщение.
+    string BoxId = 1;
+    // идентификатор сообщения, к которому относится дополнение.
+    string MessageId = 2;
+    // список извещений о получении документов, подлежащих отправке и предусмотренных порядком обмена электронными счетами-фактурами. Каждый элемент списка представлен структурой ReceiptAttachment.
+    repeated ReceiptAttachment Receipts = 3;
+    // список уведомлений об уточнении СФ/ИСФ/КСФ/ИКСФ, подлежащих отправке и предусмотренных порядком обмена электронными счетами-фактурами. Каждый элемент списка представлен структурой CorrectionRequestAttachment.
+    repeated CorrectionRequestAttachment CorrectionRequests = 4;
+    // список подписей под документами. Каждый элемент списка представлен структурой DocumentSignature.
+    repeated DocumentSignature Signatures = 5;
+    // список операций согласования документов в сообщении, к которому относится дополнение. Каждый элемент списка представлен структурой ResolutionAttachment.
+    repeated ResolutionAttachment Resolutions = 6;
+    // список запросов на согласование или подпись документа. Каждый элемент списка представлен структурой ResolutionRequestAttachment.
+    repeated ResolutionRequestAttachment ResolutionRequests = 7;
+    // список операций, отменяющих отправленные ранее запросы на согласование документа. Каждый элемент списка представлен структурой ResolutionRequestCancellationAttachment.
+    repeated ResolutionRequestCancellationAttachment ResolutionRequestCancellations = 8;
+    // список отказов от запроса подписи. Отказ аннулирует ошибочный отправленный запрос на подпись со стороны получателя запроса. Каждый элемент списка представлен структурой ResolutionRequestDenialAttachment.
+    repeated ResolutionRequestDenialAttachment ResolutionRequestDenials = 9;
+    // список операций, отменяющих отказы от запросов подписей. При выполнении операций исходные запросы на подпись восстанавливаются. Каждый элемент списка представлен структурой ResolutionRequestDenialCancellationAttachment.
+    repeated ResolutionRequestDenialCancellationAttachment ResolutionRequestDenialCancellations = 10;
+    // список предложений об аннулировании документов. Каждый элемент списка представлен структурой RevocationRequestAttachment.
+    repeated RevocationRequestAttachment RevocationRequests = 11;
+    // список отказов от подписи под документом или от предложений об аннулировании. Каждый элемент списка представлен структурой XmlSignatureRejectionAttachment.
+    repeated XmlSignatureRejectionAttachment XmlSignatureRejections = 12;
+    // список операций изменения пользовательских данных документов в исходном сообщении. Каждый элемент списка представлен структурой CustomDataPatch. Максимальное количество операций — 15.
+    repeated CustomDataPatch CustomDataPatches = 13;
+    // список операций постановки документов на маршрут согласования. Каждый элемент списка представлен структурой ResolutionRouteAssignment.
+    repeated ResolutionRouteAssignment ResolutionRouteAssignments = 14;
+    // список результатов проверки подписей зашифрованных документов на стороне получателя. Каждый элемент списка представлен структурой SignatureVerification.
+    repeated SignatureVerification SignatureVerifications = 15;
+    // список операций изменения состава пакета у документов в исходном сообщении. Каждый элемент списка представлен структурой EditDocumentPacketCommand.
+    repeated EditDocumentPacketCommand EditDocumentPacketCommands = 16;
+    // список операций снятия документов с маршрута согласования. Каждый элемент списка представлен структурой ResolutionRouteRemoval.
+    repeated ResolutionRouteRemoval ResolutionRouteRemovals = 17;
+    // список титулов получателя для любого типа документов, подлежащих отправке. Каждый элемент списка представлен структурой RecipientTitleAttachment.
+    repeated RecipientTitleAttachment RecipientTitles = 18;
+    // список операций редактирования содержимого документа. Каждый элемент списка представлен структурой EditingPatch. Редактировать можно только документы, для которых была указана настройка редактирования `EditingSettingId`.
+    repeated EditingPatch EditingPatches = 19;
+    // список универсальных сообщений (УС). Каждый элемент списка представлен структурой UniversalMessageAttachment.
+    repeated UniversalMessageAttachment UniversalMessages = 20;
+    // список документов для отмены сведений об отгрузке маркированных товаров. Каждый элемент списка представлен структурой TtGisFixationCancellationRequestAttachment.
+    repeated TtGisFixationCancellationRequestAttachment TtGisFixationCancellationRequests = 21;
+}
+
+
+
+

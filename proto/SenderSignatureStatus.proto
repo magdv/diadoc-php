@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SenderSignatureStatus.html
+// Статус подписи отправителя.
+
+enum SenderSignatureStatus {
+    UnknownSenderSignatureStatus = 0;
+    WaitingForSenderSignature = 1;
+    SenderSignatureUnchecked = 2;
+    SenderSignatureCheckedAndValid = 3;
+    SenderSignatureCheckedAndInvalid = 4;
+}
+
+
+
+

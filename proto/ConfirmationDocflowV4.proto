@@ -1,0 +1,30 @@
+syntax="proto3";
+
+import "OperatorConfirmationDocflow.proto";
+import "ReceiptDocflowV4.proto";
+import "SignedAttachmentV3.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ConfirmationDocflowV4.html
+// Состояние подтверждения оператора ЭДО об отправке или получении документа и извещения о получении.
+
+message ConfirmationDocflowV4
+{
+    // признак того, что документооборот по подтверждению оператора завершен и не требует дальнейших действий.
+    bool IsFinished = 1;
+    // данные файла подтверждения оператора и подписи под ним, представленные структурой SignedAttachmentV3.
+    SignedAttachmentV3 ConfirmationAttachment = 2;
+    // дата подтверждения оператора, представленная структурой Timestamp.
+    Timestamp ConfirmedAt = 3;
+    // информация об извещении о получении подтверждения оператора, представленная структурой ReceiptDocflowV4.
+    ReceiptDocflowV4 Receipt = 4;
+    // подтверждение оператора, отправленное в роуминг или полученное из роуминга, представленное структурой OperatorConfirmationDocflow.
+    OperatorConfirmationDocflow RoamingConfirmation = 5;
+}
+
+
+
+

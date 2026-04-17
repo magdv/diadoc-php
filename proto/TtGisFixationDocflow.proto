@@ -1,0 +1,31 @@
+syntax="proto3";
+
+import "Entity.proto";
+import "SignatureV3.proto";
+import "TtGisFixationCancellationStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TtGisFixationDocflow.html
+// Состояние документа для отмены сведений об отгрузке маркированных товаров.
+
+message TtGisFixationDocflow
+{
+    // статус документа для отмены сведений об отгрузке, принимает значения из перечисления TtGisFixationCancellationStatus.
+    TtGisFixationCancellationStatus CancellationStatus = 1;
+    // данные документа для отмены сведений об отгрузке, представленные структурой `TtGisFixationCancellation` с полями:
+    TtGisFixationCancellation Cancellation = 2;
+}
+
+message TtGisFixationCancellation
+{
+    // информация о содержимом документа для отмены сведений об отгрузке, представленная структурой Entity.
+    Entity Entity = 1;
+    // данные электронной подписи, представленные структурой SignatureV3.
+    SignatureV3 Signature = 2;
+}
+
+
+
+

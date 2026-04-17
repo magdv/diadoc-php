@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "AutoBlockStatus.proto";
+import "ManualBlockStatus.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/BlockStatus.html
+// Статус блокировки ящика на отправку документов.
+
+message BlockStatus
+{
+    // статус ручной блокировки отправки, представленный структурой ManualBlockStatus.
+    ManualBlockStatus ManualBlockStatus = 1;
+    // статус автоматической блокировки отправки, представленный структурой AutoBlockStatus.
+    AutoBlockStatus AutoBlockStatus = 2;
+}
+
+
+
+

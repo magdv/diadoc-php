@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "Status.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/OuterDocflowInfo.html
+// Информация о внешнем документообороте документа или запроса на аннулирование.
+
+message OuterDocflowInfo {
+    // идентификатор внешнего документооборота.
+    string DocflowNamedId = 1;
+    // название внешнего документооборота, которое используется для отображения в веб-интерфейсе.
+    string DocflowFriendlyName = 2;
+    // статус обработки документа в рамках документооборота, представленный структурой Status.
+    Status Status = 3;
+}
+
+
+
+

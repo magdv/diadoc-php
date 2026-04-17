@@ -1,0 +1,25 @@
+syntax="proto3";
+
+import "Content_v3.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DssSignRequest.html
+// Запрос на подписание файлов сертификатом без носителя методом DssSign.
+
+message DssSignRequest {
+    // список файлов для подписания, представленных структурой `DssSignFile` с полями:
+    repeated DssSignFile Files = 1;
+}
+
+message DssSignFile {
+    // содержимое файла, представеленное структурой Content_v3.
+    Content_v3 Content = 1;
+    // имя файла.
+    string FileName = 2;
+}
+
+
+
+

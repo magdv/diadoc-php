@@ -1,0 +1,21 @@
+syntax="proto3";
+
+import "ConfidantCertificateToPrevalidate.proto";
+import "PowerOfAttorneyFullId.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyPrevalidateRequestV2.html
+// Запрос на предварительную проверку машиночитаемой доверенности (МЧД) методом PrevalidatePowerOfAttorney (V2).
+
+message PowerOfAttorneyPrevalidateRequestV2 {
+    // идентификатор МЧД, представленный структурой PowerOfAttorneyFullId.
+    PowerOfAttorneyFullId FullId = 1;
+    // данные сертификата, которым планируется подписывать документ с МЧД, представленные структурой ConfidantCertificateToPrevalidate.
+    ConfidantCertificateToPrevalidate ConfidantCertificate = 2;
+}
+
+
+
+

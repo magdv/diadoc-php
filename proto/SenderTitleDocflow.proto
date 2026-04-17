@@ -1,0 +1,32 @@
+syntax="proto3";
+
+import "Documents/Document.proto";
+import "RoamingNotification.proto";
+import "SignedAttachmentV3.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SenderTitleDocflow.html
+// Состояние титула отправителя.
+
+message SenderTitleDocflow
+{
+    // признак того, что документооборот по титулу отправителя завершен и не требует дальнейших действий.
+    bool IsFinished = 1;
+    // данные файла титула отправителя и подписи под ним, представленные структурой SignedAttachmentV3.
+    SignedAttachmentV3 Attachment = 2;
+    // время отправки титула отправителя, представленное структурой Timestamp.
+    Timestamp SentAt = 3;
+    // время доставки титула отправителя в ящик получателя, представленное структурой Timestamp.
+    Timestamp DeliveredAt = 4;
+    // статус доставки документа в роуминг, представленные структурой RoamingNotification.
+    RoamingNotification RoamingNotification = 5;
+    // статус подписи отправителя, представленный структурой SenderSignatureStatus.
+    Documents.SenderSignatureStatus SenderSignatureStatus = 6;
+}
+
+
+
+

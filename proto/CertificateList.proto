@@ -1,0 +1,74 @@
+syntax="proto3";
+import "CertificateSubjectType.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/CertificateList.html
+// Список сертификатов.
+
+message CertificateList {
+    // список сертификатов. Каждый элемент списка представлен структурой `CertificateInfoV2` с полями:
+    repeated CertificateInfoV2 Certificates = 1;
+}
+
+message CertificateInfoV2 {
+    // отпечаток сертификата пользователя.
+    string Thumbprint = 1;
+    // тип сертификата, принимает значения из перечисления `CertificateType`:
+    CertificateType Type = 2;
+    // дата начала действия сертификата, представляет собой целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001.
+    sfixed64 ValidFrom = 3;
+    // дата окончания действия сертификата, представляет собой целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001.
+    sfixed64 ValidTo = 4;
+    // дата начала действия закрытого ключа, представляет собой целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001.
+    sfixed64 PrivateKeyValidFrom = 5;
+    // дата окончания действия закрытого ключа, представляет собой целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001.
+    sfixed64 PrivateKeyValidTo = 6;
+    // наименование организации, на которую выдан сертификат.
+    string OrganizationName = 7;
+    // ИНН организации, на которую выдан сертификат.
+    string Inn = 8;
+    // имя пользователя.
+    string UserFirstName = 9;
+    // отчество пользователя.
+    string UserMiddleName = 10;
+    // фамилия пользователя.
+    string UserLastName = 11;
+    // краткое имя пользователя в формате «Фамилия И.О.».
+    string UserShortName = 12;
+    // признак того, что сертификат выбран для работы по умолчанию. Например, от этого зависит автоматическое подписание извещений о получений в веб-интерфейсе Диадока.
+    bool IsDefault = 13;
+    // тип владельца сертификата, принимает значения из перечисления `CertificateSubjectType`:
+    CertificateSubjectType SubjectType = 14;
+    // список типов сертификата. Может быть пустым. Каждый элемент списка принимает значение из перечисления `CertificateUsage`:
+    repeated CertificateUsage Usages = 15;
+    // тип мобильного сертификата. Имеет смысл только в случае, когда `Usages` `=` `DssUsage`. Принимает значение из перечисления `DssCertificateType`:
+    DssCertificateType DssType = 16;
+}
+
+enum CertificateType {
+    Unknown = 0;
+    Token = 1;
+    DSS = 2;
+    KonturCertificate = 3;
+}
+
+enum CertificateUsage {
+    UnknownUsage = 0;
+    KonturCertificateUsage = 1;
+    TokenUsage = 2;
+    DssUsage = 3;
+}
+
+enum DssCertificateType {
+    UnknownDssType = 0;
+    MyDss = 1;
+    KSignServer = 2;
+    KSignRutoken = 3;
+    KSignMobile = 4;
+}
+
+
+
+

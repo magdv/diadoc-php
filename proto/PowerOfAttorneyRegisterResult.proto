@@ -1,0 +1,39 @@
+syntax="proto3";
+
+import "PowerOfAttorney.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyRegisterResult.html
+// Результат регистрации машиночитаемой доверенности (МЧД) методом RegisterPowerOfAttorneyResult.
+
+message PowerOfAttorneyRegisterResult {
+    // статус выполнения операции регистрации. Принимает значения:
+    string OperationStatus = 1;
+    // информация о МЧД, представленная структурой PowerOfAttorney. Возвращается, если `OperationStatus` `=` `Done`.
+    PowerOfAttorney PowerOfAttorney = 2;
+    // строка со статусом МЧД. Принимает значения:
+    PowerOfAttorneyStatus Status = 3;
+    // список ошибок, которые возникли при регистрации МЧД. Возвращается в случае, если `OperationStatus` `=` `Error`. Каждый элемент списка представлен структурой `PowerOfAttorneyOperationError` с полями:
+    repeated PowerOfAttorneyOperationError Errors = 4;
+}
+
+message PowerOfAttorneyStatus {
+    // строка со статусом МЧД. Принимает значения:
+    string Status = 1;
+    // дата последней проверки, если такая выполнялась. Представлена структурой Timestamp.
+    Timestamp LastCheckAt = 2;
+}
+
+message PowerOfAttorneyOperationError {
+    // код ошибки.
+    string Code = 1;
+    // текст ошибки.
+    string Text = 2;
+}
+
+
+
+

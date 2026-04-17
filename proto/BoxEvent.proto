@@ -1,0 +1,24 @@
+syntax="proto3";
+import "Message.proto";
+import "MessagePatch.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/BoxEvent.html
+// Информация о событии в ящике.
+
+message BoxEvent {
+    // идентификатор события.
+    string EventId = 1;
+    // новое сообщение или черновик, представленный структурой Message. Не может быть заполнено одновременно с `Patch`.
+    Message Message = 2;
+    // новое дополнение к уже существующему в ящике сообщению или черновику, представленное структурой MessagePatch. Не может быть заполнено одновременно с `Message`.
+    MessagePatch Patch = 3;
+    // ключ для постраничного получения списка найденных событий. Его можно передавать в качестве параметра `afterIndexKey` в метод GetNewEvents (V8): ключ может содержать недопустимые символы, поэтому при вызове метода должен быть закодирован в URL-формат.
+    string IndexKey = 4;
+}
+
+
+
+

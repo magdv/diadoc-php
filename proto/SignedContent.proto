@@ -1,0 +1,28 @@
+syntax="proto3";
+
+import "PowerOfAttorneyToPost.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignedContent.html
+// Подписываемые данные с электронной подписью в отправляемом сообщении или дополнении к сообщению.
+
+message SignedContent {
+    // бинарное содержимое подписываемого документа. Значение должно быть пустым, если заполнено поле `NameOnShelf`.
+    bytes Content = 1;
+    // электронная подпись в формате CMS SignedData в DER-кодировке. Необязательный параметр.
+    bytes Signature = 2;
+    // имя подписываемого документа на полке документов. Значение должно быть пустым, если заполнено поле `Content`.
+    string NameOnShelf = 4;
+    // признак того, что данные должны быть подписаны тестовой подписью.
+    bool SignWithTestSignature = 5 ;
+    // имя подписи на полке документов.
+    string SignatureNameOnShelf = 6;
+    // данные машиночитаемой доверенности, представленные структурой PowerOfAttorneyToPost.
+    PowerOfAttorneyToPost PowerOfAttorney = 7;
+}
+
+
+
+

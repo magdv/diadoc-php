@@ -1,0 +1,24 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TemplatePatchToPost.html
+// Данные дополнения к шаблону для отправки методом PostTemplatePatch.
+
+message TemplatePatchToPost {
+    // список отклонений или отзывов документов из шаблона, представленных структурой `TemplateRefusalAttachment` с полями:
+    repeated TemplateRefusalAttachment Refusals = 1;
+}
+
+message TemplateRefusalAttachment {
+    // идентификатор документа.
+    string DocumentId = 1;
+    // комментарий к отклонению или отзыву. Длина не более 2000 символов.
+    string Comment = 2;
+    // список меток.
+    repeated string Labels = 3;
+}
+
+
+
+

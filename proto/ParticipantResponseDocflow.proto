@@ -1,0 +1,38 @@
+syntax="proto3";
+
+import "ConfirmationDocflow.proto";
+import "Documents/RecipientResponseStatus.proto";
+import "SignatureRejectionDocflow.proto";
+import "SignatureV3.proto";
+import "SignedAttachmentV3.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ParticipantResponseDocflow.html
+// Состояние ответного действия участника документооборота документа.
+
+message ParticipantResponseDocflow
+{
+    // признак того, что документооборот завершен и документ не требует дальнейших действий.
+    bool IsFinished = 1;
+    // данные электронной подписи, представленные структурой SignatureV3.
+    SignatureV3 Signature = 2;
+    // информация о файле титула и подписи под ним. Представлена структурой SignedAttachmentV3.
+    SignedAttachmentV3 Title = 3;
+    // информация об отказе в подписи. Представлена структурой SignatureRejectionDocflow.
+    SignatureRejectionDocflow Rejection = 4;
+    // время отправки ответа, представленное структурой Timestamp.
+    Timestamp SentAt = 5;
+    // время доставки ответа в ящик отправителя, представленное структурой Timestamp.
+    Timestamp DeliveredAt = 6;
+    // статус ответа, принимает значения из перечисления RecipientResponseStatus.
+    Documents.RecipientResponseStatus ResponseStatus = 7;
+    // информация о состоянии подтверждения даты доставки. Представлена структурой ConfirmationDocflow. Подтверждение может возвращаться на титул покупателя или отказ в подписи.
+    ConfirmationDocflow Confirmation = 8;
+}
+
+
+
+

@@ -1,0 +1,21 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignatureVerification.html
+// Результат проверки подписей зашифрованного документа на стороне получателя.
+
+message SignatureVerification {
+    // идентификатор проверяемого зашифрованного документа.
+    string InitialDocumentId = 1;
+    // результат проверки документа.
+    bool IsValid = 2;
+    // текст с описанием результата проверки.
+    string ErrorMessage = 3;
+    // список меток.
+    repeated string Labels = 4;
+}
+
+
+
+

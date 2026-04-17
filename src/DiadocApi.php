@@ -542,32 +542,32 @@ class DiadocApi
             http_build_query($queryParams)
         );
 
-        $ch = curl_init($uri);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 20);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $this->buildRequestHeaders($contentType));
+        $ch = \curl_init($uri);
+        \curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        \curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+        \curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        \curl_setopt($ch, CURLOPT_HTTPHEADER, $this->buildRequestHeaders($contentType));
 
         if ($method === self::METHOD_POST) {
-            curl_setopt($ch, CURLOPT_POST, 0);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, is_array($postData) ? http_build_query($postData) : $postData);
+            \curl_setopt($ch, CURLOPT_POST, 0);
+            \curl_setopt($ch, CURLOPT_POSTFIELDS, is_array($postData) ? http_build_query($postData) : $postData);
         } elseif ($method === self::METHOD_GET) {
-            curl_setopt($ch, CURLOPT_HTTPGET, 1);
-            curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
+            \curl_setopt($ch, CURLOPT_HTTPGET, 1);
+            \curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
         }
 
         if ($this->debugRequest) {
-            curl_setopt($ch, CURLOPT_VERBOSE, true);
-            curl_setopt($ch, CURLOPT_STDERR, STDOUT);
+            \curl_setopt($ch, CURLOPT_VERBOSE, true);
+            \curl_setopt($ch, CURLOPT_STDERR, STDOUT);
         }
 
-        $response = curl_exec($ch);
+        $response = \curl_exec($ch);
 
-        if (curl_errno($ch) !== 0) {
-            throw new DiadocApiException(sprintf('Curl error: (%s) %s', curl_errno($ch), curl_error($ch)), curl_errno($ch));
+        if (\curl_errno($ch) !== 0) {
+            throw new DiadocApiException(sprintf('Curl error: (%s) %s', \curl_errno($ch), \curl_error($ch)), \curl_errno($ch));
         }
 
-        if (!($httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE)) || ($httpCode !== 200 && $httpCode !== 204)) {
+        if (!($httpCode = \curl_getinfo($ch, CURLINFO_HTTP_CODE)) || ($httpCode !== 200 && $httpCode !== 204)) {
             $message = sprintf('Curl error http code: (%s) %s', $httpCode, $response);
             if ($httpCode === 401) {
                 throw new DiadocApiUnauthorizedException($message, $httpCode);
@@ -576,7 +576,7 @@ class DiadocApi
             throw new DiadocApiException($message, $httpCode);
         }
 
-        curl_close($ch);
+        \curl_close($ch);
 
         if ($response === false) {
             throw new DiadocApiException('Diadoc request error false returned');

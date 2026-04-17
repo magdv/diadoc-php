@@ -1,0 +1,12 @@
+syntax="proto3";
+
+import "Severity.proto";
+
+package Diadoc.POA.Proto;
+
+enum PowerOfAttorneyValidationCheckStatus {
+    UnknownCheckStatus = 0;
+    Ok = 1;
+    Warning = 2;
+    Error = 3;
+}

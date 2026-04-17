@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionRequestType.html
+// Тип запроса на согласование документа.
+
+enum ResolutionRequestType {
+    ApprovementRequest = 0;
+    UnknownResolutionRequestType = -1;
+    SignatureRequest = 1;
+    ApprovementSignatureRequest = 2;
+    Custom = 3;
+}
+
+
+
+

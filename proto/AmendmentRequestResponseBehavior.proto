@@ -1,0 +1,12 @@
+syntax="proto3";
+
+package Diadoc.Proto;
+
+enum AmendmentRequestResponseBehavior {
+    Unknown = 0;
+    None = 1;
+    Receipt = 2;
+    OperatorConfirmation = 3;
+    OperatorConfirmationOrReceipt = 4;
+}
+

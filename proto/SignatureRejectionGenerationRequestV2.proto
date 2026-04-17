@@ -1,0 +1,21 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignatureRejectionGenerationRequestV2.html
+// Запрос на формирование отказа от подписи для документа или отказа от предложения об аннулировании документа методом GenerateSignatureRejectionXml (V2).
+
+message SignatureRejectionGenerationRequestV2 {
+    // текст комментария к отказу. Длина не более 5000 символов.
+    string ErrorMessage = 1;
+    // идентификатор сообщения.
+    string MessageId = 2;
+    // идентификатор сущности, для которой нужно сформировать файл отказа от подписи.
+    string AttachmentId = 3;
+    // бинарное представление упрощенного XML-файла подписанта, сформированного в соответствии с XSD-схемой. Инструкция о формировании файла подписанта приведена в разделе Универсальный формат данных подписанта в служебных документах.
+    bytes SignerContent = 4;
+}
+
+
+
+

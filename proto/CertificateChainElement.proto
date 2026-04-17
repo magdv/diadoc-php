@@ -1,0 +1,18 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/CertificateChainElement.html
+// Информация об одном сертификате в цепочке, выстроенной при проверке конечного сертификата пользователя.
+
+message CertificateChainElement
+{
+    // статус элемента цепочки сертификатов. Представляет собой комбинацию битовых флагов из .NET-перечисления System.Security.Cryptography.X509Certificates.X509ChainStatusFlags.
+    int32 CertificateChainStatusFlags = 1;
+    // сертификат, сериализованный в массив байтов в DER-кодировке.
+    bytes DerCertificate = 2;
+}
+
+
+
+

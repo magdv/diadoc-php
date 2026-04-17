@@ -1,0 +1,45 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/SignatureTypeInfo.html
+// Информация о типе электронной подписи под документом.
+
+message SignatureTypeInfo {
+    // тип подписи, принимает значения из перечисления `SignatureType`:
+    SignatureType SignatureType = 1;
+    // данные квалифицированной электронной подписи, представленные структурой `QualifiedDetails` с полями:
+    QualifiedDetails QualifiedDetails = 2;
+    // данные неквалифицированной электронной подписи, представленные структурой `NonQualifiedDetails` с полями:
+    NonQualifiedDetails NonQualifiedDetails = 3;
+}
+
+enum SignatureType {
+    UnknownSignatureType = 0;
+    OnVerification = 1;
+    Qualified = 2;
+    NonQualified = 3;
+}
+
+message QualifiedDetails {
+    // источник подписи, принимает значения из перечисления `NonQualifiedSignatureSource`:
+    QualifiedSignatureSource SignatureSource = 1;
+
+    enum QualifiedSignatureSource {
+        Default = 0;
+    }
+}
+
+message NonQualifiedDetails {
+    // источник подписи, принимает значения из перечисления `NonQualifiedSignatureSource`:
+    NonQualifiedSignatureSource SignatureSource = 1;
+
+    enum NonQualifiedSignatureSource {
+        Default = 0;
+        GosKey = 1;
+    }
+}
+
+
+
+

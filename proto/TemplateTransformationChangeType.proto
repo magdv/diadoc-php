@@ -1,0 +1,15 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TemplateTransformationChangeType.html
+// Тип изменения документа, созданного на основе шаблона.
+
+enum TemplateTransformationChangeType {
+    UnknownTemplateTransformationChange = 0;
+    SignatureRejection = 1;
+}
+
+
+
+

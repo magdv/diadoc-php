@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+import "PowerOfAttorneyFullId.proto";
+import "PowerOfAttorneyPermissionsInfo.proto";
+import "Timestamp.proto";
+import "FullName.proto";
+import "DateTimeOffset.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorney.html
+// На этой странице, помимо PowerOfAttorney, описаны следующие структуры и перечисления:
+
+message PowerOfAttorney {
+  // идентификатор МЧД, представленный структурой PowerOfAttorneyFullId.
+  PowerOfAttorneyFullId FullId = 1;
+  // данные доверителя, представленные структурой PowerOfAttorneyIssuer.
+  PowerOfAttorneyIssuer Issuer = 2;
+  // поле устарело, используйте вместо него поле `Representatives`. Данные представителя, представленные структурой PowerOfAttorneyConfidant.
+  PowerOfAttorneyConfidant Confidant = 3;
+  // дата начала действия МЧД в UTC, представленная структурой Timestamp. Обратите внимание, что реальная дата отсчитывается в московском часовом поясе. Поле устарело, используйте вместо него значение поля `StartAtByMoscow`.
+  Timestamp StartAt = 4;
+  // дата окончания действия МЧД в UTC, представленная структурой Timestamp. Обратите внимание, что реальная дата отсчитывается в московском часовом поясе. Поле устарело, используйте вместо него значение поля `ExpireAtByMoscow`.
+  Timestamp ExpireAt = 5;
+  // информация о системе хранения доверенности.
+  string System = 6;
+  // имя XML-файла МЧД без расширения.
+  string IdFile = 7;
+  // список предыдущих МЧД для доверенности, выпущенной в порядке передоверия. Каждая МЧД представлена структурой `PowerOfAttorney`. Список хранится в порядке от корневой МЧД (элемент с индексом `0`) к дочерней, сама конечная МЧД в список не включена. Заполняется только в случаях:
+  repeated PowerOfAttorney DelegationChain = 8;
+  // информация о полномочиях из МЧД, представленная структурой PowerOfAttorneyPermissionsInfo.
+  PowerOfAttorneyPermissionsInfo PermissionsInfo = 9;
+  // информация о предыдущих МЧД для доверенности, выпущенной в порядке передоверия. Представлена структурой PowerOfAttorneyDelegationInfo. Заполняется только в случае, если МЧД выпущена в порядке передоверия. Для цепочки передоверия из двух МЧД совпадают номера корневой доверенности и доверенности, на основании которой осуществляется передоверие.
+  PowerOfAttorneyDelegationInfo DelegationInfo = 10;
+  // список уполномоченных представителей, представленных структурой PowerOfAttorneyRepresentative.
+  repeated PowerOfAttorneyRepresentative Representatives = 11;
+  // дата начала действия МЧД в московском часовом поясе, представленная структурой DateTimeOffset.
+  DateTimeOffsetDto StartAtByMoscow = 12;
+  // дата окончания действия МЧД в московском часовом поясе, представленная структурой DateTimeOffset.
+  DateTimeOffsetDto ExpireAtByMoscow = 13;
+}
+
+message PowerOfAttorneyIssuer {
+  optional PowerOfAttorneyIssuerType Type = 1;
+  optional PowerOfAttorneyIssuerLegalEntity LegalEntity = 2;
+  optional PowerOfAttorneyIssuerForeignEntity ForeignEntity = 3;
+  optional PowerOfAttorneyIssuerIndividualEntity IndividualEntity = 4;
+  optional PowerOfAttorneyIssuerPhysicalEntity PhysicalEntity = 5;
+}
+enum PowerOfAttorneyIssuerType {
+  UnknownIssuerType = 0;
+  LegalEntity = 1;
+  ForeignEntity = 2;
+  IndividualEntity = 3;
+  PhysicalEntity = 4;
+}
+message PowerOfAttorneyIssuerLegalEntity {
+  string Inn = 1;
+  string Kpp = 2;
+  string OrganizationName = 3;
+}
+message PowerOfAttorneyIssuerForeignEntity {
+  optional string Inn = 1;
+  optional string Kpp = 2;
+  string OrganizationName = 3;
+}
+message PowerOfAttorneyIssuerIndividualEntity {
+  string Inn = 1;
+  string OrganizationName = 3;
+}
+message PowerOfAttorneyIssuerPhysicalEntity {
+  string Inn = 1;
+  optional FullName PersonName = 2;
+}
+message PowerOfAttorneyConfidant {
+  FullName PersonName = 1;
+  string Inn = 2;
+  optional PowerOfAttorneyConfidantOrganization Organization = 3;
+}
+message PowerOfAttorneyConfidantOrganization {
+  string Inn = 1;
+  optional string Kpp = 2;
+  string Name = 3;
+}
+message PowerOfAttorneyDelegationInfo {
+  string RootRegistrationNumber = 1;
+  optional string ParentRegistrationNumber = 2;
+  repeated PowerOfAttorneyIssuer RootIssuers = 3;
+}
+message PowerOfAttorneyRepresentative {
+  optional PowerOfAttorneyRepresentativeType Type = 1;
+  optional PowerOfAttorneyRepresentativeLegalEntity LegalEntity = 2;
+  optional PowerOfAttorneyRepresentativeIndividualEntity IndividualEntity = 3;
+  optional PowerOfAttorneyRepresentativePhysicalEntity PhysicalEntity = 4;
+  optional PowerOfAttorneyRepresentativeLegalSubsidiaryEntity LegalSubsidiaryEntity = 5;
+  optional PowerOfAttorneyRepresentativeForeignLegalSubsidiaryEntity ForeignLegalSubsidiaryEntity = 6;
+}
+enum PowerOfAttorneyRepresentativeType {
+  UnknownRepresentativeType = 0;
+  RepresentativeLegalEntity = 1;
+  RepresentativeIndividualEntity = 2;
+  RepresentativePhysicalEntity = 3;
+  RepresentativeLegalSubsidiaryEntity = 4;
+  RepresentativeForeignLegalSubsidiaryEntity = 5;
+}
+message PowerOfAttorneyRepresentativeLegalEntity {
+  optional string Inn = 1;
+  string Kpp = 2;
+  string OrganizationName = 3;
+  repeated PowerOfAttorneyRepresentativePhysicalEntity PhysicalEntity = 4;
+}
+message PowerOfAttorneyRepresentativeIndividualEntity {
+  string Inn = 1;
+  string OrganizationName = 2;
+}
+message PowerOfAttorneyRepresentativePhysicalEntity {
+  optional string Inn = 1;
+  FullName PersonName = 2;
+}
+message  PowerOfAttorneyRepresentativeLegalSubsidiaryEntity  {
+  optional string Inn = 1;
+  string Kpp = 2;
+  string OrganizationName = 3;
+  repeated PowerOfAttorneyRepresentativePhysicalEntity PhysicalEntity = 4;
+}
+message PowerOfAttorneyRepresentativeForeignLegalSubsidiaryEntity {
+  optional string Inn = 1;
+  optional string Kpp = 2;
+  string OrganizationName = 3;
+}

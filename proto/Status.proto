@@ -1,0 +1,38 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Status.html
+// Статус обработки документа в рамках внешнего документооборота.
+
+message Status {
+    // идентификатор статуса.
+    string NamedId = 1;
+    // название статуса, которое используется для отображения в веб-интерфейсе.
+    string FriendlyName = 2;
+    // тип статуса, принимает значения из перечисления `OuterStatusType`:
+    OuterStatusType Type = 3;
+    // дополнительное описание статуса.
+    string Description = 4;
+    // детализация по статусу — список ошибок, которые были получены при взаимодействии с внешним сервисом в рамках документооборота. Каждый элемент списка представлен структурой `StatusDetail` с полями:
+    repeated StatusDetail Details = 5;
+}
+
+enum OuterStatusType {
+    UnknownStatus = 0;
+    Normal = 1;
+    Success = 2;
+    Warning = 3;
+    Error = 4;
+}
+
+message StatusDetail {
+    // код ошибки.
+    string Code = 1;
+    // текст ошибки.
+    string Text = 2;
+}
+
+
+
+

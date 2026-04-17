@@ -1,0 +1,43 @@
+syntax="proto3";
+
+import "Entity.proto";
+import "LockMode.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Template.html
+// Данные сообщения, содержащего шаблоны документов.
+
+message Template {
+    // идентификатор сообщения, в котором содержится шаблон.
+    string MessageId = 1;
+    // время создания сообщения.
+    sfixed64 TimestampTicks = 2;
+    // идентификатор ящика отправителя сообщения с шаблонами.
+    string FromBoxId = 3;
+    // идентификатор ящика получателя сообщения с шаблонами.
+    string ToBoxId = 4;
+    // идентификатор ящика отправителя документов, созданных на основе шаблонов.
+    string MessageFromBoxId = 5;
+    // идентификатор ящика получателя документов, созданных на основе шаблонов.
+    string MessageToBoxId = 6;
+    // список сущностей сообщения, представленные структурой Entity.
+    repeated Entity Entities = 7;
+    // признак того, что сообщение удалено.
+    bool IsDeleted = 8 ;
+    // идентификатор подразделения получателя сообщения, созданного на основе шаблона.
+    string MessageToDepartmentId = 9;
+    // режим блокировки сообщения с шаблонами, принимает значения из перечисления LockMode.
+    LockMode LockMode = 10;
+    // идентификатор ящика промежуточного получателя документов, созданных на основе шаблонов.
+    string MessageProxyBoxId = 11;
+    // идентификатор подразделения промежуточного получателя сообщения, созданного на основе шаблона.
+    string MessageProxyDepartmentId = 12;
+    // признак того, что шаблон многоразовый.
+    bool IsReusable = 13 ;
+}
+
+
+
+

@@ -1,0 +1,17 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/MetadataItem.html
+// Метаданные документа в виде пары «ключ-значение».
+
+message MetadataItem {
+    // ключ метаданных. Должен быть из списка доступных метаданных для текущего типа документа: получить такой список можно методом GetDocumentTypes (V3).
+    string Key = 1;
+    // значение метаданных для указанного ключа.
+    string Value = 2;
+}
+
+
+
+

@@ -1,0 +1,23 @@
+syntax="proto3";
+
+import "UniversalMessageInfo.proto";
+import "Docflow/Attachment.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/UniversalMessageAttachmentDocflow.html
+// Состояние универсального сообщения (УС).
+
+message UniversalMessageAttachmentDocflow {
+    // данные файла документа, представленные структурой Attachment.
+    Docflow.Attachment Attachment = 1;
+    // информация об универсальном сообщении, представленная структурой UniversalMessageInfo.
+    UniversalMessageInfo MessageInfo = 2;
+    // идентификатор типа содержимого документа.
+    string ContentTypeId = 3;
+}
+
+
+
+

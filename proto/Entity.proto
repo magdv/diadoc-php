@@ -1,0 +1,24 @@
+syntax="proto3";
+
+import "Content.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Entity.html
+// Информация о содержимом документа и времени его создания.
+
+message Entity
+{
+    // идентификатор документа.
+    string EntityId = 1;
+    // время создания документа, представленное структурой Timestamp.
+    Timestamp CreationTimestamp = 2;
+    // содержимое файла документа, представленное структурой Content.
+    Content Content = 3;
+}
+
+
+
+

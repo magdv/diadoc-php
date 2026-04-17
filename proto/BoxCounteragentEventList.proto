@@ -1,0 +1,53 @@
+syntax="proto3";
+
+import "Counteragent.proto";
+import "CounteragentInfo.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/BoxCounteragentEventList.html
+// Список событий по изменению партнерских отношений с контрагентами.
+
+message BoxCounteragentEventList {
+     // список событий по изменению отношений с контрагентами. Каждое событие представлено структурой `BoxCounteragentEvent` с полями:
+     repeated BoxCounteragentEvent Events = 1;
+     // общее количество найденных событий, соответствующих заданным параметрам.
+     int32 TotalCount = 2;
+     // параметр, указывающий, является ли значение `TotalCount` точным или подсчет был ограничен. Принимает значения из перечисления TotalCountType.
+     TotalCountType TotalCountType = 3;
+ }
+
+ message BoxCounteragentEvent {
+     // идентификатор события.
+     string EventId = 1;
+     // информация о контрагенте, представленная структурой CounteragentInfo.
+     CounteragentInfo Counteragent = 2;
+     // ключ для постраничного получения списка найденных событий. Его можно передавать в качестве параметра `afterIndexKey` в метод GetCounteragentEvents (V1): ключ может содержать недопустимые символы, поэтому при вызове метода должен быть закодирован в URL-формат.
+     string IndexKey = 3;
+     // тип события, произошедшего с контрагентом. Принимает значение из перечисления `CounteragentEventType`:
+     repeated CounteragentEventType EventTypes = 4;
+ }
+
+ enum CounteragentEventType
+ {
+     UnknownCounteragentEventType = 0;
+     IInvitedCounteragent = 1;
+     CounteragentInvitedMe = 2;
+     CounteragentAcceptedInvitation = 3;
+     IAcceptedInvitation = 4;
+     IWithdrewInvitation = 5;
+     CounteragentWithdrewInvitation = 6;
+     IRejectedInvitation = 7;
+     CounteragentRejectedInvitation = 8;
+     IBrokeUpWithCounteragent = 9;
+     CounteragentBrokeUpWithMe = 10;
+     IForgotCounteragent = 11;
+     CounteragentForgotMe = 12;
+     IMadeCounteragent = 13;
+     CounteragentMadeMe = 14;
+ }
+
+
+
+

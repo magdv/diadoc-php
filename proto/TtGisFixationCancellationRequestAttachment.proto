@@ -1,0 +1,20 @@
+syntax="proto3";
+
+import "SignedContent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TtGisFixationCancellationRequestAttachment.html
+// Данные документа для отмены сведений об отгрузке маркированных товаров.
+
+message TtGisFixationCancellationRequestAttachment {
+    // идентификатор документа, содержащего маркированные товары, сведения об отгрузки которых необходимо отменить.
+    string DocumentId = 1;
+    // содержимое файла отмены сведений об отгрузке с электронной подписью, представленный структурой SignedContent.
+    SignedContent SignedContent = 2;
+}
+
+
+
+

@@ -1,0 +1,53 @@
+syntax="proto3";
+import "Entity.proto";
+import "ResolutionTarget.proto";
+import "ResolutionRequestType.proto";
+import "ResolutionAction.proto";
+import "ResolutionType.proto";
+import "SignatureV3.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionEntitiesV3.html
+// На этой странице, помимо ResolutionEntitiesV3, описаны следующие структуры:
+
+message ResolutionEntitiesV3
+{
+    // список запросов на согласование, согласующую подпись и основную подпись, представленный структурой ResolutionRequestV3.
+    repeated ResolutionRequestV3 Requests = 1;
+    // список согласований и отказов в согласовании, представленный структурой ResolutionV3.
+    repeated ResolutionV3 Resolutions = 2;
+    // список согласующих подписей, представленный структурой ApprovementSignatureV3.
+    repeated ApprovementSignatureV3 ApprovementSignatures = 3;
+    // список отказов в подписи сотруднику, представленный структурой SignatureDenialV3.
+    repeated SignatureDenialV3 SignatureDenials = 4;
+}
+message ResolutionRequestV3
+{
+    Entity Entity = 1;
+    ResolutionTarget Target = 2;
+    optional string AuthorUserId = 3;
+    ResolutionRequestType RequestType = 4;
+    optional string ResolvedWith = 5;
+    repeated ResolutionAction Actions = 6;
+}
+message ResolutionV3
+{
+    Entity Entity = 1;
+    optional string ResolutionRequestId = 2;
+    optional string AuthorUserId = 3;
+    ResolutionType ResolutionType = 4;
+}
+message SignatureDenialV3
+{
+    Entity Entity = 1;
+    string ResolutionRequestId = 2;
+    optional string AuthorUserId = 3;
+}
+message ApprovementSignatureV3
+{
+    SignatureV3 Signature = 1;
+    optional string ResolutionRequestId = 2;
+    optional string AuthorUserId = 3;
+}

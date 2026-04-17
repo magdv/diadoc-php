@@ -1,0 +1,15 @@
+syntax="proto3";
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DepartmentsInGroup.html
+// Список идентификаторов подразделений, в которые группа контрагентов может отправлять документы.
+
+message DepartmentsInGroup {
+    // список идентификаторов подразделений. В списке может быть не больше 419 подразделений.
+    repeated string DepartmentId = 1;
+}
+
+
+
+
