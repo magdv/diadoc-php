@@ -11,6 +11,7 @@ import "Invoicing/ExtendedSigner.proto";
 import "Events/ResolutionInfo.proto";
 import "Events/ResolutionRequestInfo.proto";
 import "Docflow/DocumentInfo.proto";
+import "LockMode.proto";
 
 package Diadoc.Proto.Events;
 
@@ -48,6 +49,7 @@ message MessageToPost {
 	 bool LockPacket = 32;
 	repeated XmlDocumentAttachment UniversalTransferDocumentSellerTitles = 33;
 	repeated DocumentAttachment DocumentAttachments = 34;
+	optional LockMode LockMode = 35;
 }
 
 message EncryptedXmlDocumentAttachment {

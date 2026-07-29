@@ -138,6 +138,18 @@ class DocumentType
      * Generated from protobuf enum <code>LogisticsWaybill = 51;</code>
      */
     const LogisticsWaybill = 51;
+    /**
+     * Generated from protobuf enum <code>LogisticsEpl = 52;</code>
+     */
+    const LogisticsEpl = 52;
+    /**
+     * Generated from protobuf enum <code>LogisticsOrderRequest = 53;</code>
+     */
+    const LogisticsOrderRequest = 53;
+    /**
+     * Generated from protobuf enum <code>LogisticsForwardingOrder = 54;</code>
+     */
+    const LogisticsForwardingOrder = 54;
 
     private static $valueToName = [
         self::Nonformalized => 'Nonformalized',
@@ -171,6 +183,9 @@ class DocumentType
         self::Waybill => 'Waybill',
         self::PowerOfAttorney => 'PowerOfAttorney',
         self::LogisticsWaybill => 'LogisticsWaybill',
+        self::LogisticsEpl => 'LogisticsEpl',
+        self::LogisticsOrderRequest => 'LogisticsOrderRequest',
+        self::LogisticsForwardingOrder => 'LogisticsForwardingOrder',
     ];
 
     public static function name($value)

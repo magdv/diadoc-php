@@ -34,4 +34,7 @@ enum DocumentType
 	Waybill = 49;
 	PowerOfAttorney = 50;
 	LogisticsWaybill = 51;
+	LogisticsEpl = 52;
+	LogisticsOrderRequest = 53;
+	LogisticsForwardingOrder = 54;
 }

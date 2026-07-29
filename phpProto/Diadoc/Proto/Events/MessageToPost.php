@@ -146,6 +146,10 @@ class MessageToPost extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>repeated .Diadoc.Proto.Events.DocumentAttachment DocumentAttachments = 34;</code>
      */
     private $DocumentAttachments;
+    /**
+     * Generated from protobuf field <code>optional .Diadoc.Proto.LockMode LockMode = 35;</code>
+     */
+    protected $LockMode = null;
 
     /**
      * Constructor.
@@ -186,6 +190,7 @@ class MessageToPost extends \Google\Protobuf\Internal\Message
      *     @type bool $LockPacket
      *     @type \Diadoc\Proto\Events\XmlDocumentAttachment[] $UniversalTransferDocumentSellerTitles
      *     @type \Diadoc\Proto\Events\DocumentAttachment[] $DocumentAttachments
+     *     @type int $LockMode
      * }
      */
     public function __construct($data = NULL) {
@@ -915,6 +920,38 @@ class MessageToPost extends \Google\Protobuf\Internal\Message
     {
         $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Diadoc\Proto\Events\DocumentAttachment::class);
         $this->DocumentAttachments = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .Diadoc.Proto.LockMode LockMode = 35;</code>
+     * @return int
+     */
+    public function getLockMode()
+    {
+        return isset($this->LockMode) ? $this->LockMode : 0;
+    }
+
+    public function hasLockMode()
+    {
+        return isset($this->LockMode);
+    }
+
+    public function clearLockMode()
+    {
+        unset($this->LockMode);
+    }
+
+    /**
+     * Generated from protobuf field <code>optional .Diadoc.Proto.LockMode LockMode = 35;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setLockMode($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\LockMode::class);
+        $this->LockMode = $var;
 
         return $this;
     }
