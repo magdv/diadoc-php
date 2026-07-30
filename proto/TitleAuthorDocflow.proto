@@ -1,0 +1,32 @@
+syntax="proto3";
+
+import "SignedAttachmentV3.proto";
+import "TitleOperationResultV5.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TitleAuthorDocflow.html
+// Состояние действия автора титула.
+
+message TitleAuthorDocflow {
+    // признак того, что действие автора титула завершено.
+    bool IsFinished = 1;
+    // статус действия автора титула, принимает значения из перечисления TitleAuthorStatusV5.
+    TitleAuthorStatusV5 Status = 2;
+    // данные файла титула и подписи под ним, представленные структурой SignedAttachmentV3.
+    optional SignedAttachmentV3 Title = 3;
+    // результат операции с титулом, представленный структурой TitleOperationResultV5.
+    optional TitleOperationResultV5 OperationResult = 4;
+}
+
+enum TitleAuthorStatusV5 {
+    TitleAuthorStatusUnknown = 0;
+    TitleAuthorStatusWaiting = 1;
+    TitleAuthorStatusNotReadyToSign = 2;
+    TitleAuthorStatusVerifying = 3;
+    TitleAuthorStatusSigned = 4;
+    TitleAuthorStatusInvalidSignature = 5;
+}
+
+

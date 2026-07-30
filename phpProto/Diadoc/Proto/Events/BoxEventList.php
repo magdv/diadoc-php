@@ -22,6 +22,10 @@ class BoxEventList extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>int32 TotalCount = 2;</code>
      */
     protected $TotalCount = 0;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TotalCountType TotalCountType = 3;</code>
+     */
+    protected $TotalCountType = 0;
 
     /**
      * Constructor.
@@ -31,6 +35,7 @@ class BoxEventList extends \Google\Protobuf\Internal\Message
      *
      *     @type \Diadoc\Proto\Events\BoxEvent[] $Events
      *     @type int $TotalCount
+     *     @type int $TotalCountType
      * }
      */
     public function __construct($data = NULL) {
@@ -78,6 +83,28 @@ class BoxEventList extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkInt32($var);
         $this->TotalCount = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TotalCountType TotalCountType = 3;</code>
+     * @return int
+     */
+    public function getTotalCountType()
+    {
+        return $this->TotalCountType;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TotalCountType TotalCountType = 3;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTotalCountType($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\TotalCountType::class);
+        $this->TotalCountType = $var;
 
         return $this;
     }

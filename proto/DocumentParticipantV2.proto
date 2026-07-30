@@ -1,0 +1,35 @@
+syntax="proto3";
+
+import "ParticipantType.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentParticipantV2.html
+// Данные участника документооборота.
+
+message DocumentParticipantV2 {
+    // идентификатор ящика.
+    string BoxId = 1;
+    // идентификатор подразделения.
+    optional string DepartmentId = 2;
+    // машиночитаемая роль участника в бизнес-процессе согласно предметной области в формате namespace:name.
+    string Role = 3;
+    // признаки участника, представленные структурой DocumentParticipantFlags.
+    DocumentParticipantFlags Flags = 4;
+    // тип участника, принимает значения из перечисления ParticipantType.
+    Workflows.ParticipantType.ParticipantType Type = 5;
+    // признак того, что текущий запрос к API выполнен от имени этого участника.
+    bool IsCurrentBox = 6;
+}
+
+message DocumentParticipantFlags {
+    // признак того, что участник является роуминговым.
+    bool IsRoaming = 1;
+    // признак того, что участник задействован в трансграничном документообороте (ТЭДО).
+    bool IsCrossborder = 2;
+    // признак того, что участник является иностранным.
+    bool IsForeign = 3;
+}
+
+

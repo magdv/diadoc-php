@@ -2,7 +2,6 @@ syntax="proto3";
 import "Organization.proto";
 import "Counteragent.proto";
 import "DocumentId.proto";
-import "GetOrganizationsByInnList.proto";
 
 
 package Diadoc.Proto;

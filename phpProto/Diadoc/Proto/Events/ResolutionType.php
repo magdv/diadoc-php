@@ -17,12 +17,6 @@ class ResolutionType
      */
     const UndefinedResolutionType = 0;
     /**
-     * Reserved type to report to legacy clients for newly introduced types
-     *
-     * Generated from protobuf enum <code>UnknownResolutionType = -1;</code>
-     */
-    const UnknownResolutionType = -1;
-    /**
      * Generated from protobuf enum <code>Approve = 1;</code>
      */
     const Approve = 1;
@@ -30,12 +24,16 @@ class ResolutionType
      * Generated from protobuf enum <code>Disapprove = 2;</code>
      */
     const Disapprove = 2;
+    /**
+     * Generated from protobuf enum <code>UnknownResolutionType = 3;</code>
+     */
+    const UnknownResolutionType = 3;
 
     private static $valueToName = [
         self::UndefinedResolutionType => 'UndefinedResolutionType',
-        self::UnknownResolutionType => 'UnknownResolutionType',
         self::Approve => 'Approve',
         self::Disapprove => 'Disapprove',
+        self::UnknownResolutionType => 'UnknownResolutionType',
     ];
 
     public static function name($value)

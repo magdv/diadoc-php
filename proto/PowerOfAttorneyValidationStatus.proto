@@ -3,7 +3,7 @@ syntax="proto3";
 import "Severity.proto";
 import "PowerOfAttorneyValidationCheckStatus.proto";
 
-package Diadoc.Proto;
+package Diadoc.Proto.PowersOfAttorney;
 
 
 // Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyValidationStatus.html
@@ -11,7 +11,7 @@ package Diadoc.Proto;
 
 message PowerOfAttorneyValidationStatus {
     // критичность статуса, принимает значение из перечисления Severity.
-    Severity Severity = 1;
+    Diadoc.Proto.Severity Severity = 1;
     // текстовый идентификатор статуса, принимает значение из перечисления `PowerOfAttorneyValidationStatusNamedId`:
     PowerOfAttorneyValidationStatusNamedId StatusNamedId = 2;
     // удобочитаемый текст статуса.

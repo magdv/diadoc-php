@@ -1,0 +1,45 @@
+syntax="proto3";
+
+import "DocumentParticipantV2.proto";
+import "Documents/Document.proto";
+import "OuterDocflowV5.proto";
+import "ResolutionDocflowV5.proto";
+import "RevocationRequestDocflowV5.proto";
+import "SignatureRejectionDocflowV4.proto";
+import "SignatureV3.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RevocationDocflowV5.html
+// Состояние аннулирования документа.
+
+message RevocationDocflowV5 {
+    // признак завершения документооборота по аннулированию, дальнейшие действия не требуются.
+    bool IsFinished = 1;
+    // информация о предложении об аннулировании, представленная структурой RevocationRequestDocflowV5.
+    RevocationRequestDocflowV5 RevocationRequest = 2;
+    // список ответов участников на предложение об аннулировании, представленных структурой RevocationResponseDocflowV5.
+    repeated RevocationResponseDocflowV5 RevocationResponse = 3;
+    // инициатор аннулирования, представленный структурой DocumentParticipantV2.
+    DocumentParticipantV2 Initiator = 4;
+    // статус аннулирования документа, представленный структурой RevocationStatus.
+    Documents.RevocationStatus RevocationStatus = 5;
+    // информация об актуальном статусе согласования аннулирования, представленная структурой ResolutionDocflowV5.
+    optional ResolutionDocflowV5 Resolution = 6;
+    // список с информацией о внешнем документообороте по аннулированию. Каждый элемент списка представлен структурой OuterDocflowV5.
+    repeated OuterDocflowV5 OuterDocflows = 7;
+}
+
+message RevocationResponseDocflowV5 {
+    // участник, ответивший на предложение об аннулировании, представленный структурой DocumentParticipantV2.
+    DocumentParticipantV2 Participant = 1;
+    // признак завершения ответа участника.
+    bool IsFinished = 2;
+    // данные ответной подписи под предложением об аннулировании, представленные структурой SignatureV3.
+    optional SignatureV3 Signature = 3;
+    // информация об отказе в подписи предложения об аннулировании, представленная структурой SignatureRejectionDocflowV4.
+    optional SignatureRejectionDocflowV4 Rejection = 4;
+}
+
+

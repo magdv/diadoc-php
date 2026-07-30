@@ -15,9 +15,9 @@ use Google\Protobuf\RepeatedField;
 class ResolutionRequestInfo extends \Google\Protobuf\Internal\Message
 {
     /**
-     * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestType RequestType = 1;</code>
+     * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestType Type = 1;</code>
      */
-    protected $RequestType = 0;
+    protected $Type = 0;
     /**
      * Generated from protobuf field <code>string Author = 2;</code>
      */
@@ -30,6 +30,10 @@ class ResolutionRequestInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string ResolvedWith = 4;</code>
      */
     protected $ResolvedWith = '';
+    /**
+     * Generated from protobuf field <code>repeated .Diadoc.Proto.ResolutionAction Actions = 5;</code>
+     */
+    private $Actions;
 
     /**
      * Constructor.
@@ -37,10 +41,11 @@ class ResolutionRequestInfo extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type int $RequestType
+     *     @type int $Type
      *     @type string $Author
      *     @type \Diadoc\Proto\ResolutionTarget $Target
      *     @type string $ResolvedWith
+     *     @type int[] $Actions
      * }
      */
     public function __construct($data = NULL) {
@@ -49,23 +54,23 @@ class ResolutionRequestInfo extends \Google\Protobuf\Internal\Message
     }
 
     /**
-     * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestType RequestType = 1;</code>
+     * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestType Type = 1;</code>
      * @return int
      */
-    public function getRequestType()
+    public function getType()
     {
-        return $this->RequestType;
+        return $this->Type;
     }
 
     /**
-     * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestType RequestType = 1;</code>
+     * Generated from protobuf field <code>.Diadoc.Proto.Events.ResolutionRequestType Type = 1;</code>
      * @param int $var
      * @return $this
      */
-    public function setRequestType($var)
+    public function setType($var)
     {
         GPBUtil::checkEnum($var, \Diadoc\Proto\Events\ResolutionRequestType::class);
-        $this->RequestType = $var;
+        $this->Type = $var;
 
         return $this;
     }
@@ -142,6 +147,28 @@ class ResolutionRequestInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->ResolvedWith = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .Diadoc.Proto.ResolutionAction Actions = 5;</code>
+     * @return RepeatedField<int>
+     */
+    public function getActions()
+    {
+        return $this->Actions;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .Diadoc.Proto.ResolutionAction Actions = 5;</code>
+     * @param int[] $var
+     * @return $this
+     */
+    public function setActions($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::ENUM, \Diadoc\Proto\ResolutionAction::class);
+        $this->Actions = $arr;
 
         return $this;
     }

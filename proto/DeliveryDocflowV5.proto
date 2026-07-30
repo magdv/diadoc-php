@@ -1,0 +1,27 @@
+syntax="proto3";
+
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DeliveryDocflowV5.html
+// Состояние доставки документа или титула.
+
+message DeliveryDocflowV5 {
+    // статус доставки, принимает значения из перечисления DeliveryStatusV5.
+    DeliveryStatusV5 Status = 1;
+    // время отправки, представленное структурой Timestamp.
+    Timestamp SentAt = 2;
+    // время доставки, представленное структурой Timestamp.
+    optional Timestamp DeliveredAt = 3;
+}
+
+enum DeliveryStatusV5 {
+    DeliveryStatusUnknown = 0;
+    DeliveryStatusNotReady = 1;
+    DeliveryStatusDelivered = 2;
+    DeliveryStatusFailed = 3;
+}
+
+

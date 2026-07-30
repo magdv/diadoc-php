@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TitleOperationResultV5.html
+// Результат операции с титулом.
+
+message TitleOperationResultV5 {
+    // известный результат операции с титулом, принимает значения из перечисления WellKnownTitleOperationResult.
+    optional WellKnownTitleOperationResult WellKnown = 1;
+}
+
+enum WellKnownTitleOperationResult {
+    WellKnownTitleOperationResultUnknown = 0;
+    WellKnownTitleOperationResultSigned = 1;
+    WellKnownTitleOperationResultPartiallySigned = 2;
+    WellKnownTitleOperationResultRejected = 3;
+}
+
+

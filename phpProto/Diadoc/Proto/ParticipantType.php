@@ -13,9 +13,9 @@ use UnexpectedValueException;
 class ParticipantType
 {
     /**
-     * Generated from protobuf enum <code>Unknown = 0;</code>
+     * Generated from protobuf enum <code>UnknownParticipantType = 0;</code>
      */
-    const Unknown = 0;
+    const UnknownParticipantType = 0;
     /**
      * Generated from protobuf enum <code>Sender = 1;</code>
      */
@@ -30,7 +30,7 @@ class ParticipantType
     const Recipient = 3;
 
     private static $valueToName = [
-        self::Unknown => 'Unknown',
+        self::UnknownParticipantType => 'UnknownParticipantType',
         self::Sender => 'Sender',
         self::Proxy => 'Proxy',
         self::Recipient => 'Recipient',

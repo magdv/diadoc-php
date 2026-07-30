@@ -4,101 +4,145 @@ syntax="proto3";
 //	GetEvent(string boxId, Guid eventId) : BoxEvent
 //	GetNewEvents(string boxId, Guid afterEventId) : BoxEventList
 //	GetMessage(string boxId, Guid messageId) : Message
+// Diadoc API proto docs:
+//	https://developer.kontur.ru/Docs/diadoc-api/proto/Message.html
+//	https://developer.kontur.ru/Docs/diadoc-api/proto/Entity%20message.html
 
 import "Content.proto";
+import "CancellationInfo.proto";
 import "Documents/Document.proto";
+import "Documents/MessageType.proto";
 import "Events/ResolutionInfo.proto";
 import "Events/ResolutionRequestInfo.proto";
 import "Events/ResolutionRequestDenialInfo.proto";
+import "LockMode.proto";
+import "MoveDocumentInfo.proto";
+import "OuterDocflowInfo.proto";
+import "PowerOfAttorneyAttachmentStatus.proto";
+import "PowerOfAttorneyInfo.proto";
+import "ResolutionRouteAssignmentInfo.proto";
+import "ResolutionRouteRemovalInfo.proto";
+import "RevocationRequestInfo_Entity.proto";
+import "TemplateRefusalInfo.proto";
+import "TemplateToLetterTransformationInfo.proto";
+import "TemplateTransformationChangeInfo.proto";
+import "TemplateTransformationInfo.proto";
+import "TotalCountType.proto";
+import "UniversalMessageInfo.proto";
 
 package Diadoc.Proto.Events;
 
 message BoxEventList {
 	repeated BoxEvent Events = 1;
-	 int32 TotalCount = 2;
+	int32 TotalCount = 2;
+	TotalCountType TotalCountType = 3;
 }
 
 message BoxEvent {
-	 string EventId = 1;
-	 Message Message = 2;
-	 MessagePatch Patch = 3;
+	string EventId = 1;
+	Message Message = 2;
+	MessagePatch Patch = 3;
+	string IndexKey = 4;
 }
 
 message Message {
-	 string MessageId = 1;
-	 sfixed64 TimestampTicks = 2;			// DateTime.Ticks in UTC
-	 sfixed64 LastPatchTimestampTicks = 3;	// DateTime.Ticks in UTC
-	 string FromBoxId = 4;
-	 string FromTitle = 5;
-	 string ToBoxId = 6;
-	 string ToTitle = 7;
+	string MessageId = 1;
+	sfixed64 TimestampTicks = 2;			// DateTime.Ticks in UTC
+	sfixed64 LastPatchTimestampTicks = 3;	// DateTime.Ticks in UTC
+	string FromBoxId = 4;
+	string FromTitle = 5;
+	string ToBoxId = 6;
+	string ToTitle = 7;
 	repeated Entity Entities = 8;
-	 bool IsDraft = 9;
-	 bool DraftIsLocked = 10;
-	 bool DraftIsRecycled = 11;
-	 string CreatedFromDraftId = 12;
+	bool IsDraft = 9;
+	bool DraftIsLocked = 10;
+	bool DraftIsRecycled = 11;
+	string CreatedFromDraftId = 12;
 	repeated string DraftIsTransformedToMessageIdList = 13;
-	 bool IsDeleted = 14;
-	 bool IsTest = 15;
-	 bool IsInternal = 16;
-	 bool IsProxified = 17;
-	 string ProxyBoxId = 18;
-	 string ProxyTitle = 19;
-	 bool PacketIsLocked = 20;
+	bool IsDeleted = 14;
+	bool IsTest = 15;
+	bool IsInternal = 16;
+	bool IsProxified = 17;
+	string ProxyBoxId = 18;
+	string ProxyTitle = 19;
+	bool PacketIsLocked = 20;
+	LockMode LockMode = 21;
+	Documents.MessageType MessageType = 22;
+	TemplateToLetterTransformationInfo TemplateToLetterTransformationInfo = 23;
+	bool IsReusable = 24;
 }
 
 message MessagePatch {
-	 string MessageId = 1;
-	 sfixed64 TimestampTicks = 2;	// DateTime.Ticks in UTC
+	string MessageId = 1;
+	sfixed64 TimestampTicks = 2;	// DateTime.Ticks in UTC
 	repeated Entity Entities = 3;
-	 bool ForDraft = 4;
-	 bool DraftIsRecycled = 5;
+	bool ForDraft = 4;
+	bool DraftIsRecycled = 5;
 	repeated string DraftIsTransformedToMessageIdList = 6;
-	 bool DraftIsLocked = 7;
-	 bool MessageIsDeleted = 8;
+	bool DraftIsLocked = 7;
+	bool MessageIsDeleted = 8;
 	repeated EntityPatch EntityPatches = 9;
-	 bool MessageIsRestored = 10;
-	 bool MessageIsDelivered = 11;
-	 string DeliveredPatchId = 12;
-	 string PatchId = 13;
+	bool MessageIsRestored = 10;
+	bool MessageIsDelivered = 11;
+	string DeliveredPatchId = 12;
+	string PatchId = 13;
+	string NotDeliveredEventId = 14;
+	Documents.MessageType MessageType = 15;
 }
 
 message Entity {
-	 EntityType EntityType = 1;
-	 string EntityId = 2;
-	 string ParentEntityId = 3;
-	 Content Content = 4;											// null <=> there is no content for this entity (very unlikely to happen)
-	 AttachmentType AttachmentType = 5;	// only for EntityType.Attachment
-	 string FileName = 6;											// only for EntityType.Attachment
-	 bool NeedRecipientSignature = 7;				// only for EntityType.Attachment
-	 string SignerBoxId = 8;										// only for EntityType.Signature
-	 string NotDeliveredEventId = 10;								// only for Attachment/DeliveryFailureNotification
-	 Documents.Document DocumentInfo = 11;							// only for EntityType.Attachment
-	 sfixed64 RawCreationDate = 12;
-	 ResolutionInfo ResolutionInfo = 13;
-	 string SignerDepartmentId = 14;								// only for EntityType.Signature
-	 ResolutionRequestInfo ResolutionRequestInfo = 15;
-	 ResolutionRequestDenialInfo ResolutionRequestDenialInfo = 16;
-	 bool NeedReceipt = 17;						// only for EntityType.Attachment
-	 string PacketId = 18;
-	 bool IsApprovementSignature = 19;			// only for EntityType.Signature
-	 bool IsEncryptedContent = 20;
+	EntityType EntityType = 1;
+	string EntityId = 2;
+	string AuthorUserId = 33;
+	string ParentEntityId = 3;
+	Content Content = 4;											// null <=> there is no content for this entity (very unlikely to happen)
+	AttachmentType AttachmentType = 5;	// only for EntityType.Attachment
+	string FileName = 6;											// only for EntityType.Attachment
+	bool NeedRecipientSignature = 7;				// only for EntityType.Attachment
+	string SignerBoxId = 8;										// only for EntityType.Signature
+	string NotDeliveredEventId = 10;								// only for Attachment/DeliveryFailureNotification
+	Documents.Document DocumentInfo = 11;							// only for EntityType.Attachment
+	sfixed64 RawCreationDate = 12;
+	ResolutionInfo ResolutionInfo = 13;
+	string SignerDepartmentId = 14;								// only for EntityType.Signature
+	ResolutionRequestInfo ResolutionRequestInfo = 15;
+	ResolutionRequestDenialInfo ResolutionRequestDenialInfo = 16;
+	bool NeedReceipt = 17;						// only for EntityType.Attachment
+	string PacketId = 18;
+	bool IsApprovementSignature = 19;			// only for EntityType.Signature
+	bool IsEncryptedContent = 20;
+	string AttachmentVersion = 21;
+	ResolutionRouteAssignmentInfo ResolutionRouteAssignmentInfo = 22;
+	ResolutionRouteRemovalInfo ResolutionRouteRemovalInfo = 23;
+	CancellationInfo CancellationInfo = 24;
+	repeated string Labels = 25;
+	string Version = 26;
+	TemplateTransformationInfo TemplateTransformationInfo = 27;
+	TemplateRefusalInfo TemplateRefusalInfo = 28;
+	OuterDocflowInfo OuterDocflow = 29;
+	RevocationRequestInfo RevocationRequestInfo = 30;
+	string ContentTypeId = 31;
+	PowerOfAttorneyInfo PowerOfAttorneyInfo = 32;
+	MoveDocumentInfo MoveDocumentInfo = 34;
+	Docflow.PowerOfAttorneyAttachmentStatus PowerOfAttorneyAttachmentStatus = 35;
+	UniversalMessageInfo UniversalMessageInfo = 36;
+	TemplateTransformationChangeInfo TemplateTransformationChangeInfo = 37;
 }
 
 message EntityPatch {
-	 string EntityId = 1;
-	 bool DocumentIsDeleted = 2;
-	 string MovedToDepartment = 3;
-	 bool DocumentIsRestored = 4;
-	 bool ContentIsPatched = 5;
-	 string ForwardedToBoxId = 6;
+	string EntityId = 1;
+	bool DocumentIsDeleted = 2;
+	string MovedToDepartment = 3;
+	bool DocumentIsRestored = 4;
+	bool ContentIsPatched = 5;
+	string ForwardedToBoxId = 6;
 }
 
 enum EntityType {
 	UnknownEntityType = 0;	// Reserved type to report to legacy clients for newly introduced entity types
 	Attachment = 1;
 	Signature = 2;
-	//Неизвестные типы должны обрабатываться клиентом как cущность Attachment с типом вложения AttachmentType.Nonformalized
+	//Неизвестные типы должны обрабатываться клиентом как сущность Attachment с типом вложения AttachmentType.Nonformalized
 }
 
 enum AttachmentType {
@@ -147,8 +191,8 @@ enum AttachmentType {
 	UniversalCorrectionDocumentBuyerTitle = 51;
 	CustomData = 64;
 	MoveDocument = 65;
-	ResolutionRouteAssignment = 66;
-	ResolutionRouteRemoval = 67;
+	ResolutionRouteAssignmentAttachment = 66;
+	ResolutionRouteRemovalAttachment = 67;
 	Title = 68;
 	Cancellation = 69;
 	Edition = 71;
@@ -159,4 +203,7 @@ enum AttachmentType {
 	RoamingConfirmation = 76;
 	PowerOfAttorney = 77;
 	PowerOfAttorneyStatus = 78;
+	UniversalMessage = 79;
+	TtGisFixationCancellationRequest = 87;
+	TemplateTransformationChange = 90;
 }

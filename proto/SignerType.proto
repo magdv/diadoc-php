@@ -6,7 +6,7 @@ package Diadoc.Proto;
 // Тип подписанта.
 
 enum SignerType {
-    STATUS_UNSPECIFIED = 0; // Обязательное значение по умолчанию
+    UnknownSignerType = 0;
     SignerTypeUnspecified = -1;
     LegalEntity = 1;
     IndividualEntity = 2;

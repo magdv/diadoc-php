@@ -1,0 +1,22 @@
+syntax="proto3";
+
+import "ConfirmationDocflowV5.proto";
+import "DeliveryDocflowV5.proto";
+import "RoamingNotification.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TitleDeliveryDocflowV5.html
+// Состояние доставки титула.
+
+message TitleDeliveryDocflowV5 {
+    // информация о доставке, представленная структурой DeliveryDocflowV5.
+    optional DeliveryDocflowV5 Delivery = 1;
+    // информация о подтверждении оператора, представленная структурой ConfirmationDocflowV5.
+    optional ConfirmationDocflowV5 Confirmation = 2;
+    // уведомление о роуминге, представленное структурой RoamingNotification.
+    optional RoamingNotification RoamingNotification = 3;
+}
+
+

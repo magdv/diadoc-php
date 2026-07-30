@@ -1,7 +1,6 @@
 syntax="proto3";
 
 import "ConfirmationDocflowV4.proto";
-import "ReceiptDocflowV4.proto";
 import "SignedAttachmentV3.proto";
 import "Timestamp.proto";
 import "UniversalMessageAttachmentDocflow.proto";

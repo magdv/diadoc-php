@@ -7,7 +7,7 @@ package Diadoc.Proto;
 
 enum TotalCountType
 {
-    STATUS_UNSPECIFIED = 0; // Обязательное значение по умолчанию
+    UnknownTotalCountType = 0;
     Equal = 1;
     GreaterThanOrEqual = 2;
 }

@@ -1,0 +1,16 @@
+syntax="proto3";
+
+import "UniversalMessageAttachmentDocflow.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/OutOfWorkflowUniversalMessageDocflow.html
+// Состояние универсального сообщения (УС), не влияющего на статус документооборота.
+
+message OutOfWorkflowUniversalMessageDocflow {
+    // список универсальных сообщений, представленных структурой UniversalMessageAttachmentDocflow.
+    repeated UniversalMessageAttachmentDocflow Messages = 1;
+}
+
+

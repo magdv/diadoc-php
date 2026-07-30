@@ -20,7 +20,7 @@ message RoamingSendingStatus {
 }
 
 enum RoamingSendingStatusNamedId {
-    UnknownStatus = 0;
+    UnknownRoamingSendingStatus = 0;
     IsSent = 1;
     SendingError = 2;
 }

@@ -4,7 +4,6 @@ import "DocumentWithDocflowV4.proto";
 
 package Diadoc.Proto;
 
-
 // Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GetDocflowBatchResponseV4.html
 // Cписок документов с информацией о документообороте, полученный методом GetDocflows (V4).
 

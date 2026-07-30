@@ -13,7 +13,7 @@ message DssSignResult {
     // способ подтверждения, принимает значение из перечисления `DssConfirmType`:
     DssConfirmType ConfirmType = 3 ;
     DssOperator Operator = 4 ;
-    string PhoneLastNumbers = 5
+    string PhoneLastNumbers = 5;
 }
 
 message DssFileSigningResult {

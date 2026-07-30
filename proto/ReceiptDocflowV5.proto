@@ -1,0 +1,6 @@
+syntax="proto3";
+
+// ReceiptDocflowV5 определён в ConfirmationDocflowV5.proto (взаимная зависимость сообщений).
+import "ConfirmationDocflowV5.proto";
+
+package Diadoc.Proto;

@@ -13,11 +13,9 @@ use UnexpectedValueException;
 class TotalCountType
 {
     /**
-     * Обязательное значение по умолчанию
-     *
-     * Generated from protobuf enum <code>STATUS_UNSPECIFIED = 0;</code>
+     * Generated from protobuf enum <code>UnknownTotalCountType = 0;</code>
      */
-    const STATUS_UNSPECIFIED = 0;
+    const UnknownTotalCountType = 0;
     /**
      * Generated from protobuf enum <code>Equal = 1;</code>
      */
@@ -28,7 +26,7 @@ class TotalCountType
     const GreaterThanOrEqual = 2;
 
     private static $valueToName = [
-        self::STATUS_UNSPECIFIED => 'STATUS_UNSPECIFIED',
+        self::UnknownTotalCountType => 'UnknownTotalCountType',
         self::Equal => 'Equal',
         self::GreaterThanOrEqual => 'GreaterThanOrEqual',
     ];

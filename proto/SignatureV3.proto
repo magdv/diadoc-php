@@ -31,7 +31,7 @@ message SignatureV3 {
     // информация о машиночитаемой доверенности и ее статусе, представленная структурой SignaturePowerOfAttorney.
     SignaturePowerOfAttorney PowerOfAttorney = 8;
     // статус приложенности машиночитаемой доверенности к подписи, представленный структурой PowerOfAttorneyAttachmentStatus.
-    PowerOfAttorneyAttachmentStatus PowerOfAttorneyAttachmentStatus = 9;
+    Docflow.PowerOfAttorneyAttachmentStatus PowerOfAttorneyAttachmentStatus = 9;
     // информация о типе подписи, представленная структурой SignatureTypeInfo. Возвращается только для документов, подписанных после 05.06.2025 12:00 (UTC).
     SignatureTypeInfo SignatureTypeInfo = 10;
 }

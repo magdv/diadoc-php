@@ -68,6 +68,14 @@ class MessagePatch extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string PatchId = 13;</code>
      */
     protected $PatchId = '';
+    /**
+     * Generated from protobuf field <code>string NotDeliveredEventId = 14;</code>
+     */
+    protected $NotDeliveredEventId = '';
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.MessageType MessageType = 15;</code>
+     */
+    protected $MessageType = 0;
 
     /**
      * Constructor.
@@ -89,6 +97,8 @@ class MessagePatch extends \Google\Protobuf\Internal\Message
      *     @type bool $MessageIsDelivered
      *     @type string $DeliveredPatchId
      *     @type string $PatchId
+     *     @type string $NotDeliveredEventId
+     *     @type int $MessageType
      * }
      */
     public function __construct($data = NULL) {
@@ -382,6 +392,50 @@ class MessagePatch extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->PatchId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string NotDeliveredEventId = 14;</code>
+     * @return string
+     */
+    public function getNotDeliveredEventId()
+    {
+        return $this->NotDeliveredEventId;
+    }
+
+    /**
+     * Generated from protobuf field <code>string NotDeliveredEventId = 14;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setNotDeliveredEventId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->NotDeliveredEventId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.MessageType MessageType = 15;</code>
+     * @return int
+     */
+    public function getMessageType()
+    {
+        return $this->MessageType;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.MessageType MessageType = 15;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMessageType($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\Documents\MessageType::class);
+        $this->MessageType = $var;
 
         return $this;
     }

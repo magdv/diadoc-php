@@ -23,6 +23,10 @@ class Entity extends \Google\Protobuf\Internal\Message
      */
     protected $EntityId = '';
     /**
+     * Generated from protobuf field <code>string AuthorUserId = 33;</code>
+     */
+    protected $AuthorUserId = '';
+    /**
      * Generated from protobuf field <code>string ParentEntityId = 3;</code>
      */
     protected $ParentEntityId = '';
@@ -110,6 +114,70 @@ class Entity extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool IsEncryptedContent = 20;</code>
      */
     protected $IsEncryptedContent = false;
+    /**
+     * Generated from protobuf field <code>string AttachmentVersion = 21;</code>
+     */
+    protected $AttachmentVersion = '';
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ResolutionRouteAssignmentInfo ResolutionRouteAssignmentInfo = 22;</code>
+     */
+    protected $ResolutionRouteAssignmentInfo = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ResolutionRouteRemovalInfo ResolutionRouteRemovalInfo = 23;</code>
+     */
+    protected $ResolutionRouteRemovalInfo = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.CancellationInfo CancellationInfo = 24;</code>
+     */
+    protected $CancellationInfo = null;
+    /**
+     * Generated from protobuf field <code>repeated string Labels = 25;</code>
+     */
+    private $Labels;
+    /**
+     * Generated from protobuf field <code>string Version = 26;</code>
+     */
+    protected $Version = '';
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateTransformationInfo TemplateTransformationInfo = 27;</code>
+     */
+    protected $TemplateTransformationInfo = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateRefusalInfo TemplateRefusalInfo = 28;</code>
+     */
+    protected $TemplateRefusalInfo = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.OuterDocflowInfo OuterDocflow = 29;</code>
+     */
+    protected $OuterDocflow = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.RevocationRequestInfo RevocationRequestInfo = 30;</code>
+     */
+    protected $RevocationRequestInfo = null;
+    /**
+     * Generated from protobuf field <code>string ContentTypeId = 31;</code>
+     */
+    protected $ContentTypeId = '';
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.PowerOfAttorneyInfo PowerOfAttorneyInfo = 32;</code>
+     */
+    protected $PowerOfAttorneyInfo = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.MoveDocumentInfo MoveDocumentInfo = 34;</code>
+     */
+    protected $MoveDocumentInfo = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Docflow.PowerOfAttorneyAttachmentStatus PowerOfAttorneyAttachmentStatus = 35;</code>
+     */
+    protected $PowerOfAttorneyAttachmentStatus = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.UniversalMessageInfo UniversalMessageInfo = 36;</code>
+     */
+    protected $UniversalMessageInfo = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateTransformationChangeInfo TemplateTransformationChangeInfo = 37;</code>
+     */
+    protected $TemplateTransformationChangeInfo = null;
 
     /**
      * Constructor.
@@ -119,6 +187,7 @@ class Entity extends \Google\Protobuf\Internal\Message
      *
      *     @type int $EntityType
      *     @type string $EntityId
+     *     @type string $AuthorUserId
      *     @type string $ParentEntityId
      *     @type \Diadoc\Proto\Content $Content
      *           null <=> there is no content for this entity (very unlikely to happen)
@@ -146,6 +215,22 @@ class Entity extends \Google\Protobuf\Internal\Message
      *     @type bool $IsApprovementSignature
      *           only for EntityType.Signature
      *     @type bool $IsEncryptedContent
+     *     @type string $AttachmentVersion
+     *     @type \Diadoc\Proto\ResolutionRouteAssignmentInfo $ResolutionRouteAssignmentInfo
+     *     @type \Diadoc\Proto\ResolutionRouteRemovalInfo $ResolutionRouteRemovalInfo
+     *     @type \Diadoc\Proto\CancellationInfo $CancellationInfo
+     *     @type string[] $Labels
+     *     @type string $Version
+     *     @type \Diadoc\Proto\TemplateTransformationInfo $TemplateTransformationInfo
+     *     @type \Diadoc\Proto\TemplateRefusalInfo $TemplateRefusalInfo
+     *     @type \Diadoc\Proto\OuterDocflowInfo $OuterDocflow
+     *     @type \Diadoc\Proto\RevocationRequestInfo $RevocationRequestInfo
+     *     @type string $ContentTypeId
+     *     @type \Diadoc\Proto\PowerOfAttorneyInfo $PowerOfAttorneyInfo
+     *     @type \Diadoc\Proto\MoveDocumentInfo $MoveDocumentInfo
+     *     @type \Diadoc\Proto\Docflow\PowerOfAttorneyAttachmentStatus $PowerOfAttorneyAttachmentStatus
+     *     @type \Diadoc\Proto\UniversalMessageInfo $UniversalMessageInfo
+     *     @type \Diadoc\Proto\TemplateTransformationChangeInfo $TemplateTransformationChangeInfo
      * }
      */
     public function __construct($data = NULL) {
@@ -193,6 +278,28 @@ class Entity extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->EntityId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string AuthorUserId = 33;</code>
+     * @return string
+     */
+    public function getAuthorUserId()
+    {
+        return $this->AuthorUserId;
+    }
+
+    /**
+     * Generated from protobuf field <code>string AuthorUserId = 33;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAuthorUserId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->AuthorUserId = $var;
 
         return $this;
     }
@@ -657,6 +764,478 @@ class Entity extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->IsEncryptedContent = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string AttachmentVersion = 21;</code>
+     * @return string
+     */
+    public function getAttachmentVersion()
+    {
+        return $this->AttachmentVersion;
+    }
+
+    /**
+     * Generated from protobuf field <code>string AttachmentVersion = 21;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAttachmentVersion($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->AttachmentVersion = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ResolutionRouteAssignmentInfo ResolutionRouteAssignmentInfo = 22;</code>
+     * @return \Diadoc\Proto\ResolutionRouteAssignmentInfo|null
+     */
+    public function getResolutionRouteAssignmentInfo()
+    {
+        return $this->ResolutionRouteAssignmentInfo;
+    }
+
+    public function hasResolutionRouteAssignmentInfo()
+    {
+        return isset($this->ResolutionRouteAssignmentInfo);
+    }
+
+    public function clearResolutionRouteAssignmentInfo()
+    {
+        unset($this->ResolutionRouteAssignmentInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ResolutionRouteAssignmentInfo ResolutionRouteAssignmentInfo = 22;</code>
+     * @param \Diadoc\Proto\ResolutionRouteAssignmentInfo $var
+     * @return $this
+     */
+    public function setResolutionRouteAssignmentInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\ResolutionRouteAssignmentInfo::class);
+        $this->ResolutionRouteAssignmentInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ResolutionRouteRemovalInfo ResolutionRouteRemovalInfo = 23;</code>
+     * @return \Diadoc\Proto\ResolutionRouteRemovalInfo|null
+     */
+    public function getResolutionRouteRemovalInfo()
+    {
+        return $this->ResolutionRouteRemovalInfo;
+    }
+
+    public function hasResolutionRouteRemovalInfo()
+    {
+        return isset($this->ResolutionRouteRemovalInfo);
+    }
+
+    public function clearResolutionRouteRemovalInfo()
+    {
+        unset($this->ResolutionRouteRemovalInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ResolutionRouteRemovalInfo ResolutionRouteRemovalInfo = 23;</code>
+     * @param \Diadoc\Proto\ResolutionRouteRemovalInfo $var
+     * @return $this
+     */
+    public function setResolutionRouteRemovalInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\ResolutionRouteRemovalInfo::class);
+        $this->ResolutionRouteRemovalInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.CancellationInfo CancellationInfo = 24;</code>
+     * @return \Diadoc\Proto\CancellationInfo|null
+     */
+    public function getCancellationInfo()
+    {
+        return $this->CancellationInfo;
+    }
+
+    public function hasCancellationInfo()
+    {
+        return isset($this->CancellationInfo);
+    }
+
+    public function clearCancellationInfo()
+    {
+        unset($this->CancellationInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.CancellationInfo CancellationInfo = 24;</code>
+     * @param \Diadoc\Proto\CancellationInfo $var
+     * @return $this
+     */
+    public function setCancellationInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\CancellationInfo::class);
+        $this->CancellationInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string Labels = 25;</code>
+     * @return RepeatedField<string>
+     */
+    public function getLabels()
+    {
+        return $this->Labels;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated string Labels = 25;</code>
+     * @param string[] $var
+     * @return $this
+     */
+    public function setLabels($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::STRING);
+        $this->Labels = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Version = 26;</code>
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->Version;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Version = 26;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setVersion($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->Version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateTransformationInfo TemplateTransformationInfo = 27;</code>
+     * @return \Diadoc\Proto\TemplateTransformationInfo|null
+     */
+    public function getTemplateTransformationInfo()
+    {
+        return $this->TemplateTransformationInfo;
+    }
+
+    public function hasTemplateTransformationInfo()
+    {
+        return isset($this->TemplateTransformationInfo);
+    }
+
+    public function clearTemplateTransformationInfo()
+    {
+        unset($this->TemplateTransformationInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateTransformationInfo TemplateTransformationInfo = 27;</code>
+     * @param \Diadoc\Proto\TemplateTransformationInfo $var
+     * @return $this
+     */
+    public function setTemplateTransformationInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\TemplateTransformationInfo::class);
+        $this->TemplateTransformationInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateRefusalInfo TemplateRefusalInfo = 28;</code>
+     * @return \Diadoc\Proto\TemplateRefusalInfo|null
+     */
+    public function getTemplateRefusalInfo()
+    {
+        return $this->TemplateRefusalInfo;
+    }
+
+    public function hasTemplateRefusalInfo()
+    {
+        return isset($this->TemplateRefusalInfo);
+    }
+
+    public function clearTemplateRefusalInfo()
+    {
+        unset($this->TemplateRefusalInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateRefusalInfo TemplateRefusalInfo = 28;</code>
+     * @param \Diadoc\Proto\TemplateRefusalInfo $var
+     * @return $this
+     */
+    public function setTemplateRefusalInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\TemplateRefusalInfo::class);
+        $this->TemplateRefusalInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.OuterDocflowInfo OuterDocflow = 29;</code>
+     * @return \Diadoc\Proto\OuterDocflowInfo|null
+     */
+    public function getOuterDocflow()
+    {
+        return $this->OuterDocflow;
+    }
+
+    public function hasOuterDocflow()
+    {
+        return isset($this->OuterDocflow);
+    }
+
+    public function clearOuterDocflow()
+    {
+        unset($this->OuterDocflow);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.OuterDocflowInfo OuterDocflow = 29;</code>
+     * @param \Diadoc\Proto\OuterDocflowInfo $var
+     * @return $this
+     */
+    public function setOuterDocflow($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\OuterDocflowInfo::class);
+        $this->OuterDocflow = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.RevocationRequestInfo RevocationRequestInfo = 30;</code>
+     * @return \Diadoc\Proto\RevocationRequestInfo|null
+     */
+    public function getRevocationRequestInfo()
+    {
+        return $this->RevocationRequestInfo;
+    }
+
+    public function hasRevocationRequestInfo()
+    {
+        return isset($this->RevocationRequestInfo);
+    }
+
+    public function clearRevocationRequestInfo()
+    {
+        unset($this->RevocationRequestInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.RevocationRequestInfo RevocationRequestInfo = 30;</code>
+     * @param \Diadoc\Proto\RevocationRequestInfo $var
+     * @return $this
+     */
+    public function setRevocationRequestInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\RevocationRequestInfo::class);
+        $this->RevocationRequestInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ContentTypeId = 31;</code>
+     * @return string
+     */
+    public function getContentTypeId()
+    {
+        return $this->ContentTypeId;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ContentTypeId = 31;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setContentTypeId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->ContentTypeId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.PowerOfAttorneyInfo PowerOfAttorneyInfo = 32;</code>
+     * @return \Diadoc\Proto\PowerOfAttorneyInfo|null
+     */
+    public function getPowerOfAttorneyInfo()
+    {
+        return $this->PowerOfAttorneyInfo;
+    }
+
+    public function hasPowerOfAttorneyInfo()
+    {
+        return isset($this->PowerOfAttorneyInfo);
+    }
+
+    public function clearPowerOfAttorneyInfo()
+    {
+        unset($this->PowerOfAttorneyInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.PowerOfAttorneyInfo PowerOfAttorneyInfo = 32;</code>
+     * @param \Diadoc\Proto\PowerOfAttorneyInfo $var
+     * @return $this
+     */
+    public function setPowerOfAttorneyInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\PowerOfAttorneyInfo::class);
+        $this->PowerOfAttorneyInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.MoveDocumentInfo MoveDocumentInfo = 34;</code>
+     * @return \Diadoc\Proto\MoveDocumentInfo|null
+     */
+    public function getMoveDocumentInfo()
+    {
+        return $this->MoveDocumentInfo;
+    }
+
+    public function hasMoveDocumentInfo()
+    {
+        return isset($this->MoveDocumentInfo);
+    }
+
+    public function clearMoveDocumentInfo()
+    {
+        unset($this->MoveDocumentInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.MoveDocumentInfo MoveDocumentInfo = 34;</code>
+     * @param \Diadoc\Proto\MoveDocumentInfo $var
+     * @return $this
+     */
+    public function setMoveDocumentInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\MoveDocumentInfo::class);
+        $this->MoveDocumentInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Docflow.PowerOfAttorneyAttachmentStatus PowerOfAttorneyAttachmentStatus = 35;</code>
+     * @return \Diadoc\Proto\Docflow\PowerOfAttorneyAttachmentStatus|null
+     */
+    public function getPowerOfAttorneyAttachmentStatus()
+    {
+        return $this->PowerOfAttorneyAttachmentStatus;
+    }
+
+    public function hasPowerOfAttorneyAttachmentStatus()
+    {
+        return isset($this->PowerOfAttorneyAttachmentStatus);
+    }
+
+    public function clearPowerOfAttorneyAttachmentStatus()
+    {
+        unset($this->PowerOfAttorneyAttachmentStatus);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Docflow.PowerOfAttorneyAttachmentStatus PowerOfAttorneyAttachmentStatus = 35;</code>
+     * @param \Diadoc\Proto\Docflow\PowerOfAttorneyAttachmentStatus $var
+     * @return $this
+     */
+    public function setPowerOfAttorneyAttachmentStatus($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\Docflow\PowerOfAttorneyAttachmentStatus::class);
+        $this->PowerOfAttorneyAttachmentStatus = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.UniversalMessageInfo UniversalMessageInfo = 36;</code>
+     * @return \Diadoc\Proto\UniversalMessageInfo|null
+     */
+    public function getUniversalMessageInfo()
+    {
+        return $this->UniversalMessageInfo;
+    }
+
+    public function hasUniversalMessageInfo()
+    {
+        return isset($this->UniversalMessageInfo);
+    }
+
+    public function clearUniversalMessageInfo()
+    {
+        unset($this->UniversalMessageInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.UniversalMessageInfo UniversalMessageInfo = 36;</code>
+     * @param \Diadoc\Proto\UniversalMessageInfo $var
+     * @return $this
+     */
+    public function setUniversalMessageInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\UniversalMessageInfo::class);
+        $this->UniversalMessageInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateTransformationChangeInfo TemplateTransformationChangeInfo = 37;</code>
+     * @return \Diadoc\Proto\TemplateTransformationChangeInfo|null
+     */
+    public function getTemplateTransformationChangeInfo()
+    {
+        return $this->TemplateTransformationChangeInfo;
+    }
+
+    public function hasTemplateTransformationChangeInfo()
+    {
+        return isset($this->TemplateTransformationChangeInfo);
+    }
+
+    public function clearTemplateTransformationChangeInfo()
+    {
+        unset($this->TemplateTransformationChangeInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateTransformationChangeInfo TemplateTransformationChangeInfo = 37;</code>
+     * @param \Diadoc\Proto\TemplateTransformationChangeInfo $var
+     * @return $this
+     */
+    public function setTemplateTransformationChangeInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\TemplateTransformationChangeInfo::class);
+        $this->TemplateTransformationChangeInfo = $var;
 
         return $this;
     }

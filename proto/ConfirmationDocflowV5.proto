@@ -1,0 +1,47 @@
+syntax="proto3";
+
+import "GeneralReceiptStatus.proto";
+import "OperatorConfirmationDocflow.proto";
+import "SignedAttachmentV3.proto";
+import "Timestamp.proto";
+import "UniversalMessageAttachmentDocflow.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ConfirmationDocflowV5.html
+// Состояние подтверждения оператора ЭДО об отправке или получении документа и извещения о получении.
+// ReceiptDocflowV5 определён здесь же, чтобы избежать циклического импорта (как в официальном SDK).
+
+message ConfirmationDocflowV5 {
+    // признак того, что документооборот по подтверждению оператора завершен и не требует дальнейших действий.
+    bool IsFinished = 1;
+    // данные файла подтверждения оператора и подписи под ним, представленные структурой SignedAttachmentV3.
+    optional SignedAttachmentV3 ConfirmationAttachment = 2;
+    // дата подтверждения оператора, представленная структурой Timestamp.
+    optional Timestamp ConfirmedAt = 3;
+    // информация об извещении о получении подтверждения оператора, представленная структурой ReceiptDocflowV5.
+    optional ReceiptDocflowV5 Receipt = 4;
+    // подтверждение оператора, отправленное в роуминг или полученное из роуминга, представленное структурой OperatorConfirmationDocflow.
+    optional OperatorConfirmationDocflow RoamingConfirmation = 5;
+}
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ReceiptDocflowV5.html
+// Состояние извещения о получении (ИоП).
+
+message ReceiptDocflowV5 {
+    // признак того, что документооборот по ИоП завершен и не требует дальнейших действий.
+    bool IsFinished = 1;
+    // данные файла ИоП и подписи под ним, представленные структурой SignedAttachmentV3.
+    optional SignedAttachmentV3 ReceiptAttachment = 2;
+    // время отправки ИоП, представленное структурой Timestamp.
+    optional Timestamp SentAt = 3;
+    // время доставки ИоП, представленное структурой Timestamp.
+    optional Timestamp DeliveredAt = 4;
+    // статус ИоП, принимает значение из перечисления GeneralReceiptStatus.
+    GeneralReceiptStatus Status = 5;
+    // информация о подтверждении оператором даты доставки ИоП, представленная структурой ConfirmationDocflowV5.
+    optional ConfirmationDocflowV5 Confirmation = 6;
+    // универсальное сообщение с извещением о получении, представленное структурой UniversalMessageAttachmentDocflow.
+    optional UniversalMessageAttachmentDocflow UniversalMessage = 7;
+}

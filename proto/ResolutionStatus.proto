@@ -20,7 +20,7 @@ message ResolutionStatus {
 }
 
 enum ResolutionStatusType {
-    None = 0;
+    ResolutionStatusTypeNone = 0;
     Approved = 1;
     Disapproved = 2;
     ApprovementRequested = 3;

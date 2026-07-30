@@ -155,6 +155,14 @@ class Document extends \Google\Protobuf\Internal\Message
      */
     private $ForwardDocumentEvents;
     /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata PriceListAgreementMetadataOld = 36;</code>
+     */
+    protected $PriceListAgreementMetadataOld = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata CertificateRegistryMetadataOld = 37;</code>
+     */
+    protected $CertificateRegistryMetadataOld = null;
+    /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentMetadata ReconciliationActMetadata = 38;</code>
      */
     protected $ReconciliationActMetadata = null;
@@ -231,9 +239,105 @@ class Document extends \Google\Protobuf\Internal\Message
      */
     protected $UniversalTransferDocumentMetadata = null;
     /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalTransferDocumentRevisionMetadata UniversalTransferDocumentRevisionMetadata = 57;</code>
+     */
+    protected $UniversalTransferDocumentRevisionMetadata = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalCorrectionDocumentMetadata UniversalCorrectionDocumentMetadata = 58;</code>
+     */
+    protected $UniversalCorrectionDocumentMetadata = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalCorrectionDocumentRevisionMetadata UniversalCorrectionDocumentRevisionMetadata = 59;</code>
+     */
+    protected $UniversalCorrectionDocumentRevisionMetadata = null;
+    /**
+     * Generated from protobuf field <code>string ResolutionRouteId = 60;</code>
+     */
+    protected $ResolutionRouteId = '';
+    /**
+     * Generated from protobuf field <code>string AttachmentVersion = 61;</code>
+     */
+    protected $AttachmentVersion = '';
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ProxySignatureStatus ProxySignatureStatus = 62;</code>
+     */
+    protected $ProxySignatureStatus = 0;
+    /**
+     * Generated from protobuf field <code>string TypeNamedId = 63;</code>
+     */
+    protected $TypeNamedId = '';
+    /**
+     * Generated from protobuf field <code>string Function = 64;</code>
+     */
+    protected $Function = '';
+    /**
+     * Generated from protobuf field <code>int32 WorkflowId = 65;</code>
+     */
+    protected $WorkflowId = 0;
+    /**
+     * Generated from protobuf field <code>string Title = 66;</code>
+     */
+    protected $Title = '';
+    /**
+     * Generated from protobuf field <code>repeated .Diadoc.Proto.MetadataItem Metadata = 67;</code>
+     */
+    private $Metadata;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.RecipientReceiptMetadata RecipientReceiptMetadata = 68;</code>
+     */
+    protected $RecipientReceiptMetadata = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ConfirmationMetadata ConfirmationMetadata = 69;</code>
+     */
+    protected $ConfirmationMetadata = null;
+    /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.RecipientResponseStatus RecipientResponseStatus = 70;</code>
      */
     protected $RecipientResponseStatus = 0;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.AmendmentRequestMetadata AmendmentRequestMetadata = 71;</code>
+     */
+    protected $AmendmentRequestMetadata = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.Origin Origin = 72;</code>
+     */
+    protected $Origin = null;
+    /**
+     * Generated from protobuf field <code>string EditingSettingId = 73;</code>
+     */
+    protected $EditingSettingId = '';
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.LockMode LockMode = 74;</code>
+     */
+    protected $LockMode = 0;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.SenderReceiptMetadata SenderReceiptMetadata = 75;</code>
+     */
+    protected $SenderReceiptMetadata = null;
+    /**
+     * Generated from protobuf field <code>string Version = 76;</code>
+     */
+    protected $Version = '';
+    /**
+     * Generated from protobuf field <code>repeated .Diadoc.Proto.LastOuterDocflow LastOuterDocflows = 77;</code>
+     */
+    private $LastOuterDocflows;
+    /**
+     * Generated from protobuf field <code>string ProxyBoxId = 78;</code>
+     */
+    protected $ProxyBoxId = '';
+    /**
+     * Generated from protobuf field <code>string ProxyDepartmentId = 79;</code>
+     */
+    protected $ProxyDepartmentId = '';
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.DocflowStatusV3 DocflowStatus = 80;</code>
+     */
+    protected $DocflowStatus = null;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TtGisFixationCancellationStatus TtGisFixationCancellationStatus = 81;</code>
+     */
+    protected $TtGisFixationCancellationStatus = 0;
 
     /**
      * Constructor.
@@ -276,6 +380,8 @@ class Document extends \Google\Protobuf\Internal\Message
      *     @type int|string $SendTimestampTicks
      *     @type int|string $DeliveryTimestampTicks
      *     @type \Diadoc\Proto\ForwardDocumentEvent[] $ForwardDocumentEvents
+     *     @type \Diadoc\Proto\Documents\BilateralDocument\BasicDocumentMetadata $PriceListAgreementMetadataOld
+     *     @type \Diadoc\Proto\Documents\BilateralDocument\BasicDocumentMetadata $CertificateRegistryMetadataOld
      *     @type \Diadoc\Proto\Documents\BilateralDocument\BilateralDocumentMetadata $ReconciliationActMetadata
      *     @type \Diadoc\Proto\Documents\BilateralDocument\ContractMetadata $ContractMetadata
      *     @type \Diadoc\Proto\Documents\BilateralDocument\BasicDocumentMetadata $Torg13Metadata
@@ -295,7 +401,31 @@ class Document extends \Google\Protobuf\Internal\Message
      *     @type \Diadoc\Proto\Documents\NonformalizedDocument\NonformalizedDocumentMetadata $PriceListAgreementMetadata
      *     @type \Diadoc\Proto\Documents\NonformalizedDocument\NonformalizedDocumentMetadata $CertificateRegistryMetadata
      *     @type \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalTransferDocumentMetadata $UniversalTransferDocumentMetadata
+     *     @type \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalTransferDocumentRevisionMetadata $UniversalTransferDocumentRevisionMetadata
+     *     @type \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalCorrectionDocumentMetadata $UniversalCorrectionDocumentMetadata
+     *     @type \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalCorrectionDocumentRevisionMetadata $UniversalCorrectionDocumentRevisionMetadata
+     *     @type string $ResolutionRouteId
+     *     @type string $AttachmentVersion
+     *     @type int $ProxySignatureStatus
+     *     @type string $TypeNamedId
+     *     @type string $Function
+     *     @type int $WorkflowId
+     *     @type string $Title
+     *     @type \Diadoc\Proto\MetadataItem[] $Metadata
+     *     @type \Diadoc\Proto\RecipientReceiptMetadata $RecipientReceiptMetadata
+     *     @type \Diadoc\Proto\ConfirmationMetadata $ConfirmationMetadata
      *     @type int $RecipientResponseStatus
+     *     @type \Diadoc\Proto\AmendmentRequestMetadata $AmendmentRequestMetadata
+     *     @type \Diadoc\Proto\Documents\Origin $Origin
+     *     @type string $EditingSettingId
+     *     @type int $LockMode
+     *     @type \Diadoc\Proto\SenderReceiptMetadata $SenderReceiptMetadata
+     *     @type string $Version
+     *     @type \Diadoc\Proto\LastOuterDocflow[] $LastOuterDocflows
+     *     @type string $ProxyBoxId
+     *     @type string $ProxyDepartmentId
+     *     @type \Diadoc\Proto\DocflowStatusV3 $DocflowStatus
+     *     @type int $TtGisFixationCancellationStatus
      * }
      */
     public function __construct($data = NULL) {
@@ -1214,6 +1344,70 @@ class Document extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata PriceListAgreementMetadataOld = 36;</code>
+     * @return \Diadoc\Proto\Documents\BilateralDocument\BasicDocumentMetadata|null
+     */
+    public function getPriceListAgreementMetadataOld()
+    {
+        return $this->PriceListAgreementMetadataOld;
+    }
+
+    public function hasPriceListAgreementMetadataOld()
+    {
+        return isset($this->PriceListAgreementMetadataOld);
+    }
+
+    public function clearPriceListAgreementMetadataOld()
+    {
+        unset($this->PriceListAgreementMetadataOld);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata PriceListAgreementMetadataOld = 36;</code>
+     * @param \Diadoc\Proto\Documents\BilateralDocument\BasicDocumentMetadata $var
+     * @return $this
+     */
+    public function setPriceListAgreementMetadataOld($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\Documents\BilateralDocument\BasicDocumentMetadata::class);
+        $this->PriceListAgreementMetadataOld = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata CertificateRegistryMetadataOld = 37;</code>
+     * @return \Diadoc\Proto\Documents\BilateralDocument\BasicDocumentMetadata|null
+     */
+    public function getCertificateRegistryMetadataOld()
+    {
+        return $this->CertificateRegistryMetadataOld;
+    }
+
+    public function hasCertificateRegistryMetadataOld()
+    {
+        return isset($this->CertificateRegistryMetadataOld);
+    }
+
+    public function clearCertificateRegistryMetadataOld()
+    {
+        unset($this->CertificateRegistryMetadataOld);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BasicDocumentMetadata CertificateRegistryMetadataOld = 37;</code>
+     * @param \Diadoc\Proto\Documents\BilateralDocument\BasicDocumentMetadata $var
+     * @return $this
+     */
+    public function setCertificateRegistryMetadataOld($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\Documents\BilateralDocument\BasicDocumentMetadata::class);
+        $this->CertificateRegistryMetadataOld = $var;
+
+        return $this;
+    }
+
+    /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.BilateralDocument.BilateralDocumentMetadata ReconciliationActMetadata = 38;</code>
      * @return \Diadoc\Proto\Documents\BilateralDocument\BilateralDocumentMetadata|null
      */
@@ -1712,6 +1906,342 @@ class Document extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalTransferDocumentRevisionMetadata UniversalTransferDocumentRevisionMetadata = 57;</code>
+     * @return \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalTransferDocumentRevisionMetadata|null
+     */
+    public function getUniversalTransferDocumentRevisionMetadata()
+    {
+        return $this->UniversalTransferDocumentRevisionMetadata;
+    }
+
+    public function hasUniversalTransferDocumentRevisionMetadata()
+    {
+        return isset($this->UniversalTransferDocumentRevisionMetadata);
+    }
+
+    public function clearUniversalTransferDocumentRevisionMetadata()
+    {
+        unset($this->UniversalTransferDocumentRevisionMetadata);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalTransferDocumentRevisionMetadata UniversalTransferDocumentRevisionMetadata = 57;</code>
+     * @param \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalTransferDocumentRevisionMetadata $var
+     * @return $this
+     */
+    public function setUniversalTransferDocumentRevisionMetadata($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalTransferDocumentRevisionMetadata::class);
+        $this->UniversalTransferDocumentRevisionMetadata = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalCorrectionDocumentMetadata UniversalCorrectionDocumentMetadata = 58;</code>
+     * @return \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalCorrectionDocumentMetadata|null
+     */
+    public function getUniversalCorrectionDocumentMetadata()
+    {
+        return $this->UniversalCorrectionDocumentMetadata;
+    }
+
+    public function hasUniversalCorrectionDocumentMetadata()
+    {
+        return isset($this->UniversalCorrectionDocumentMetadata);
+    }
+
+    public function clearUniversalCorrectionDocumentMetadata()
+    {
+        unset($this->UniversalCorrectionDocumentMetadata);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalCorrectionDocumentMetadata UniversalCorrectionDocumentMetadata = 58;</code>
+     * @param \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalCorrectionDocumentMetadata $var
+     * @return $this
+     */
+    public function setUniversalCorrectionDocumentMetadata($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalCorrectionDocumentMetadata::class);
+        $this->UniversalCorrectionDocumentMetadata = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalCorrectionDocumentRevisionMetadata UniversalCorrectionDocumentRevisionMetadata = 59;</code>
+     * @return \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalCorrectionDocumentRevisionMetadata|null
+     */
+    public function getUniversalCorrectionDocumentRevisionMetadata()
+    {
+        return $this->UniversalCorrectionDocumentRevisionMetadata;
+    }
+
+    public function hasUniversalCorrectionDocumentRevisionMetadata()
+    {
+        return isset($this->UniversalCorrectionDocumentRevisionMetadata);
+    }
+
+    public function clearUniversalCorrectionDocumentRevisionMetadata()
+    {
+        unset($this->UniversalCorrectionDocumentRevisionMetadata);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.UniversalTransferDocument.UniversalCorrectionDocumentRevisionMetadata UniversalCorrectionDocumentRevisionMetadata = 59;</code>
+     * @param \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalCorrectionDocumentRevisionMetadata $var
+     * @return $this
+     */
+    public function setUniversalCorrectionDocumentRevisionMetadata($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\Documents\UniversalTransferDocument\UniversalCorrectionDocumentRevisionMetadata::class);
+        $this->UniversalCorrectionDocumentRevisionMetadata = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ResolutionRouteId = 60;</code>
+     * @return string
+     */
+    public function getResolutionRouteId()
+    {
+        return $this->ResolutionRouteId;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ResolutionRouteId = 60;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setResolutionRouteId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->ResolutionRouteId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string AttachmentVersion = 61;</code>
+     * @return string
+     */
+    public function getAttachmentVersion()
+    {
+        return $this->AttachmentVersion;
+    }
+
+    /**
+     * Generated from protobuf field <code>string AttachmentVersion = 61;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setAttachmentVersion($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->AttachmentVersion = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ProxySignatureStatus ProxySignatureStatus = 62;</code>
+     * @return int
+     */
+    public function getProxySignatureStatus()
+    {
+        return $this->ProxySignatureStatus;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ProxySignatureStatus ProxySignatureStatus = 62;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setProxySignatureStatus($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\ProxySignatureStatus::class);
+        $this->ProxySignatureStatus = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string TypeNamedId = 63;</code>
+     * @return string
+     */
+    public function getTypeNamedId()
+    {
+        return $this->TypeNamedId;
+    }
+
+    /**
+     * Generated from protobuf field <code>string TypeNamedId = 63;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTypeNamedId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->TypeNamedId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Function = 64;</code>
+     * @return string
+     */
+    public function getFunction()
+    {
+        return $this->Function;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Function = 64;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setFunction($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->Function = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 WorkflowId = 65;</code>
+     * @return int
+     */
+    public function getWorkflowId()
+    {
+        return $this->WorkflowId;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 WorkflowId = 65;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setWorkflowId($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->WorkflowId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Title = 66;</code>
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->Title;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Title = 66;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setTitle($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->Title = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .Diadoc.Proto.MetadataItem Metadata = 67;</code>
+     * @return RepeatedField<\Diadoc\Proto\MetadataItem>
+     */
+    public function getMetadata()
+    {
+        return $this->Metadata;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .Diadoc.Proto.MetadataItem Metadata = 67;</code>
+     * @param \Diadoc\Proto\MetadataItem[] $var
+     * @return $this
+     */
+    public function setMetadata($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Diadoc\Proto\MetadataItem::class);
+        $this->Metadata = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.RecipientReceiptMetadata RecipientReceiptMetadata = 68;</code>
+     * @return \Diadoc\Proto\RecipientReceiptMetadata|null
+     */
+    public function getRecipientReceiptMetadata()
+    {
+        return $this->RecipientReceiptMetadata;
+    }
+
+    public function hasRecipientReceiptMetadata()
+    {
+        return isset($this->RecipientReceiptMetadata);
+    }
+
+    public function clearRecipientReceiptMetadata()
+    {
+        unset($this->RecipientReceiptMetadata);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.RecipientReceiptMetadata RecipientReceiptMetadata = 68;</code>
+     * @param \Diadoc\Proto\RecipientReceiptMetadata $var
+     * @return $this
+     */
+    public function setRecipientReceiptMetadata($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\RecipientReceiptMetadata::class);
+        $this->RecipientReceiptMetadata = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ConfirmationMetadata ConfirmationMetadata = 69;</code>
+     * @return \Diadoc\Proto\ConfirmationMetadata|null
+     */
+    public function getConfirmationMetadata()
+    {
+        return $this->ConfirmationMetadata;
+    }
+
+    public function hasConfirmationMetadata()
+    {
+        return isset($this->ConfirmationMetadata);
+    }
+
+    public function clearConfirmationMetadata()
+    {
+        unset($this->ConfirmationMetadata);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.ConfirmationMetadata ConfirmationMetadata = 69;</code>
+     * @param \Diadoc\Proto\ConfirmationMetadata $var
+     * @return $this
+     */
+    public function setConfirmationMetadata($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\ConfirmationMetadata::class);
+        $this->ConfirmationMetadata = $var;
+
+        return $this;
+    }
+
+    /**
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.RecipientResponseStatus RecipientResponseStatus = 70;</code>
      * @return int
      */
@@ -1729,6 +2259,288 @@ class Document extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkEnum($var, \Diadoc\Proto\Documents\RecipientResponseStatus::class);
         $this->RecipientResponseStatus = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.AmendmentRequestMetadata AmendmentRequestMetadata = 71;</code>
+     * @return \Diadoc\Proto\AmendmentRequestMetadata|null
+     */
+    public function getAmendmentRequestMetadata()
+    {
+        return $this->AmendmentRequestMetadata;
+    }
+
+    public function hasAmendmentRequestMetadata()
+    {
+        return isset($this->AmendmentRequestMetadata);
+    }
+
+    public function clearAmendmentRequestMetadata()
+    {
+        unset($this->AmendmentRequestMetadata);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.AmendmentRequestMetadata AmendmentRequestMetadata = 71;</code>
+     * @param \Diadoc\Proto\AmendmentRequestMetadata $var
+     * @return $this
+     */
+    public function setAmendmentRequestMetadata($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\AmendmentRequestMetadata::class);
+        $this->AmendmentRequestMetadata = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.Origin Origin = 72;</code>
+     * @return \Diadoc\Proto\Documents\Origin|null
+     */
+    public function getOrigin()
+    {
+        return $this->Origin;
+    }
+
+    public function hasOrigin()
+    {
+        return isset($this->Origin);
+    }
+
+    public function clearOrigin()
+    {
+        unset($this->Origin);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.Origin Origin = 72;</code>
+     * @param \Diadoc\Proto\Documents\Origin $var
+     * @return $this
+     */
+    public function setOrigin($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\Documents\Origin::class);
+        $this->Origin = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string EditingSettingId = 73;</code>
+     * @return string
+     */
+    public function getEditingSettingId()
+    {
+        return $this->EditingSettingId;
+    }
+
+    /**
+     * Generated from protobuf field <code>string EditingSettingId = 73;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setEditingSettingId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->EditingSettingId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.LockMode LockMode = 74;</code>
+     * @return int
+     */
+    public function getLockMode()
+    {
+        return $this->LockMode;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.LockMode LockMode = 74;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setLockMode($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\LockMode::class);
+        $this->LockMode = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.SenderReceiptMetadata SenderReceiptMetadata = 75;</code>
+     * @return \Diadoc\Proto\SenderReceiptMetadata|null
+     */
+    public function getSenderReceiptMetadata()
+    {
+        return $this->SenderReceiptMetadata;
+    }
+
+    public function hasSenderReceiptMetadata()
+    {
+        return isset($this->SenderReceiptMetadata);
+    }
+
+    public function clearSenderReceiptMetadata()
+    {
+        unset($this->SenderReceiptMetadata);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.SenderReceiptMetadata SenderReceiptMetadata = 75;</code>
+     * @param \Diadoc\Proto\SenderReceiptMetadata $var
+     * @return $this
+     */
+    public function setSenderReceiptMetadata($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\SenderReceiptMetadata::class);
+        $this->SenderReceiptMetadata = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Version = 76;</code>
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->Version;
+    }
+
+    /**
+     * Generated from protobuf field <code>string Version = 76;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setVersion($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->Version = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .Diadoc.Proto.LastOuterDocflow LastOuterDocflows = 77;</code>
+     * @return RepeatedField<\Diadoc\Proto\LastOuterDocflow>
+     */
+    public function getLastOuterDocflows()
+    {
+        return $this->LastOuterDocflows;
+    }
+
+    /**
+     * Generated from protobuf field <code>repeated .Diadoc.Proto.LastOuterDocflow LastOuterDocflows = 77;</code>
+     * @param \Diadoc\Proto\LastOuterDocflow[] $var
+     * @return $this
+     */
+    public function setLastOuterDocflows($var)
+    {
+        $arr = GPBUtil::checkRepeatedField($var, \Google\Protobuf\Internal\GPBType::MESSAGE, \Diadoc\Proto\LastOuterDocflow::class);
+        $this->LastOuterDocflows = $arr;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ProxyBoxId = 78;</code>
+     * @return string
+     */
+    public function getProxyBoxId()
+    {
+        return $this->ProxyBoxId;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ProxyBoxId = 78;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setProxyBoxId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->ProxyBoxId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ProxyDepartmentId = 79;</code>
+     * @return string
+     */
+    public function getProxyDepartmentId()
+    {
+        return $this->ProxyDepartmentId;
+    }
+
+    /**
+     * Generated from protobuf field <code>string ProxyDepartmentId = 79;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setProxyDepartmentId($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->ProxyDepartmentId = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.DocflowStatusV3 DocflowStatus = 80;</code>
+     * @return \Diadoc\Proto\DocflowStatusV3|null
+     */
+    public function getDocflowStatus()
+    {
+        return $this->DocflowStatus;
+    }
+
+    public function hasDocflowStatus()
+    {
+        return isset($this->DocflowStatus);
+    }
+
+    public function clearDocflowStatus()
+    {
+        unset($this->DocflowStatus);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.DocflowStatusV3 DocflowStatus = 80;</code>
+     * @param \Diadoc\Proto\DocflowStatusV3 $var
+     * @return $this
+     */
+    public function setDocflowStatus($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\DocflowStatusV3::class);
+        $this->DocflowStatus = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TtGisFixationCancellationStatus TtGisFixationCancellationStatus = 81;</code>
+     * @return int
+     */
+    public function getTtGisFixationCancellationStatus()
+    {
+        return $this->TtGisFixationCancellationStatus;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TtGisFixationCancellationStatus TtGisFixationCancellationStatus = 81;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setTtGisFixationCancellationStatus($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\TtGisFixationCancellationStatus::class);
+        $this->TtGisFixationCancellationStatus = $var;
 
         return $this;
     }

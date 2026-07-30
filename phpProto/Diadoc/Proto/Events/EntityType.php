@@ -23,7 +23,7 @@ class EntityType
      */
     const Attachment = 1;
     /**
-     *Неизвестные типы должны обрабатываться клиентом как cущность Attachment с типом вложения AttachmentType.Nonformalized
+     *Неизвестные типы должны обрабатываться клиентом как сущность Attachment с типом вложения AttachmentType.Nonformalized
      *
      * Generated from protobuf enum <code>Signature = 2;</code>
      */

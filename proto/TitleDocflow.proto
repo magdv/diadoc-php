@@ -1,0 +1,30 @@
+syntax="proto3";
+
+import "DocumentParticipantV2.proto";
+import "OutOfWorkflowUniversalMessageDocflow.proto";
+import "TitleAuthorDocflow.proto";
+import "TitleParticipantDocflow.proto";
+import "TitleVersionV5.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TitleDocflow.html
+// Состояние документооборота титула.
+
+message TitleDocflow {
+    // числовой идентификатор титула документа, нумерация с нуля.
+    int32 TitleIndex = 1;
+    // версия титула, представленная структурой TitleVersionV5.
+    optional TitleVersionV5 Version = 2;
+    // автор титула, представленный структурой DocumentParticipantV2.
+    DocumentParticipantV2 Author = 3;
+    // состояние действия автора титула, представленное структурой TitleAuthorDocflow.
+    TitleAuthorDocflow AuthorSigning = 4;
+    // список с состоянием участников документооборота по отношению к титулу. Каждый элемент списка представлен структурой TitleParticipantDocflow.
+    repeated TitleParticipantDocflow ParticipantDocflows = 5;
+    // состояние универсального сообщения (УС), не влияющего на статус документооборота, представленное структурой OutOfWorkflowUniversalMessageDocflow.
+    optional OutOfWorkflowUniversalMessageDocflow OutOfWorkflowUniversalMessageDocflow = 6;
+}
+
+

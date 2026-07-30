@@ -17,7 +17,7 @@ message DocflowStatusV3
     // второстепенная часть статуса, предназначенная для дополнительной информации, представленная структурой DocflowStatusModelV3.
     DocflowStatusModelV3 SecondaryStatus = 2;
     // информация о сводном статусе по всем машиночитаемым доверенностям (МЧД), представленная структурой PowerOfAttorneyValidationStatus. Сводный статус формируется на основании всех МЧД, которые были приложены к документу при совершении действий с ним, за исключением извещения о получении. Сводный статус будет сформирован по следующим правилам:
-    PowerOfAttorneyValidationStatus PowerOfAttorneyGeneralStatus = 3;
+    PowersOfAttorney.PowerOfAttorneyValidationStatus PowerOfAttorneyGeneralStatus = 3;
     // статус отправки МЧД в роуминг, представленный структурой RoamingSendingStatus. Статус отправки в роуминг формируется на основании всех МЧД, которые были приложены к документу при совершении действий с ним, например: подписание, извещение о получении, аннулирование, согласующая подпись и т.п. Статус формируется по следующим правилам:
     RoamingSendingStatus GeneralRoamingSendingStatus = 4;
 }

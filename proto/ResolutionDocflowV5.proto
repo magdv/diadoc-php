@@ -1,0 +1,23 @@
+syntax="proto3";
+
+import "ResolutionEntitiesV3.proto";
+import "ResolutionStatusDocflow.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionDocflowV5.html
+// Состояние согласования документа или запроса на аннулирование.
+
+message ResolutionDocflowV5 {
+    // признак того, что согласование по документу/запросу на аннулирование завершено и не требует дальнейших действий.
+    bool IsFinished = 1;
+    // статус согласования документа, принимает значение из перечисления ResolutionStatus.
+    Docflow.ResolutionStatus ResolutionStatus = 2;
+    // идентификатор актуальной сущности по согласованию.
+    optional string CurrentResolutionEntityId = 3;
+    // информация о сущностях, относящихся к согласованию, представленная структурой ResolutionEntitiesV3.
+    optional ResolutionEntitiesV3 ResolutionEntities = 4;
+}
+
+

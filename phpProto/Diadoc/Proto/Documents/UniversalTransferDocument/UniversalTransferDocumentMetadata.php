@@ -48,6 +48,14 @@ class UniversalTransferDocumentMetadata extends \Google\Protobuf\Internal\Messag
      * Generated from protobuf field <code>.Diadoc.Proto.Documents.ReceiptStatus ReceiptStatus = 7;</code>
      */
     protected $ReceiptStatus = 0;
+    /**
+     * Generated from protobuf field <code>sfixed64 ConfirmationDateTimeTicks = 8;</code>
+     */
+    protected $ConfirmationDateTimeTicks = 0;
+    /**
+     * Generated from protobuf field <code>int32 InvoiceAmendmentFlags = 9;</code>
+     */
+    protected $InvoiceAmendmentFlags = 0;
 
     /**
      * Constructor.
@@ -65,6 +73,8 @@ class UniversalTransferDocumentMetadata extends \Google\Protobuf\Internal\Messag
      *     @type string $DocumentFunction
      *     @type int $Currency
      *     @type int $ReceiptStatus
+     *     @type int|string $ConfirmationDateTimeTicks
+     *     @type int $InvoiceAmendmentFlags
      * }
      */
     public function __construct($data = NULL) {
@@ -234,6 +244,50 @@ class UniversalTransferDocumentMetadata extends \Google\Protobuf\Internal\Messag
     {
         GPBUtil::checkEnum($var, \Diadoc\Proto\Documents\ReceiptStatus::class);
         $this->ReceiptStatus = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>sfixed64 ConfirmationDateTimeTicks = 8;</code>
+     * @return int|string
+     */
+    public function getConfirmationDateTimeTicks()
+    {
+        return $this->ConfirmationDateTimeTicks;
+    }
+
+    /**
+     * Generated from protobuf field <code>sfixed64 ConfirmationDateTimeTicks = 8;</code>
+     * @param int|string $var
+     * @return $this
+     */
+    public function setConfirmationDateTimeTicks($var)
+    {
+        GPBUtil::checkInt64($var);
+        $this->ConfirmationDateTimeTicks = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 InvoiceAmendmentFlags = 9;</code>
+     * @return int
+     */
+    public function getInvoiceAmendmentFlags()
+    {
+        return $this->InvoiceAmendmentFlags;
+    }
+
+    /**
+     * Generated from protobuf field <code>int32 InvoiceAmendmentFlags = 9;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setInvoiceAmendmentFlags($var)
+    {
+        GPBUtil::checkInt32($var);
+        $this->InvoiceAmendmentFlags = $var;
 
         return $this;
     }

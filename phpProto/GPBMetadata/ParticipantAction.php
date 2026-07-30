@@ -16,7 +16,7 @@ class ParticipantAction
           return;
         }
         $pool->internalAddGeneratedFile(
-            "\x0A\x82\x01\x0A\x17ParticipantAction.proto\x12\x0CDiadoc.Proto*Q\x0A\x11ParticipantAction\x12\x0B\x0A\x07Unknown\x10\x00\x12\x09\x0A\x05Title\x10\x01\x12\x0D\x0A\x09Signature\x10\x02\x12\x15\x0A\x11OptionalSignature\x10\x03b\x06proto3"
+            "\x0A\x9E\x01\x0A\x17ParticipantAction.proto\x12(Diadoc.Proto.Workflows.ParticipantAction*Q\x0A\x11ParticipantAction\x12\x0B\x0A\x07Unknown\x10\x00\x12\x09\x0A\x05Title\x10\x01\x12\x0D\x0A\x09Signature\x10\x02\x12\x15\x0A\x11OptionalSignature\x10\x03b\x06proto3"
         , true);
 
         static::$is_initialized = true;

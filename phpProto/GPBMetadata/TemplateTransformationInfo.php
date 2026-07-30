@@ -17,7 +17,7 @@ class TemplateTransformationInfo
         }
         \GPBMetadata\DocumentId::initOnce();
         $pool->internalAddGeneratedFile(
-            "\x0A\x9F\x01\x0A TemplateTransformationInfo.proto\x12\x0CDiadoc.Proto\"e\x0A\x1ATemplateTransformationInfo\x127\x0A\x15TransformedToLetterId\x18\x01 \x01(\x0B2\x18.Diadoc.Proto.DocumentId\x12\x0E\x0A\x06Author\x18\x02 \x01(\x09b\x06proto3"
+            "\x0A\xA1\x01\x0A TemplateTransformationInfo.proto\x12\x0CDiadoc.Proto\"g\x0A\x1ATemplateTransformationInfo\x129\x0A\x17TransformedToDocumentId\x18\x01 \x01(\x0B2\x18.Diadoc.Proto.DocumentId\x12\x0E\x0A\x06Author\x18\x02 \x01(\x09b\x06proto3"
         , true);
 
         static::$is_initialized = true;

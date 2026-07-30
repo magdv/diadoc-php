@@ -1,13 +1,17 @@
 syntax="proto3";
+import "ResolutionAction.proto";
 import "ResolutionTarget.proto";
 
 package Diadoc.Proto.Events;
 
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ResolutionRequestInfo.html
+
 message ResolutionRequestInfo {
-	 ResolutionRequestType RequestType = 1;
-	 string Author = 2;
-	 ResolutionTarget Target = 3;
-	 string ResolvedWith = 4;
+	ResolutionRequestType Type = 1;
+	string Author = 2;
+	ResolutionTarget Target = 3;
+	string ResolvedWith = 4;
+	repeated ResolutionAction Actions = 5;
 }
 
 enum ResolutionRequestType {
@@ -15,4 +19,5 @@ enum ResolutionRequestType {
 	UnknownResolutionRequestType = -1;
 	SignatureRequest = 1;
 	ApprovementSignatureRequest = 2;
+	Custom = 3;
 }

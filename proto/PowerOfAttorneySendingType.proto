@@ -1,12 +1,12 @@
 syntax="proto3";
-package Diadoc.Proto;
+package Diadoc.Proto.PowersOfAttorney;
 
 
 // Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneySendingType.html
 // Способ передачи машиночитаемой доверенности (МЧД).
 
 enum PowerOfAttorneySendingType {
-    STATUS_UNSPECIFIED = 0; // Обязательное значение по умолчанию
+    Unknown = 0;
     Metadata = 1;
     File = 2;
     DocumentContent = 3;

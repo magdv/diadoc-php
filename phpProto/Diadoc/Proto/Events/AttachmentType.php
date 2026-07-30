@@ -195,13 +195,13 @@ class AttachmentType
      */
     const MoveDocument = 65;
     /**
-     * Generated from protobuf enum <code>ResolutionRouteAssignment = 66;</code>
+     * Generated from protobuf enum <code>ResolutionRouteAssignmentAttachment = 66;</code>
      */
-    const ResolutionRouteAssignment = 66;
+    const ResolutionRouteAssignmentAttachment = 66;
     /**
-     * Generated from protobuf enum <code>ResolutionRouteRemoval = 67;</code>
+     * Generated from protobuf enum <code>ResolutionRouteRemovalAttachment = 67;</code>
      */
-    const ResolutionRouteRemoval = 67;
+    const ResolutionRouteRemovalAttachment = 67;
     /**
      * Generated from protobuf enum <code>Title = 68;</code>
      */
@@ -242,6 +242,18 @@ class AttachmentType
      * Generated from protobuf enum <code>PowerOfAttorneyStatus = 78;</code>
      */
     const PowerOfAttorneyStatus = 78;
+    /**
+     * Generated from protobuf enum <code>UniversalMessage = 79;</code>
+     */
+    const UniversalMessage = 79;
+    /**
+     * Generated from protobuf enum <code>TtGisFixationCancellationRequest = 87;</code>
+     */
+    const TtGisFixationCancellationRequest = 87;
+    /**
+     * Generated from protobuf enum <code>TemplateTransformationChange = 90;</code>
+     */
+    const TemplateTransformationChange = 90;
 
     private static $valueToName = [
         self::Nonformalized => 'Nonformalized',
@@ -289,8 +301,8 @@ class AttachmentType
         self::UniversalCorrectionDocumentBuyerTitle => 'UniversalCorrectionDocumentBuyerTitle',
         self::CustomData => 'CustomData',
         self::MoveDocument => 'MoveDocument',
-        self::ResolutionRouteAssignment => 'ResolutionRouteAssignment',
-        self::ResolutionRouteRemoval => 'ResolutionRouteRemoval',
+        self::ResolutionRouteAssignmentAttachment => 'ResolutionRouteAssignmentAttachment',
+        self::ResolutionRouteRemovalAttachment => 'ResolutionRouteRemovalAttachment',
         self::Title => 'Title',
         self::Cancellation => 'Cancellation',
         self::Edition => 'Edition',
@@ -301,6 +313,9 @@ class AttachmentType
         self::RoamingConfirmation => 'RoamingConfirmation',
         self::PowerOfAttorney => 'PowerOfAttorney',
         self::PowerOfAttorneyStatus => 'PowerOfAttorneyStatus',
+        self::UniversalMessage => 'UniversalMessage',
+        self::TtGisFixationCancellationRequest => 'TtGisFixationCancellationRequest',
+        self::TemplateTransformationChange => 'TemplateTransformationChange',
     ];
 
     public static function name($value)

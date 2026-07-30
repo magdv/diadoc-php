@@ -1,0 +1,34 @@
+syntax="proto3";
+
+import "AmendmentRequestDocflowV5.proto";
+import "DocflowStatusV3.proto";
+import "OuterDocflowV5.proto";
+import "ResolutionDocflowV5.proto";
+import "RevocationDocflowV5.proto";
+import "TitleDocflow.proto";
+import "TtGisFixationDocflow.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocflowV5.html
+// Состояние документооборота документа.
+
+message DocflowV5 {
+    // список с информацией о документообороте титулов документа — как уже полученных, так и тех, которые требуется и возможно отправить. Каждый элемент списка представлен структурой TitleDocflow.
+    repeated TitleDocflow Titles = 1;
+    // список с информацией о документообороте по запросу уточнения. Каждый элемент списка представлен структурой AmendmentRequestDocflowV5.
+    repeated AmendmentRequestDocflowV5 AmendmentRequests = 2;
+    // информация об аннулировании, представленная структурой RevocationDocflowV5.
+    optional RevocationDocflowV5 Revocation = 3;
+    // список с информацией о внешнем документообороте по документу или аннулированию. Каждый элемент списка представлен структурой OuterDocflowV5.
+    repeated OuterDocflowV5 OuterDocflows = 4;
+    // информация о статусе документооборота, представленная структурой DocflowStatusV3.
+    DocflowStatusV3 DocflowStatus = 5;
+    // информация о документе для отмены сведений об отгрузке маркированных товаров, представленная структурой TtGisFixationDocflow.
+    optional TtGisFixationDocflow TtGisFixation = 6;
+    // информация об актуальном статусе согласования документа или его аннулирования, представленная структурой ResolutionDocflowV5.
+    optional ResolutionDocflowV5 Resolution = 7;
+}
+
+

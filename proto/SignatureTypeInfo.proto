@@ -26,7 +26,7 @@ message QualifiedDetails {
     QualifiedSignatureSource SignatureSource = 1;
 
     enum QualifiedSignatureSource {
-        Default = 0;
+        QualifiedDefault = 0;
     }
 }
 
@@ -35,7 +35,7 @@ message NonQualifiedDetails {
     NonQualifiedSignatureSource SignatureSource = 1;
 
     enum NonQualifiedSignatureSource {
-        Default = 0;
+        NonQualifiedDefault = 0;
         GosKey = 1;
     }
 }

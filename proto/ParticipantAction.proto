@@ -1,6 +1,6 @@
 syntax="proto3";
 
-package Diadoc.Proto;
+package Diadoc.Proto.Workflows.ParticipantAction;
 
 enum ParticipantAction {
     Unknown = 0;

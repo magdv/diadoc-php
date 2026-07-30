@@ -17,9 +17,9 @@ class TemplateTransformationInfo extends \Google\Protobuf\Internal\Message
     /**
      * идентификатор сообщения и документа, созданного на основе шаблона. Представлен структурой DocumentId.
      *
-     * Generated from protobuf field <code>.Diadoc.Proto.DocumentId TransformedToLetterId = 1;</code>
+     * Generated from protobuf field <code>.Diadoc.Proto.DocumentId TransformedToDocumentId = 1;</code>
      */
-    protected $TransformedToLetterId = null;
+    protected $TransformedToDocumentId = null;
     /**
      * ФИО пользователя, который создал документ из шаблона.
      *
@@ -33,7 +33,7 @@ class TemplateTransformationInfo extends \Google\Protobuf\Internal\Message
      * @param array $data {
      *     Optional. Data for populating the Message object.
      *
-     *     @type \Diadoc\Proto\DocumentId $TransformedToLetterId
+     *     @type \Diadoc\Proto\DocumentId $TransformedToDocumentId
      *           идентификатор сообщения и документа, созданного на основе шаблона. Представлен структурой DocumentId.
      *     @type string $Author
      *           ФИО пользователя, который создал документ из шаблона.
@@ -47,35 +47,35 @@ class TemplateTransformationInfo extends \Google\Protobuf\Internal\Message
     /**
      * идентификатор сообщения и документа, созданного на основе шаблона. Представлен структурой DocumentId.
      *
-     * Generated from protobuf field <code>.Diadoc.Proto.DocumentId TransformedToLetterId = 1;</code>
+     * Generated from protobuf field <code>.Diadoc.Proto.DocumentId TransformedToDocumentId = 1;</code>
      * @return \Diadoc\Proto\DocumentId|null
      */
-    public function getTransformedToLetterId()
+    public function getTransformedToDocumentId()
     {
-        return $this->TransformedToLetterId;
+        return $this->TransformedToDocumentId;
     }
 
-    public function hasTransformedToLetterId()
+    public function hasTransformedToDocumentId()
     {
-        return isset($this->TransformedToLetterId);
+        return isset($this->TransformedToDocumentId);
     }
 
-    public function clearTransformedToLetterId()
+    public function clearTransformedToDocumentId()
     {
-        unset($this->TransformedToLetterId);
+        unset($this->TransformedToDocumentId);
     }
 
     /**
      * идентификатор сообщения и документа, созданного на основе шаблона. Представлен структурой DocumentId.
      *
-     * Generated from protobuf field <code>.Diadoc.Proto.DocumentId TransformedToLetterId = 1;</code>
+     * Generated from protobuf field <code>.Diadoc.Proto.DocumentId TransformedToDocumentId = 1;</code>
      * @param \Diadoc\Proto\DocumentId $var
      * @return $this
      */
-    public function setTransformedToLetterId($var)
+    public function setTransformedToDocumentId($var)
     {
         GPBUtil::checkMessage($var, \Diadoc\Proto\DocumentId::class);
-        $this->TransformedToLetterId = $var;
+        $this->TransformedToDocumentId = $var;
 
         return $this;
     }

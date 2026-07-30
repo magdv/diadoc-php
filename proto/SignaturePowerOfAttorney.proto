@@ -18,20 +18,20 @@ message SignaturePowerOfAttorney {
     // идентификатор МЧД, представленный структурой PowerOfAttorneyFullId.
     PowerOfAttorneyFullId FullId = 2;
     // последний статус проверки МЧД, представленный структурой PowerOfAttorneyValidationStatus.
-    PowerOfAttorneyValidationStatus Status = 3;
+    PowersOfAttorney.PowerOfAttorneyValidationStatus Status = 3;
     // история статусов МЧД, представленные структурой `PowerOfAttorneyStatusChange` с полями:
     repeated PowerOfAttorneyStatusChange StatusChanges = 4;
     // статус отправки МЧД в роуминг, представленный структурой RoamingSendingStatus.
     RoamingSendingStatus RoamingSendingStatus = 5;
     // способ передачи МЧД, принимает значения из перечисления PowerOfAttorneySendingType.
-    PowerOfAttorneySendingType SendingType = 6;
+    PowersOfAttorney.PowerOfAttorneySendingType SendingType = 6;
 }
 
 message PowerOfAttorneyStatusChange {
     // идентификатор и время установки статуса, преставленные структурой Entity.
     Entity Entity = 1;
     // статус проверки МЧД, представленный структурой PowerOfAttorneyValidationStatus.
-    PowerOfAttorneyValidationStatus PowerOfAttorneyStatus = 2;
+    PowersOfAttorney.PowerOfAttorneyValidationStatus PowerOfAttorneyStatus = 2;
 }
 
 

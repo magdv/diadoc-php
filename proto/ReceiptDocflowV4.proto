@@ -1,35 +1,6 @@
 syntax="proto3";
 
+// ReceiptDocflowV4 определён в ConfirmationDocflowV4.proto (взаимная зависимость сообщений).
 import "ConfirmationDocflowV4.proto";
-import "GeneralReceiptStatus.proto";
-import "SignedAttachmentV3.proto";
-import "Timestamp.proto";
-import "UniversalMessageAttachmentDocflow.proto";
 
 package Diadoc.Proto;
-
-
-// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/ReceiptDocflowV4.html
-// Состояние извещения о получении (ИоП).
-
-message ReceiptDocflowV4
-{
-    // признак того, что документооборот по ИоП завершен и не требует дальнейших действий.
-    bool IsFinished = 1;
-    // данные файла ИоП и подписи под ним, представленные структурой SignedAttachmentV3.
-    SignedAttachmentV3 ReceiptAttachment = 2;
-    // время отправки ИоП, представленное структурой Timestamp.
-    Timestamp SentAt = 3;
-    // время доставки ИоП, представленное структурой Timestamp.
-    Timestamp DeliveredAt = 4;
-    // информация о подтверждении оператором даты доставки ИоП, представленная структурой ConfirmationDocflowV4.
-    ConfirmationDocflowV4 Confirmation = 5;
-    // статус ИоП, принимает значение из перечисления GeneralReceiptStatus.
-    GeneralReceiptStatus Status = 6;
-    // универсальное сообщение с извещением о получении, представленное структурой UniversalMessageAttachmentDocflow.
-    UniversalMessageAttachmentDocflow UniversalMessage = 7;
-}
-
-
-
-

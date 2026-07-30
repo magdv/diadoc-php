@@ -13,11 +13,9 @@ use UnexpectedValueException;
 class LockMode
 {
     /**
-     * Обязательное значение по умолчанию
-     *
-     * Generated from protobuf enum <code>STATUS_UNSPECIFIED = 0;</code>
+     * Generated from protobuf enum <code>Unknown = 0;</code>
      */
-    const STATUS_UNSPECIFIED = 0;
+    const Unknown = 0;
     /**
      * Generated from protobuf enum <code>None = 1;</code>
      */
@@ -32,7 +30,7 @@ class LockMode
     const Full = 3;
 
     private static $valueToName = [
-        self::STATUS_UNSPECIFIED => 'STATUS_UNSPECIFIED',
+        self::Unknown => 'Unknown',
         self::None => 'None',
         self::Send => 'Send',
         self::Full => 'Full',

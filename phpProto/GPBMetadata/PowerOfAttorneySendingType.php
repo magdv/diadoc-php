@@ -16,7 +16,7 @@ class PowerOfAttorneySendingType
           return;
         }
         $pool->internalAddGeneratedFile(
-            "\x0A\x9B\x01\x0A PowerOfAttorneySendingType.proto\x12\x0CDiadoc.Proto*a\x0A\x1APowerOfAttorneySendingType\x12\x16\x0A\x12STATUS_UNSPECIFIED\x10\x00\x12\x0C\x0A\x08Metadata\x10\x01\x12\x08\x0A\x04File\x10\x02\x12\x13\x0A\x0FDocumentContent\x10\x03b\x06proto3"
+            "\x0A\xA1\x01\x0A PowerOfAttorneySendingType.proto\x12\x1DDiadoc.Proto.PowersOfAttorney*V\x0A\x1APowerOfAttorneySendingType\x12\x0B\x0A\x07Unknown\x10\x00\x12\x0C\x0A\x08Metadata\x10\x01\x12\x08\x0A\x04File\x10\x02\x12\x13\x0A\x0FDocumentContent\x10\x03b\x06proto3"
         , true);
 
         static::$is_initialized = true;

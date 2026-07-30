@@ -28,12 +28,17 @@ class ResolutionRequestType
      * Generated from protobuf enum <code>ApprovementSignatureRequest = 2;</code>
      */
     const ApprovementSignatureRequest = 2;
+    /**
+     * Generated from protobuf enum <code>Custom = 3;</code>
+     */
+    const Custom = 3;
 
     private static $valueToName = [
         self::ApprovementRequest => 'ApprovementRequest',
         self::UnknownResolutionRequestType => 'UnknownResolutionRequestType',
         self::SignatureRequest => 'SignatureRequest',
         self::ApprovementSignatureRequest => 'ApprovementSignatureRequest',
+        self::Custom => 'Custom',
     ];
 
     public static function name($value)

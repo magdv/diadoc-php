@@ -1,0 +1,111 @@
+syntax="proto3";
+
+import "CustomDataItem.proto";
+import "DocumentDirection.proto";
+import "DocumentId.proto";
+import "DocumentLinks.proto";
+import "DocumentParticipantsV2.proto";
+import "Events/DiadocMessage-PostApi.proto";
+import "ForwardDocumentEvent.proto";
+import "FullVersion.proto";
+import "MetadataItem.proto";
+import "PacketInfo.proto";
+import "TemplateTransformationChangeType.proto";
+import "Documents/MessageType.proto";
+import "Documents/Origin.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentInfoV5.html
+// Информация о документе, которая не зависит от статуса документооборота.
+
+message DocumentInfoV5 {
+    FullVersion FullVersion = 1;
+    Documents.MessageType MessageType = 2;
+    int32 WorkflowId = 3;
+    DocumentParticipantsV2 Participants = 4;
+    DocumentDirection DocumentDirection = 5;
+    string DepartmentId = 6;
+    optional string CustomDocumentId = 7;
+    repeated MetadataItem Metadata = 8;
+    repeated CustomDataItem CustomData = 9;
+    DocumentLinks DocumentLinks = 10;
+    PacketInfo PacketInfo = 11;
+    bool IsRead = 12;
+    bool IsDeleted = 13;
+    bool IsInvitation = 14;
+    optional DocumentLetterInfo LetterInfo = 15;
+    optional DocumentDraftInfo DraftInfo = 16;
+    optional DocumentTemplateInfoV2 TemplateInfo = 17;
+    optional Documents.Origin Origin = 18;
+    optional string EditingSettingId = 19;
+    optional bool HasUnreadOutOfWorkflowUniversalMessages = 20;
+}
+
+message DocumentTemplateInfoV2 {
+    DocumentParticipantsV2 LetterParticipants = 1;
+    repeated string TransformedToLetterIds = 2;
+    repeated TemplateTransformationInfo TemplateTransformationInfos = 3;
+    optional TemplateRefusalInfo TemplateRefusalInfo = 4;
+    optional bool IsReusable = 5;
+}
+
+message DocumentLetterInfo
+{
+    // признак того, что документ передается в зашифрованном виде.
+    bool IsEncrypted = 1;
+    // список событий пересылки документа третьим сторонам, представленных структурой ForwardDocumentEvent.
+    repeated ForwardDocumentEvent ForwardDocumentEvents = 2;
+    // признак того, что документ является тестовым.
+    bool IsTest = 3;
+}
+
+message DocumentDraftInfo
+{
+    // признак того, что черновик удален.
+    bool IsRecycled = 1;
+    // признак того, что черновик заблокирован.
+    bool IsLocked = 2;
+    // список идентификаторов писем, созданных на основе данного черновика.
+    repeated string TransformedToLetterIds = 3;
+}
+
+
+message TemplateTransformationInfo
+{
+    // идентификатор преобразования из шаблона.
+    string TransformationId = 1;
+    // список идентификаторов письма и документа, созданных на основе шаблона. Представлены структурой DocumentId.
+    DocumentId TransformedToLetterId = 2;
+    // идентификатор пользователя, отклонившего или отозвавшего шаблон.
+    string AuthorUserId = 3;
+    // список изменений, произошедших с документами, созданными на основе шаблона. Каждый элемент списка представлен структурой `TemplateTransformationChangeInfo` с полями:
+    repeated TemplateTransformationChangeInfo Changes = 4;
+}
+
+message TemplateTransformationChangeInfo
+{
+    // идентификатор изменения документа, созданного на основе шаблона.
+    string ChangeId = 1;
+    // тип изменения документа, принимает значения из перечисления TemplateTransformationChangeType.
+    TemplateTransformationChangeType ChangeType = 2 ;
+    // идентификатор ящика инициатора изменений.
+    string ChangeInitiatorBoxId = 3;
+    // идентификатор пользователя, отклонившего или отозвавшего шаблон.
+    string AuthorUserId = 4;
+}
+
+message TemplateRefusalInfo
+{
+    // идентификатор ящика организации, на стороне которого шаблон отклонили или отозвали.
+    string BoxId = 1;
+    // идентификатор пользователя, отклонившего или отозвавшего шаблон.
+    string AuthorUserId = 2;
+    // комментарий, указанный при отклонении или отзыве.
+    string Comment = 3;
+}
+
+
+
+

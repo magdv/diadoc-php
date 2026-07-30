@@ -6,7 +6,7 @@ package Diadoc.Proto;
 // Статус подписанта.
 
 enum SignerStatus {
-    STATUS_UNSPECIFIED = 0; // Обязательное значение по умолчанию
+    UnknownSignerStatus = 0;
     SignerStatusUnspecified = -1;
     SellerEmployee = 1;
     InformationCreatorEmployee = 2;

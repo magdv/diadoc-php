@@ -24,7 +24,7 @@ message StatusEntity
     // информация о квитанции, которая была получена в рамках внешнего документооборота, представленная структурой SignedAttachmentV3.
     SignedAttachmentV3 Attachment = 1;
     // статус обработки документа в рамках документооборота, представленный структурой Status.
-    Status Status = 2;
+    OuterDocflows.Status Status = 2;
 }
 
 

@@ -1,0 +1,39 @@
+syntax="proto3";
+
+import "ConfirmationDocflowV5.proto";
+import "DeliveryDocflowV5.proto";
+import "SignatureRejectionDocflowV4.proto";
+import "SignatureV3.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TitleParticipantResponseDocflow.html
+// Состояние ответа участника на титул.
+
+message TitleParticipantResponseDocflow {
+    // признак того, что ответ участника завершен.
+    bool IsFinished = 1;
+    // статус ответа участника, принимает значения из перечисления TitleParticipantResponseStatusV5.
+    TitleParticipantResponseStatusV5 Status = 2;
+    // данные электронной подписи, представленные структурой SignatureV3.
+    optional SignatureV3 Signature = 3;
+    // информация об отказе в подписи, представленная структурой SignatureRejectionDocflowV4.
+    optional SignatureRejectionDocflowV4 Rejection = 4;
+    // информация о подтверждении оператора, представленная структурой ConfirmationDocflowV5.
+    optional ConfirmationDocflowV5 Confirmation = 5;
+    // информация о доставке, представленная структурой DeliveryDocflowV5.
+    optional DeliveryDocflowV5 Delivery = 6;
+}
+
+enum TitleParticipantResponseStatusV5 {
+    TitleParticipantResponseStatusUnknown = 0;
+    TitleParticipantResponseStatusNotAcceptable = 1;
+    TitleParticipantResponseStatusWaiting = 2;
+    TitleParticipantResponseStatusVerifying = 3;
+    TitleParticipantResponseStatusSigned = 4;
+    TitleParticipantResponseStatusSignatureRejected = 5;
+    TitleParticipantResponseStatusInvalidSignature = 6;
+}
+
+

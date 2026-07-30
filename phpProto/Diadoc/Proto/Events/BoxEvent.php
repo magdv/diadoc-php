@@ -26,6 +26,10 @@ class BoxEvent extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>.Diadoc.Proto.Events.MessagePatch Patch = 3;</code>
      */
     protected $Patch = null;
+    /**
+     * Generated from protobuf field <code>string IndexKey = 4;</code>
+     */
+    protected $IndexKey = '';
 
     /**
      * Constructor.
@@ -36,6 +40,7 @@ class BoxEvent extends \Google\Protobuf\Internal\Message
      *     @type string $EventId
      *     @type \Diadoc\Proto\Events\Message $Message
      *     @type \Diadoc\Proto\Events\MessagePatch $Patch
+     *     @type string $IndexKey
      * }
      */
     public function __construct($data = NULL) {
@@ -125,6 +130,28 @@ class BoxEvent extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkMessage($var, \Diadoc\Proto\Events\MessagePatch::class);
         $this->Patch = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>string IndexKey = 4;</code>
+     * @return string
+     */
+    public function getIndexKey()
+    {
+        return $this->IndexKey;
+    }
+
+    /**
+     * Generated from protobuf field <code>string IndexKey = 4;</code>
+     * @param string $var
+     * @return $this
+     */
+    public function setIndexKey($var)
+    {
+        GPBUtil::checkString($var, True);
+        $this->IndexKey = $var;
 
         return $this;
     }

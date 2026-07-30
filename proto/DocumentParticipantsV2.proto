@@ -1,0 +1,16 @@
+syntax="proto3";
+
+import "DocumentParticipantV2.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentParticipantsV2.html
+// Данные участников документооборота.
+
+message DocumentParticipantsV2 {
+    // список участников документооборота, представленных структурой DocumentParticipantV2.
+    repeated DocumentParticipantV2 Participants = 1;
+}
+
+

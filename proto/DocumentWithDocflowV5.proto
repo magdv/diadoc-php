@@ -1,0 +1,23 @@
+syntax="proto3";
+
+import "DocflowV5.proto";
+import "DocumentId.proto";
+import "DocumentInfoV5.proto";
+import "LastEvent.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentWithDocflowV5.html
+// Информация о документе и состоянии его документооборота.
+
+message DocumentWithDocflowV5 {
+    // идентификатор документа, представленный структурой DocumentId.
+    DocumentId DocumentId = 1;
+    // информация о последнем событии в сообщении, представленная структурой LastEvent.
+    LastEvent LastEvent = 2;
+    // информация о документе, представленная структурой DocumentInfoV5.
+    DocumentInfoV5 DocumentInfo = 3;
+    // информация о состоянии документооборота, представленная структурой DocflowV5.
+    DocflowV5 Docflow = 4;
+}

@@ -1,6 +1,6 @@
 syntax="proto3";
 
-package Diadoc.Proto;
+package Diadoc.Proto.Workflows.RoamingConfirmationBehavior;
 
 enum RoamingConfirmationBehavior {
     Unknown = 0;

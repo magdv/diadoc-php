@@ -16,7 +16,7 @@ class TotalCountType
           return;
         }
         $pool->internalAddGeneratedFile(
-            "\x0Ay\x0A\x14TotalCountType.proto\x12\x0CDiadoc.Proto*K\x0A\x0ETotalCountType\x12\x16\x0A\x12STATUS_UNSPECIFIED\x10\x00\x12\x09\x0A\x05Equal\x10\x01\x12\x16\x0A\x12GreaterThanOrEqual\x10\x02b\x06proto3"
+            "\x0A|\x0A\x14TotalCountType.proto\x12\x0CDiadoc.Proto*N\x0A\x0ETotalCountType\x12\x19\x0A\x15UnknownTotalCountType\x10\x00\x12\x09\x0A\x05Equal\x10\x01\x12\x16\x0A\x12GreaterThanOrEqual\x10\x02b\x06proto3"
         , true);
 
         static::$is_initialized = true;

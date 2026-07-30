@@ -9,7 +9,7 @@ import "ParticipantAction.proto";
 import "RoamingConfirmationBehavior.proto";
 import "TitleReceiptBehavior.proto";
 
-package Diadoc.Proto;
+package Diadoc.Proto.Workflows;
 
 
 // Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/DocumentWorkflowSettingsV2.html
@@ -21,24 +21,24 @@ message DocumentWorkflowSettings {
     // список участников документооборота и их свойств, представленных структурой `ParticipantSettingV2` с полями:
     repeated ParticipantSettingV2 Participants = 2;
     // свойство «ИоП на подтверждение оператора», принимает значения из перечисления `OperatorConfirmationReceiptBehavior`:
-    OperatorConfirmationReceiptBehavior OperatorConfirmationReceiptBehavior = 3;
+    OperatorConfirmationReceiptBehavior.OperatorConfirmationReceiptBehavior OperatorConfirmationReceiptBehavior = 3;
     // свойство «ИоП на подтверждение оператора на ИоП», принимает значения из перечисления `ReceiptOperatorConfirmationReceiptBehavior`:
-    ReceiptOperatorConfirmationReceiptBehavior ReceiptOperatorConfirmationReceiptBehavior = 4;
+    ReceiptOperatorConfirmationReceiptBehavior.ReceiptOperatorConfirmationReceiptBehavior ReceiptOperatorConfirmationReceiptBehavior = 4;
     // свойство «Подтверждение оператора на ИоП», принимает значения из перечисления `OperatorConfirmationBehavior`:
-    OperatorConfirmationBehavior ReceiptOperatorConfirmationBehavior = 5;
+    OperatorConfirmationBehavior.OperatorConfirmationBehavior ReceiptOperatorConfirmationBehavior = 5;
     // свойство «Ответное действие на УоУ», принимает значения из перечисления `AmendmentRequestResponseBehavior`:
-    AmendmentRequestResponseBehavior AmendmentRequestResponseBehavior = 6;
+    AmendmentRequestResponseBehavior.AmendmentRequestResponseBehavior AmendmentRequestResponseBehavior = 6;
     // свойство «Подтверждение оператора из роуминга на ИоП», принимает значения из перечисления `RoamingConfirmationBehavior`:
-    RoamingConfirmationBehavior ReceiptRoamingConfirmationBehavior = 7;
+    RoamingConfirmationBehavior.RoamingConfirmationBehavior ReceiptRoamingConfirmationBehavior = 7;
     // свойство «Используется как приглашение», принимает значения из перечисления `InvitationBehavior`:
-    InvitationBehavior InvitationBehavior = 8;
+    InvitationBehavior.InvitationBehavior InvitationBehavior = 8;
 }
 
 message ParticipantSettingV2 {
     // идентификатор участника документооборота, принимает значения из перечисления `ParticipantType`:
-    ParticipantType Participant = 1;
+    ParticipantType.ParticipantType Participant = 1;
     // свойство «Действие участника», принимает значения из перечисления `ParticipantAction`:
-    ParticipantAction ParticipantAction = 2;
+    ParticipantAction.ParticipantAction ParticipantAction = 2;
     // свойство «ИоП на титул участника», принимает значения из перечисления `TitleReceiptBehavior`:
-    TitleReceiptBehavior TitleReceiptBehavior = 3;
+    TitleReceiptBehavior.TitleReceiptBehavior TitleReceiptBehavior = 3;
 }

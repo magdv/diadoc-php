@@ -13,9 +13,9 @@ use UnexpectedValueException;
 class ResolutionStatusType
 {
     /**
-     * Generated from protobuf enum <code>None = 0;</code>
+     * Generated from protobuf enum <code>ResolutionStatusTypeNone = 0;</code>
      */
-    const None = 0;
+    const ResolutionStatusTypeNone = 0;
     /**
      * Generated from protobuf enum <code>Approved = 1;</code>
      */
@@ -42,7 +42,7 @@ class ResolutionStatusType
     const ActionsRequested = 6;
 
     private static $valueToName = [
-        self::None => 'None',
+        self::ResolutionStatusTypeNone => 'ResolutionStatusTypeNone',
         self::Approved => 'Approved',
         self::Disapproved => 'Disapproved',
         self::ApprovementRequested => 'ApprovementRequested',

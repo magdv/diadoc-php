@@ -1,5 +1,5 @@
 syntax="proto3";
-package Diadoc.Proto;
+package Diadoc.Proto.Workflows.OperatorConfirmationBehavior;
 
 enum OperatorConfirmationBehavior {
     Unknown = 0;

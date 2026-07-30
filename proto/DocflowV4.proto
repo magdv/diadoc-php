@@ -6,7 +6,6 @@ import "DocflowStatusV3.proto";
 import "OuterDocflow.proto";
 import "OuterDocflowEntities.proto";
 import "ParticipantResponseDocflowV4.proto";
-import "ReceiptDocflowV4.proto";
 import "ResolutionDocflowV3.proto";
 import "ResolutionEntitiesV3.proto";
 import "RevocationDocflowV4.proto";

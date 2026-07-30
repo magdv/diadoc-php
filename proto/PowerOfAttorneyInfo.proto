@@ -15,11 +15,11 @@ message PowerOfAttorneyInfo {
     // идентификатор МЧД. Представлен структурой PowerOfAttorneyFullId.
     PowerOfAttorneyFullId FullId = 1;
     // статус проверки МЧД. Представлен структурой PowerOfAttorneyValidationStatus.
-    PowerOfAttorneyValidationStatus Status = 2;
+    PowersOfAttorney.PowerOfAttorneyValidationStatus Status = 2;
     // статус отправки МЧД в роуминг. Представлен структурой RoamingSendingStatus.
     RoamingSendingStatus SendingStatus = 3;
     // способ передачи МЧД. Принимает значения из перечисления PowerOfAttorneySendingType.
-    PowerOfAttorneySendingType SendingType = 4;
+    PowersOfAttorney.PowerOfAttorneySendingType SendingType = 4;
 }
 
 

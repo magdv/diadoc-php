@@ -17,7 +17,7 @@ class OuterDocflowInfo
         }
         \GPBMetadata\Status::initOnce();
         $pool->internalAddGeneratedFile(
-            "\x0A\x9D\x01\x0A\x16OuterDocflowInfo.proto\x12\x0CDiadoc.Proto\"m\x0A\x10OuterDocflowInfo\x12\x16\x0A\x0EDocflowNamedId\x18\x01 \x01(\x09\x12\x1B\x0A\x13DocflowFriendlyName\x18\x02 \x01(\x09\x12\$\x0A\x06Status\x18\x03 \x01(\x0B2\x14.Diadoc.Proto.Statusb\x06proto3"
+            "\x0A\xAB\x01\x0A\x16OuterDocflowInfo.proto\x12\x0CDiadoc.Proto\"{\x0A\x10OuterDocflowInfo\x12\x16\x0A\x0EDocflowNamedId\x18\x01 \x01(\x09\x12\x1B\x0A\x13DocflowFriendlyName\x18\x02 \x01(\x09\x122\x0A\x06Status\x18\x03 \x01(\x0B2\".Diadoc.Proto.OuterDocflows.Statusb\x06proto3"
         , true);
 
         static::$is_initialized = true;

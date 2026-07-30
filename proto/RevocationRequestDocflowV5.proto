@@ -1,0 +1,26 @@
+syntax="proto3";
+
+import "RoamingNotification.proto";
+import "SignedAttachmentV3.proto";
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/RevocationRequestDocflowV5.html
+// Состояние предложения об аннулировании.
+
+message RevocationRequestDocflowV5 {
+    // данные файла предложения об аннулировании и подписи под ним, представленные структурой SignedAttachmentV3.
+    SignedAttachmentV3 RevocationRequest = 1;
+    // время отправки предложения об аннулировании, представленное структурой Timestamp.
+    optional Timestamp SentAt = 2;
+    // время доставки предложения об аннулировании, представленное структурой Timestamp.
+    optional Timestamp DeliveredAt = 3;
+    // уведомление о роуминге, представленное структурой RoamingNotification.
+    optional RoamingNotification RoamingNotification = 4;
+    // текст предложения об аннулировании.
+    optional string PlainText = 5;
+}
+
+

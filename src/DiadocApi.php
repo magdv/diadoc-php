@@ -2,10 +2,6 @@
 
 namespace MagDv\Diadoc;
 
-use Diadoc\Proto\Documents\Types\GetDocumentTypesResponseV2;
-use Diadoc\Proto\Events\SignedContent;
-use Diadoc\Proto\LoginPassword;
-use Exception;
 use DateTime;
 use Diadoc\Proto\AcquireCounteragentRequest;
 use Diadoc\Proto\AcquireCounteragentResult;
@@ -14,7 +10,6 @@ use Diadoc\Proto\Box;
 use Diadoc\Proto\Counteragent;
 use Diadoc\Proto\CounteragentCertificateList;
 use Diadoc\Proto\CounteragentList;
-use Diadoc\Proto\CounteragentStatus;
 use Diadoc\Proto\Department;
 use Diadoc\Proto\Docflow\GetDocflowBatchRequest;
 use Diadoc\Proto\Docflow\GetDocflowBatchResponse;
@@ -27,16 +22,20 @@ use Diadoc\Proto\Docflow\SearchDocflowsResponse;
 use Diadoc\Proto\DocumentId;
 use Diadoc\Proto\Documents\Document;
 use Diadoc\Proto\Documents\DocumentList;
+use Diadoc\Proto\Documents\Types\GetDocumentTypesResponseV2;
 use Diadoc\Proto\Events\BoxEvent;
 use Diadoc\Proto\Events\BoxEventList;
 use Diadoc\Proto\Events\Message;
 use Diadoc\Proto\Events\MessagePatch;
 use Diadoc\Proto\Events\MessagePatchToPost;
 use Diadoc\Proto\Events\MessageToPost;
+use Diadoc\Proto\Events\SignedContent;
 use Diadoc\Proto\Forwarding\ForwardDocumentRequest;
+use Diadoc\Proto\GetDocflowBatchResponseV5;
 use Diadoc\Proto\GetOrganizationsByInnListRequest;
 use Diadoc\Proto\GetOrganizationsByInnListResponse;
 use Diadoc\Proto\InvitationDocument;
+use Diadoc\Proto\LoginPassword;
 use Diadoc\Proto\Organization;
 use Diadoc\Proto\OrganizationList;
 use Diadoc\Proto\OrganizationUserPermissions;
@@ -46,6 +45,7 @@ use Diadoc\Proto\SortDirection;
 use Diadoc\Proto\TimeBasedFilter;
 use Diadoc\Proto\Timestamp;
 use Diadoc\Proto\User;
+use Exception;
 use MagDv\Diadoc\Exception\DiadocApiException;
 use MagDv\Diadoc\Exception\DiadocApiUnauthorizedException;
 use MagDv\Diadoc\Filter\DocumentsFilter;
@@ -197,6 +197,11 @@ class DiadocApi
      * @var string
      */
     final public const RESOURCE_GET_MESSAGE = '/V3/GetMessage';
+
+    /**
+     * @var string
+     */
+    final public const GET_MESSAGE_V6 = '/V6/GetMessage';
 
     /**
      * @var string
@@ -422,6 +427,12 @@ class DiadocApi
      */
     final public const RESOURCE_GET_DOCFLOWS = '/V2/GetDocflows';
 
+    //Docflow API
+    /**
+     * @var string
+     */
+    final public const GET_DOCFLOWS_V5 = '/V5/GetDocflows';
+
     /**
      * @var string
      */
@@ -485,7 +496,7 @@ class DiadocApi
             [],
             [
                 'login' => $login,
-                'password'  => $password
+                'password' => $password
             ],
             self::METHOD_POST
         );
@@ -773,7 +784,7 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST,
             $getOrganizationsByInnListRequest->serializeToString(),
             [
-                'myOrgId'   => $myOrgId
+                'myOrgId' => $myOrgId
             ],
             self::METHOD_POST
         );
@@ -840,8 +851,8 @@ class DiadocApi
             [
                 'myOrgId' => $myOrgId,
                 'counteragentOrgId' => $counteragentOrgId,
-                'myDepartmentId'    => $myDepartmentId,
-                'comment'   => $comment
+                'myDepartmentId' => $myDepartmentId,
+                'comment' => $comment
             ],
             self::METHOD_POST
         );
@@ -865,7 +876,7 @@ class DiadocApi
             $acquireCounteragentRequest->serializeToString(),
             [
                 'myOrgId' => $myOrgId,
-                'myDepartmentId'    => $myDepartmentId,
+                'myDepartmentId' => $myDepartmentId,
             ],
             self::METHOD_POST
         );
@@ -894,7 +905,7 @@ class DiadocApi
             $acquireCounteragentRequest->serializeToString(),
             [
                 'myOrgId' => $myOrgId,
-                'myDepartmentId'    => $myDepartmentId,
+                'myDepartmentId' => $myDepartmentId,
             ],
             self::METHOD_POST
         );
@@ -1000,9 +1011,9 @@ class DiadocApi
             self::RESOURCE_GET_COUNTERAGENTS,
             [],
             [
-                'myOrgId'   => $myOrgId,
+                'myOrgId' => $myOrgId,
                 'counteragentStatus' => $counteragentStatus,
-                'afterIndexKey'  => $afterIndexKey
+                'afterIndexKey' => $afterIndexKey
             ]
         );
         $counteragentList = new CounteragentList();
@@ -1017,10 +1028,10 @@ class DiadocApi
             self::RESOURCE_GET_COUNTERAGENTS_V2,
             [],
             [
-                'myOrgId'   => $myOrgId,
+                'myOrgId' => $myOrgId,
                 'counteragentStatus' => $counteragentStatus,
-                'afterIndexKey'  => $afterIndexKey,
-                'query'  => $query,
+                'afterIndexKey' => $afterIndexKey,
+                'query' => $query,
             ]
         );
         $counteragentList = (new CounteragentList());
@@ -1059,7 +1070,7 @@ class DiadocApi
             [
                 'boxId' => $boxId,
                 'messageId' => $messageId,
-                'entityId'  => $entityId
+                'entityId' => $entityId
             ]
         );
     }
@@ -1078,8 +1089,36 @@ class DiadocApi
             [
                 'boxId' => $boxId,
                 'messageId' => $messageId,
-                'entityId'  => $entityId,
+                'entityId' => $entityId,
                 'originalSignature' => $originalSignature
+            ]
+        );
+        $message = new Message();
+        $message->mergeFromString($response);
+
+        return $message;
+    }
+
+    /**
+     * @return Message| \Google\Protobuf\Internal\Message
+     * @throws DiadocApiException
+     */
+    public function getMessageV6(
+        string $boxId,
+        string $messageId,
+        ?string $entityId = null,
+        ?string $originalSignature = null,
+        string $injectEntityContent = 'true'
+    ): Message {
+        $response = $this->doRequest(
+            self::GET_MESSAGE_V6,
+            [],
+            [
+                'boxId' => $boxId,
+                'messageId' => $messageId,
+                'entityId' => $entityId,
+                'originalSignature' => $originalSignature,
+                'injectEntityContent' => $injectEntityContent
             ]
         );
         $message = new Message();
@@ -1183,8 +1222,8 @@ class DiadocApi
             [
                 'boxId' => $boxId,
                 'messageId' => $messageId,
-                'entityId'  => $entityId,
-                'injectEntityContent'  => $injectEntityContent
+                'entityId' => $entityId,
+                'injectEntityContent' => $injectEntityContent
             ]
         );
         $document = new Document();
@@ -1192,7 +1231,6 @@ class DiadocApi
 
         return $document;
     }
-
 
 
     public function getDocuments(string $boxId, ?DocumentsFilter $documentsFilter = null, ?int $sortDirection = null, ?int $afterIndexKey = null): DocumentList
@@ -1262,6 +1300,26 @@ class DiadocApi
         $getDocflowBatchResponse->mergeFromString($response);
 
         return $getDocflowBatchResponse;
+    }
+
+    /**
+     * @throws DiadocApiException
+     */
+    public function getDocflowsV5(string $boxId, GetDocflowBatchRequest $getDocflowBatchRequest): GetDocflowBatchResponseV5
+    {
+        $response = $this->doRequest(
+            self::GET_DOCFLOWS_V5,
+            $getDocflowBatchRequest->serializeToString(),
+            [
+                'boxId' => $boxId
+            ],
+            self::METHOD_POST
+        );
+
+        $getDocflowBatchResponseV5 = new GetDocflowBatchResponseV5();
+        $getDocflowBatchResponseV5->mergeFromString($response);
+
+        return $getDocflowBatchResponseV5;
     }
 
     /**
@@ -1471,7 +1529,7 @@ class DiadocApi
             [
                 'nameOnShelf' => $nameOnShelf,
                 'partIndex' => $partIndex,
-                'isLastPart'    => $isLastPart,
+                'isLastPart' => $isLastPart,
             ],
             self::METHOD_POST,
             self::CONTENT_FORM_URL_ENCODED

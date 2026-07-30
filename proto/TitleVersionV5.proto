@@ -1,0 +1,27 @@
+syntax="proto3";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TitleVersionV5.html
+// Версия титула.
+
+message TitleVersionV5 {
+    // идентификатор сущности версии титула.
+    string EntityId = 1;
+    // номер ревизии версии титула.
+    int32 Revision = 2;
+    // статус версии титула, принимает значения из перечисления TitleVersionStatusV5.
+    TitleVersionStatusV5 Status = 3;
+    // идентификатор сущности предыдущей версии титула.
+    optional string PreviousVersionEntityId = 4;
+}
+
+enum TitleVersionStatusV5 {
+    TitleVersionStatusUnknown = 0;
+    TitleVersionStatusCurrent = 1;
+    TitleVersionStatusPending = 2;
+    TitleVersionStatusHistorical = 3;
+}
+
+

@@ -14,7 +14,7 @@ message OuterDocflowInfo {
     // название внешнего документооборота, которое используется для отображения в веб-интерфейсе.
     string DocflowFriendlyName = 2;
     // статус обработки документа в рамках документооборота, представленный структурой Status.
-    Status Status = 3;
+    OuterDocflows.Status Status = 3;
 }
 
 

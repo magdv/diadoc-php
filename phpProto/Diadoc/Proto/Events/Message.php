@@ -98,6 +98,22 @@ class Message extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>bool PacketIsLocked = 20;</code>
      */
     protected $PacketIsLocked = false;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.LockMode LockMode = 21;</code>
+     */
+    protected $LockMode = 0;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.MessageType MessageType = 22;</code>
+     */
+    protected $MessageType = 0;
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateToLetterTransformationInfo TemplateToLetterTransformationInfo = 23;</code>
+     */
+    protected $TemplateToLetterTransformationInfo = null;
+    /**
+     * Generated from protobuf field <code>bool IsReusable = 24;</code>
+     */
+    protected $IsReusable = false;
 
     /**
      * Constructor.
@@ -127,6 +143,10 @@ class Message extends \Google\Protobuf\Internal\Message
      *     @type string $ProxyBoxId
      *     @type string $ProxyTitle
      *     @type bool $PacketIsLocked
+     *     @type int $LockMode
+     *     @type int $MessageType
+     *     @type \Diadoc\Proto\TemplateToLetterTransformationInfo $TemplateToLetterTransformationInfo
+     *     @type bool $IsReusable
      * }
      */
     public function __construct($data = NULL) {
@@ -578,6 +598,104 @@ class Message extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkBool($var);
         $this->PacketIsLocked = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.LockMode LockMode = 21;</code>
+     * @return int
+     */
+    public function getLockMode()
+    {
+        return $this->LockMode;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.LockMode LockMode = 21;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setLockMode($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\LockMode::class);
+        $this->LockMode = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.MessageType MessageType = 22;</code>
+     * @return int
+     */
+    public function getMessageType()
+    {
+        return $this->MessageType;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.Documents.MessageType MessageType = 22;</code>
+     * @param int $var
+     * @return $this
+     */
+    public function setMessageType($var)
+    {
+        GPBUtil::checkEnum($var, \Diadoc\Proto\Documents\MessageType::class);
+        $this->MessageType = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateToLetterTransformationInfo TemplateToLetterTransformationInfo = 23;</code>
+     * @return \Diadoc\Proto\TemplateToLetterTransformationInfo|null
+     */
+    public function getTemplateToLetterTransformationInfo()
+    {
+        return $this->TemplateToLetterTransformationInfo;
+    }
+
+    public function hasTemplateToLetterTransformationInfo()
+    {
+        return isset($this->TemplateToLetterTransformationInfo);
+    }
+
+    public function clearTemplateToLetterTransformationInfo()
+    {
+        unset($this->TemplateToLetterTransformationInfo);
+    }
+
+    /**
+     * Generated from protobuf field <code>.Diadoc.Proto.TemplateToLetterTransformationInfo TemplateToLetterTransformationInfo = 23;</code>
+     * @param \Diadoc\Proto\TemplateToLetterTransformationInfo $var
+     * @return $this
+     */
+    public function setTemplateToLetterTransformationInfo($var)
+    {
+        GPBUtil::checkMessage($var, \Diadoc\Proto\TemplateToLetterTransformationInfo::class);
+        $this->TemplateToLetterTransformationInfo = $var;
+
+        return $this;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool IsReusable = 24;</code>
+     * @return bool
+     */
+    public function getIsReusable()
+    {
+        return $this->IsReusable;
+    }
+
+    /**
+     * Generated from protobuf field <code>bool IsReusable = 24;</code>
+     * @param bool $var
+     * @return $this
+     */
+    public function setIsReusable($var)
+    {
+        GPBUtil::checkBool($var);
+        $this->IsReusable = $var;
 
         return $this;
     }

@@ -29,7 +29,7 @@ class OuterDocflowInfo extends \Google\Protobuf\Internal\Message
     /**
      * статус обработки документа в рамках документооборота, представленный структурой Status.
      *
-     * Generated from protobuf field <code>.Diadoc.Proto.Status Status = 3;</code>
+     * Generated from protobuf field <code>.Diadoc.Proto.OuterDocflows.Status Status = 3;</code>
      */
     protected $Status = null;
 
@@ -43,7 +43,7 @@ class OuterDocflowInfo extends \Google\Protobuf\Internal\Message
      *           идентификатор внешнего документооборота.
      *     @type string $DocflowFriendlyName
      *           название внешнего документооборота, которое используется для отображения в веб-интерфейсе.
-     *     @type \Diadoc\Proto\Status $Status
+     *     @type \Diadoc\Proto\OuterDocflows\Status $Status
      *           статус обработки документа в рамках документооборота, представленный структурой Status.
      * }
      */
@@ -107,8 +107,8 @@ class OuterDocflowInfo extends \Google\Protobuf\Internal\Message
     /**
      * статус обработки документа в рамках документооборота, представленный структурой Status.
      *
-     * Generated from protobuf field <code>.Diadoc.Proto.Status Status = 3;</code>
-     * @return \Diadoc\Proto\Status|null
+     * Generated from protobuf field <code>.Diadoc.Proto.OuterDocflows.Status Status = 3;</code>
+     * @return \Diadoc\Proto\OuterDocflows\Status|null
      */
     public function getStatus()
     {
@@ -128,13 +128,13 @@ class OuterDocflowInfo extends \Google\Protobuf\Internal\Message
     /**
      * статус обработки документа в рамках документооборота, представленный структурой Status.
      *
-     * Generated from protobuf field <code>.Diadoc.Proto.Status Status = 3;</code>
-     * @param \Diadoc\Proto\Status $var
+     * Generated from protobuf field <code>.Diadoc.Proto.OuterDocflows.Status Status = 3;</code>
+     * @param \Diadoc\Proto\OuterDocflows\Status $var
      * @return $this
      */
     public function setStatus($var)
     {
-        GPBUtil::checkMessage($var, \Diadoc\Proto\Status::class);
+        GPBUtil::checkMessage($var, \Diadoc\Proto\OuterDocflows\Status::class);
         $this->Status = $var;
 
         return $this;

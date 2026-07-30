@@ -13,16 +13,16 @@ use UnexpectedValueException;
 class NonQualifiedSignatureSource
 {
     /**
-     * Generated from protobuf enum <code>Default = 0;</code>
+     * Generated from protobuf enum <code>NonQualifiedDefault = 0;</code>
      */
-    const PBDefault = 0;
+    const NonQualifiedDefault = 0;
     /**
      * Generated from protobuf enum <code>GosKey = 1;</code>
      */
     const GosKey = 1;
 
     private static $valueToName = [
-        self::PBDefault => 'Default',
+        self::NonQualifiedDefault => 'NonQualifiedDefault',
         self::GosKey => 'GosKey',
     ];
 
@@ -40,12 +40,8 @@ class NonQualifiedSignatureSource
     {
         $const = __CLASS__ . '::' . strtoupper($name);
         if (!defined($const)) {
-            $pbconst =  __CLASS__. '::PB' . strtoupper($name);
-            if (!defined($pbconst)) {
-                throw new UnexpectedValueException(sprintf(
-                        'Enum %s has no value defined for name %s', __CLASS__, $name));
-            }
-            return constant($pbconst);
+            throw new UnexpectedValueException(sprintf(
+                    'Enum %s has no value defined for name %s', __CLASS__, $name));
         }
         return constant($const);
     }

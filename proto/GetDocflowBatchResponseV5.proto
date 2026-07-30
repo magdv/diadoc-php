@@ -1,0 +1,12 @@
+syntax = "proto3";
+import "DocumentWithDocflowV5.proto";
+
+package Diadoc.Proto;
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/GetDocflowBatchResponseV5.html
+// Cписок документов с информацией о документообороте, полученный методом GetDocflows (V5).
+
+message GetDocflowBatchResponseV5
+{
+  repeated DocumentWithDocflowV5 Documents = 1;
+}

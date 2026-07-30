@@ -15,9 +15,10 @@ class ResolutionRequestInfo
         if (static::$is_initialized == true) {
           return;
         }
+        \GPBMetadata\ResolutionAction::initOnce();
         \GPBMetadata\ResolutionTarget::initOnce();
         $pool->internalAddGeneratedFile(
-            "\x0A\x86\x03\x0A\"Events/ResolutionRequestInfo.proto\x12\x13Diadoc.Proto.Events\"\xAE\x01\x0A\x15ResolutionRequestInfo\x12?\x0A\x0BRequestType\x18\x01 \x01(\x0E2*.Diadoc.Proto.Events.ResolutionRequestType\x12\x0E\x0A\x06Author\x18\x02 \x01(\x09\x12.\x0A\x06Target\x18\x03 \x01(\x0B2\x1E.Diadoc.Proto.ResolutionTarget\x12\x14\x0A\x0CResolvedWith\x18\x04 \x01(\x09*\x91\x01\x0A\x15ResolutionRequestType\x12\x16\x0A\x12ApprovementRequest\x10\x00\x12)\x0A\x1CUnknownResolutionRequestType\x10\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01\x12\x14\x0A\x10SignatureRequest\x10\x01\x12\x1F\x0A\x1BApprovementSignatureRequest\x10\x02b\x06proto3"
+            "\x0A\xD4\x03\x0A\"Events/ResolutionRequestInfo.proto\x12\x13Diadoc.Proto.Events\x1A\x16ResolutionTarget.proto\"\xD8\x01\x0A\x15ResolutionRequestInfo\x128\x0A\x04Type\x18\x01 \x01(\x0E2*.Diadoc.Proto.Events.ResolutionRequestType\x12\x0E\x0A\x06Author\x18\x02 \x01(\x09\x12.\x0A\x06Target\x18\x03 \x01(\x0B2\x1E.Diadoc.Proto.ResolutionTarget\x12\x14\x0A\x0CResolvedWith\x18\x04 \x01(\x09\x12/\x0A\x07Actions\x18\x05 \x03(\x0E2\x1E.Diadoc.Proto.ResolutionAction*\x9D\x01\x0A\x15ResolutionRequestType\x12\x16\x0A\x12ApprovementRequest\x10\x00\x12)\x0A\x1CUnknownResolutionRequestType\x10\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\xFF\x01\x12\x14\x0A\x10SignatureRequest\x10\x01\x12\x1F\x0A\x1BApprovementSignatureRequest\x10\x02\x12\x0A\x0A\x06Custom\x10\x03b\x06proto3"
         , true);
 
         static::$is_initialized = true;

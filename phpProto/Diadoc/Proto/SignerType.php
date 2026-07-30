@@ -13,11 +13,9 @@ use UnexpectedValueException;
 class SignerType
 {
     /**
-     * Обязательное значение по умолчанию
-     *
-     * Generated from protobuf enum <code>STATUS_UNSPECIFIED = 0;</code>
+     * Generated from protobuf enum <code>UnknownSignerType = 0;</code>
      */
-    const STATUS_UNSPECIFIED = 0;
+    const UnknownSignerType = 0;
     /**
      * Generated from protobuf enum <code>SignerTypeUnspecified = -1;</code>
      */
@@ -36,7 +34,7 @@ class SignerType
     const PhysicalPerson = 3;
 
     private static $valueToName = [
-        self::STATUS_UNSPECIFIED => 'STATUS_UNSPECIFIED',
+        self::UnknownSignerType => 'UnknownSignerType',
         self::SignerTypeUnspecified => 'SignerTypeUnspecified',
         self::LegalEntity => 'LegalEntity',
         self::IndividualEntity => 'IndividualEntity',

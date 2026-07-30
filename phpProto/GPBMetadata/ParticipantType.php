@@ -16,7 +16,7 @@ class ParticipantType
           return;
         }
         $pool->internalAddGeneratedFile(
-            "\x0As\x0A\x15ParticipantType.proto\x12\x0CDiadoc.Proto*D\x0A\x0FParticipantType\x12\x0B\x0A\x07Unknown\x10\x00\x12\x0A\x0A\x06Sender\x10\x01\x12\x09\x0A\x05Proxy\x10\x02\x12\x0D\x0A\x09Recipient\x10\x03b\x06proto3"
+            "\x0A\x8D\x01\x0A\x15ParticipantType.proto\x12&Diadoc.Proto.Workflows.ParticipantType*D\x0A\x0FParticipantType\x12\x0B\x0A\x07Unknown\x10\x00\x12\x0A\x0A\x06Sender\x10\x01\x12\x09\x0A\x05Proxy\x10\x02\x12\x0D\x0A\x09Recipient\x10\x03b\x06proto3"
         , true);
 
         static::$is_initialized = true;

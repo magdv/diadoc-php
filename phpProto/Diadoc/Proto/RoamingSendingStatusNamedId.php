@@ -13,9 +13,9 @@ use UnexpectedValueException;
 class RoamingSendingStatusNamedId
 {
     /**
-     * Generated from protobuf enum <code>UnknownStatus = 0;</code>
+     * Generated from protobuf enum <code>UnknownRoamingSendingStatus = 0;</code>
      */
-    const UnknownStatus = 0;
+    const UnknownRoamingSendingStatus = 0;
     /**
      * Generated from protobuf enum <code>IsSent = 1;</code>
      */
@@ -26,7 +26,7 @@ class RoamingSendingStatusNamedId
     const SendingError = 2;
 
     private static $valueToName = [
-        self::UnknownStatus => 'UnknownStatus',
+        self::UnknownRoamingSendingStatus => 'UnknownRoamingSendingStatus',
         self::IsSent => 'IsSent',
         self::SendingError => 'SendingError',
     ];

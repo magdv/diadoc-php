@@ -2,7 +2,6 @@ syntax="proto3";
 
 import "CancellationInfo.proto";
 import "Content.proto";
-import "DocumentInfoV3.proto";
 import "Documents/Document.proto";
 import "MoveDocumentInfo.proto";
 import "PowerOfAttorneyInfo.proto";
@@ -15,8 +14,11 @@ import "Events/ResolutionRequestInfo.proto";
 import "Events/ResolutionRequestDenialInfo.proto";
 import "OuterDocflowInfo.proto";
 import "PowerOfAttorneyAttachmentStatus.proto";
+import "TemplateTransformationInfo.proto";
+import "TemplateRefusalInfo.proto";
+import "TemplateTransformationChangeInfo.proto";
 
-package Diadoc.Proto;
+package Diadoc.Proto.Events;
 
 
 // Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/Entity%20message.html
@@ -24,16 +26,23 @@ package Diadoc.Proto;
 
 message Entity {
     // тип сущности, принимает значение из перечисления `EntityType`:
+    // `Attachment` — файл вложения: пользовательский или служебный документ;
+    // `Signature` — электронная подпись под вложением (документом).
     EntityType EntityType = 1;
     // идентификатор сущности.
     string EntityId = 2;
     // идентификатор пользователя-автора сущности. Возвращается только для сущностей с типом `Signature` и `Attachment` со следующими типами вложений:
+    // `Resolution`, `ResolutionRequest`, `ResolutionRequestDenial`, `ResolutionRouteAssignmentAttachment`,
+    // `ResolutionRouteRemovalAttachment`, `OuterDocflow`, `TemplateTransformation`, `TemplateRefusal`,
+    // `CustomData`, `Edition`, `MoveDocument`, `RevocationRequest`.
     string AuthorUserId = 33;
     // идентификатор родительской сущности. Например, для сущности с типом `Signature` это будет идентификатор соответствующей сущности с типом `Attachment`.
     string ParentEntityId = 3;
     // содержимое сущности, представленное структурой Content. Если у сущности не предусмотрено содержимое, то в поле `Content` вернется значение `null`. В остальных случаях в поле `Content.Data` будут содержаться данные:
+    // для сущности с типом `Signature` — электронная подпись в формате CMS SignedData в DER-кодировке;
+    // для сущности с типом `Attachment` — массив байтов с данными, которые интерпретируются в зависимости от типа вложения `AttachmentType` (см. таблицу Content.Data в документации).
     Content Content = 4;
-    // тип вложения (пользовательского или служебного документа). Имеет смысл только для сущностей с типом `EntityType` `=` `Attachment`. Принимает значение из перечисления `AttachmentType`:
+    // тип вложения (пользовательского или служебного документа). Имеет смысл только для сущностей с типом `EntityType` `=` `Attachment`. Принимает значение из перечисления `AttachmentType`. Неизвестные типы обрабатываются как `Nonformalized`.
     AttachmentType AttachmentType = 5;
     // исходное имя файла. Возвращается только для сущностей с типом `Attachment` кроме машиночитаемой доверенности.
     string FileName = 6;
@@ -43,7 +52,7 @@ message Entity {
     string SignerBoxId = 8;
     // идентификатор сообщения или патча, который не удалось доставить (например, из-за некорректности одной или нескольких подписей в нем). Получить недоставленную часть сообщения можно с помощью метода GetEvent (V3), передав в качестве параметра `eventId` значение `NotDeliveredEventId`. Возвращается только для сущностей с типом `Attachment` с типом вложения `DeliveryFailureNotification`.
     string NotDeliveredEventId = 10;
-    // расширенная информация о документе, представляемом данной сущностью, представленная структурой Document. Возвращается только для сущностей с типом `Attachment` со следующими типами вложений:
+    // расширенная информация о документе, представленная структурой Document. Возвращается только для первых титулов документов.
     Documents.Document DocumentInfo = 11;
     // время создания сущности, целое число тиков (100-наносекундных интервалов), прошедших с момента времени 00:00:00 01.01.0001.
     sfixed64 RawCreationDate = 12 ;
@@ -57,6 +66,7 @@ message Entity {
     Events.ResolutionRequestDenialInfo ResolutionRequestDenialInfo = 16;
     // признак того, что от получателя требуется сформировать извещение о получении документа. Возвращается только для сущностей с типом `Attachment`.
     bool NeedReceipt = 17 ;
+    // идентификатор пакета документов.
     string PacketId = 18;
     // признак того, что подпись является согласующей. Возвращается только для сущностей с типом `Signature`.
     bool IsApprovementSignature = 19 ;
@@ -64,9 +74,9 @@ message Entity {
     bool IsEncryptedContent = 20 ;
     // Поле устарело, используйте значение поля `Version`. Информация о версии XSD-схемы, в соответствии с которой сформирована данная сущность.
     string AttachmentVersion = 21;
-    // информация о запуске документа по маршруту согласования, представленная структурой ResolutionRouteAssignmentInfo. Возвращается только для сущностей с типом `Attachment` с типом вложения `ResolutionRouteAssignment`.
+    // информация о запуске документа по маршруту согласования, представленная структурой ResolutionRouteAssignmentInfo. Возвращается только для сущностей с типом `Attachment` с типом вложения `ResolutionRouteAssignmentAttachment`.
     ResolutionRouteAssignmentInfo ResolutionRouteAssignmentInfo = 22;
-    // информация о снятии документа с маршрута согласования, представленная структурой ResolutionRouteRemovalInfo. Возвращается только для сущностей с типом `Attachment` с типом вложения `ResolutionRouteRemoval`.
+    // информация о снятии документа с маршрута согласования, представленная структурой ResolutionRouteRemovalInfo. Возвращается только для сущностей с типом `Attachment` с типом вложения `ResolutionRouteRemovalAttachment`.
     ResolutionRouteRemovalInfo ResolutionRouteRemovalInfo = 23;
     // информация об отмене сущности, представленная структурой CancellationInfo. Отмененной является сущность, которая указана родительской по отношению к данной. Например, это может быть идентификатор запроса на согласование. Возвращается только для сущностей с типом `Attachment` с типом вложения `Cancellation`.
     CancellationInfo CancellationInfo = 24;
@@ -85,11 +95,13 @@ message Entity {
     // идентификатор типа содержимого документа, единый для документов с одинаковой структурой и одинаковыми правилами обработки. То есть каждый тип документа, титул и служебный документ имеет свой идентификатор. Например, УПД формата приказа №970 с функцией СЧФДОП будет иметь идентифкатор для первого титула `utd970_schfdop_orig_t1_05_03_01`, для второго титула — `utd970_schfdop_t2_05_03_01`, а для отказа в подписи в формате уведомления об уточнении — `signature_rejection_02`.
     string ContentTypeId = 31;
     // информация о машиночитаемой доверенности и статусе ее проверки, представленная структурой PowerOfAttorneyInfo. Возвращается только для сущностей с типом `Attachment` с типами вложения `PowerOfAttorney` и `PowerOfAttorneyStatus`. Статус проверки машиночитаемой доверенности `PowerOfAttorneyValidationStatus` возвращается только для сущностей с типом `Attachment` с типом вложения `PowerOfAttorneyStatus`. Для машиночитаемой доверенности в поле `ParentEntityId` возвращается:
+    // для вложения с типом `PowerOfAttorney` — идентификатор подписи,
+    // для вложения с типом `PowerOfAttorneyStatus` — идентификатор МЧД.
     PowerOfAttorneyInfo PowerOfAttorneyInfo = 32;
     // информация о перемещении документа в другое подразделение, представленная структурой MoveDocumentInfo. Возвращается только для сущностей с типом `Attachment` с типом вложения `MoveDocument`.
     MoveDocumentInfo MoveDocumentInfo = 34;
     // статус приложенности машиночитаемой доверенности (МЧД) к подписи, представленный структурой PowerOfAttorneyAttachmentStatus. Возвращается только для сущностей с типом `Signature`.
-    PowerOfAttorneyAttachmentStatus PowerOfAttorneyAttachmentStatus = 35;
+    Docflow.PowerOfAttorneyAttachmentStatus PowerOfAttorneyAttachmentStatus = 35;
     // информация об универсальном сообщении, представленная структурой UniversalMessageInfo.
     UniversalMessageInfo UniversalMessageInfo = 36;
     // информация об изменении документа, созданного на основе шаблона, представленная структурой TemplateTransformationChangeInfo.
@@ -97,72 +109,133 @@ message Entity {
 }
 
 enum EntityType {
+    // неизвестное значение: клиент использует устаревшую версию SDK и не может интерпретировать ответ.
     UnknownEntityType = 0;
+    // файл вложения: пользовательский или служебный документ.
     Attachment = 1;
+    // электронная подпись под вложением (документом).
     Signature = 2;
 }
 
 enum AttachmentType {
+    // неформализованный документ.
     Nonformalized = 0;
+    // неизвестное значение: клиент использует устаревшую версию SDK и не может интерпретировать ответ.
     UnknownAttachmentType = -1;
+    // счет-фактура.
     Invoice = 1;
+    // извещение о получении счета-фактуры, подтверждения оператора электронного документооборота или уведомления об уточнении счета-фактуры.
     InvoiceReceipt = 2;
+    // подтверждение оператора электронного документооборота.
     InvoiceConfirmation = 3;
+    // уведомление об уточнении.
     InvoiceCorrectionRequest = 4;
+    // комментарий к другому вложению (пользовательскому или служебному документу).
     AttachmentComment = 5;
+    // уведомление о невозможности доставки сообщения.
     DeliveryFailureNotification = 6;
+    // отказ в формировании запрошенной подписи.
     SignatureRequestRejection = 8;
+    // протокол проверки подписи, сформированный Диадоком. Возвращается для каждой подписи под отправленными документами, если при проверке хотя бы одной из них были обнаружены ошибки.
     SignatureVerificationReport = 10;
+    // запрос на инициацию канала обмена документами через Диадок.
     TrustConnectionRequest = 11;
+    // товарная накладная ТОРГ-12.
     Torg12 = 12;
+    // исправление счета-фактуры.
     InvoiceRevision = 13;
+    // корректировочный счет-фактура.
     InvoiceCorrection = 14;
+    // исправление корректировочного счета-фактуры.
     InvoiceCorrectionRevision = 15;
+    // акт о выполнении работ или оказании услуг.
     AcceptanceCertificate = 16;
+    // произвольный файл со структурированными данными, описывающими тот или иной документ, представленный в виде печатной формы.
     StructuredData = 17;
+    // счет на оплату.
     ProformaInvoice = 18;
+    // товарная накладная ТОРГ-12 в XML-формате, титул продавца.
     XmlTorg12 = 19;
+    // акт о выполнении работ / оказании услуг в XML-формате, титул исполнителя.
     XmlAcceptanceCertificate = 20;
+    // товарная накладная ТОРГ-12 в XML-формате, титул покупателя.
     XmlTorg12BuyerTitle = 21;
+    // акт о выполнении работ / оказании услуг в XML-формате, титул заказчика.
     XmlAcceptanceCertificateBuyerTitle = 22;
+    // информация о статусе согласования документа.
     Resolution = 23;
+    // запрос согласования документа.
     ResolutionRequest = 24;
+    // отказ в запросе подписи документа.
     ResolutionRequestDenial = 25;
+    // ценовой лист.
     PriceList = 26;
+    // извещение о получении.
     Receipt = 27;
+    // формализованный отказ в подписи.
     XmlSignatureRejection = 28;
+    // предложение об аннулировании.
     RevocationRequest = 29;
+    // протокол согласования цены.
     PriceListAgreement = 30;
+    // реестр сертификатов.
     CertificateRegistry = 34;
+    // акт сверки.
     ReconciliationAct = 35;
+    // договор.
     Contract = 36;
+    // накладная ТОРГ-13.
     Torg13 = 37;
+    // детализация.
     ServiceDetails = 38;
+    // роуминговая квитанция.
     RoamingNotification = 39;
+    // дополнительное соглашение к договору.
     SupplementaryAgreement = 40;
+    // универсальный передаточный документ.
     UniversalTransferDocument = 41;
+    // титул покупателя универсального передаточного документа.
     UniversalTransferDocumentBuyerTitle = 42;
+    // исправление универсального передаточного документа.
     UniversalTransferDocumentRevision = 45;
+    // универсальный корректировочный документ.
     UniversalCorrectionDocument = 49;
+    // исправление универсального корректировочного документа.
     UniversalCorrectionDocumentRevision = 50;
+    // титул покупателя универсального корректировочного документа.
     UniversalCorrectionDocumentBuyerTitle = 51;
+    // произвольные данные к документу.
     CustomData = 64;
+    // информация о перемещении документа в подразделение.
     MoveDocument = 65;
-    ResolutionRouteAssignment = 66;
-    ResolutionRouteRemoval = 67;
+    // информация о запуске документа по маршруту согласования.
+    ResolutionRouteAssignmentAttachment = 66;
+    // информация о снятии документа с маршрута согласования.
+    ResolutionRouteRemovalAttachment = 67;
+    // титул документа. Возвращается для всех типов документов, кроме типов от 0 (`AttachmentType = Nonformalized`) до 51 (`AttachmentType = UniversalCorrectionDocumentBuyerTitle`). Это сделано для сохранения обратной совместимости: для первых титулов (титулов отправителя) с типами от `Nonformalized` до `UniversalCorrectionDocumentBuyerTitle` возвращается соответствующее значение, например, `Invoice` для счета-фактуры и т.п.
     Title = 68;
+    // информация об отмене сущности, которая указана родительской по отношению к данной.
     Cancellation = 69;
+    // информация о редактировании содержимого документа, который указан родительским по отношению к данной сущности.
     Edition = 71;
+    // восстановление удаленного документа.
     DeletionRestoration = 72;
+    // информация о трансформации.
     TemplateTransformation = 73;
+    // информация об отклонении или отзыве шаблона.
     TemplateRefusal = 74;
+    // информация о внешнем документообороте.
     OuterDocflow = 75;
+    // подтверждение оператора, отправленное в роуминг или полученное из роуминга.
     RoamingConfirmation = 76;
+    // информация о машиночитаемой доверенности.
     PowerOfAttorney = 77;
+    // статус проверки машиночитаемой доверенности.
     PowerOfAttorneyStatus = 78;
+    // универсальное сообщение.
     UniversalMessage = 79;
+    // документ для отмены сведений об отгрузке маркированных товаров.
     TtGisFixationCancellationRequest = 87;
-    TemplateTransformationChange = 88;
+    // изменение, произошедшее с документами, созданными на основе шаблона.
+    TemplateTransformationChange = 90;
 }
-
-

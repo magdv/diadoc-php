@@ -1,0 +1,45 @@
+syntax="proto3";
+
+import "ConfirmationDocflowV5.proto";
+import "DeliveryDocflowV5.proto";
+import "DocumentParticipantV2.proto";
+import "SignedAttachmentV3.proto";
+import "UniversalMessageAttachmentDocflow.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/AmendmentRequestDocflowV5.html
+// Состояние уведомления об уточнении (УоУ).
+
+message AmendmentRequestDocflowV5 {
+    // автор УоУ, представленный структурой DocumentParticipantV2.
+    DocumentParticipantV2 Requester = 1;
+    // список состояний УоУ, представленных структурой AmendmentRequestRecipientDocflow.
+    repeated AmendmentRequestRecipientDocflow RecipientDocflows = 2;
+    // признак завершения документооборота по УоУ.
+    bool IsFinished = 3;
+    // информация о файле УоУ и подписи под ним, представленная структурой SignedAttachmentV3.
+    optional SignedAttachmentV3 AmendmentRequest = 4;
+    // статус УоУ или исправления/корректировки, принимает значения из перечисления InvoiceAmendmentFlags.
+    int32 AmendmentFlags = 5;
+    // текст уведомления об уточнении.
+    optional string PlainText = 6;
+    // универсальное сообщение с уведомлением об уточнении, представленное структурой UniversalMessageAttachmentDocflow.
+    optional UniversalMessageAttachmentDocflow UniversalMessage = 7;
+    // идентификатор сущности, к которой относится запрос.
+    optional string TargetEntityId = 8;
+}
+
+message AmendmentRequestRecipientDocflow {
+    // получатель УоУ, представленный структурой DocumentParticipantV2.
+    DocumentParticipantV2 Recipient = 1;
+    // состояние извещения о получении, представленное структурой ReceiptDocflowV5.
+    optional ReceiptDocflowV5 Receipt = 2;
+    // состояние доставки, представленное структурой DeliveryDocflowV5.
+    optional DeliveryDocflowV5 Delivery = 3;
+    // состояние подтверждения оператора, представленное структурой ConfirmationDocflowV5.
+    optional ConfirmationDocflowV5 Confirmation = 4;
+}
+
+

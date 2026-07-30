@@ -1,6 +1,6 @@
 syntax="proto3";
 
-package Diadoc.Proto;
+package Diadoc.Proto.Workflows.ReceiptOperatorConfirmationReceiptBehavior;
 
 enum ReceiptOperatorConfirmationReceiptBehavior {
     Unknown = 0;

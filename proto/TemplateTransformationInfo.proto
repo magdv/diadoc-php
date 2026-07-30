@@ -11,7 +11,7 @@ package Diadoc.Proto;
 message TemplateTransformationInfo
 {
     // идентификатор сообщения и документа, созданного на основе шаблона. Представлен структурой DocumentId.
-    DocumentId TransformedToLetterId = 1;
+    DocumentId TransformedToDocumentId = 1;
     // ФИО пользователя, который создал документ из шаблона.
     string Author = 2;
 }

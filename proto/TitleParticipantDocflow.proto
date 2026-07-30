@@ -1,0 +1,25 @@
+syntax="proto3";
+
+import "DocumentParticipantV2.proto";
+import "ConfirmationDocflowV5.proto";
+import "TitleDeliveryDocflowV5.proto";
+import "TitleParticipantResponseDocflow.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/TitleParticipantDocflow.html
+// Состояние участника документооборота по отношению к титулу.
+
+message TitleParticipantDocflow {
+    // участник документооборота, представленный структурой DocumentParticipantV2.
+    DocumentParticipantV2 Participant = 1;
+    // состояние доставки титула, представленное структурой TitleDeliveryDocflowV5.
+    optional TitleDeliveryDocflowV5 TitleDelivery = 2;
+    // состояние ответа участника, представленное структурой TitleParticipantResponseDocflow.
+    optional TitleParticipantResponseDocflow Response = 3;
+    // состояние извещения о получении, представленное структурой ReceiptDocflowV5.
+    optional ReceiptDocflowV5 Receipt = 4;
+}
+
+

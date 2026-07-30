@@ -1,5 +1,5 @@
 syntax="proto3";
-package Diadoc.Proto;
+package Diadoc.Proto.Docflow;
 
 
 // Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/PowerOfAttorneyAttachmentStatus.html

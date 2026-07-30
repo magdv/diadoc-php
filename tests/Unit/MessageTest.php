@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Test\Unit;
 
+use Diadoc\Proto\Docflow\GetDocflowBatchRequest;
+use Diadoc\Proto\Docflow\GetDocflowRequest;
+use Diadoc\Proto\DocumentId;
 use Diadoc\Proto\DocumentType;
 use Diadoc\Proto\Events\AttachmentType;
 use Diadoc\Proto\Events\DocumentAttachment;
@@ -16,7 +19,7 @@ class MessageTest extends BaseTest
 {
     public function testPostMessage(): void
     {
-        $api = $this->auth();
+        $api = $this->auth()->getApi();
         $postObject = new MessageToPost();
         $postObject->setFromBoxId(getenv(ConfigNames::FROM_BOX_ID));
         $postObject->setToBoxId(getenv(ConfigNames::TO_BOX_ID));
@@ -33,7 +36,7 @@ class MessageTest extends BaseTest
         $postObject->setDocumentAttachments([$attachment]);
 
         /** @var \Diadoc\Proto\Events\Message $response */
-        $response = $api->getApi()->postMessage($postObject);
+        $response = $api->postMessage($postObject);
 
         self::assertNotEmpty($response);
         self::assertNotEmpty($response->getMessageId());
@@ -56,14 +59,31 @@ class MessageTest extends BaseTest
 
         self::assertTrue(true);
 
-//        Это было для проверки. Оставлю на будущее.
-//        $documentResponse = $api->getApi()->getDocument(
-//            'a187f153-8fae-4c3b-b7f6-348e2d018b9d',
-//            '8b78b11d-3154-4127-8727-f487328d2ce6',
-//            '18e82bb2-b77a-4ff5-b064-f25ff5615b8b',
-//            'false'
-//        );
-//
-//        self::assertEquals($documentResponse->getMessageId(), $response->getMessageId());
+        $messageV6Response = $api->getMessageV6(
+            boxId: $response->getFromBoxId(),
+            messageId: $response->getMessageId(),
+        );
+        $entities = $messageV6Response->getEntities();
+        self::assertNotEmpty($entities);
+
+
+        $documentId = new DocumentId();
+        $documentId->setEntityId($entities[0]->getEntityId());
+        $documentId->setMessageId($response->getMessageId());
+
+
+        $request = new GetDocflowRequest();
+        $request->setDocumentId($documentId);
+
+        $getDocflowBatchRequest = new GetDocflowBatchRequest(
+        );
+        $getDocflowBatchRequest->setRequests([$request]);
+
+        $flowResponse = $api->getDocflowsV5(
+            boxId: $response->getFromBoxId(),
+            getDocflowBatchRequest: $getDocflowBatchRequest
+        );
+
+        self::assertNotEmpty($flowResponse->getDocuments());
     }
 }

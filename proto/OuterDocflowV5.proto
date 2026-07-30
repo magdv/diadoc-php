@@ -1,0 +1,32 @@
+syntax="proto3";
+
+import "Timestamp.proto";
+
+package Diadoc.Proto;
+
+
+// Diadoc API proto docs: https://developer.kontur.ru/Docs/diadoc-api/proto/OuterDocflowV5.html
+// Последнее полученное состояние внешнего документооборота.
+
+message OuterDocflowV5 {
+    // идентификатор внешнего документооборота.
+    string DocflowNamedId = 1;
+    // идентификатор сущности, по которой получено последнее состояние внешнего документооборота. Это может быть документ или запрос на аннулирование.
+    string ParentEntityId = 2;
+    // идентификатор последнего полученного состояния в рамках внешнего документооборота.
+    string LatestStatusEntityId = 3;
+    // название внешнего документооборота, которое используется для отображения в веб-интерфейсе.
+    string DocflowFriendlyName = 4;
+    // список сущностей, относящихся к внешнему документообороту. Каждый элемент списка представлен структурой OuterDocflowStatusEntityV5 (в документации — StatusEntity).
+    repeated OuterDocflowStatusEntityV5 StatusEntities = 5;
+}
+
+// В документации Kontur эта структура называется StatusEntity; локально переименована из‑за конфликта с StatusEntity в OuterDocflowEntities.proto.
+message OuterDocflowStatusEntityV5 {
+    // идентификатор сущности.
+    string EntityId = 1;
+    // время получения состояния, представленное структурой Timestamp.
+    optional Timestamp Timestamp = 2;
+}
+
+
