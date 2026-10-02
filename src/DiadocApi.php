@@ -210,7 +210,7 @@ class DiadocApi
     /**
      * @var string
      */
-    final public const RESOURCE_GET_ENTITY_CONTENT = ' /V4/GetEntityContent';
+    final public const RESOURCE_GET_ENTITY_CONTENT = '/V4/GetEntityContent';
 
     /**
      * @var string
@@ -439,6 +439,11 @@ class DiadocApi
      * @var string
      */
     final public const RESOURCE_GET_NEW_EVENTS = '/V4/GetNewEvents';
+
+    /**
+     * @var string
+     */
+    final public const RESOURCE_GET_NEW_EVENTS_V8 = '/V8/GetNewEvents';
 
     //Docflow API
     /**
@@ -698,7 +703,7 @@ class DiadocApi
      */
     protected function logRequest(string $uri, mixed $postData, string $method, int $httpCode, string $response): void
     {
-        if ($this->httpLogger === null) {
+        if (!$this->httpLogger instanceof HttpLoggerInterface) {
             return;
         }
 
@@ -1594,6 +1599,42 @@ class DiadocApi
             [
                 'boxId' => $boxId,
                 'afterEventId' => $afterEventId
+            ]
+        );
+        $boxEventList = new BoxEventList();
+        $boxEventList->mergeFromString($response);
+
+        return $boxEventList;
+    }
+
+    public function getNewEventsV8(
+        string $boxId,
+        ?string $afterIndexKey = null,
+        ?string $afterEventId = null,
+        ?string $messageType = null,
+        ?string $typeNamedId = null,
+        ?string $documentDirection = null,
+        ?int $timestampFromTicks = null,
+        ?int $timestampToTicks = null,
+        ?string $counteragentBoxId = null,
+        ?string $orderBy = null,
+        ?int $limit = null
+    ): BoxEventList {
+        $response = $this->doRequest(
+            self::RESOURCE_GET_NEW_EVENTS_V8,
+            [],
+            [
+                'boxId' => $boxId,
+                'afterIndexKey' => $afterIndexKey,
+                'afterEventId' => $afterEventId,
+                'messageType' => $messageType,
+                'typeNamedId' => $typeNamedId,
+                'documentDirection' => $documentDirection,
+                'timestampFromTicks' => $timestampFromTicks,
+                'timestampToTicks' => $timestampToTicks,
+                'counteragentBoxId' => $counteragentBoxId,
+                'orderBy' => $orderBy,
+                'limit' => $limit,
             ]
         );
         $boxEventList = new BoxEventList();

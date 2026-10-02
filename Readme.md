@@ -133,6 +133,15 @@ docker compose --profile oauth up oauth-test
 - **`MagDv\Diadoc\DiadocApi::postMessage()`** (`tests/Unit/MessageTest.php`)
 - **`MagDv\Diadoc\DiadocApi::generateSignedContentFromFile()`** (`tests/Unit/SignTest.php`)
 - **`MagDv\Diadoc\DiadocApi::shelfUpload()`** (`tests/Unit/ShelfTest.php`, тест помечен как skipped)
+- **`MagDv\Diadoc\DiadocApi::getNewEventsV8()`** (`tests/Unit/GetNewEventsTest.php`)
+- **`MagDv\Diadoc\DiadocApi::getEntityContent()`** (`tests/Unit/GetEntityContentTest.php`)
+- **`MagDv\Diadoc\BoxApi::getEntityContent()`** (`tests/Unit/GetEntityContentTest.php`)
+
+Для `MagDv\Diadoc\DiadocApi::getNewEventsV8()` (`GET /V8/GetNewEvents`) проверяются:
+- базовый вызов и получение `BoxEventList`;
+- ограничение выборки через `limit`;
+- постраничность через `afterIndexKey` — события второй страницы не пересекаются с первой;
+- фильтр по времени через `timestampFromTicks`/`timestampToTicks` — время событий попадает в заданный интервал.
 
 ## Как вести разработку
 
