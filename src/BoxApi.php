@@ -175,4 +175,31 @@ class BoxApi
     {
         return $this->diadocApi->getNewEvents($this->boxId, $afterEventId);
     }
+
+    public function getNewEventsV8(
+        ?string $afterIndexKey = null,
+        ?string $afterEventId = null,
+        ?string $messageType = null,
+        ?string $typeNamedId = null,
+        ?string $documentDirection = null,
+        ?int $timestampFromTicks = null,
+        ?int $timestampToTicks = null,
+        ?string $counteragentBoxId = null,
+        ?string $orderBy = null,
+        ?int $limit = null
+    ): BoxEventList {
+        return $this->diadocApi->getNewEventsV8(
+            $this->boxId,
+            $afterIndexKey,
+            $afterEventId,
+            $messageType,
+            $typeNamedId,
+            $documentDirection,
+            $timestampFromTicks,
+            $timestampToTicks,
+            $counteragentBoxId,
+            $orderBy,
+            $limit
+        );
+    }
 }
