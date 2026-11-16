@@ -1,175 +1,557 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="4.30.0@d0bc6e25d89f649e4f36a534f330f8bb4643dd69">
+<files psalm-version="7.0.3@8f2ac04d0ab5ed1d3cbe6e252b0f7232bc031aaf">
+  <file src="src/Auth/AuthenticateV3AuthMode.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[AuthenticateV3AuthMode]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function buildRequestHeaders(?string $contentType, string $method, bool $forAuthenticateCall): array]]></code>
+      <code><![CDATA[public function ensureAuthorized(): void]]></code>
+      <code><![CDATA[public function getMode(): string]]></code>
+      <code><![CDATA[public function getToken(): ?string]]></code>
+      <code><![CDATA[public function handleUnauthorized(): bool]]></code>
+      <code><![CDATA[public function setToken(?string $token): void]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyFalseArgument>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$response]]></code>
+    </PossiblyInvalidArgument>
+    <PossiblyNullArgument>
+      <code><![CDATA[$this->login]]></code>
+      <code><![CDATA[$this->password]]></code>
+    </PossiblyNullArgument>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$contentType]]></code>
+    </RiskyTruthyFalsyComparison>
+    <TaintedHeader>
+      <code><![CDATA[curl_setopt($ch, CURLOPT_HTTPHEADER, $this->buildRequestHeaders('application/x-protobuf', 'POST', true))]]></code>
+    </TaintedHeader>
+  </file>
+  <file src="src/Auth/DeviceFlowPollResult.php">
+    <UnusedClass>
+      <code><![CDATA[DeviceFlowPollResult]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Auth/DeviceFlowStart.php">
+    <UnusedClass>
+      <code><![CDATA[DeviceFlowStart]]></code>
+    </UnusedClass>
+  </file>
+  <file src="src/Auth/OidcAuthFlowAuthMode.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[OidcAuthFlowAuthMode]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function buildRequestHeaders(?string $contentType, string $method, bool $forAuthenticateCall): array]]></code>
+      <code><![CDATA[public function ensureAuthorized(): void]]></code>
+      <code><![CDATA[public function getMode(): string]]></code>
+      <code><![CDATA[public function getToken(): ?string]]></code>
+      <code><![CDATA[public function handleUnauthorized(): bool]]></code>
+      <code><![CDATA[public function setToken(?string $token): void]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyFalseArgument>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+    </PossiblyFalseArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[getOidcScope]]></code>
+    </PossiblyUnusedMethod>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$contentType]]></code>
+    </RiskyTruthyFalsyComparison>
+  </file>
+  <file src="src/Auth/OidcDeviceFlowAuthMode.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[OidcDeviceFlowAuthMode]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function buildRequestHeaders(?string $contentType, string $method, bool $forAuthenticateCall): array]]></code>
+      <code><![CDATA[public function ensureAuthorized(): void]]></code>
+      <code><![CDATA[public function getMode(): string]]></code>
+      <code><![CDATA[public function getToken(): ?string]]></code>
+      <code><![CDATA[public function handleUnauthorized(): bool]]></code>
+      <code><![CDATA[public function setToken(?string $token): void]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyFalseArgument>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+    </PossiblyFalseArgument>
+    <PossiblyUndefinedArrayOffset>
+      <code><![CDATA[$data['device_code']]]></code>
+      <code><![CDATA[$data['expires_in']]]></code>
+      <code><![CDATA[$data['interval']]]></code>
+      <code><![CDATA[$data['user_code']]]></code>
+      <code><![CDATA[$data['verification_uri']]]></code>
+    </PossiblyUndefinedArrayOffset>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$contentType]]></code>
+    </RiskyTruthyFalsyComparison>
+    <UnusedClass>
+      <code><![CDATA[OidcDeviceFlowAuthMode]]></code>
+    </UnusedClass>
+  </file>
   <file src="src/BoxApi.php">
-    <InvalidArgument occurrences="4">
-      <code>$afterIndexKey</code>
-      <code>$searchScope</code>
-      <code>$sortDirection</code>
-      <code>$sortDirection</code>
+    <InvalidArgument>
+      <code><![CDATA[$searchScope]]></code>
+      <code><![CDATA[$sortDirection]]></code>
+      <code><![CDATA[$sortDirection]]></code>
     </InvalidArgument>
-    <InvalidNullableReturnType occurrences="1">
-      <code>Organization</code>
+    <InvalidNullableReturnType>
+      <code><![CDATA[Organization]]></code>
     </InvalidNullableReturnType>
-    <InvalidScalarArgument occurrences="1">
-      <code>$afterEventId</code>
+    <InvalidScalarArgument>
+      <code><![CDATA[$afterEventId]]></code>
     </InvalidScalarArgument>
-    <LessSpecificReturnStatement occurrences="4">
-      <code>$this-&gt;diadocApi-&gt;getDocflowsByPacketId($this-&gt;boxId, $packetId, $injectEntityContent, $afterIndexKey, $count)</code>
-      <code>$this-&gt;diadocApi-&gt;getDocument($this-&gt;boxId, $messageId, $entityId)</code>
-      <code>$this-&gt;diadocApi-&gt;getMessage($this-&gt;boxId, $messageId, $entityId, $originalSignature)</code>
-      <code>$this-&gt;diadocApi-&gt;searchDocflows($this-&gt;boxId, $queryString, $searchScope, $firstIndex, $count)</code>
-    </LessSpecificReturnStatement>
-    <MissingParamType occurrences="2">
-      <code>$entityId</code>
-      <code>$messageId</code>
-    </MissingParamType>
-    <MoreSpecificReturnType occurrences="4">
-      <code>Document</code>
-      <code>GetDocflowsByPacketIdResponse</code>
-      <code>Message</code>
-      <code>SearchDocflowsResponse</code>
-    </MoreSpecificReturnType>
-    <NullableReturnStatement occurrences="1">
-      <code>$this-&gt;getBox()-&gt;getOrganization()</code>
+    <NullableReturnStatement>
+      <code><![CDATA[$this->getBox()
+            ->getOrganization()]]></code>
     </NullableReturnStatement>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[delete]]></code>
+      <code><![CDATA[forwardDocument]]></code>
+      <code><![CDATA[getBox]]></code>
+      <code><![CDATA[getDiadocApi]]></code>
+      <code><![CDATA[getDocflowEvents]]></code>
+      <code><![CDATA[getDocflows]]></code>
+      <code><![CDATA[getDocflowsByPacketId]]></code>
+      <code><![CDATA[getDocument]]></code>
+      <code><![CDATA[getDocuments]]></code>
+      <code><![CDATA[getEvent]]></code>
+      <code><![CDATA[getMessage]]></code>
+      <code><![CDATA[getNewEvents]]></code>
+      <code><![CDATA[getNewEventsV8]]></code>
+      <code><![CDATA[getOrganization]]></code>
+      <code><![CDATA[getOrganizationApi]]></code>
+      <code><![CDATA[searchDocflows]]></code>
+    </PossiblyUnusedMethod>
+    <UnusedProperty>
+      <code><![CDATA[$organizationApi]]></code>
+    </UnusedProperty>
   </file>
   <file src="src/DiadocApi.php">
-    <InvalidReturnStatement occurrences="1">
-      <code>$response</code>
+    <InvalidArgument>
+      <code><![CDATA[$afterIndexKey]]></code>
+      <code><![CDATA[$afterIndexKey]]></code>
+    </InvalidArgument>
+    <InvalidDocblock>
+      <code><![CDATA[array<array<string, mixed>, mixed>]]></code>
+    </InvalidDocblock>
+    <InvalidReturnStatement>
+      <code><![CDATA[$response]]></code>
     </InvalidReturnStatement>
-    <InvalidReturnType occurrences="1">
-      <code>string</code>
+    <InvalidReturnType>
+      <code><![CDATA[string]]></code>
     </InvalidReturnType>
-    <InvalidScalarArgument occurrences="1">
-      <code>$afterIndexKey</code>
-    </InvalidScalarArgument>
-    <MismatchingDocblockReturnType occurrences="21">
-      <code>AcquireCounteragentResult| \Google\Protobuf\Internal\Message</code>
-      <code>AsyncMethodResult| \Google\Protobuf\Internal\Message</code>
-      <code>AsyncMethodResult| \Google\Protobuf\Internal\Message</code>
-      <code>Counteragent| \Google\Protobuf\Internal\Message</code>
-      <code>Counteragent| \Google\Protobuf\Internal\Message</code>
-      <code>Document| \Google\Protobuf\Internal\Message</code>
-      <code>GetDocflowsByPacketIdResponse| \Google\Protobuf\Internal\Message</code>
-      <code>GetOrganizationsByInnListResponse| \Google\Protobuf\Internal\Message</code>
-      <code>MessagePatch| \Google\Protobuf\Internal\Message</code>
-      <code>Message| \Google\Protobuf\Internal\Message</code>
-      <code>Message| \Google\Protobuf\Internal\Message</code>
-      <code>Message| \Google\Protobuf\Internal\Message</code>
-      <code>OrganizationList| \Google\Protobuf\Internal\Message</code>
-      <code>OrganizationList| \Google\Protobuf\Internal\Message</code>
-      <code>OrganizationUsersList| \Google\Protobuf\Internal\Message</code>
-      <code>Organization| \Google\Protobuf\Internal\Message</code>
-      <code>Organization| \Google\Protobuf\Internal\Message</code>
-      <code>Organization| \Google\Protobuf\Internal\Message</code>
-      <code>RussianAddress| \Google\Protobuf\Internal\Message</code>
-      <code>SearchDocflowsResponse| \Google\Protobuf\Internal\Message</code>
-      <code>User| \Google\Protobuf\Internal\Message</code>
-    </MismatchingDocblockReturnType>
-    <PossiblyNullArgument occurrences="5">
-      <code>$fromTimestamp</code>
-      <code>$sortDirection</code>
-      <code>$toTimestamp</code>
-      <code>DateHelper::convertDateTimeToTicks($from)</code>
-      <code>DateHelper::convertDateTimeToTicks($to)</code>
+    <PossiblyFalseArgument>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$ch]]></code>
+      <code><![CDATA[$content]]></code>
+    </PossiblyFalseArgument>
+    <PossiblyNullArgument>
+      <code><![CDATA[$fromTimestamp]]></code>
+      <code><![CDATA[$invitationDocument]]></code>
+      <code><![CDATA[$invitationDocument]]></code>
+      <code><![CDATA[$sortDirection]]></code>
+      <code><![CDATA[$toTimestamp]]></code>
+      <code><![CDATA[DateHelper::convertDateTimeToTicks($from)]]></code>
+      <code><![CDATA[DateHelper::convertDateTimeToTicks($to)]]></code>
     </PossiblyNullArgument>
-    <PossiblyNullReference occurrences="1">
-      <code>sign</code>
+    <PossiblyNullReference>
+      <code><![CDATA[sign]]></code>
     </PossiblyNullReference>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[acquireCounteragent]]></code>
+      <code><![CDATA[acquireCounteragentByInnWithDocument]]></code>
+      <code><![CDATA[acquireCounteragentResult]]></code>
+      <code><![CDATA[acquireCounteragentWithDocument]]></code>
+      <code><![CDATA[authenticateLogin]]></code>
+      <code><![CDATA[breakWithCounteragent]]></code>
+      <code><![CDATA[delete]]></code>
+      <code><![CDATA[forwardDocument]]></code>
+      <code><![CDATA[generateInvitationDocument]]></code>
+      <code><![CDATA[getBox]]></code>
+      <code><![CDATA[getCounteragentCertificates]]></code>
+      <code><![CDATA[getCountragent]]></code>
+      <code><![CDATA[getCountragentV2]]></code>
+      <code><![CDATA[getCountragents]]></code>
+      <code><![CDATA[getDepartment]]></code>
+      <code><![CDATA[getDocflowEvents]]></code>
+      <code><![CDATA[getDocflows]]></code>
+      <code><![CDATA[getDocflowsByPacketId]]></code>
+      <code><![CDATA[getDocument]]></code>
+      <code><![CDATA[getDocuments]]></code>
+      <code><![CDATA[getEvent]]></code>
+      <code><![CDATA[getMessage]]></code>
+      <code><![CDATA[getMyPermissions]]></code>
+      <code><![CDATA[getMyUser]]></code>
+      <code><![CDATA[getNewEvents]]></code>
+      <code><![CDATA[getOAuthSessionState]]></code>
+      <code><![CDATA[getOidcScope]]></code>
+      <code><![CDATA[getOrganizationByFnsParticipantId]]></code>
+      <code><![CDATA[getOrganizationById]]></code>
+      <code><![CDATA[getOrganizationByInn]]></code>
+      <code><![CDATA[getOrganizationUsers]]></code>
+      <code><![CDATA[getOrganizationsByInnList]]></code>
+      <code><![CDATA[parseRussianAddress]]></code>
+      <code><![CDATA[postMessagePatch]]></code>
+      <code><![CDATA[refreshAccessToken]]></code>
+      <code><![CDATA[searchDocflows]]></code>
+      <code><![CDATA[shelfUpload]]></code>
+    </PossiblyUnusedMethod>
+    <PossiblyUnusedReturnValue>
+      <code><![CDATA[SignedContent]]></code>
+    </PossiblyUnusedReturnValue>
+    <RiskyTruthyFalsyComparison>
+      <code><![CDATA[$firstIndex]]></code>
+      <code><![CDATA[$searchScope]]></code>
+    </RiskyTruthyFalsyComparison>
+    <TaintedHeader>
+      <code><![CDATA[\curl_setopt($ch, CURLOPT_HTTPHEADER, $this->buildRequestHeaders($contentType, $method, $forAuthenticateCall))]]></code>
+      <code><![CDATA[\curl_setopt($ch, CURLOPT_HTTPHEADER, $this->buildRequestHeaders($contentType, $method, $forAuthenticateCall))]]></code>
+    </TaintedHeader>
+  </file>
+  <file src="src/Entities/Http/HttpLogDto.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[HttpLogDto]]></code>
+    </ClassMustBeFinal>
   </file>
   <file src="src/Filter/DocumentsFilter.php">
-    <InvalidNullableReturnType occurrences="2">
-      <code>DateTime</code>
-      <code>DateTime</code>
+    <InvalidNullableReturnType>
+      <code><![CDATA[DateTime]]></code>
+      <code><![CDATA[DateTime]]></code>
     </InvalidNullableReturnType>
-    <NullableReturnStatement occurrences="2">
-      <code>$this-&gt;fromDate</code>
-      <code>$this-&gt;toDate</code>
+    <NullableReturnStatement>
+      <code><![CDATA[$this->fromDate]]></code>
+      <code><![CDATA[$this->toDate]]></code>
     </NullableReturnStatement>
+    <UnusedClass>
+      <code><![CDATA[DocumentsFilter]]></code>
+    </UnusedClass>
   </file>
   <file src="src/Helper/DateHelper.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>$timestamp</code>
+    <InvalidScalarArgument>
+      <code><![CDATA[$timestamp]]></code>
     </InvalidScalarArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[convertTicksToDateTime]]></code>
+    </PossiblyUnusedMethod>
+  </file>
+  <file src="src/Logger/StdoutHttpLogger.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[StdoutHttpLogger]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function log(HttpLogDto $httpLogDto): void]]></code>
+    </MissingOverrideAttribute>
   </file>
   <file src="src/OrganizationApi.php">
-    <InvalidArgument occurrences="2">
-      <code>$counteragentStatus</code>
-      <code>$counteragentStatus</code>
+    <InvalidArgument>
+      <code><![CDATA[$counteragentStatus]]></code>
+      <code><![CDATA[$counteragentStatus]]></code>
     </InvalidArgument>
-    <InvalidScalarArgument occurrences="1">
-      <code>$afterIndexKey</code>
+    <InvalidScalarArgument>
+      <code><![CDATA[$afterIndexKey]]></code>
     </InvalidScalarArgument>
-    <LessSpecificReturnStatement occurrences="8">
-      <code>$this-&gt;diadocApi-&gt;acquireCounteragentWithDocument($this-&gt;orgId, $counteragentOrgId, $myDepartmentId, $invitationDocument, $messageToContragent)</code>
-      <code>$this-&gt;diadocApi-&gt;getCountragent($this-&gt;orgId, $counteragentOrgId)</code>
-      <code>$this-&gt;diadocApi-&gt;getCountragentV2($this-&gt;orgId, $counteragentOrgId)</code>
-      <code>$this-&gt;diadocApi-&gt;getDepartment($this-&gt;orgId, $departmentId)</code>
-      <code>$this-&gt;diadocApi-&gt;getMyPermissions($this-&gt;orgId)</code>
-      <code>$this-&gt;diadocApi-&gt;getOrganizationById($this-&gt;orgId)</code>
-      <code>$this-&gt;diadocApi-&gt;getOrganizationUsers($this-&gt;orgId)</code>
-      <code>$this-&gt;diadocApi-&gt;getOrganizationsByInnList($this-&gt;orgId, $innList)</code>
+    <LessSpecificReturnStatement>
+      <code><![CDATA[$this->diadocApi->getDepartment($this->orgId, $departmentId)]]></code>
+      <code><![CDATA[$this->diadocApi->getMyPermissions($this->orgId)]]></code>
     </LessSpecificReturnStatement>
-    <MismatchingDocblockReturnType occurrences="1">
-      <code>AsyncMethodResult|Message</code>
-    </MismatchingDocblockReturnType>
-    <MoreSpecificReturnType occurrences="8">
-      <code>AsyncMethodResult</code>
-      <code>Counteragent</code>
-      <code>Counteragent</code>
-      <code>Department</code>
-      <code>GetOrganizationsByInnListResponse</code>
-      <code>Organization</code>
-      <code>OrganizationUserPermissions</code>
-      <code>OrganizationUsersList</code>
+    <MoreSpecificReturnType>
+      <code><![CDATA[Department]]></code>
+      <code><![CDATA[OrganizationUserPermissions]]></code>
     </MoreSpecificReturnType>
-    <PossiblyNullArgument occurrences="2">
-      <code>$comment</code>
-      <code>$messageToContragent</code>
+    <PossiblyNullArgument>
+      <code><![CDATA[$comment]]></code>
+      <code><![CDATA[$messageToContragent]]></code>
+      <code><![CDATA[$messageToContragent]]></code>
     </PossiblyNullArgument>
+    <PossiblyUnusedMethod>
+      <code><![CDATA[__construct]]></code>
+      <code><![CDATA[acquireCounteragent]]></code>
+      <code><![CDATA[acquireCounteragentByInnWithDocument]]></code>
+      <code><![CDATA[acquireCounteragentWithDocument]]></code>
+      <code><![CDATA[breakWithCounteragent]]></code>
+      <code><![CDATA[getCounteragentCertificates]]></code>
+      <code><![CDATA[getCountragent]]></code>
+      <code><![CDATA[getCountragentV2]]></code>
+      <code><![CDATA[getCountragents]]></code>
+      <code><![CDATA[getCountragentsV2]]></code>
+      <code><![CDATA[getDepartment]]></code>
+      <code><![CDATA[getDiadocApi]]></code>
+      <code><![CDATA[getMyPermissions]]></code>
+      <code><![CDATA[getOrganization]]></code>
+      <code><![CDATA[getOrganizationUsers]]></code>
+      <code><![CDATA[getOrganizationsByInnList]]></code>
+    </PossiblyUnusedMethod>
+    <UnusedProperty>
+      <code><![CDATA[$diadocApi]]></code>
+      <code><![CDATA[$orgId]]></code>
+    </UnusedProperty>
+  </file>
+  <file src="src/Signer/Interfaces/SignerProviderInterface.php">
+    <PossiblyUnusedMethod>
+      <code><![CDATA[checkSign]]></code>
+      <code><![CDATA[decrypt]]></code>
+      <code><![CDATA[encrypt]]></code>
+    </PossiblyUnusedMethod>
   </file>
   <file src="src/Signer/OpensslSignerProvider.php">
-    <InvalidScalarArgument occurrences="1">
-      <code>$throwable-&gt;getCode()</code>
-    </InvalidScalarArgument>
-    <MissingClosureParamType occurrences="2">
-      <code>$buffer</code>
-      <code>$type</code>
+    <MissingClosureParamType>
+      <code><![CDATA[$buffer]]></code>
+      <code><![CDATA[$type]]></code>
     </MissingClosureParamType>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function checkSign(string $data, string $sign): bool]]></code>
+      <code><![CDATA[public function decrypt(string $encryptedData): string]]></code>
+      <code><![CDATA[public function encrypt(string $plainData): string]]></code>
+      <code><![CDATA[public function sign(string $data): string]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyFalseArgument>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$file]]></code>
+      <code><![CDATA[$file]]></code>
+    </PossiblyFalseArgument>
+    <PossiblyInvalidArgument>
+      <code><![CDATA[$throwable->getCode()]]></code>
+    </PossiblyInvalidArgument>
+    <UnusedProperty>
+      <code><![CDATA[$caFile]]></code>
+    </UnusedProperty>
+  </file>
+  <file src="tests/Unit/AuthTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[AuthTest]]></code>
+    </ClassMustBeFinal>
   </file>
   <file src="tests/Unit/CouteragentsTest.php">
-    <PossiblyFalseArgument occurrences="3">
-      <code>getenv(ConfigNames::ORG_ID)</code>
-      <code>getenv(ConfigNames::ORG_ID)</code>
-      <code>getenv(ConfigNames::ORG_ID)</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[CouteragentsTest]]></code>
+    </ClassMustBeFinal>
+    <InvalidArgument>
+      <code><![CDATA[0]]></code>
+      <code><![CDATA[0]]></code>
+    </InvalidArgument>
+    <PossiblyFalseArgument>
+      <code><![CDATA[getenv(ConfigNames::ORG_ID)]]></code>
+      <code><![CDATA[getenv(ConfigNames::ORG_ID)]]></code>
+      <code><![CDATA[getenv(ConfigNames::ORG_ID)]]></code>
     </PossiblyFalseArgument>
-    <RedundantConditionGivenDocblockType occurrences="2">
-      <code>$org</code>
-      <code>$org</code>
+    <PossiblyNullReference>
+      <code><![CDATA[getCurrentStatus]]></code>
+    </PossiblyNullReference>
+    <RedundantConditionGivenDocblockType>
+      <code><![CDATA[$org]]></code>
     </RedundantConditionGivenDocblockType>
+    <TooManyTemplateParams>
+      <code><![CDATA[$contragents->getCounteragents()]]></code>
+      <code><![CDATA[$contragents->getCounteragents()]]></code>
+      <code><![CDATA[$contragents->getCounteragents()]]></code>
+    </TooManyTemplateParams>
+    <UnusedVariable>
+      <code><![CDATA[$ddd]]></code>
+      <code><![CDATA[$result]]></code>
+    </UnusedVariable>
   </file>
   <file src="tests/Unit/DocumentTypesTest.php">
-    <PossiblyFalseArgument occurrences="1">
-      <code>getenv(ConfigNames::FROM_BOX_ID)</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[DocumentTypesTest]]></code>
+    </ClassMustBeFinal>
+    <PossiblyFalseArgument>
+      <code><![CDATA[getenv(ConfigNames::FROM_BOX_ID)]]></code>
     </PossiblyFalseArgument>
+    <TooManyTemplateParams>
+      <code><![CDATA[$response->getDocumentTypes()]]></code>
+    </TooManyTemplateParams>
+  </file>
+  <file src="tests/Unit/GetEntityContentTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[GetEntityContentTest]]></code>
+    </ClassMustBeFinal>
+    <PossiblyFalseArgument>
+      <code><![CDATA[$xml]]></code>
+      <code><![CDATA[getenv(ConfigNames::FROM_BOX_ID)]]></code>
+      <code><![CDATA[getenv(ConfigNames::TO_BOX_ID)]]></code>
+    </PossiblyFalseArgument>
+    <TooManyTemplateParams>
+      <code><![CDATA[$message->getEntities()]]></code>
+    </TooManyTemplateParams>
   </file>
   <file src="tests/Unit/GetMyOrganizationsTest.php">
-    <PossiblyUndefinedMethod occurrences="1">
-      <code>getOrganizations</code>
-    </PossiblyUndefinedMethod>
+    <ClassMustBeFinal>
+      <code><![CDATA[GetMyOrganizationsTest]]></code>
+    </ClassMustBeFinal>
+    <TooManyTemplateParams>
+      <code><![CDATA[$organizations->getOrganizations()]]></code>
+      <code><![CDATA[$organizations->getOrganizations()]]></code>
+    </TooManyTemplateParams>
+  </file>
+  <file src="tests/Unit/GetNewEventsTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[GetNewEventsTest]]></code>
+    </ClassMustBeFinal>
+    <PossiblyFalseArgument>
+      <code><![CDATA[$boxId]]></code>
+      <code><![CDATA[$boxId]]></code>
+      <code><![CDATA[$boxId]]></code>
+      <code><![CDATA[getenv(ConfigNames::FROM_BOX_ID)]]></code>
+      <code><![CDATA[getenv(ConfigNames::FROM_BOX_ID)]]></code>
+    </PossiblyFalseArgument>
+    <PossiblyNullReference>
+      <code><![CDATA[getTimestampTicks]]></code>
+    </PossiblyNullReference>
+    <TooManyTemplateParams>
+      <code><![CDATA[$events->getEvents()]]></code>
+      <code><![CDATA[$events->getEvents()]]></code>
+      <code><![CDATA[$firstPage->getEvents()]]></code>
+      <code><![CDATA[$firstPage->getEvents()]]></code>
+      <code><![CDATA[$secondPage->getEvents()]]></code>
+    </TooManyTemplateParams>
+  </file>
+  <file src="tests/Unit/HttpLoggerTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[HttpLoggerTest]]></code>
+    </ClassMustBeFinal>
   </file>
   <file src="tests/Unit/MessageTest.php">
-    <PossiblyFalseArgument occurrences="2">
-      <code>getenv(ConfigNames::FROM_BOX_ID)</code>
-      <code>getenv(ConfigNames::TO_BOX_ID)</code>
+    <ClassMustBeFinal>
+      <code><![CDATA[MessageTest]]></code>
+    </ClassMustBeFinal>
+    <InvalidArgument>
+      <code><![CDATA[0]]></code>
+    </InvalidArgument>
+    <PossiblyFalseArgument>
+      <code><![CDATA[$xml]]></code>
+      <code><![CDATA[getenv(ConfigNames::FROM_BOX_ID)]]></code>
+      <code><![CDATA[getenv(ConfigNames::TO_BOX_ID)]]></code>
     </PossiblyFalseArgument>
-    <PossiblyUndefinedMethod occurrences="1">
-      <code>getEntities</code>
-    </PossiblyUndefinedMethod>
+    <PossiblyNullReference>
+      <code><![CDATA[getEntityId]]></code>
+    </PossiblyNullReference>
+    <TooManyTemplateParams>
+      <code><![CDATA[$flowResponse->getDocuments()]]></code>
+      <code><![CDATA[$messageV6Response->getEntities()]]></code>
+      <code><![CDATA[$response->getEntities()]]></code>
+    </TooManyTemplateParams>
+    <UnnecessaryVarAnnotation>
+      <code><![CDATA[Message]]></code>
+    </UnnecessaryVarAnnotation>
+    <UnusedVariable>
+      <code><![CDATA[$entityId]]></code>
+      <code><![CDATA[$entityId]]></code>
+    </UnusedVariable>
+  </file>
+  <file src="tests/Unit/ShelfTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[ShelfTest]]></code>
+    </ClassMustBeFinal>
+    <UnevaluatedCode>
+      <code><![CDATA[$api = $this->auth();]]></code>
+      <code><![CDATA[$content = 'ssss';]]></code>
+      <code><![CDATA[$response = $api->getApi()->shelfUpload('sd', 1, $content, 0);]]></code>
+      <code><![CDATA[self::assertEquals('[0]', $response);]]></code>
+    </UnevaluatedCode>
+  </file>
+  <file src="tests/Unit/SignTest.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[SignTest]]></code>
+    </ClassMustBeFinal>
+  </file>
+  <file src="tests/Unit/TestableDiadocApi.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[TestableDiadocApi]]></code>
+    </ClassMustBeFinal>
   </file>
   <file src="tests/base/BaseTest.php">
-    <DocblockTypeContradiction occurrences="1">
-      <code>null === $this-&gt;api</code>
-    </DocblockTypeContradiction>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public static function setUpBeforeClass(): void]]></code>
+    </MissingOverrideAttribute>
+    <PossiblyFalseIterator>
+      <code><![CDATA[$params]]></code>
+    </PossiblyFalseIterator>
+  </file>
+  <file src="tests/base/MemoryHttpLogger.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[MemoryHttpLogger]]></code>
+    </ClassMustBeFinal>
+    <MissingOverrideAttribute>
+      <code><![CDATA[public function log(HttpLogDto $httpLogDto): void]]></code>
+    </MissingOverrideAttribute>
+  </file>
+  <file src="tests/enums/ConfigNames.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[ConfigNames]]></code>
+    </ClassMustBeFinal>
+  </file>
+  <file src="tests/helpers/ApiClient.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[ApiClient]]></code>
+    </ClassMustBeFinal>
+  </file>
+  <file src="tests/helpers/Cache.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[Cache]]></code>
+    </ClassMustBeFinal>
+  </file>
+  <file src="tests/helpers/SimpleFileCache.php">
+    <ClassMustBeFinal>
+      <code><![CDATA[SimpleFileCache]]></code>
+    </ClassMustBeFinal>
   </file>
 </files>

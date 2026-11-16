@@ -3,6 +3,7 @@
     "description": "Diadoc API implementation",
     "type": "library",
     "license": "MIT",
+    "version": "1.0.0",
     "homepage": "https://github.com/magdv/diadoc-php",
     "authors": [
         {
@@ -38,9 +39,9 @@
         }
     },
     "require-dev": {
-        "rector/rector": "^1.2",
+        "rector/rector": "^2.8",
         "squizlabs/php_codesniffer": "^4.0",
-        "vimeo/psalm": "^4.30",
+        "vimeo/psalm": "^7.0",
         "phpunit/phpunit": "^8.5",
         "divineomega/do-file-cache": "^2.0",
         "overtrue/phplint": "^9.0"

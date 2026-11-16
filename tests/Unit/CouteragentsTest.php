@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Test\Unit;
 
+use Diadoc\Proto\Organization;
 use Test\base\BaseTest;
 use Test\enums\ConfigNames;
 
@@ -21,7 +22,7 @@ class CouteragentsTest extends BaseTest
 
         self::assertTrue($count > 0);
         foreach ($contragents->getCounteragents() as $item) {
-            /** @var \Diadoc\Proto\Organization $org */
+            /** @var Organization $org */
             $org = $item->getOrganization();
             if ($org) {
                 $d = [];

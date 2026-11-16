@@ -9,10 +9,7 @@ use Test\helpers\ApiClient;
 
 class BaseTest extends TestCase
 {
-    /**
-     * @var \Test\helpers\ApiClient
-     */
-    private $api;
+    private ?ApiClient $api = null;
 
     public static function setUpBeforeClass(): void
     {
@@ -28,6 +25,7 @@ class BaseTest extends TestCase
         if (null === $this->api) {
             $this->api = new ApiClient();
         }
+
         return $this->api;
     }
 }

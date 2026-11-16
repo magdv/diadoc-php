@@ -26,6 +26,7 @@ class GetEntityContentTest extends BaseTest
             $entityId = $entity->getEntityId();
             break;
         }
+
         self::assertNotEmpty($entityId, 'У отправленного сообщения нет сущностей.');
 
         $content = $api->getEntityContent($message->getFromBoxId(), $message->getMessageId(), $entityId);

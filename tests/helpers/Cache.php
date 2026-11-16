@@ -10,7 +10,7 @@ class Cache
 
     public static function getCache(): SimpleFileCache
     {
-        if (self::$cache === null) {
+        if (!self::$cache instanceof SimpleFileCache) {
             $cache = new SimpleFileCache();
             $cache->changeConfig(
                 [

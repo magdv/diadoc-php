@@ -11,6 +11,9 @@ class SimpleFileCache
 {
     private string $cacheDirectory = '';
 
+    /**
+     * @param array<string, mixed> $config
+     */
     public function changeConfig(array $config): void
     {
         if (isset($config['cacheDirectory']) && is_string($config['cacheDirectory'])) {
@@ -30,14 +33,17 @@ class SimpleFileCache
         if (!is_file($path)) {
             return false;
         }
+
         $raw = file_get_contents($path);
         if ($raw === false) {
             return false;
         }
+
         $data = unserialize($raw);
         if (!is_array($data) || !array_key_exists('exp', $data) || !array_key_exists('val', $data)) {
             return false;
         }
+
         if ($data['exp'] < time()) {
             @unlink($path);
 

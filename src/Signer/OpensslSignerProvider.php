@@ -7,13 +7,13 @@ use MagDv\Diadoc\Signer\Interfaces\SignerProviderInterface;
 use Symfony\Component\Process\Exception\RuntimeException;
 use Symfony\Component\Process\Process;
 
-class OpensslSignerProvider implements SignerProviderInterface
+final readonly class OpensslSignerProvider implements SignerProviderInterface
 {
     public function __construct(
-        private readonly string $caFile,
-        private readonly string $certFile,
-        private readonly string $privateKey,
-        private readonly string $opensslBin = '/usr/bin/openssl'
+        private string $caFile,
+        private string $certFile,
+        private string $privateKey,
+        private string $opensslBin = '/usr/bin/openssl'
     ) {
     }
 
@@ -27,13 +27,14 @@ class OpensslSignerProvider implements SignerProviderInterface
                 '-noattr',
                 '-outform', 'DER',
                 '-gost89',
-                $this->certFile
+                $this->certFile,
             ],
             $plainData
         );
 
         try {
-            return $process->mustRun()->getOutput();
+            return $process->mustRun()
+                ->getOutput();
         } catch (RuntimeException $runtimeException) {
             throw new SignerProviderException($runtimeException->getMessage(), $runtimeException->getCode(), $runtimeException);
         }
@@ -48,21 +49,19 @@ class OpensslSignerProvider implements SignerProviderInterface
                 '-binary',
                 '-noattr',
                 '-inform', 'der',
-                '-inkey', $this->privateKey
+                '-inkey', $this->privateKey,
             ],
             $encryptedData
         );
 
         try {
-            return $process->mustRun()->getOutput();
+            return $process->mustRun()
+                ->getOutput();
         } catch (RuntimeException $runtimeException) {
             throw new SignerProviderException($runtimeException->getMessage(), $runtimeException->getCode(), $runtimeException);
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function sign(string $data): string
     {
         $process = $this->getOpensslProcess(
@@ -74,7 +73,7 @@ class OpensslSignerProvider implements SignerProviderInterface
                 '-gost89',
                 '-signer', $this->certFile,
                 '-inkey', $this->privateKey,
-                '-outform', 'der'
+                '-outform', 'der',
             ],
             $data
         );
@@ -84,7 +83,7 @@ class OpensslSignerProvider implements SignerProviderInterface
 
             $process->run(
                 static function ($type, $buffer): void {
-                    if (Process::ERR === $type) {
+                    if ($type === Process::ERR) {
                         throw new SignerProviderException('Ошибка при подписании файла ERR > ' . $buffer, 500);
                     }
                 }
@@ -111,7 +110,7 @@ class OpensslSignerProvider implements SignerProviderInterface
                 '-gost89',
                 '-inform', 'der',
                 '-CAfile', $this->caFile,
-                '-content', $tmpFilename
+                '-content', $tmpFilename,
             ],
             $sign
         );
@@ -126,7 +125,10 @@ class OpensslSignerProvider implements SignerProviderInterface
         }
     }
 
-    private function getOpensslProcess(array $args = [], string $input = null): Process
+    /**
+     * @param string[] $args
+     */
+    private function getOpensslProcess(array $args = [], ?string $input = null): Process
     {
         $arguments = array_merge([$this->opensslBin], $args);
         $process = new Process($arguments);

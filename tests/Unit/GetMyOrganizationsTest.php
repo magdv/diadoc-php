@@ -16,6 +16,7 @@ class GetMyOrganizationsTest extends BaseTest
         $organizations = $api->getApi()->getMyOrganizations();
         self::assertTrue($organizations->getOrganizations()->count() > 0);
     }
+
     public function testGetOrganizationsByInnKpp(): void
     {
         $api = $this->auth();
@@ -31,6 +32,7 @@ class GetMyOrganizationsTest extends BaseTest
                 }
             }
         }
+
         self::assertNotEmpty($organizations);
         self::assertNotEmpty($boxId);
     }

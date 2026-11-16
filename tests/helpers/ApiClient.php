@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Test\helpers;
 
-use MagDv\Diadoc\Auth\OidcAuthMode;
+use MagDv\Diadoc\Auth\OidcAuthFlowAuthMode;
 use MagDv\Diadoc\DiadocApi;
 use MagDv\Diadoc\Signer\OpensslSignerProvider;
 use Test\enums\ConfigNames;
@@ -28,7 +28,7 @@ class ApiClient
         $keyFile = $base . DIRECTORY_SEPARATOR . 'files' . DIRECTORY_SEPARATOR . 'domain.key';
         $signedProvider = new OpensslSignerProvider($caFile, $certFile, $keyFile);
 
-        if ($this->api === null) {
+        if (!$this->api instanceof DiadocApi) {
             $this->cache = Cache::getCache();
 
             $diadocUrl = getenv(ConfigNames::DIADOC_URL);
@@ -46,6 +46,7 @@ class ApiClient
                         . 'Допустимо: ' . DiadocApi::AUTH_MODE_OIDC . ' или ' . DiadocApi::AUTH_MODE_AUTHENTICATE_V3 . '.'
                     );
                 }
+
                 $this->api = $this->createOidcApi($diadocUrl, $signedProvider);
             }
         }
@@ -73,7 +74,7 @@ class ApiClient
         $identityUrl = $identityUrl !== false && $identityUrl !== '' ? $identityUrl : 'https://identity.kontur.ru';
 
         $api = DiadocApi::create(
-            new OidcAuthMode($clientId, $clientSecret, $identityUrl, $diadocUrl),
+            new OidcAuthFlowAuthMode($clientId, $clientSecret, $identityUrl, $diadocUrl),
             $diadocUrl,
             false,
             $signedProvider
@@ -81,12 +82,13 @@ class ApiClient
 
         $self = $this;
         $api->setOAuthSessionPersistenceCallback(
-            static function (array $session) use ($self) {
-                \assert($self->cache !== null);
+            static function (array $session) use ($self): void {
+                \assert($self->cache instanceof SimpleFileCache);
                 $cacheExp = time() + 86400 * 30;
                 if (!empty($session['expires_at'])) {
                     $cacheExp = max($cacheExp, (int) $session['expires_at'] + 7200);
                 }
+
                 $self->cache->set(
                     ConfigNames::DIADOC_OAUTH_CACHE_KEY,
                     json_encode($session, JSON_UNESCAPED_UNICODE),
@@ -117,8 +119,8 @@ class ApiClient
 
     private function restoreOrLoadLegacySession(): void
     {
-        \assert($this->api !== null);
-        \assert($this->cache !== null);
+        \assert($this->api instanceof DiadocApi);
+        \assert($this->cache instanceof SimpleFileCache);
         $tokenFromEnv = getenv(ConfigNames::DIADOC_LEGACY_TOKEN);
         if ($tokenFromEnv !== false && $tokenFromEnv !== '') {
             $this->api->setLegacyToken($tokenFromEnv);
@@ -145,11 +147,11 @@ class ApiClient
 
         try {
             $token = $this->api->authenticateLoginV3($login, $password);
-        } catch (\Throwable $e) {
+        } catch (\Throwable $throwable) {
             throw new \RuntimeException(
-                'authenticate_v3: не удалось получить ddauth_token через /V3/Authenticate: ' . $e->getMessage(),
+                'authenticate_v3: не удалось получить ddauth_token через /V3/Authenticate: ' . $throwable->getMessage(),
                 0,
-                $e
+                $throwable
             );
         }
 
@@ -164,8 +166,8 @@ class ApiClient
 
     private function restoreOrLoadOAuthSession(): void
     {
-        \assert($this->api !== null);
-        \assert($this->cache !== null);
+        \assert($this->api instanceof DiadocApi);
+        \assert($this->cache instanceof SimpleFileCache);
         $sourceRaw = getenv(ConfigNames::OAUTH_TOKEN_SOURCE);
         $source = $sourceRaw !== false && $sourceRaw !== '' ? strtolower(trim($sourceRaw)) : 'env_first';
         $ignoreCacheRaw = getenv(ConfigNames::OAUTH_IGNORE_CACHE);
@@ -175,6 +177,7 @@ class ApiClient
             if ($this->loadOAuthSessionFromEnv()) {
                 return;
             }
+
             if ($source === 'env') {
                 throw new \RuntimeException(
                     'OAUTH_TOKEN_SOURCE=env, но DIADOC_ACCESS_TOKEN не задан в .env.'
@@ -182,10 +185,11 @@ class ApiClient
             }
         }
 
-        if (!$ignoreCache && ($source === 'cache' || $source === 'cache_first' || $source === 'env_first')) {
+        if (!$ignoreCache && (in_array($source, ['cache', 'cache_first', 'env_first'], true))) {
             if ($this->loadOAuthSessionFromCache()) {
                 return;
             }
+
             if ($source === 'cache') {
                 throw new \RuntimeException(
                     'OAUTH_TOKEN_SOURCE=cache, но в кеше нет корректной OAuth-сессии (ключ ' . ConfigNames::DIADOC_OAUTH_CACHE_KEY . ').'
@@ -209,12 +213,13 @@ class ApiClient
 
     private function loadOAuthSessionFromCache(): bool
     {
-        \assert($this->api !== null);
-        \assert($this->cache !== null);
+        \assert($this->api instanceof DiadocApi);
+        \assert($this->cache instanceof SimpleFileCache);
         $cached = $this->cache->get(ConfigNames::DIADOC_OAUTH_CACHE_KEY);
         if ($cached === false || !is_string($cached) || $cached === '') {
             return false;
         }
+
         $data = json_decode($cached, true);
         if (!is_array($data) || !isset($data['access_token']) || !is_string($data['access_token'])) {
             return false;
@@ -234,11 +239,12 @@ class ApiClient
 
     private function loadOAuthSessionFromEnv(): bool
     {
-        \assert($this->api !== null);
+        \assert($this->api instanceof DiadocApi);
         $access = getenv(ConfigNames::DIADOC_ACCESS_TOKEN);
         if ($access === false || $access === '') {
             return false;
         }
+
         $exp = getenv(ConfigNames::DIADOC_ACCESS_EXPIRES_AT);
         $refreshRaw = getenv(ConfigNames::DIADOC_REFRESH_TOKEN);
         $this->api->setOAuthSession(

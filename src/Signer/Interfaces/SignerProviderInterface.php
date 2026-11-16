@@ -47,7 +47,7 @@ interface SignerProviderInterface
      *
      * @throws SignerProviderException
      *
-     * @return boolean sign is valid
+     * @return bool sign is valid
      */
     public function checkSign(string $data, string $sign): bool;
 }

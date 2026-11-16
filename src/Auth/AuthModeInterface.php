@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace MagDv\Diadoc\Auth;
 
 use MagDv\Diadoc\Exception\DiadocApiException;
@@ -11,7 +9,7 @@ use MagDv\Diadoc\Exception\DiadocApiException;
  *
  * Каждая реализация инкапсулирует конкретный способ авторизации в API Диадока:
  *  - {@see AuthenticateV3AuthMode} — устаревший DiadocAuth (ddauth_api_client_id + ddauth_token);
- *  - {@see OidcAuthMode} — OpenID Connect (Authorization: Bearer + refresh).
+ *  - {@see OidcAuthFlowAuthMode} — OpenID Connect (Authorization: Bearer + refresh).
  *
  * Благодаря этому DiadocApi не знает деталей авторизации, а новые способы
  * добавляются простой реализацией интерфейса.
@@ -41,7 +39,7 @@ interface AuthModeInterface
      *
      * @throws DiadocApiException если токен отсутствует и обязателен
      */
-    public function ensureReady(): void;
+    public function ensureAuthorized(): void;
 
     /**
      * Обработка ответа 401 Unauthorized.

@@ -22,14 +22,14 @@ class SignTest extends BaseTest
 
         try {
             $api->getApi()->generateSignedContentFromFile($file);
-        } catch (\Throwable $exception) {
+        } catch (\Throwable $throwable) {
             // Мы ловим эксепшен, т.к. в сборке у меня не настроены все бибилиотеки Openssl
-            self::assertInstanceOf(SignerProviderException::class, $exception);
+            self::assertInstanceOf(SignerProviderException::class, $throwable);
             self::assertEquals(
                 'Ошибка при подписании файла ERR > smime: Unknown option or cipher: gost89
 smime: Use -help for summary.
 ',
-                $exception->getMessage()
+                $throwable->getMessage()
             );
         }
     }

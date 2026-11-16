@@ -4,11 +4,11 @@ namespace MagDv\Diadoc\Helper;
 
 use DateTime;
 
-class DateHelper
+final class DateHelper
 {
-    public static function convertDateTimeToTicks(DateTime $dateTime = null): ?int
+    public static function convertDateTimeToTicks(?DateTime $dateTime = null): ?int
     {
-        if (is_null($dateTime)) {
+        if (!$dateTime instanceof \DateTime) {
             return null;
         }
 
@@ -17,7 +17,7 @@ class DateHelper
 
     public static function convertTicksToDateTime(?int $ticks): ?DateTime
     {
-        if (is_null($ticks)) {
+        if ($ticks === null) {
             return null;
         }
 

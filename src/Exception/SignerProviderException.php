@@ -2,6 +2,6 @@
 
 namespace MagDv\Diadoc\Exception;
 
-class SignerProviderException extends \Exception
+final class SignerProviderException extends \Exception
 {
 }

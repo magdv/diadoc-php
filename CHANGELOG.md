@@ -1,5 +1,27 @@
 # CHANGELOG
 
+## 1.0.0
+
+Включает изменения upstream 0.7.0 (HTTP-логгер) и 0.7.1 (`DiadocApi::getNewEventsV8()`,
+`BoxApi::getNewEventsV8()`).
+
+### Added
+
+- Авторизация через OIDC Device Flow (RFC 8628) — режим `OidcDeviceFlowAuthMode`:
+  - DTO шагов device-flow: `DeviceFlowStart`, `DeviceFlowPollStatus`, `DeviceFlowPollResult`;
+  - первичная авторизация выполняется один раз (CLI-командой потребителя), далее refresh_token
+    обновляет access_token автоматически; при 401 — один ретрай с refresh.
+- PSR-16-хранилище авторизационной сессии (передаётся необязательным параметром):
+  сессия OIDC и ddauth-токен восстанавливаются при старте и сохраняются при обновлении.
+- `AuthenticateV3AuthMode` умеет сам получать ddauth-токен по login/password и перелогиниваться при 401.
+
+### Changed
+
+- `OidcAuthMode` переименован в `OidcAuthFlowAuthMode` (Authorization Code Flow).
+- `AuthModeInterface::ensureReady()` переименован в `ensureAuthorized()`.
+- Код прогнан автофиксерами проекта-потребителя: typed class constants (PHP 8.3+),
+  `final`-классы, `readonly`-конструкторы.
+
 ## 0.7.0
 
 ### Added

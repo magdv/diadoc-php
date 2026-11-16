@@ -21,7 +21,7 @@ $projectRoot = dirname(__DIR__, 2);
 chdir($projectRoot);
 
 $autoload = $projectRoot . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
-if (!is_file($autoload)) {
+if (! is_file($autoload)) {
     http_response_code(500);
     header('Content-Type: text/plain; charset=utf-8');
     echo "Нет vendor/autoload.php. Выполните: composer install\n";
@@ -43,7 +43,7 @@ if ($uriPath === '/favicon.ico') {
 }
 
 $varDir = $projectRoot . DIRECTORY_SEPARATOR . 'var';
-if (!is_dir($varDir)) {
+if (! is_dir($varDir)) {
     @mkdir($varDir, 0777, true);
 }
 
@@ -52,6 +52,7 @@ $redirectUri = getenv('OAUTH_REDIRECT_URI');
 if ($redirectUri === false || trim($redirectUri) === '') {
     $redirectUri = 'http://127.0.0.1:8765/oauth/callback';
 }
+
 $redirectUri = trim($redirectUri);
 
 $clientId = getenv('OAUTH_CLIENT_ID');
@@ -80,7 +81,7 @@ $api = DiadocApi::create(
 if ($uriPath === '/' || $uriPath === '') {
     $state = bin2hex(random_bytes(16));
     file_put_contents($stateFile, $state);
-    $authUrl = $api->buildAuthorizationUrl($redirectUri, $state, null);
+    $authUrl = $api->buildAuthorizationUrl($redirectUri, $state);
 
     header('Content-Type: text/html; charset=utf-8');
     echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Diadoc OAuth — тест</title></head><body>';
@@ -115,11 +116,12 @@ if ($uriPath === '/oauth/callback') {
     }
 
     $expectedState = is_file($stateFile) ? (string) file_get_contents($stateFile) : '';
-    if ($expectedState === '' || !hash_equals($expectedState, $gotState)) {
+    if ($expectedState === '' || ! hash_equals($expectedState, $gotState)) {
         http_response_code(400);
         echo '<h1>Неверный state</h1><p>Откройте сначала <a href="/">главную</a> этой страницы и снова пройдите вход.</p>';
         exit;
     }
+
     @unlink($stateFile);
 
     try {
@@ -139,10 +141,16 @@ if ($uriPath === '/oauth/callback') {
     $cacheKey = 'diadoc_oauth_session';
     $cachePath = $varDir . DIRECTORY_SEPARATOR . md5($cacheKey) . '.cache';
     $cacheExp = time() + 86400 * 30;
-    if (!empty($session['expires_at'])) {
+    if (! empty($session['expires_at'])) {
         $cacheExp = max($cacheExp, (int) $session['expires_at'] + 7200);
     }
-    $payload = serialize(['exp' => $cacheExp, 'val' => json_encode($session, JSON_UNESCAPED_UNICODE)]);
+
+    $payload = serialize(
+        [
+            'exp' => $cacheExp,
+            'val' => json_encode($session, JSON_UNESCAPED_UNICODE),
+        ]
+    );
     file_put_contents($cachePath, $payload);
 
     echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Успех</title></head><body>';
@@ -156,6 +164,7 @@ if ($uriPath === '/oauth/callback') {
     if (isset($safe['access_token']) && is_string($safe['access_token']) && strlen($safe['access_token']) > 24) {
         $safe['access_token'] = substr($safe['access_token'], 0, 12) . '…' . substr($safe['access_token'], -8);
     }
+
     echo htmlspecialchars(json_encode($safe, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT), ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
     echo '</pre></body></html>';
     exit;
@@ -163,4 +172,4 @@ if ($uriPath === '/oauth/callback') {
 
 http_response_code(404);
 header('Content-Type: text/plain; charset=utf-8');
-echo "Неизвестный путь: {$uriPath}\n";
+echo sprintf('Неизвестный путь: %s%s', $uriPath, PHP_EOL);

@@ -4,6 +4,6 @@ namespace MagDv\Diadoc\Exception;
 
 use Exception;
 
-class DiadocApiException extends Exception
+final class DiadocApiException extends Exception
 {
 }

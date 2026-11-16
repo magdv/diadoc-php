@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Test\Unit;
 
-use MagDv\Diadoc\Auth\OidcAuthMode;
+use MagDv\Diadoc\Auth\OidcAuthFlowAuthMode;
 use MagDv\Diadoc\DiadocApi;
 use MagDv\Diadoc\Exception\DiadocApiException;
 use Test\base\BaseTest;
@@ -18,10 +18,10 @@ class AuthTest extends BaseTest
         self::assertSame(DiadocApi::AUTH_MODE_AUTHENTICATE_V3, $api->getAuthMode());
     }
 
-    public function testCreateWithOidcAuthModeIsOidc(): void
+    public function testCreateWithOidcAuthFlowAuthModeIsOidc(): void
     {
         $api = DiadocApi::create(
-            new OidcAuthMode('client', 'secret', 'https://identity.kontur.ru', 'https://diadoc-api.kontur.ru/'),
+            new OidcAuthFlowAuthMode('client', 'secret', 'https://identity.kontur.ru', 'https://diadoc-api.kontur.ru/'),
             'https://diadoc-api.kontur.ru/'
         );
         self::assertSame(DiadocApi::AUTH_MODE_OIDC, $api->getAuthMode());
@@ -38,7 +38,7 @@ class AuthTest extends BaseTest
     public function testSetLegacyTokenRequiresAuthenticateV3Mode(): void
     {
         $api = DiadocApi::create(
-            new OidcAuthMode('client', 'secret', 'https://identity.kontur.ru', 'https://diadoc-api-test.kontur.ru/'),
+            new OidcAuthFlowAuthMode('client', 'secret', 'https://identity.kontur.ru', 'https://diadoc-api-test.kontur.ru/'),
             'https://diadoc-api-test.kontur.ru/'
         );
         $this->expectException(DiadocApiException::class);
@@ -74,7 +74,7 @@ class AuthTest extends BaseTest
     public function testBuildAuthorizationUrlUsesStagingScopeForStagingHost(): void
     {
         $api = DiadocApi::create(
-            new OidcAuthMode('my-client', 'my-secret', 'https://identity.kontur.ru', 'https://diadoc-api-staging.kontur.ru/'),
+            new OidcAuthFlowAuthMode('my-client', 'my-secret', 'https://identity.kontur.ru', 'https://diadoc-api-staging.kontur.ru/'),
             'https://diadoc-api-staging.kontur.ru/'
         );
         $url = $api->buildAuthorizationUrl('https://app.test/oauth/callback', 's1', 'n1');
@@ -94,7 +94,7 @@ class AuthTest extends BaseTest
     public function testBuildAuthorizationUrlUsesStagingScopeForTestHost(): void
     {
         $api = DiadocApi::create(
-            new OidcAuthMode('my-client', 'my-secret', 'https://identity.kontur.ru', 'https://diadoc-api-test.kontur.ru/'),
+            new OidcAuthFlowAuthMode('my-client', 'my-secret', 'https://identity.kontur.ru', 'https://diadoc-api-test.kontur.ru/'),
             'https://diadoc-api-test.kontur.ru/'
         );
         $url = $api->buildAuthorizationUrl('https://app.test/oauth/callback', 's2', 'n2');
@@ -109,7 +109,7 @@ class AuthTest extends BaseTest
     public function testBuildAuthorizationUrlUsesProductionScopeForProductionHost(): void
     {
         $api = DiadocApi::create(
-            new OidcAuthMode('my-client', 'my-secret', 'https://identity.kontur.ru', 'https://diadoc-api.kontur.ru/'),
+            new OidcAuthFlowAuthMode('my-client', 'my-secret', 'https://identity.kontur.ru', 'https://diadoc-api.kontur.ru/'),
             'https://diadoc-api.kontur.ru/'
         );
         $url = $api->buildAuthorizationUrl('https://app.test/oauth/callback', 'st', null);
@@ -135,7 +135,7 @@ class AuthTest extends BaseTest
         $diadocUrl = $diadocUrl !== false && $diadocUrl !== '' ? $diadocUrl : 'https://diadoc-api.kontur.ru/';
 
         $api = DiadocApi::create(
-            new OidcAuthMode($clientId, $secret, 'https://identity.kontur.ru', $diadocUrl),
+            new OidcAuthFlowAuthMode($clientId, $secret, 'https://identity.kontur.ru', $diadocUrl),
             $diadocUrl
         );
 

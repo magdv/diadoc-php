@@ -2,7 +2,6 @@
 
 namespace MagDv\Diadoc;
 
-use MagDv\Diadoc\Exception\DiadocApiException;
 use DateTime;
 use Diadoc\Proto\Box;
 use Diadoc\Proto\Docflow\GetDocflowBatchRequest;
@@ -19,15 +18,17 @@ use Diadoc\Proto\Events\BoxEventList;
 use Diadoc\Proto\Events\Message;
 use Diadoc\Proto\Organization;
 use Diadoc\Proto\SortDirection;
+use MagDv\Diadoc\Exception\DiadocApiException;
 use MagDv\Diadoc\Filter\DocumentsFilter;
 
-class BoxApi
+final class BoxApi
 {
     private ?OrganizationApi $organizationApi = null;
 
-    public function __construct(private readonly DiadocApi $diadocApi, private readonly string $boxId)
-    {
-    }
+    public function __construct(
+        private readonly DiadocApi $diadocApi,
+        private readonly string $boxId
+    ) {}
 
     public function getDiadocApi(): DiadocApi
     {
@@ -41,15 +42,17 @@ class BoxApi
 
     public function getOrganization(): Organization
     {
-        return $this->getBox()->getOrganization();
+        return $this->getBox()
+            ->getOrganization();
     }
 
     public function getOrganizationApi(): OrganizationApi
     {
-        if (!$this->organizationApi instanceof OrganizationApi) {
+        if (! $this->organizationApi instanceof OrganizationApi) {
             $this->organizationApi = new OrganizationApi(
                 $this->diadocApi,
-                $this->getOrganization()->getOrgId()
+                $this->getOrganization()
+                    ->getOrgId()
             );
         }
 
@@ -57,32 +60,25 @@ class BoxApi
     }
 
     /**
-     * @param $messageId
-     * @param $entityId
-     *
-     * @return mixed
      * @throws DiadocApiException
      */
-    public function getEntityContent($messageId, $entityId): string
+    public function getEntityContent(string $messageId, string $entityId): string
     {
         return $this->diadocApi->getEntityContent($this->boxId, $messageId, $entityId);
     }
 
     /**
-     * @param string|null $entityId
-     * @param string|null $originalSignature
      * @throws DiadocApiException
      */
-    public function getMessage(string $messageId, string $entityId = null, string $originalSignature = null): Message
+    public function getMessage(string $messageId, ?string $entityId = null, ?string $originalSignature = null): Message
     {
         return $this->diadocApi->getMessage($this->boxId, $messageId, $entityId, $originalSignature);
     }
 
     /**
-     * @param string|null $documentId
      * @throws DiadocApiException
      */
-    public function delete(string $messageId, string $documentId = null): bool
+    public function delete(string $messageId, ?string $documentId = null): bool
     {
         return $this->diadocApi->delete($this->boxId, $messageId, $documentId);
     }
@@ -93,7 +89,6 @@ class BoxApi
     }
 
     /**
-     *
      * @throws DiadocApiException
      */
     public function getDocument(string $messageId, string $entityId): Document
@@ -101,12 +96,7 @@ class BoxApi
         return $this->diadocApi->getDocument($this->boxId, $messageId, $entityId);
     }
 
-    /**
-     * @param DocumentsFilter|null $documentsFilter
-     * @param SortDirection|null $sortDirection
-     * @param null $afterIndexKey
-     */
-    public function getDocuments(DocumentsFilter $documentsFilter = null, SortDirection $sortDirection = null, $afterIndexKey = null): DocumentList
+    public function getDocuments(?DocumentsFilter $documentsFilter = null, ?SortDirection $sortDirection = null, ?int $afterIndexKey = null): DocumentList
     {
         return $this->diadocApi->getDocuments($this->boxId, $documentsFilter, $sortDirection, $afterIndexKey);
     }
@@ -120,7 +110,6 @@ class BoxApi
     }
 
     /**
-     *
      * @throws DiadocApiException
      */
     public function getDocflowsByPacketId(string $packetId, bool $injectEntityContent = false, ?int $afterIndexKey = null, int $count = 100): GetDocflowsByPacketIdResponse
@@ -129,24 +118,21 @@ class BoxApi
     }
 
     /**
-     * @param SearchScope|null $searchScope
-     * @param int|null $firstIndex
-     *
      * @throws DiadocApiException
      */
-    public function searchDocflows(string $queryString, SearchScope $searchScope = null, int $firstIndex = null, int $count = 100): SearchDocflowsResponse
+    public function searchDocflows(string $queryString, ?SearchScope $searchScope = null, ?int $firstIndex = null, int $count = 100): SearchDocflowsResponse
     {
         return $this->diadocApi->searchDocflows($this->boxId, $queryString, $searchScope, $firstIndex, $count);
     }
 
     public function getDocflowEvents(
-        DateTime $from = null,
-        DateTime $to = null,
-        SortDirection $sortDirection = null,
+        ?DateTime $from = null,
+        ?DateTime $to = null,
+        ?SortDirection $sortDirection = null,
         bool $populateDocuments = false,
         bool $populatePreviousDocumentStates = false,
         bool $injectEntityContent = false,
-        int $afterIndexKey = null
+        ?int $afterIndexKey = null
     ): GetDocflowEventsResponse {
         return $this->diadocApi->getDocflowEvents(
             $this->boxId,
@@ -168,10 +154,7 @@ class BoxApi
         return $this->diadocApi->getEvent($this->boxId, $eventId);
     }
 
-    /**
-     * @param int|null $afterEventId
-     */
-    public function getNewEvents(int $afterEventId = null): BoxEventList
+    public function getNewEvents(?int $afterEventId = null): BoxEventList
     {
         return $this->diadocApi->getNewEvents($this->boxId, $afterEventId);
     }

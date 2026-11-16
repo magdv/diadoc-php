@@ -45,10 +45,9 @@ use Diadoc\Proto\SortDirection;
 use Diadoc\Proto\TimeBasedFilter;
 use Diadoc\Proto\Timestamp;
 use Diadoc\Proto\User;
-use Exception;
-use MagDv\Diadoc\Auth\AuthModeInterface;
 use MagDv\Diadoc\Auth\AuthenticateV3AuthMode;
-use MagDv\Diadoc\Auth\OidcAuthMode;
+use MagDv\Diadoc\Auth\AuthModeInterface;
+use MagDv\Diadoc\Auth\OidcAuthFlowAuthMode;
 use MagDv\Diadoc\Entities\Http\HttpLogDto;
 use MagDv\Diadoc\Exception\DiadocApiException;
 use MagDv\Diadoc\Exception\DiadocApiUnauthorizedException;
@@ -59,449 +58,193 @@ use MagDv\Diadoc\Signer\Interfaces\SignerProviderInterface;
 
 class DiadocApi
 {
-    /**
-     * @var string
-     */
-    final public const METHOD_GET = 'GET';
+    public const string METHOD_GET = 'GET';
 
-    /**
-     * @var string
-     */
-    final public const CONTENT_FORM_URL_ENCODED = 'application/x-www-form-urlencoded';
+    public const string CONTENT_FORM_URL_ENCODED = 'application/x-www-form-urlencoded';
 
-    /**
-     * @var string
-     */
-    final public const METHOD_POST = 'POST';
+    public const string METHOD_POST = 'POST';
 
     /**
      * Режим авторизации OpenID Connect (Authorization: Bearer).
-     *
-     * @var string
      */
-    final public const AUTH_MODE_OIDC = OidcAuthMode::MODE;
+    public const string AUTH_MODE_OIDC = OidcAuthFlowAuthMode::MODE;
 
     /**
      * Устаревший режим авторизации DiadocAuth (ddauth_api_client_id + ddauth_token).
-     *
-     * @var string
      */
-    final public const AUTH_MODE_AUTHENTICATE_V3 = AuthenticateV3AuthMode::MODE;
+    public const string AUTH_MODE_AUTHENTICATE_V3 = AuthenticateV3AuthMode::MODE;
 
     // Authorization
-    /**
-     * @var string
-     */
-    final public const RESOURCE_AUTHENTICATE = '/Authenticate';
+    public const string RESOURCE_AUTHENTICATE = '/Authenticate';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_AUTHENTICATE_V2 = '/V2/Authenticate';
+    public const string RESOURCE_AUTHENTICATE_V2 = '/V2/Authenticate';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_AUTHENTICATE_V3 = '/V3/Authenticate';
+    public const string RESOURCE_AUTHENTICATE_V3 = '/V3/Authenticate';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_EXTERNAL_SERVICE_AUTH_INFO = '/GetExternalServiceAuthInfo';
+    public const string RESOURCE_GET_EXTERNAL_SERVICE_AUTH_INFO = '/GetExternalServiceAuthInfo';
 
     // Organizations
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_BOX = '/GetBox';
+    public const string RESOURCE_GET_BOX = '/GetBox';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_DEPARTMENT = '/GetDepartment';
+    public const string RESOURCE_GET_DEPARTMENT = '/GetDepartment';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_MY_ORGANIZATION = '/GetMyOrganizations';
+    public const string RESOURCE_GET_MY_ORGANIZATION = '/GetMyOrganizations';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_MY_PERMISSIONS = '/GetMyPermissions';
+    public const string RESOURCE_GET_MY_PERMISSIONS = '/GetMyPermissions';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_MY_USER = '/GetMyUser';
+    public const string RESOURCE_GET_MY_USER = '/GetMyUser';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_ORGANIZATION = '/GetOrganization';
+    public const string RESOURCE_GET_ORGANIZATION = '/GetOrganization';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_ORGANIZATIONS_BY_INN_KPP = '/GetOrganizationsByInnKpp';
+    public const string RESOURCE_GET_ORGANIZATIONS_BY_INN_KPP = '/GetOrganizationsByInnKpp';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST = '/GetOrganizationsByInnList';
+    public const string RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST = '/GetOrganizationsByInnList';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_ORGANIZATION_USERS = '/GetOrganizationUsers';
+    public const string RESOURCE_GET_ORGANIZATION_USERS = '/GetOrganizationUsers';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_PARSE_RUSSIAN_ADDRESS = '/ParseRussianAddress';
+    public const string RESOURCE_PARSE_RUSSIAN_ADDRESS = '/ParseRussianAddress';
 
     // Counteragents
-    /**
-     * @var string
-     */
-    final public const RESOURCE_ACQUIRE_COUNTERAGENTS = '/AcquireCounteragent';
+    public const string RESOURCE_ACQUIRE_COUNTERAGENTS = '/AcquireCounteragent';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_ACQUIRE_COUNTERAGENTS_V2 = '/V2/AcquireCounteragent';
+    public const string RESOURCE_ACQUIRE_COUNTERAGENTS_V2 = '/V2/AcquireCounteragent';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_ACQUIRE_COUNTERAGENT_RESULT = '/AcquireCounteragentResult';
+    public const string RESOURCE_ACQUIRE_COUNTERAGENT_RESULT = '/AcquireCounteragentResult';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_BREAK_WITH_COUNTERAGENT = '/BreakWithCounteragent';
+    public const string RESOURCE_BREAK_WITH_COUNTERAGENT = '/BreakWithCounteragent';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_COUNTERAGENT = '/GetCounteragent';
+    public const string RESOURCE_GET_COUNTERAGENT = '/GetCounteragent';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_COUNTERAGENT_V2 = '/V2/GetCounteragent';
+    public const string RESOURCE_GET_COUNTERAGENT_V2 = '/V2/GetCounteragent';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_COUNTERAGENTS = '/GetCounteragents';
+    public const string RESOURCE_GET_COUNTERAGENTS = '/GetCounteragents';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_COUNTERAGENTS_V2 = '/V2/GetCounteragents';
+    public const string RESOURCE_GET_COUNTERAGENTS_V2 = '/V2/GetCounteragents';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_COUNTERAGENT_CERTIFICATES = '/GetCounteragentCertificates';
+    public const string RESOURCE_GET_COUNTERAGENT_CERTIFICATES = '/GetCounteragentCertificates';
 
     // Messages
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_ENTITY_CONTENT = '/V4/GetEntityContent';
+    public const string RESOURCE_GET_ENTITY_CONTENT = '/V4/GetEntityContent';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_MESSAGE = '/V3/GetMessage';
+    public const string RESOURCE_GET_MESSAGE = '/V3/GetMessage';
 
-    /**
-     * @var string
-     */
-    final public const GET_MESSAGE_V6 = '/V6/GetMessage';
+    public const string GET_MESSAGE_V6 = '/V6/GetMessage';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_POST_MESSAGE = '/V3/PostMessage';
+    public const string RESOURCE_POST_MESSAGE = '/V3/PostMessage';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_POST_MESSAGE_PATCH = '/V3/PostMessagePatch';
+    public const string RESOURCE_POST_MESSAGE_PATCH = '/V3/PostMessagePatch';
 
     // Documents
-    /**
-     * @var string
-     */
-    final public const RESOURCE_DELETE = '/Delete';
+    public const string RESOURCE_DELETE = '/Delete';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_FORWARD_DOCUMENT = '/V2/ForwardDocument';
+    public const string RESOURCE_FORWARD_DOCUMENT = '/V2/ForwardDocument';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_BUYER = '/GenerateAcceptanceCertificateXmlForBuyer';
+    public const string RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_BUYER = '/GenerateAcceptanceCertificateXmlForBuyer';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_SELLER = '/GenerateAcceptanceCertificateXmlForSeller';
+    public const string RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_SELLER = '/GenerateAcceptanceCertificateXmlForSeller';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_DOCUMENT_PROTOCOL = '/GenerateDocumentProtocol';
+    public const string RESOURCE_GENERATE_DOCUMENT_PROTOCOL = '/GenerateDocumentProtocol';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_DOCUMENT_ZIP = '/GenerateDocumentZip';
+    public const string RESOURCE_GENERATE_DOCUMENT_ZIP = '/GenerateDocumentZip';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_FORWARDED_DOCUMENT_PROTOCOL = '/V2/GenerateForwardedDocumentProtocol';
+    public const string RESOURCE_GENERATE_FORWARDED_DOCUMENT_PROTOCOL = '/V2/GenerateForwardedDocumentProtocol';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_PRINT_FORM = '/GeneratePrintForm';
+    public const string RESOURCE_GENERATE_PRINT_FORM = '/GeneratePrintForm';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_PRINT_FORM_FROM_ATTACHMENT = '/GeneratePrintFormFromAttachment';
+    public const string RESOURCE_GENERATE_PRINT_FORM_FROM_ATTACHMENT = '/GeneratePrintFormFromAttachment';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_REVOCATION_REQUEST_XML = '/GenerateRevocationRequestXml';
+    public const string RESOURCE_GENERATE_REVOCATION_REQUEST_XML = '/GenerateRevocationRequestXml';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_SIGNATURE_REJECTION_XML = '/GenerateSignatureRejectionXml';
+    public const string RESOURCE_GENERATE_SIGNATURE_REJECTION_XML = '/GenerateSignatureRejectionXml';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_TORG_12_XML_FOR_BUYER = '/GenerateTorg12XmlForBuyer';
+    public const string RESOURCE_GENERATE_TORG_12_XML_FOR_BUYER = '/GenerateTorg12XmlForBuyer';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_TORG_12_XML_FOR_SELLER = '/GenerateTorg12XmlForSeller';
+    public const string RESOURCE_GENERATE_TORG_12_XML_FOR_SELLER = '/GenerateTorg12XmlForSeller';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_DOCUMENT = '/V3/GetDocument';
+    public const string RESOURCE_GET_DOCUMENT = '/V3/GetDocument';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_DOCUMENTS = '/V3/GetDocuments';
+    public const string RESOURCE_GET_DOCUMENTS = '/V3/GetDocuments';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_DOCUMENT_TYPES = '/V2/GetDocumentTypes';
+    public const string RESOURCE_GET_DOCUMENT_TYPES = '/V2/GetDocumentTypes';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_FORWARDED_DOCUMENT_EVENTS = '/V2/GetForwardedDocumentEvents';
+    public const string RESOURCE_GET_FORWARDED_DOCUMENT_EVENTS = '/V2/GetForwardedDocumentEvents';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_FORWARDED_DOCUMENT_PRINT_FORM = '/GenerateForwardedDocumentPrintForm';
+    public const string RESOURCE_GENERATE_FORWARDED_DOCUMENT_PRINT_FORM = '/GenerateForwardedDocumentPrintForm';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_FORWARDED_ENTITY_CONTENT = '/V2/GetForwardedEntityContent';
+    public const string RESOURCE_GET_FORWARDED_ENTITY_CONTENT = '/V2/GetForwardedEntityContent';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_FORWARDED_DOCUMENT = '/V2/GetForwardedDocuments';
+    public const string RESOURCE_GET_FORWARDED_DOCUMENT = '/V2/GetForwardedDocuments';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_GENERATED_PRINT_FORM = '/GetGeneratedPrintForm';
+    public const string RESOURCE_GET_GENERATED_PRINT_FORM = '/GetGeneratedPrintForm';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_RECOGNIZED = '/GetRecognized';
+    public const string RESOURCE_GET_RECOGNIZED = '/GetRecognized';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_MOVE_DOCUMENTS = '/MoveDocuments';
+    public const string RESOURCE_MOVE_DOCUMENTS = '/MoveDocuments';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_PARSE_ACCEPTANCE_CERTIFICATE_SELLER_TITLE_XML = '/ParseAcceptanceCertificateSellerTitleXml';
+    public const string RESOURCE_PARSE_ACCEPTANCE_CERTIFICATE_SELLER_TITLE_XML = '/ParseAcceptanceCertificateSellerTitleXml';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_PARSE_REVOCATION_REQUEST_XML = '/ParseRevocationRequestXml';
+    public const string RESOURCE_PARSE_REVOCATION_REQUEST_XML = '/ParseRevocationRequestXml';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_PARSE_SIGNATURE_REJECTION_XML = '/ParseSignatureRejectionXml';
+    public const string RESOURCE_PARSE_SIGNATURE_REJECTION_XML = '/ParseSignatureRejectionXml';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_PARSE_TORG_12_SELLER_TITLE_XML = '/ParseTorg12SellerTitleXml';
+    public const string RESOURCE_PARSE_TORG_12_SELLER_TITLE_XML = '/ParseTorg12SellerTitleXml';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_PREPARE_DOCUMENTS_TO_SIGN = '/PrepareDocumentsToSign';
+    public const string RESOURCE_PREPARE_DOCUMENTS_TO_SIGN = '/PrepareDocumentsToSign';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_RECOGNIZE = '/Recognize';
+    public const string RESOURCE_RECOGNIZE = '/Recognize';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_RECYCLE_DRAFT = '/RecycleDraft';
+    public const string RESOURCE_RECYCLE_DRAFT = '/RecycleDraft';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_RESTORE = '/Restore';
+    public const string RESOURCE_RESTORE = '/Restore';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_SHELF_UPLOAD = '/ShelfUpload';
+    public const string RESOURCE_SHELF_UPLOAD = '/ShelfUpload';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_SEND_DRAFT = '/SendDraft';
+    public const string RESOURCE_SEND_DRAFT = '/SendDraft';
 
     // SF/ISF/KSF
-    /**
-     * @var string
-     */
-    final public const RESOURCE_CAN_SEND_INVOICE = '/CanSendInvoice';
+    public const string RESOURCE_CAN_SEND_INVOICE = '/CanSendInvoice';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_INVOICE_XML = '/GenerateInvoiceXml';
+    public const string RESOURCE_GENERATE_INVOICE_XML = '/GenerateInvoiceXml';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_INVOICE_CORRECTION_REQUEST_XML = '/GenerateInvoiceCorrectionRequestXml';
+    public const string RESOURCE_GENERATE_INVOICE_CORRECTION_REQUEST_XML = '/GenerateInvoiceCorrectionRequestXml';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GENERATE_INVOICE_DOCUMENT_RECEIPT_XML = '/GenerateInvoiceDocumentReceiptXml';
+    public const string RESOURCE_GENERATE_INVOICE_DOCUMENT_RECEIPT_XML = '/GenerateInvoiceDocumentReceiptXml';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_INVOICE_CORRECTION_REQUEST_INFO = '/GetInvoiceCorrectionRequestInfo';
+    public const string RESOURCE_GET_INVOICE_CORRECTION_REQUEST_INFO = '/GetInvoiceCorrectionRequestInfo';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_PARSE_INVOICE_XML = '/ParseInvoiceXml';
+    public const string RESOURCE_PARSE_INVOICE_XML = '/ParseInvoiceXml';
 
     // Events
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_EVENT = '/V2/GetEvent';
+    public const string RESOURCE_GET_EVENT = '/V2/GetEvent';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_NEW_EVENTS = '/V4/GetNewEvents';
+    public const string RESOURCE_GET_NEW_EVENTS = '/V4/GetNewEvents';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_NEW_EVENTS_V8 = '/V8/GetNewEvents';
+    public const string RESOURCE_GET_NEW_EVENTS_V8 = '/V8/GetNewEvents';
 
-    //Docflow API
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_DOCFLOWS = '/V2/GetDocflows';
+    // Docflow API
+    public const string RESOURCE_GET_DOCFLOWS = '/V2/GetDocflows';
 
-    //Docflow API
-    /**
-     * @var string
-     */
-    final public const GET_DOCFLOWS_V5 = '/V5/GetDocflows';
+    // Docflow API
+    public const string GET_DOCFLOWS_V5 = '/V5/GetDocflows';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_DOCFLOWS_BY_PACKET_ID = '/V2/GetDocflowsByPacketId';
+    public const string RESOURCE_GET_DOCFLOWS_BY_PACKET_ID = '/V2/GetDocflowsByPacketId';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_SEARCH_DOCFLOWS = '/V2/SearchDocflows';
+    public const string RESOURCE_SEARCH_DOCFLOWS = '/V2/SearchDocflows';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_GET_DOCFLOWS_EVENTS = '/V2/GetDocflowEvents';
+    public const string RESOURCE_GET_DOCFLOWS_EVENTS = '/V2/GetDocflowEvents';
 
     // Cloud sign
-    /**
-     * @var string
-     */
-    final public const RESOURCE_CLOUD_SIGN = '/CloudSign';
+    public const string RESOURCE_CLOUD_SIGN = '/CloudSign';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_CLOUD_SIGN_CONFIRM = '/CloudSignConfirm';
+    public const string RESOURCE_CLOUD_SIGN_CONFIRM = '/CloudSignConfirm';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_CLOUD_SIGN_CONFIRM_RESULT = '/CloudSignConfirmResult';
+    public const string RESOURCE_CLOUD_SIGN_CONFIRM_RESULT = '/CloudSignConfirmResult';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_CLOUD_SIGN_RESULT = '/CloudSignResult';
+    public const string RESOURCE_CLOUD_SIGN_RESULT = '/CloudSignResult';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_AUTO_SIGN_RECEIPTS = '/AutoSignReceipts';
+    public const string RESOURCE_AUTO_SIGN_RECEIPTS = '/AutoSignReceipts';
 
-    /**
-     * @var string
-     */
-    final public const RESOURCE_AUTO_SIGN_RECEIPTS_RESULT = '/AutoSignReceiptsResult';
+    public const string RESOURCE_AUTO_SIGN_RECEIPTS_RESULT = '/AutoSignReceiptsResult';
 
     private AuthModeInterface $authMode;
 
@@ -527,12 +270,12 @@ class DiadocApi
      * Пример с OpenID Connect:
      * <code>
      * $api = DiadocApi::create(
-     *     new OidcAuthMode($clientId, $clientSecret, 'https://identity.kontur.ru', $serviceUrl),
+     *     new OidcAuthFlowAuthMode($clientId, $clientSecret, 'https://identity.kontur.ru', $serviceUrl),
      *     $serviceUrl
      * );
      * </code>
      *
-     * @param AuthModeInterface            $authMode       стратегия авторизации ({@see OidcAuthMode}, {@see AuthenticateV3AuthMode}, ...)
+     * @param AuthModeInterface            $authMode       стратегия авторизации ({@see OidcAuthFlowAuthMode}, {@see AuthenticateV3AuthMode}, ...)
      * @param string                       $serviceUrl     базовый URL API Диадока
      * @param bool                         $debugRequest   логировать HTTP-запросы
      * @param SignerProviderInterface|null $signerProvider провайдер подписи для cloud-подписания
@@ -545,16 +288,15 @@ class DiadocApi
         bool $debugRequest = false,
         ?SignerProviderInterface $signerProvider = null
     ): self {
-        // OidcAuthMode резолвит scope по своему serviceUrl — он обязан совпадать
+        // OidcAuthFlowAuthMode резолвит scope по своему serviceUrl — он обязан совпадать
         // с URL, по которому будет ходить сам клиент. Проверка здесь гарантирует,
         // что рассинхронизация конфигурации будет обнаружена сразу при создании клиента.
-        if (
-            $authMode instanceof OidcAuthMode
-            && rtrim($authMode->serviceUrl, '/') !== rtrim($serviceUrl, '/')
+        if ($authMode instanceof OidcAuthFlowAuthMode
+            && \rtrim($authMode->serviceUrl, '/') !== \rtrim($serviceUrl, '/')
         ) {
             throw new \RuntimeException(
-                sprintf(
-                    'OidcAuthMode создан для "%s", а DiadocApi будет работать с "%s": scope может быть определён неверно',
+                \sprintf(
+                    'OidcAuthFlowAuthMode создан для "%s", а DiadocApi будет работать с "%s": scope может быть определён неверно',
                     $authMode->serviceUrl,
                     $serviceUrl
                 )
@@ -574,7 +316,7 @@ class DiadocApi
             [],
             [
                 'login' => $login,
-                'password' => $password
+                'password' => $password,
             ],
             self::METHOD_POST
         );
@@ -594,7 +336,7 @@ class DiadocApi
             self::RESOURCE_AUTHENTICATE_V3,
             $loginPassword->serializeToString(),
             [
-                'type' => 'password'
+                'type' => 'password',
             ],
             self::METHOD_POST
         );
@@ -612,20 +354,21 @@ class DiadocApi
     /**
      * @throws DiadocApiException
      * @throws DiadocApiUnauthorizedException
+     * @param array<array<string, mixed>, mixed> $queryParams
      */
-    protected function doRequest(string $resource, array|string $postData = [], array $queryParams = [], string $method = self::METHOD_GET, ?string $contentType = null): string
+    private function doRequest(string $resource, array|string $postData = [], array $queryParams = [], string $method = self::METHOD_GET, ?string $contentType = null): string
     {
-        $isAuthenticateEndpoint = in_array($resource, [self::RESOURCE_AUTHENTICATE, self::RESOURCE_AUTHENTICATE_V2, self::RESOURCE_AUTHENTICATE_V3], true);
+        $isAuthenticateEndpoint = \in_array($resource, [self::RESOURCE_AUTHENTICATE, self::RESOURCE_AUTHENTICATE_V2, self::RESOURCE_AUTHENTICATE_V3], true);
 
-        if (!$isAuthenticateEndpoint) {
-            $this->authMode->ensureReady();
+        if (! $isAuthenticateEndpoint) {
+            $this->authMode->ensureAuthorized();
         }
 
-        $uri = sprintf(
+        $uri = \sprintf(
             '%s%s?%s',
             $this->serviceUrl,
             $resource,
-            http_build_query($queryParams)
+            \http_build_query($queryParams)
         );
 
         $attempt = 0;
@@ -634,7 +377,7 @@ class DiadocApi
                 return $this->executeDiadocHttpRequest($uri, $postData, $method, $contentType, $isAuthenticateEndpoint);
             } catch (DiadocApiUnauthorizedException $e) {
                 ++$attempt;
-                if ($attempt > 1 || !$this->authMode->handleUnauthorized()) {
+                if ($attempt > 1 || ! $this->authMode->handleUnauthorized()) {
                     throw $e;
                 }
             }
@@ -643,7 +386,6 @@ class DiadocApi
 
     /**
      * @param array|string $postData
-     * @param bool         $forAuthenticateCall
      *
      * @throws DiadocApiException
      * @throws DiadocApiUnauthorizedException
@@ -658,7 +400,7 @@ class DiadocApi
 
         if ($method === self::METHOD_POST) {
             \curl_setopt($ch, CURLOPT_POST, 0);
-            \curl_setopt($ch, CURLOPT_POSTFIELDS, is_array($postData) ? http_build_query($postData) : $postData);
+            \curl_setopt($ch, CURLOPT_POSTFIELDS, \is_array($postData) ? \http_build_query($postData) : $postData);
         } elseif ($method === self::METHOD_GET) {
             \curl_setopt($ch, CURLOPT_HTTPGET, 1);
             \curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
@@ -672,14 +414,14 @@ class DiadocApi
         $response = \curl_exec($ch);
 
         if (\curl_errno($ch) !== 0) {
-            throw new DiadocApiException(sprintf('Curl error: (%s) %s', \curl_errno($ch), \curl_error($ch)), \curl_errno($ch));
+            throw new DiadocApiException(\sprintf('Curl error: (%s) %s', \curl_errno($ch), \curl_error($ch)), \curl_errno($ch));
         }
 
         $httpCode = \curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $this->logRequest($uri, $postData, $method, $httpCode, (string) $response);
 
-        if (!$httpCode || ($httpCode !== 200 && $httpCode !== 204)) {
-            $message = sprintf('Curl error http code: (%s) %s', $httpCode, (string) $response);
+        if (! $httpCode || ($httpCode !== 200 && $httpCode !== 204)) {
+            $message = \sprintf('Curl error http code: (%s) %s', $httpCode, (string) $response);
             if ($httpCode === 401) {
                 throw new DiadocApiUnauthorizedException($message, $httpCode);
             }
@@ -708,9 +450,9 @@ class DiadocApi
         }
 
         $params = null;
-        if (is_array($postData) && $postData !== []) {
-            $params = http_build_query($postData);
-        } elseif (is_string($postData) && $postData !== '') {
+        if (\is_array($postData) && $postData !== []) {
+            $params = \http_build_query($postData);
+        } elseif (\is_string($postData) && $postData !== '') {
             $params = $postData;
         }
 
@@ -725,7 +467,6 @@ class DiadocApi
         );
     }
 
-
     /**
      * @throws DiadocApiException
      */
@@ -735,7 +476,7 @@ class DiadocApi
             self::RESOURCE_GET_BOX,
             [],
             [
-                'boxId' => $boxId
+                'boxId' => $boxId,
             ]
         );
 
@@ -746,8 +487,6 @@ class DiadocApi
     }
 
     /**
-     *
-     * @return Department| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getDepartment(string $orgId, string $departmentId): Department|\Google\Protobuf\Internal\Message
@@ -757,7 +496,7 @@ class DiadocApi
             [],
             [
                 'orgId' => $orgId,
-                'departmentId' => $departmentId
+                'departmentId' => $departmentId,
             ]
         );
 
@@ -768,7 +507,6 @@ class DiadocApi
     }
 
     /**
-     * @return OrganizationList| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getMyOrganizations(): OrganizationList
@@ -782,8 +520,6 @@ class DiadocApi
     }
 
     /**
-     *
-     * @return OrganizationUserPermissions| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getMyPermissions(string $orgId): OrganizationUserPermissions|\Google\Protobuf\Internal\Message
@@ -792,7 +528,7 @@ class DiadocApi
             self::RESOURCE_GET_MY_PERMISSIONS,
             [],
             [
-                'orgId' => $orgId
+                'orgId' => $orgId,
             ]
         );
         $organizationUserPermissions = new OrganizationUserPermissions();
@@ -802,7 +538,6 @@ class DiadocApi
     }
 
     /**
-     * @return User| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getMyUser(): User
@@ -816,7 +551,6 @@ class DiadocApi
     }
 
     /**
-     * @return Organization| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getOrganizationById(string $orgId): Organization
@@ -825,7 +559,7 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATION,
             [],
             [
-                'orgId' => $orgId
+                'orgId' => $orgId,
             ]
         );
 
@@ -836,7 +570,6 @@ class DiadocApi
     }
 
     /**
-     * @return Organization| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getOrganizationByFnsParticipantId(string $fnsParticipantId): Organization
@@ -845,7 +578,7 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATION,
             [],
             [
-                'fnsParticipantId' => $fnsParticipantId
+                'fnsParticipantId' => $fnsParticipantId,
             ]
         );
 
@@ -855,9 +588,7 @@ class DiadocApi
         return $organization;
     }
 
-
     /**
-     * @return Organization| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getOrganizationByInn(string $inn): Organization
@@ -866,7 +597,7 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATION,
             [],
             [
-                'inn' => $inn
+                'inn' => $inn,
             ]
         );
 
@@ -877,9 +608,6 @@ class DiadocApi
     }
 
     /**
-     * @param string|null $kpp
-     *
-     * @return OrganizationList| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getOrganizationsByInnKpp(string $inn, ?string $kpp = null, bool $includeRelations = false): OrganizationList
@@ -890,7 +618,7 @@ class DiadocApi
             [
                 'inn' => $inn,
                 'kpp' => $kpp,
-                'includeRelations' => $includeRelations ? 'true' : 'false'
+                'includeRelations' => $includeRelations ? 'true' : 'false',
             ]
         );
 
@@ -901,7 +629,6 @@ class DiadocApi
     }
 
     /**
-     * @return GetOrganizationsByInnListResponse| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getOrganizationsByInnList(string $myOrgId, array $innList = []): GetOrganizationsByInnListResponse
@@ -913,7 +640,7 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST,
             $getOrganizationsByInnListRequest->serializeToString(),
             [
-                'myOrgId' => $myOrgId
+                'myOrgId' => $myOrgId,
             ],
             self::METHOD_POST
         );
@@ -925,8 +652,6 @@ class DiadocApi
     }
 
     /**
-     *
-     * @return OrganizationUsersList| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getOrganizationUsers(string $orgId): OrganizationUsersList
@@ -935,7 +660,7 @@ class DiadocApi
             self::RESOURCE_GET_ORGANIZATION_USERS,
             [],
             [
-                'orgId' => $orgId
+                'orgId' => $orgId,
             ]
         );
 
@@ -946,8 +671,6 @@ class DiadocApi
     }
 
     /**
-     *
-     * @return RussianAddress| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function parseRussianAddress(string $address): RussianAddress
@@ -956,7 +679,7 @@ class DiadocApi
             self::RESOURCE_PARSE_RUSSIAN_ADDRESS,
             [],
             [
-                'address' => $address
+                'address' => $address,
             ]
         );
 
@@ -967,9 +690,6 @@ class DiadocApi
     }
 
     /**
-     * @param string|null $comment
-     *
-     * @return mixed
      * @throws DiadocApiException
      */
     public function acquireCounteragent(string $myOrgId, string $counteragentOrgId, string $myDepartmentId, ?string $comment = null): string
@@ -981,7 +701,7 @@ class DiadocApi
                 'myOrgId' => $myOrgId,
                 'counteragentOrgId' => $counteragentOrgId,
                 'myDepartmentId' => $myDepartmentId,
-                'comment' => $comment
+                'comment' => $comment,
             ],
             self::METHOD_POST
         );
@@ -990,7 +710,6 @@ class DiadocApi
     /**
      * @param InvitationDocument|null $invitationDocument |null $invationDocument
      *
-     * @return AsyncMethodResult| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function acquireCounteragentWithDocument(string $myOrgId, string $counteragentOrgId, string $myDepartmentId, ?InvitationDocument $invitationDocument = null, string $messageToContragent = ''): AsyncMethodResult
@@ -1019,7 +738,6 @@ class DiadocApi
     /**
      * @param InvitationDocument|null $invitationDocument |null $invationDocument
      *
-     * @return AsyncMethodResult| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function acquireCounteragentByInnWithDocument(string $myOrgId, string $counteragentInn, ?string $myDepartmentId = null, ?InvitationDocument $invitationDocument = null, string $messageToContragent = ''): AsyncMethodResult
@@ -1046,8 +764,6 @@ class DiadocApi
     }
 
     /**
-     *
-     * @return AcquireCounteragentResult| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function acquireCounteragentResult(string $taskId): AcquireCounteragentResult
@@ -1056,7 +772,7 @@ class DiadocApi
             self::RESOURCE_ACQUIRE_COUNTERAGENT_RESULT,
             [],
             [
-                'taskId' => $taskId
+                'taskId' => $taskId,
             ]
         );
 
@@ -1077,14 +793,13 @@ class DiadocApi
             [
                 'myOrgId' => $myOrgId,
                 'counteragentOrgId' => $counteragentOrgId,
-                'comment' => $comment
+                'comment' => $comment,
             ],
             self::METHOD_POST
         );
     }
 
     /**
-     * @return Counteragent| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getCountragent(string $myOrgId, string $counteragentOrgId): Counteragent
@@ -1094,7 +809,7 @@ class DiadocApi
             [],
             [
                 'myOrgId' => $myOrgId,
-                'counteragentOrgId' => $counteragentOrgId
+                'counteragentOrgId' => $counteragentOrgId,
             ]
         );
         $counteragent = new Counteragent();
@@ -1103,9 +818,7 @@ class DiadocApi
         return $counteragent;
     }
 
-
     /**
-     * @return Counteragent| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getCountragentV2(string $myOrgId, string $counteragentOrgId): Counteragent
@@ -1115,7 +828,7 @@ class DiadocApi
             [],
             [
                 'myOrgId' => $myOrgId,
-                'counteragentOrgId' => $counteragentOrgId
+                'counteragentOrgId' => $counteragentOrgId,
             ]
         );
 
@@ -1125,12 +838,7 @@ class DiadocApi
         return $counteragent;
     }
 
-
     /**
-     * @param string $myOrgId
-     * @param string|null $counteragentStatus
-     * @param int|null $afterIndexKey
-     * @return CounteragentList
      * @throws DiadocApiException
      * @throws DiadocApiUnauthorizedException
      */
@@ -1142,7 +850,7 @@ class DiadocApi
             [
                 'myOrgId' => $myOrgId,
                 'counteragentStatus' => $counteragentStatus,
-                'afterIndexKey' => $afterIndexKey
+                'afterIndexKey' => $afterIndexKey,
             ]
         );
         $counteragentList = new CounteragentList();
@@ -1176,7 +884,7 @@ class DiadocApi
             [],
             [
                 'myOrgId' => $myOrgId,
-                'counteragentOrgId' => $counteragentOrgId
+                'counteragentOrgId' => $counteragentOrgId,
             ]
         );
 
@@ -1187,11 +895,9 @@ class DiadocApi
     }
 
     /**
-     *
-     * @return mixed
      * @throws DiadocApiException
      */
-    public function getEntityContent(string $boxId, string $messageId, string $entityId)
+    public function getEntityContent(string $boxId, string $messageId, string $entityId): string
     {
         return $this->doRequest(
             self::RESOURCE_GET_ENTITY_CONTENT,
@@ -1199,15 +905,12 @@ class DiadocApi
             [
                 'boxId' => $boxId,
                 'messageId' => $messageId,
-                'entityId' => $entityId
+                'entityId' => $entityId,
             ]
         );
     }
 
     /**
-     * @param string|null $entityId
-     *
-     * @return Message| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getMessage(string $boxId, string $messageId, ?string $entityId = null, ?string $originalSignature = null): Message
@@ -1219,7 +922,7 @@ class DiadocApi
                 'boxId' => $boxId,
                 'messageId' => $messageId,
                 'entityId' => $entityId,
-                'originalSignature' => $originalSignature
+                'originalSignature' => $originalSignature,
             ]
         );
         $message = new Message();
@@ -1229,7 +932,6 @@ class DiadocApi
     }
 
     /**
-     * @return Message| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getMessageV6(
@@ -1247,7 +949,7 @@ class DiadocApi
                 'messageId' => $messageId,
                 'entityId' => $entityId,
                 'originalSignature' => $originalSignature,
-                'injectEntityContent' => $injectEntityContent
+                'injectEntityContent' => $injectEntityContent,
             ]
         );
         $message = new Message();
@@ -1257,7 +959,6 @@ class DiadocApi
     }
 
     /**
-     * @return Message| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      * @throws DiadocApiUnauthorizedException
      */
@@ -1267,7 +968,7 @@ class DiadocApi
             self::RESOURCE_POST_MESSAGE,
             $messageToPost->serializeToString(),
             [
-                'operationId' => $operationId
+                'operationId' => $operationId,
             ],
             self::METHOD_POST
         );
@@ -1279,7 +980,6 @@ class DiadocApi
     }
 
     /**
-     * @return MessagePatch| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function postMessagePatch(MessagePatchToPost $messagePatchToPost, ?string $operationId = null): MessagePatch
@@ -1288,7 +988,7 @@ class DiadocApi
             self::RESOURCE_POST_MESSAGE_PATCH,
             $messagePatchToPost->serializeToString(),
             [
-                'operationId' => $operationId
+                'operationId' => $operationId,
             ],
             self::METHOD_POST
         );
@@ -1300,8 +1000,6 @@ class DiadocApi
     }
 
     /**
-     * @param string|null $documentId
-     *
      * @throws DiadocApiException
      */
     public function delete(string $boxId, string $messageId, ?string $documentId = null): bool
@@ -1312,7 +1010,7 @@ class DiadocApi
             [
                 'boxId' => $boxId,
                 'messageId' => $messageId,
-                'documentId' => $documentId
+                'documentId' => $documentId,
             ],
             self::METHOD_POST
         );
@@ -1333,14 +1031,13 @@ class DiadocApi
             self::RESOURCE_FORWARD_DOCUMENT,
             $forwardDocumentRequest->serializeToString(),
             [
-                'boxId' => $boxId
+                'boxId' => $boxId,
             ],
             self::METHOD_POST
         );
     }
 
     /**
-     * @return Document| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getDocument(string $boxId, string $messageId, string $entityId, string $injectEntityContent = 'true'): Document
@@ -1352,7 +1049,7 @@ class DiadocApi
                 'boxId' => $boxId,
                 'messageId' => $messageId,
                 'entityId' => $entityId,
-                'injectEntityContent' => $injectEntityContent
+                'injectEntityContent' => $injectEntityContent,
             ]
         );
         $document = new Document();
@@ -1361,23 +1058,18 @@ class DiadocApi
         return $document;
     }
 
-
     public function getDocuments(string $boxId, ?DocumentsFilter $documentsFilter = null, ?int $sortDirection = null, ?int $afterIndexKey = null): DocumentList
     {
-        if (is_null($sortDirection)) {
-            $sortDirection = SortDirection::Ascending;
-        }
+        $sortDirection ??= SortDirection::Ascending;
 
         $params = [
             'boxId' => $boxId,
             'sortDirection' => $sortDirection,
-            'afterIndexKey' => $afterIndexKey
+            'afterIndexKey' => $afterIndexKey,
         ];
-        if (is_null($documentsFilter)) {
-            $documentsFilter = DocumentsFilter::create();
-        }
+        $documentsFilter ??= DocumentsFilter::create();
 
-        $params = array_replace($params, $documentsFilter->toFilter());
+        $params = \array_replace($params, $documentsFilter->toFilter());
 
         $response = $this->doRequest(
             self::RESOURCE_GET_DOCUMENTS,
@@ -1409,9 +1101,7 @@ class DiadocApi
         return $getDocumentTypesResponseV2;
     }
 
-
     /**
-     *
      * @throws DiadocApiException
      */
     public function getDocflows(string $boxId, GetDocflowBatchRequest $getDocflowBatchRequest): GetDocflowBatchResponse
@@ -1420,7 +1110,7 @@ class DiadocApi
             self::RESOURCE_GET_DOCFLOWS,
             $getDocflowBatchRequest->serializeToString(),
             [
-                'boxId' => $boxId
+                'boxId' => $boxId,
             ],
             self::METHOD_POST
         );
@@ -1440,7 +1130,7 @@ class DiadocApi
             self::GET_DOCFLOWS_V5,
             $getDocflowBatchRequest->serializeToString(),
             [
-                'boxId' => $boxId
+                'boxId' => $boxId,
             ],
             self::METHOD_POST
         );
@@ -1452,8 +1142,6 @@ class DiadocApi
     }
 
     /**
-     * @param null $afterIndexKey
-     * @return GetDocflowsByPacketIdResponse| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function getDocflowsByPacketId(string $boxId, string $packetId, bool $injectEntityContent = false, ?int $afterIndexKey = null, int $count = 100): GetDocflowsByPacketIdResponse
@@ -1468,7 +1156,7 @@ class DiadocApi
             self::RESOURCE_GET_DOCFLOWS_BY_PACKET_ID,
             $getDocflowsByPacketIdRequest->serializeToString(),
             [
-                'boxId' => $boxId
+                'boxId' => $boxId,
             ],
             self::METHOD_POST
         );
@@ -1480,9 +1168,6 @@ class DiadocApi
     }
 
     /**
-     * @param int|null $searchScope
-     * @param null|int $firstIndex
-     * @return SearchDocflowsResponse| \Google\Protobuf\Internal\Message
      * @throws DiadocApiException
      */
     public function searchDocflows(string $boxId, string $queryString, ?int $searchScope = null, ?int $firstIndex = null, int $count = 100): SearchDocflowsResponse
@@ -1503,7 +1188,7 @@ class DiadocApi
             self::RESOURCE_SEARCH_DOCFLOWS,
             $searchDocflowsRequest->serializeToString(),
             [
-                'boxId' => $boxId
+                'boxId' => $boxId,
             ],
             self::METHOD_POST
         );
@@ -1515,8 +1200,6 @@ class DiadocApi
     }
 
     /**
-     * @param DateTime|null $from
-     * @param DateTime|null $to
      * @throws DiadocApiException
      */
     public function getDocflowEvents(
@@ -1554,12 +1237,11 @@ class DiadocApi
         $getDocflowEventsRequest->setInjectEntityContent($injectEntityContent);
         $getDocflowEventsRequest->setAfterIndexKey($afterIndexKey);
 
-
         $response = $this->doRequest(
             self::RESOURCE_GET_DOCFLOWS_EVENTS,
             $getDocflowEventsRequest->serializeToString(),
             [
-                'boxId' => $boxId
+                'boxId' => $boxId,
             ],
             self::METHOD_POST
         );
@@ -1569,7 +1251,6 @@ class DiadocApi
 
         return $getDocflowEventsResponse;
     }
-
 
     /**
      * @throws DiadocApiException
@@ -1581,7 +1262,7 @@ class DiadocApi
             [],
             [
                 'boxId' => $boxId,
-                'eventId' => $eventId
+                'eventId' => $eventId,
             ]
         );
 
@@ -1598,7 +1279,7 @@ class DiadocApi
             [],
             [
                 'boxId' => $boxId,
-                'afterEventId' => $afterEventId
+                'afterEventId' => $afterEventId,
             ]
         );
         $boxEventList = new BoxEventList();
@@ -1678,7 +1359,7 @@ class DiadocApi
      */
     public function setLegacyToken(?string $token): void
     {
-        if (!$this->authMode instanceof AuthenticateV3AuthMode) {
+        if (! $this->authMode instanceof AuthenticateV3AuthMode) {
             throw new DiadocApiException(
                 'setLegacyToken() доступен только при auth mode ' . self::AUTH_MODE_AUTHENTICATE_V3,
                 0
@@ -1697,7 +1378,8 @@ class DiadocApi
      */
     public function buildAuthorizationUrl(string $redirectUri, string $state, ?string $nonce = null): string
     {
-        return $this->oidc()->buildAuthorizationUrl($redirectUri, $state, $nonce);
+        return $this->oidc()
+            ->buildAuthorizationUrl($redirectUri, $state, $nonce);
     }
 
     /**
@@ -1707,7 +1389,8 @@ class DiadocApi
      */
     public function exchangeAuthorizationCode(string $code, string $redirectUri): void
     {
-        $this->oidc()->exchangeAuthorizationCode($code, $redirectUri);
+        $this->oidc()
+            ->exchangeAuthorizationCode($code, $redirectUri);
     }
 
     /**
@@ -1717,7 +1400,8 @@ class DiadocApi
      */
     public function refreshAccessToken(): void
     {
-        $this->oidc()->refreshAccessToken();
+        $this->oidc()
+            ->refreshAccessToken();
     }
 
     /**
@@ -1727,7 +1411,8 @@ class DiadocApi
      */
     public function setOAuthSession(string $accessToken, ?string $refreshToken = null, ?int $expiresAtUnix = null): void
     {
-        $this->oidc()->setOAuthSession($accessToken, $refreshToken, $expiresAtUnix);
+        $this->oidc()
+            ->setOAuthSession($accessToken, $refreshToken, $expiresAtUnix);
     }
 
     /**
@@ -1735,7 +1420,8 @@ class DiadocApi
      */
     public function getOAuthSessionState(): array
     {
-        return $this->oidc()->getOAuthSessionState();
+        return $this->oidc()
+            ->getOAuthSessionState();
     }
 
     /**
@@ -1745,7 +1431,8 @@ class DiadocApi
      */
     public function setOAuthSessionPersistenceCallback(?callable $callback): void
     {
-        $this->oidc()->setOAuthSessionPersistenceCallback($callback);
+        $this->oidc()
+            ->setOAuthSessionPersistenceCallback($callback);
     }
 
     /**
@@ -1753,17 +1440,18 @@ class DiadocApi
      */
     public function getOidcScope(): string
     {
-        return $this->oidc()->getOidcScope();
+        return $this->oidc()
+            ->getOidcScope();
     }
 
     /**
      * @throws DiadocApiException если текущий режим не OIDC
      */
-    private function oidc(): OidcAuthMode
+    private function oidc(): OidcAuthFlowAuthMode
     {
-        if (!$this->authMode instanceof OidcAuthMode) {
+        if (! $this->authMode instanceof OidcAuthFlowAuthMode) {
             throw new DiadocApiException(
-                'Метод доступен только при auth mode ' . self::AUTH_MODE_OIDC . '. Используйте DiadocApi::create() с OidcAuthMode.',
+                'Метод доступен только при auth mode ' . self::AUTH_MODE_OIDC . '. Используйте DiadocApi::create() с OidcAuthFlowAuthMode.',
                 0
             );
         }
@@ -1783,11 +1471,11 @@ class DiadocApi
 
     public function generateSignedContentFromFile(string $fileName): SignedContent
     {
-        if (!file_exists($fileName)) {
+        if (! \file_exists($fileName)) {
             throw new \Exception('File not found');
         }
 
-        $content = file_get_contents($fileName);
+        $content = \file_get_contents($fileName);
 
         return $this->generateSignedContent($content);
     }
@@ -1801,14 +1489,15 @@ class DiadocApi
         return $signedContent;
     }
 
-
     // В документации не описано до конца как делать. Вот есть решение в issues
     // https://github.com/diadoc/diadocapi-docs/issues/323
     public function shelfUpload(string $nameOnShelf, int $partIndex, string $content, int $isLastPart): string
     {
         return $this->doRequest(
             self::RESOURCE_SHELF_UPLOAD,
-            ['content' => $content],
+            [
+                'content' => $content,
+            ],
             [
                 'nameOnShelf' => $nameOnShelf,
                 'partIndex' => $partIndex,

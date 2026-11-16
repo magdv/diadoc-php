@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Test\Unit;
 
+use Diadoc\Proto\Events\Message;
+use Diadoc\Proto\Events\Entity;
 use Diadoc\Proto\Docflow\GetDocflowBatchRequest;
 use Diadoc\Proto\Docflow\GetDocflowRequest;
 use Diadoc\Proto\DocumentId;
@@ -35,7 +37,7 @@ class MessageTest extends BaseTest
 
         $postObject->setDocumentAttachments([$attachment]);
 
-        /** @var \Diadoc\Proto\Events\Message $response */
+        /** @var Message $response */
         $response = $api->postMessage($postObject);
 
         self::assertNotEmpty($response);
@@ -46,7 +48,7 @@ class MessageTest extends BaseTest
         self::assertNotEmpty($response->getToTitle());
 
         $entityId = null;
-        /** @var \Diadoc\Proto\Events\Entity $item */
+        /** @var Entity $item */
         foreach ($response->getEntities() as $item) {
             $entityId = $item->getEntityId();
             self::assertNotEmpty($item->getEntityId());

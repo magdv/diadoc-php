@@ -51,6 +51,7 @@ class GetNewEventsTest extends BaseTest
             $firstPageKeys[] = $event->getIndexKey();
             $lastIndexKey = $event->getIndexKey();
         }
+
         self::assertNotNull($lastIndexKey);
 
         $secondPage = $api->getNewEventsV8($boxId, afterIndexKey: $lastIndexKey, limit: 5);
@@ -91,6 +92,7 @@ class GetNewEventsTest extends BaseTest
             if (!$event->hasMessage()) {
                 continue;
             }
+
             $ticks = $event->getMessage()->getTimestampTicks();
             self::assertGreaterThanOrEqual($fromTicks, $ticks);
             self::assertLessThanOrEqual($toTicks, $ticks);
