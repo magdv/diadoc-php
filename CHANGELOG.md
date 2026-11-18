@@ -1,5 +1,26 @@
 # CHANGELOG
 
+## Unreleased
+
+### Added
+
+- Параметризация таймаутов HTTP-запросов: `MagDv\Diadoc\Entities\Http\HttpTimeouts`
+  (timeout — простой соединения/передачи, maxDuration — жёсткий потолок на запрос).
+- `DiadocApi::setTimeouts()` / `DiadocApi::getTimeouts()` и необязательный аргумент
+  `$timeouts` в конструкторе и `DiadocApi::create()`.
+- `HttpTimeoutsAwareInterface` — auth-режимы (`AuthenticateV3AuthMode`,
+  `OidcAuthFlowAuthMode`, `OidcDeviceFlowAuthMode`) принимают те же параметры.
+
+### Changed
+
+- Восстановлена совместимость с PHP 8.2: сняты типы с констант
+  (`public const string ...` — синтаксис PHP 8.3). Значения и поведение не изменились.
+
+### Backward compatibility
+
+- Поведение по умолчанию не изменилось: если HttpTimeouts не передан, используются
+  прежние таймауты (20 с для DiadocApi, 15/30 с для OIDC-режимов, 20 с для authenticate_v3).
+
 ## 1.0.0
 
 Включает изменения upstream 0.7.0 (HTTP-логгер) и 0.7.1 (`DiadocApi::getNewEventsV8()`,

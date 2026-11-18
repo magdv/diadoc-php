@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace MagDv\Diadoc\Auth;
 
+use MagDv\Diadoc\Entities\Http\HttpTimeouts;
 use MagDv\Diadoc\Exception\DiadocApiException;
+use MagDv\Diadoc\Interfaces\HttpTimeoutsAwareInterface;
 use Psr\SimpleCache\CacheInterface;
 
 /**
@@ -22,32 +24,39 @@ use Psr\SimpleCache\CacheInterface;
  * При переданном кеше ({@see \Psr\SimpleCache\CacheInterface}) режим сам
  * восстанавливает OAuth-сессию в auth() и сохраняет её при каждом обновлении токенов.
  */
-class OidcDeviceFlowAuthMode implements AuthModeInterface
+class OidcDeviceFlowAuthMode implements AuthModeInterface, HttpTimeoutsAwareInterface
 {
     use TokenSanitizerTrait;
 
     public const MODE = 'oidc_device_flow';
 
-    private const string IDENTITY_PATH_DEVICE_AUTHORIZATION = '/connect/deviceauthorization';
+    private const IDENTITY_PATH_DEVICE_AUTHORIZATION = '/connect/deviceauthorization';
 
-    private const string IDENTITY_PATH_TOKEN = '/connect/token';
+    private const IDENTITY_PATH_TOKEN = '/connect/token';
 
-    private const string GRANT_TYPE_DEVICE_CODE = 'urn:ietf:params:oauth:grant-type:device_code';
+    private const GRANT_TYPE_DEVICE_CODE = 'urn:ietf:params:oauth:grant-type:device_code';
 
     /**
      * Запас времени (сек) до истечения access_token для проактивного refresh.
      */
-    private const int REFRESH_LEEWAY_SECONDS = 120;
+    private const REFRESH_LEEWAY_SECONDS = 120;
 
     /**
      * Дополнительная пауза (сек) при ответе slow_down.
      */
-    private const int SLOW_DOWN_EXTRA_SECONDS = 5;
+    private const SLOW_DOWN_EXTRA_SECONDS = 5;
 
     /**
      * TTL хранения OAuth-сессии в кеше (сек): 30 дней (ориентир на срок refresh_token).
      */
     private const CACHE_TTL = 30 * 24 * 3600;
+
+    /**
+     * Таймауты HTTP-запросов к identity-серверу до появления HttpTimeouts.
+     */
+    private const LEGACY_CONNECT_TIMEOUT = 15;
+
+    private const LEGACY_TIMEOUT = 30;
 
     private ?string $token = null;
 
@@ -61,6 +70,8 @@ class OidcDeviceFlowAuthMode implements AuthModeInterface
      * @var callable|null function (array): void — сохранение access/refresh после обновления
      */
     private $oauthSessionPersistenceCallback;
+
+    private ?HttpTimeouts $timeouts = null;
 
     public function __construct(
         private readonly string $clientId,
@@ -76,7 +87,9 @@ class OidcDeviceFlowAuthMode implements AuthModeInterface
         public readonly string $serviceUrl,
         private readonly ?CacheInterface $cache = null,
         private readonly ?string $cacheKey = null,
+        ?HttpTimeouts $timeouts = null,
     ) {
+        $this->timeouts = $timeouts;
         $this->oidcScope = $this->resolveOidcScope($serviceUrl);
 
         if ($this->cache instanceof CacheInterface && $this->cacheKey !== null) {
@@ -91,6 +104,16 @@ class OidcDeviceFlowAuthMode implements AuthModeInterface
     public function getMode(): string
     {
         return self::MODE;
+    }
+
+    public function setHttpTimeouts(?HttpTimeouts $timeouts): void
+    {
+        $this->timeouts = $timeouts;
+    }
+
+    public function getHttpTimeouts(): ?HttpTimeouts
+    {
+        return $this->timeouts;
     }
 
     /**
@@ -487,8 +510,14 @@ class OidcDeviceFlowAuthMode implements AuthModeInterface
     {
         $ch = \curl_init($uri);
         \curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        \curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 15);
-        \curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        $timeoutOptions = [
+            \CURLOPT_CONNECTTIMEOUT => self::LEGACY_CONNECT_TIMEOUT,
+            \CURLOPT_TIMEOUT => self::LEGACY_TIMEOUT,
+        ];
+        if ($this->timeouts !== null) {
+            $timeoutOptions = $this->timeouts->toCurlOptions();
+        }
+        \curl_setopt_array($ch, $timeoutOptions);
         \curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 64);
         if (\defined('CURL_HTTP_VERSION_1_1')) {
             \curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);

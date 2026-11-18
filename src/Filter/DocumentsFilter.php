@@ -14,7 +14,7 @@ final class DocumentsFilter
      *
      * @see DocumentType
      */
-    public const string DOCUMENT_TYPE_ANY = 'Any';
+    public const DOCUMENT_TYPE_ANY = 'Any';
 
     /**
      * соответствует любому типу двусторонних документов
@@ -25,7 +25,7 @@ final class DocumentsFilter
      *
      * @see DocumentType
      */
-    public const string DOCUMENT_TYPE_ANY_INVOICE = 'AnyInvoiceDocumentType';
+    public const DOCUMENT_TYPE_ANY_INVOICE = 'AnyInvoiceDocumentType';
 
     /**
      * соответствует любому типу односторонних документов
@@ -33,199 +33,199 @@ final class DocumentsFilter
      *
      * @see DocumentType
      */
-    public const string DOCUMENT_TYPE_ANY_BILATERAL = 'AnyBilateralDocumentType';
+    public const DOCUMENT_TYPE_ANY_BILATERAL = 'AnyBilateralDocumentType';
 
     /**
      * соответствует любому типу документа.
      *
      * @see DocumentType
      */
-    public const string DOCUMENT_TYPE_ANY_UNILATERAL = 'AnyUnilateralDocumentType';
+    public const DOCUMENT_TYPE_ANY_UNILATERAL = 'AnyUnilateralDocumentType';
 
     /**
      * входящий документ
      */
-    public const string DOCUMENT_CLASS_INBOUND = 'Inbound';
+    public const DOCUMENT_CLASS_INBOUND = 'Inbound';
 
     /**
      * исходящий документ
      */
-    public const string DOCUMENT_CLASS_OUTBOUND = 'Outbound';
+    public const DOCUMENT_CLASS_OUTBOUND = 'Outbound';
 
     /**
      * внутренний документ
      */
-    public const string DOCUMENT_CLASS_INTERNAL = 'Internal';
+    public const DOCUMENT_CLASS_INTERNAL = 'Internal';
 
     /**
      * любой документ указанного класса
      */
-    public const string DOCUMENT_STATUS_ANY = '';
+    public const DOCUMENT_STATUS_ANY = '';
 
     /**
      * документ не прочитан
      */
-    public const string DOCUMENT_STATUS_NOT_READ = 'NotRead';
+    public const DOCUMENT_STATUS_NOT_READ = 'NotRead';
 
     /**
      * документ без запроса ответной подписи
      */
-    public const string DOCUMENT_STATUS_NO_RECIPIENT_SIGNATURE_REQUEST = 'NoRecipientSignatureRequest';
+    public const DOCUMENT_STATUS_NO_RECIPIENT_SIGNATURE_REQUEST = 'NoRecipientSignatureRequest';
 
     /**
      * документ в ожидании ответной подписи
      */
-    public const string DOCUMENT_STATUS_WAIT_FOR_RECIPIENT_SIGNATURE = 'WaitingForRecipientSignature';
+    public const DOCUMENT_STATUS_WAIT_FOR_RECIPIENT_SIGNATURE = 'WaitingForRecipientSignature';
 
     /**
      * документ с ответной подписью
      */
-    public const string DOCUMENT_STATUS_WITH_RECIPIENT_SIGNATURE = 'WithRecipientSignature';
+    public const DOCUMENT_STATUS_WITH_RECIPIENT_SIGNATURE = 'WithRecipientSignature';
 
     /**
      * документ с подписью отправителя
      */
-    public const string DOCUMENT_STATUS_WITH_SENDER_SIGNATURE = 'WithSenderSignature';
+    public const DOCUMENT_STATUS_WITH_SENDER_SIGNATURE = 'WithSenderSignature';
 
     /**
      * документ с отказом от формирования ответной подписи
      */
-    public const string DOCUMENT_STATUS_RECIPIENT_SIGNATURE_REQUEST_REJECT = 'RecipientSignatureRequestRejected';
+    public const DOCUMENT_STATUS_RECIPIENT_SIGNATURE_REQUEST_REJECT = 'RecipientSignatureRequestRejected';
 
     /**
      * документ, требующий подписания и отправки
      */
-    public const string DOCUMENT_STATUS_WAIT_FOR_SENDER_SIGNATURE = 'WaitingForSenderSignature';
+    public const DOCUMENT_STATUS_WAIT_FOR_SENDER_SIGNATURE = 'WaitingForSenderSignature';
 
     /**
      * документ с невалидной подписью отправителя, требующий повторного подписания и отправки
      */
-    public const string DOCUMENT_STATUS_INVALID_SENDER_SIGNATURE = 'InvalidSenderSignature';
+    public const DOCUMENT_STATUS_INVALID_SENDER_SIGNATURE = 'InvalidSenderSignature';
 
     /**
      * документ с невалидной подписью получателя, требующий повторного подписания и отправки
      */
-    public const string DOCUMENT_STATUS_INVALID_RECIPIENT_SIGNATURE = 'InvalidRecipientSignature';
+    public const DOCUMENT_STATUS_INVALID_RECIPIENT_SIGNATURE = 'InvalidRecipientSignature';
 
     /**
      * согласованный документ
      */
-    public const string DOCUMENT_STATUS_APPROVED = 'Approved';
+    public const DOCUMENT_STATUS_APPROVED = 'Approved';
 
     /**
      * документ с отказом согласования
      */
-    public const string DOCUMENT_STATUS_DISAPPROVED = 'Disapproved';
+    public const DOCUMENT_STATUS_DISAPPROVED = 'Disapproved';
 
     /**
      * документ, находящийся на согласовании или подписи
      */
-    public const string DOCUMENT_STATUS_WAITING_FOR_RESOLUTION = 'WaitingForResolution';
+    public const DOCUMENT_STATUS_WAITING_FOR_RESOLUTION = 'WaitingForResolution';
 
     /**
      * документ с отказом в запросе подписи сотруднику
      */
-    public const string DOCUMENT_STATUS_SIGNATURE_REQUEST_REJECTED = 'SignatureRequestRejected';
+    public const DOCUMENT_STATUS_SIGNATURE_REQUEST_REJECTED = 'SignatureRequestRejected';
 
     /**
      * документ с завершенным документооборотом
      */
-    public const string DOCUMENT_STATUS_FINISHED = 'Finished';
+    public const DOCUMENT_STATUS_FINISHED = 'Finished';
 
     /**
      * требуется подписать извещение о получении
      */
-    public const string DOCUMENT_STATUS_HAVE_TO_CREATE_RECEIPT = 'HaveToCreateReceipt';
+    public const DOCUMENT_STATUS_HAVE_TO_CREATE_RECEIPT = 'HaveToCreateReceipt';
 
     /**
      * документ с незавершенным документооборотом
      */
-    public const string DOCUMENT_STATUS_NOT_FINISHED = 'NotFinished';
+    public const DOCUMENT_STATUS_NOT_FINISHED = 'NotFinished';
 
     /**
      * имеет смысл только для счетов-фактур; документ, по которому было запрошено уточнение
      */
-    public const string DOCUMENT_STATUS_INVOICE_AMENDMENT_REQUESTED = 'InvoiceAmendmentRequested';
+    public const DOCUMENT_STATUS_INVOICE_AMENDMENT_REQUESTED = 'InvoiceAmendmentRequested';
 
     /**
      * документ, по которому было запрошено аннулирование
      */
-    public const string DOCUMENT_STATUS_REVOCATION_IS_REQUESTED_BY_ME = 'RevocationIsRequestedByMe';
+    public const DOCUMENT_STATUS_REVOCATION_IS_REQUESTED_BY_ME = 'RevocationIsRequestedByMe';
 
     /**
      * документ, по которому контрагент запросил аннулирование
      */
-    public const string DOCUMENT_STATUS_REQUESTS_MY_REVOCATION = 'RequestsMyRevocation';
+    public const DOCUMENT_STATUS_REQUESTS_MY_REVOCATION = 'RequestsMyRevocation';
 
     /**
      * аннулированный документ
      */
-    public const string DOCUMENT_STATUS_REVOCATION_ACCEPTED = 'RevocationAccepted';
+    public const DOCUMENT_STATUS_REVOCATION_ACCEPTED = 'RevocationAccepted';
 
     /**
      * документ, запрос на аннулирование которого был отклонен
      */
-    public const string DOCUMENT_STATUS_REVOCATION_REJECTED = 'RevocationRejected';
+    public const DOCUMENT_STATUS_REVOCATION_REJECTED = 'RevocationRejected';
 
     /**
      * документ, запрос на аннулирование которого был согласован
      */
-    public const string DOCUMENT_STATUS_REVOCATION_APPROVED = 'RevocationApproved';
+    public const DOCUMENT_STATUS_REVOCATION_APPROVED = 'RevocationApproved';
 
     /**
      * документ с отказом согласования запроса на аннулирование
      */
-    public const string DOCUMENT_STATUS_REVOCATION_DISAPPROVED = 'RevocationDisapproved';
+    public const DOCUMENT_STATUS_REVOCATION_DISAPPROVED = 'RevocationDisapproved';
 
     /**
      * документ, находящийся на согласовании запроса аннулирования
      */
-    public const string DOCUMENT_STATUS_WAITING_FOR_REVOCATION_APPROVEMENT = 'WaitingForRevocationApprovement';
+    public const DOCUMENT_STATUS_WAITING_FOR_REVOCATION_APPROVEMENT = 'WaitingForRevocationApprovement';
 
     /**
      * неаннулированный документ
      */
-    public const string DOCUMENT_STATUS_NOT_REVOKED = 'NotRevoked';
+    public const DOCUMENT_STATUS_NOT_REVOKED = 'NotRevoked';
 
     /**
      * документ в ожидании подписи промежуточного получателя
      */
-    public const string DOCUMENT_STATUS_WAITING_FOR_PROXY_SIGNATURE = 'WaitingForProxySignature';
+    public const DOCUMENT_STATUS_WAITING_FOR_PROXY_SIGNATURE = 'WaitingForProxySignature';
 
     /**
      * документ с подписью промежуточного получателя
      */
-    public const string DOCUMENT_STATUS_WITH_PROXY_SIGNATURE = 'WithProxySignature';
+    public const DOCUMENT_STATUS_WITH_PROXY_SIGNATURE = 'WithProxySignature';
 
     /**
      * документ с невалидной подписью промежуточного получателя, требующий повторного подписания и отправки
      */
-    public const string DOCUMENT_STATUS_INVALID_PROXY_SIGNATURE = 'InvalidProxySignature';
+    public const DOCUMENT_STATUS_INVALID_PROXY_SIGNATURE = 'InvalidProxySignature';
 
     /**
      * документ с отказом от формирования подписи промежуточным получателем
      */
-    public const string DOCUMENT_STATUS_PROXY_SIGNATURE_REJECTED = 'ProxySignatureRejected';
+    public const DOCUMENT_STATUS_PROXY_SIGNATURE_REJECTED = 'ProxySignatureRejected';
 
     /**
      * документ в ожидании получения извещения о получении счета-фактуры
      */
-    public const string DOCUMENT_STATUS_WAITING_FOR_INVOICE_RECEIPT = 'WaitingForInvoiceReceipt';
+    public const DOCUMENT_STATUS_WAITING_FOR_INVOICE_RECEIPT = 'WaitingForInvoiceReceipt';
 
     /**
      * документ в ожидании получения извещения о получении
      */
-    public const string DOCUMENT_STATUS_WAITING_FOR_RECEIPT = 'WaitingForReceipt';
+    public const DOCUMENT_STATUS_WAITING_FOR_RECEIPT = 'WaitingForReceipt';
 
     /**
      * документ, по которому контрагент запросил подпись
      */
-    public const string DOCUMENT_STATUS_REQUESTS_MY_SIGNATURE = 'RequestsMySignature';
+    public const DOCUMENT_STATUS_REQUESTS_MY_SIGNATURE = 'RequestsMySignature';
 
     /**
      * документ, с ошибкой доставки в роуминге
      */
-    public const string DOCUMENT_STATUS_ROAMING_NOTIFICATION_ERROR = 'RoamingNotificationError';
+    public const DOCUMENT_STATUS_ROAMING_NOTIFICATION_ERROR = 'RoamingNotificationError';
 
     private string $filterDocumentType = self::DOCUMENT_TYPE_ANY;
 
