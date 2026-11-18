@@ -11,6 +11,11 @@ https://github.com/agentsib/diadoc-php
 Документация
 https://developer.kontur.ru/Docs/diadoc-api/http/PostMessage.html
 
+## Требования
+
+- PHP >= 8.2
+- ext-curl, ext-json
+
 ## Пример
 
 ```php
@@ -114,6 +119,32 @@ OIDC автоматически:
 docker compose --profile oauth up oauth-test
 # браузер: http://127.0.0.1:8765/
 ```
+
+## Таймауты HTTP-запросов
+
+По умолчанию библиотека использует прежние таймауты, поэтому обновление ничего не меняет.
+Чтобы задать свои, передайте HttpTimeouts в конструктор или фабрику:
+
+    use MagDv\Diadoc\Entities\Http\HttpTimeouts;
+
+    $timeouts = new HttpTimeouts(timeout: 30, maxDuration: 30);
+
+    $api = new \MagDv\Diadoc\DiadocApi(
+        '111111111111111111111111111111111',
+        'https://diadoc-api.kontur.ru/',
+        false,
+        null,
+        $timeouts
+    );
+
+    // или позже:
+    $api->setTimeouts($timeouts);
+
+- timeout — простой: установка соединения и пауза между байтами (в секундах);
+- maxDuration — жёсткий потолок на весь запрос (0 — без потолка).
+
+Для OIDC-режимов передайте тот же объект в конструктор режима или в DiadocApi::create().
+Если параметры не заданы (null), используется легаси-поведение.
 
 ## Тесты
 

@@ -49,206 +49,215 @@ use MagDv\Diadoc\Auth\AuthenticateV3AuthMode;
 use MagDv\Diadoc\Auth\AuthModeInterface;
 use MagDv\Diadoc\Auth\OidcAuthFlowAuthMode;
 use MagDv\Diadoc\Entities\Http\HttpLogDto;
+use MagDv\Diadoc\Entities\Http\HttpTimeouts;
 use MagDv\Diadoc\Exception\DiadocApiException;
 use MagDv\Diadoc\Exception\DiadocApiUnauthorizedException;
 use MagDv\Diadoc\Filter\DocumentsFilter;
 use MagDv\Diadoc\Helper\DateHelper;
 use MagDv\Diadoc\Interfaces\HttpLoggerInterface;
+use MagDv\Diadoc\Interfaces\HttpTimeoutsAwareInterface;
 use MagDv\Diadoc\Signer\Interfaces\SignerProviderInterface;
 
 class DiadocApi
 {
-    public const string METHOD_GET = 'GET';
+    public const METHOD_GET = 'GET';
 
-    public const string CONTENT_FORM_URL_ENCODED = 'application/x-www-form-urlencoded';
+    public const CONTENT_FORM_URL_ENCODED = 'application/x-www-form-urlencoded';
 
-    public const string METHOD_POST = 'POST';
+    public const METHOD_POST = 'POST';
 
     /**
      * Режим авторизации OpenID Connect (Authorization: Bearer).
      */
-    public const string AUTH_MODE_OIDC = OidcAuthFlowAuthMode::MODE;
+    public const AUTH_MODE_OIDC = OidcAuthFlowAuthMode::MODE;
 
     /**
      * Устаревший режим авторизации DiadocAuth (ddauth_api_client_id + ddauth_token).
      */
-    public const string AUTH_MODE_AUTHENTICATE_V3 = AuthenticateV3AuthMode::MODE;
+    public const AUTH_MODE_AUTHENTICATE_V3 = AuthenticateV3AuthMode::MODE;
 
     // Authorization
-    public const string RESOURCE_AUTHENTICATE = '/Authenticate';
+    public const RESOURCE_AUTHENTICATE = '/Authenticate';
 
-    public const string RESOURCE_AUTHENTICATE_V2 = '/V2/Authenticate';
+    public const RESOURCE_AUTHENTICATE_V2 = '/V2/Authenticate';
 
-    public const string RESOURCE_AUTHENTICATE_V3 = '/V3/Authenticate';
+    public const RESOURCE_AUTHENTICATE_V3 = '/V3/Authenticate';
 
-    public const string RESOURCE_GET_EXTERNAL_SERVICE_AUTH_INFO = '/GetExternalServiceAuthInfo';
+    public const RESOURCE_GET_EXTERNAL_SERVICE_AUTH_INFO = '/GetExternalServiceAuthInfo';
 
     // Organizations
-    public const string RESOURCE_GET_BOX = '/GetBox';
+    public const RESOURCE_GET_BOX = '/GetBox';
 
-    public const string RESOURCE_GET_DEPARTMENT = '/GetDepartment';
+    public const RESOURCE_GET_DEPARTMENT = '/GetDepartment';
 
-    public const string RESOURCE_GET_MY_ORGANIZATION = '/GetMyOrganizations';
+    public const RESOURCE_GET_MY_ORGANIZATION = '/GetMyOrganizations';
 
-    public const string RESOURCE_GET_MY_PERMISSIONS = '/GetMyPermissions';
+    public const RESOURCE_GET_MY_PERMISSIONS = '/GetMyPermissions';
 
-    public const string RESOURCE_GET_MY_USER = '/GetMyUser';
+    public const RESOURCE_GET_MY_USER = '/GetMyUser';
 
-    public const string RESOURCE_GET_ORGANIZATION = '/GetOrganization';
+    public const RESOURCE_GET_ORGANIZATION = '/GetOrganization';
 
-    public const string RESOURCE_GET_ORGANIZATIONS_BY_INN_KPP = '/GetOrganizationsByInnKpp';
+    public const RESOURCE_GET_ORGANIZATIONS_BY_INN_KPP = '/GetOrganizationsByInnKpp';
 
-    public const string RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST = '/GetOrganizationsByInnList';
+    public const RESOURCE_GET_ORGANIZATIONS_BY_INN_LIST = '/GetOrganizationsByInnList';
 
-    public const string RESOURCE_GET_ORGANIZATION_USERS = '/GetOrganizationUsers';
+    public const RESOURCE_GET_ORGANIZATION_USERS = '/GetOrganizationUsers';
 
-    public const string RESOURCE_PARSE_RUSSIAN_ADDRESS = '/ParseRussianAddress';
+    public const RESOURCE_PARSE_RUSSIAN_ADDRESS = '/ParseRussianAddress';
 
     // Counteragents
-    public const string RESOURCE_ACQUIRE_COUNTERAGENTS = '/AcquireCounteragent';
+    public const RESOURCE_ACQUIRE_COUNTERAGENTS = '/AcquireCounteragent';
 
-    public const string RESOURCE_ACQUIRE_COUNTERAGENTS_V2 = '/V2/AcquireCounteragent';
+    public const RESOURCE_ACQUIRE_COUNTERAGENTS_V2 = '/V2/AcquireCounteragent';
 
-    public const string RESOURCE_ACQUIRE_COUNTERAGENT_RESULT = '/AcquireCounteragentResult';
+    public const RESOURCE_ACQUIRE_COUNTERAGENT_RESULT = '/AcquireCounteragentResult';
 
-    public const string RESOURCE_BREAK_WITH_COUNTERAGENT = '/BreakWithCounteragent';
+    public const RESOURCE_BREAK_WITH_COUNTERAGENT = '/BreakWithCounteragent';
 
-    public const string RESOURCE_GET_COUNTERAGENT = '/GetCounteragent';
+    public const RESOURCE_GET_COUNTERAGENT = '/GetCounteragent';
 
-    public const string RESOURCE_GET_COUNTERAGENT_V2 = '/V2/GetCounteragent';
+    public const RESOURCE_GET_COUNTERAGENT_V2 = '/V2/GetCounteragent';
 
-    public const string RESOURCE_GET_COUNTERAGENTS = '/GetCounteragents';
+    public const RESOURCE_GET_COUNTERAGENTS = '/GetCounteragents';
 
-    public const string RESOURCE_GET_COUNTERAGENTS_V2 = '/V2/GetCounteragents';
+    public const RESOURCE_GET_COUNTERAGENTS_V2 = '/V2/GetCounteragents';
 
-    public const string RESOURCE_GET_COUNTERAGENT_CERTIFICATES = '/GetCounteragentCertificates';
+    public const RESOURCE_GET_COUNTERAGENT_CERTIFICATES = '/GetCounteragentCertificates';
 
     // Messages
-    public const string RESOURCE_GET_ENTITY_CONTENT = '/V4/GetEntityContent';
+    public const RESOURCE_GET_ENTITY_CONTENT = '/V4/GetEntityContent';
 
-    public const string RESOURCE_GET_MESSAGE = '/V3/GetMessage';
+    public const RESOURCE_GET_MESSAGE = '/V3/GetMessage';
 
-    public const string GET_MESSAGE_V6 = '/V6/GetMessage';
+    public const GET_MESSAGE_V6 = '/V6/GetMessage';
 
-    public const string RESOURCE_POST_MESSAGE = '/V3/PostMessage';
+    public const RESOURCE_POST_MESSAGE = '/V3/PostMessage';
 
-    public const string RESOURCE_POST_MESSAGE_PATCH = '/V3/PostMessagePatch';
+    public const RESOURCE_POST_MESSAGE_PATCH = '/V3/PostMessagePatch';
 
     // Documents
-    public const string RESOURCE_DELETE = '/Delete';
+    public const RESOURCE_DELETE = '/Delete';
 
-    public const string RESOURCE_FORWARD_DOCUMENT = '/V2/ForwardDocument';
+    public const RESOURCE_FORWARD_DOCUMENT = '/V2/ForwardDocument';
 
-    public const string RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_BUYER = '/GenerateAcceptanceCertificateXmlForBuyer';
+    public const RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_BUYER = '/GenerateAcceptanceCertificateXmlForBuyer';
 
-    public const string RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_SELLER = '/GenerateAcceptanceCertificateXmlForSeller';
+    public const RESOURCE_GENERATE_ACCEPTANCE_CERTIFICATE_XML_FOR_SELLER = '/GenerateAcceptanceCertificateXmlForSeller';
 
-    public const string RESOURCE_GENERATE_DOCUMENT_PROTOCOL = '/GenerateDocumentProtocol';
+    public const RESOURCE_GENERATE_DOCUMENT_PROTOCOL = '/GenerateDocumentProtocol';
 
-    public const string RESOURCE_GENERATE_DOCUMENT_ZIP = '/GenerateDocumentZip';
+    public const RESOURCE_GENERATE_DOCUMENT_ZIP = '/GenerateDocumentZip';
 
-    public const string RESOURCE_GENERATE_FORWARDED_DOCUMENT_PROTOCOL = '/V2/GenerateForwardedDocumentProtocol';
+    public const RESOURCE_GENERATE_FORWARDED_DOCUMENT_PROTOCOL = '/V2/GenerateForwardedDocumentProtocol';
 
-    public const string RESOURCE_GENERATE_PRINT_FORM = '/GeneratePrintForm';
+    public const RESOURCE_GENERATE_PRINT_FORM = '/GeneratePrintForm';
 
-    public const string RESOURCE_GENERATE_PRINT_FORM_FROM_ATTACHMENT = '/GeneratePrintFormFromAttachment';
+    public const RESOURCE_GENERATE_PRINT_FORM_FROM_ATTACHMENT = '/GeneratePrintFormFromAttachment';
 
-    public const string RESOURCE_GENERATE_REVOCATION_REQUEST_XML = '/GenerateRevocationRequestXml';
+    public const RESOURCE_GENERATE_REVOCATION_REQUEST_XML = '/GenerateRevocationRequestXml';
 
-    public const string RESOURCE_GENERATE_SIGNATURE_REJECTION_XML = '/GenerateSignatureRejectionXml';
+    public const RESOURCE_GENERATE_SIGNATURE_REJECTION_XML = '/GenerateSignatureRejectionXml';
 
-    public const string RESOURCE_GENERATE_TORG_12_XML_FOR_BUYER = '/GenerateTorg12XmlForBuyer';
+    public const RESOURCE_GENERATE_TORG_12_XML_FOR_BUYER = '/GenerateTorg12XmlForBuyer';
 
-    public const string RESOURCE_GENERATE_TORG_12_XML_FOR_SELLER = '/GenerateTorg12XmlForSeller';
+    public const RESOURCE_GENERATE_TORG_12_XML_FOR_SELLER = '/GenerateTorg12XmlForSeller';
 
-    public const string RESOURCE_GET_DOCUMENT = '/V3/GetDocument';
+    public const RESOURCE_GET_DOCUMENT = '/V3/GetDocument';
 
-    public const string RESOURCE_GET_DOCUMENTS = '/V3/GetDocuments';
+    public const RESOURCE_GET_DOCUMENTS = '/V3/GetDocuments';
 
-    public const string RESOURCE_GET_DOCUMENT_TYPES = '/V2/GetDocumentTypes';
+    public const RESOURCE_GET_DOCUMENT_TYPES = '/V2/GetDocumentTypes';
 
-    public const string RESOURCE_GET_FORWARDED_DOCUMENT_EVENTS = '/V2/GetForwardedDocumentEvents';
+    public const RESOURCE_GET_FORWARDED_DOCUMENT_EVENTS = '/V2/GetForwardedDocumentEvents';
 
-    public const string RESOURCE_GENERATE_FORWARDED_DOCUMENT_PRINT_FORM = '/GenerateForwardedDocumentPrintForm';
+    public const RESOURCE_GENERATE_FORWARDED_DOCUMENT_PRINT_FORM = '/GenerateForwardedDocumentPrintForm';
 
-    public const string RESOURCE_GET_FORWARDED_ENTITY_CONTENT = '/V2/GetForwardedEntityContent';
+    public const RESOURCE_GET_FORWARDED_ENTITY_CONTENT = '/V2/GetForwardedEntityContent';
 
-    public const string RESOURCE_GET_FORWARDED_DOCUMENT = '/V2/GetForwardedDocuments';
+    public const RESOURCE_GET_FORWARDED_DOCUMENT = '/V2/GetForwardedDocuments';
 
-    public const string RESOURCE_GET_GENERATED_PRINT_FORM = '/GetGeneratedPrintForm';
+    public const RESOURCE_GET_GENERATED_PRINT_FORM = '/GetGeneratedPrintForm';
 
-    public const string RESOURCE_GET_RECOGNIZED = '/GetRecognized';
+    public const RESOURCE_GET_RECOGNIZED = '/GetRecognized';
 
-    public const string RESOURCE_MOVE_DOCUMENTS = '/MoveDocuments';
+    public const RESOURCE_MOVE_DOCUMENTS = '/MoveDocuments';
 
-    public const string RESOURCE_PARSE_ACCEPTANCE_CERTIFICATE_SELLER_TITLE_XML = '/ParseAcceptanceCertificateSellerTitleXml';
+    public const RESOURCE_PARSE_ACCEPTANCE_CERTIFICATE_SELLER_TITLE_XML = '/ParseAcceptanceCertificateSellerTitleXml';
 
-    public const string RESOURCE_PARSE_REVOCATION_REQUEST_XML = '/ParseRevocationRequestXml';
+    public const RESOURCE_PARSE_REVOCATION_REQUEST_XML = '/ParseRevocationRequestXml';
 
-    public const string RESOURCE_PARSE_SIGNATURE_REJECTION_XML = '/ParseSignatureRejectionXml';
+    public const RESOURCE_PARSE_SIGNATURE_REJECTION_XML = '/ParseSignatureRejectionXml';
 
-    public const string RESOURCE_PARSE_TORG_12_SELLER_TITLE_XML = '/ParseTorg12SellerTitleXml';
+    public const RESOURCE_PARSE_TORG_12_SELLER_TITLE_XML = '/ParseTorg12SellerTitleXml';
 
-    public const string RESOURCE_PREPARE_DOCUMENTS_TO_SIGN = '/PrepareDocumentsToSign';
+    public const RESOURCE_PREPARE_DOCUMENTS_TO_SIGN = '/PrepareDocumentsToSign';
 
-    public const string RESOURCE_RECOGNIZE = '/Recognize';
+    public const RESOURCE_RECOGNIZE = '/Recognize';
 
-    public const string RESOURCE_RECYCLE_DRAFT = '/RecycleDraft';
+    public const RESOURCE_RECYCLE_DRAFT = '/RecycleDraft';
 
-    public const string RESOURCE_RESTORE = '/Restore';
+    public const RESOURCE_RESTORE = '/Restore';
 
-    public const string RESOURCE_SHELF_UPLOAD = '/ShelfUpload';
+    public const RESOURCE_SHELF_UPLOAD = '/ShelfUpload';
 
-    public const string RESOURCE_SEND_DRAFT = '/SendDraft';
+    public const RESOURCE_SEND_DRAFT = '/SendDraft';
 
     // SF/ISF/KSF
-    public const string RESOURCE_CAN_SEND_INVOICE = '/CanSendInvoice';
+    public const RESOURCE_CAN_SEND_INVOICE = '/CanSendInvoice';
 
-    public const string RESOURCE_GENERATE_INVOICE_XML = '/GenerateInvoiceXml';
+    public const RESOURCE_GENERATE_INVOICE_XML = '/GenerateInvoiceXml';
 
-    public const string RESOURCE_GENERATE_INVOICE_CORRECTION_REQUEST_XML = '/GenerateInvoiceCorrectionRequestXml';
+    public const RESOURCE_GENERATE_INVOICE_CORRECTION_REQUEST_XML = '/GenerateInvoiceCorrectionRequestXml';
 
-    public const string RESOURCE_GENERATE_INVOICE_DOCUMENT_RECEIPT_XML = '/GenerateInvoiceDocumentReceiptXml';
+    public const RESOURCE_GENERATE_INVOICE_DOCUMENT_RECEIPT_XML = '/GenerateInvoiceDocumentReceiptXml';
 
-    public const string RESOURCE_GET_INVOICE_CORRECTION_REQUEST_INFO = '/GetInvoiceCorrectionRequestInfo';
+    public const RESOURCE_GET_INVOICE_CORRECTION_REQUEST_INFO = '/GetInvoiceCorrectionRequestInfo';
 
-    public const string RESOURCE_PARSE_INVOICE_XML = '/ParseInvoiceXml';
+    public const RESOURCE_PARSE_INVOICE_XML = '/ParseInvoiceXml';
 
     // Events
-    public const string RESOURCE_GET_EVENT = '/V2/GetEvent';
+    public const RESOURCE_GET_EVENT = '/V2/GetEvent';
 
-    public const string RESOURCE_GET_NEW_EVENTS = '/V4/GetNewEvents';
+    public const RESOURCE_GET_NEW_EVENTS = '/V4/GetNewEvents';
 
-    public const string RESOURCE_GET_NEW_EVENTS_V8 = '/V8/GetNewEvents';
-
-    // Docflow API
-    public const string RESOURCE_GET_DOCFLOWS = '/V2/GetDocflows';
+    public const RESOURCE_GET_NEW_EVENTS_V8 = '/V8/GetNewEvents';
 
     // Docflow API
-    public const string GET_DOCFLOWS_V5 = '/V5/GetDocflows';
+    public const RESOURCE_GET_DOCFLOWS = '/V2/GetDocflows';
 
-    public const string RESOURCE_GET_DOCFLOWS_BY_PACKET_ID = '/V2/GetDocflowsByPacketId';
+    // Docflow API
+    public const GET_DOCFLOWS_V5 = '/V5/GetDocflows';
 
-    public const string RESOURCE_SEARCH_DOCFLOWS = '/V2/SearchDocflows';
+    public const RESOURCE_GET_DOCFLOWS_BY_PACKET_ID = '/V2/GetDocflowsByPacketId';
 
-    public const string RESOURCE_GET_DOCFLOWS_EVENTS = '/V2/GetDocflowEvents';
+    public const RESOURCE_SEARCH_DOCFLOWS = '/V2/SearchDocflows';
+
+    public const RESOURCE_GET_DOCFLOWS_EVENTS = '/V2/GetDocflowEvents';
 
     // Cloud sign
-    public const string RESOURCE_CLOUD_SIGN = '/CloudSign';
+    public const RESOURCE_CLOUD_SIGN = '/CloudSign';
 
-    public const string RESOURCE_CLOUD_SIGN_CONFIRM = '/CloudSignConfirm';
+    public const RESOURCE_CLOUD_SIGN_CONFIRM = '/CloudSignConfirm';
 
-    public const string RESOURCE_CLOUD_SIGN_CONFIRM_RESULT = '/CloudSignConfirmResult';
+    public const RESOURCE_CLOUD_SIGN_CONFIRM_RESULT = '/CloudSignConfirmResult';
 
-    public const string RESOURCE_CLOUD_SIGN_RESULT = '/CloudSignResult';
+    public const RESOURCE_CLOUD_SIGN_RESULT = '/CloudSignResult';
 
-    public const string RESOURCE_AUTO_SIGN_RECEIPTS = '/AutoSignReceipts';
+    public const RESOURCE_AUTO_SIGN_RECEIPTS = '/AutoSignReceipts';
 
-    public const string RESOURCE_AUTO_SIGN_RECEIPTS_RESULT = '/AutoSignReceiptsResult';
+    public const RESOURCE_AUTO_SIGN_RECEIPTS_RESULT = '/AutoSignReceiptsResult';
+
+    /**
+     * Таймаут HTTP-запроса (сек), действовавший до появления HttpTimeouts.
+     */
+    private const LEGACY_TIMEOUT = 20;
 
     private AuthModeInterface $authMode;
 
     private ?HttpLoggerInterface $httpLogger = null;
+
+    private ?HttpTimeouts $timeouts = null;
 
     /**
      * Конструктор для обратной совместимости: использует устаревший DiadocAuth (authenticate_v3).
@@ -259,9 +268,11 @@ class DiadocApi
         string $ddauthApiClientId,
         private readonly string $serviceUrl = 'https://diadoc-api.kontur.ru/',
         private readonly bool $debugRequest = false,
-        private readonly ?SignerProviderInterface $signerProvider = null
+        private readonly ?SignerProviderInterface $signerProvider = null,
+        ?HttpTimeouts $timeouts = null
     ) {
-        $this->authMode = new AuthenticateV3AuthMode($ddauthApiClientId);
+        $this->timeouts = $timeouts;
+        $this->authMode = new AuthenticateV3AuthMode($ddauthApiClientId, timeouts: $timeouts);
     }
 
     /**
@@ -279,6 +290,7 @@ class DiadocApi
      * @param string                       $serviceUrl     базовый URL API Диадока
      * @param bool                         $debugRequest   логировать HTTP-запросы
      * @param SignerProviderInterface|null $signerProvider провайдер подписи для cloud-подписания
+     * @param HttpTimeouts|null            $timeouts       таймауты HTTP (null — легаси-поведение)
      *
      * @throws \RuntimeException если serviceUrl стратегии не совпадает с $serviceUrl
      */
@@ -286,7 +298,8 @@ class DiadocApi
         AuthModeInterface $authMode,
         string $serviceUrl = 'https://diadoc-api.kontur.ru/',
         bool $debugRequest = false,
-        ?SignerProviderInterface $signerProvider = null
+        ?SignerProviderInterface $signerProvider = null,
+        ?HttpTimeouts $timeouts = null
     ): self {
         // OidcAuthFlowAuthMode резолвит scope по своему serviceUrl — он обязан совпадать
         // с URL, по которому будет ходить сам клиент. Проверка здесь гарантирует,
@@ -303,8 +316,12 @@ class DiadocApi
             );
         }
 
-        $api = new self('', $serviceUrl, $debugRequest, $signerProvider);
+        $api = new self('', $serviceUrl, $debugRequest, $signerProvider, $timeouts);
         $api->authMode = $authMode;
+
+        if ($timeouts !== null && $authMode instanceof HttpTimeoutsAwareInterface) {
+            $authMode->setHttpTimeouts($timeouts);
+        }
 
         return $api;
     }
@@ -394,7 +411,7 @@ class DiadocApi
     {
         $ch = \curl_init($uri);
         \curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        \curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+        \curl_setopt_array($ch, $this->buildTimeoutOptions());
         \curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         \curl_setopt($ch, CURLOPT_HTTPHEADER, $this->buildRequestHeaders($contentType, $method, $forAuthenticateCall));
 
@@ -436,6 +453,21 @@ class DiadocApi
         }
 
         return $response;
+    }
+
+    /**
+     * Опции cURL с таймаутами: без HttpTimeouts — легаси-поведение (20 секунд
+     * на запрос), иначе — значения из {@see HttpTimeouts}.
+     *
+     * @return array<int, int>
+     */
+    protected function buildTimeoutOptions(): array
+    {
+        if ($this->timeouts === null) {
+            return [\CURLOPT_TIMEOUT => self::LEGACY_TIMEOUT];
+        }
+
+        return $this->timeouts->toCurlOptions();
     }
 
     /**
@@ -1350,6 +1382,26 @@ class DiadocApi
     public function getAuthMode(): string
     {
         return $this->authMode->getMode();
+    }
+
+    /**
+     * Задать таймауты HTTP-запросов (null — вернуть легаси-поведение).
+     *
+     * Если режим авторизации поддерживает {@see HttpTimeoutsAwareInterface},
+     * настройка прокидывается и в него.
+     */
+    public function setTimeouts(?HttpTimeouts $timeouts): void
+    {
+        $this->timeouts = $timeouts;
+
+        if ($this->authMode instanceof HttpTimeoutsAwareInterface) {
+            $this->authMode->setHttpTimeouts($timeouts);
+        }
+    }
+
+    public function getTimeouts(): ?HttpTimeouts
+    {
+        return $this->timeouts;
     }
 
     /**

@@ -6,6 +6,8 @@ namespace MagDv\Diadoc\Auth;
 
 use Diadoc\Proto\LoginPassword;
 use Exception;
+use MagDv\Diadoc\Entities\Http\HttpTimeouts;
+use MagDv\Diadoc\Interfaces\HttpTimeoutsAwareInterface;
 use Psr\SimpleCache\CacheInterface;
 
 /**
@@ -20,7 +22,7 @@ use Psr\SimpleCache\CacheInterface;
  *  - при переданных login/password и serviceUrl режим сам получает токен
  *    через /V3/Authenticate (auth()) и перелогинивается при 401 (handleUnauthorized).
  */
-class AuthenticateV3AuthMode implements AuthModeInterface
+class AuthenticateV3AuthMode implements AuthModeInterface, HttpTimeoutsAwareInterface
 {
     use TokenSanitizerTrait;
 
@@ -31,7 +33,14 @@ class AuthenticateV3AuthMode implements AuthModeInterface
      */
     private const CACHE_TTL = 24 * 3600;
 
+    /**
+     * Таймаут HTTP-запроса (сек), действовавший до появления HttpTimeouts.
+     */
+    private const LEGACY_TIMEOUT = 20;
+
     private ?string $token = null;
+
+    private ?HttpTimeouts $timeouts = null;
 
     public function __construct(
         private readonly string $ddauthApiClientId,
@@ -40,12 +49,24 @@ class AuthenticateV3AuthMode implements AuthModeInterface
         private readonly ?string $login = null,
         private readonly ?string $password = null,
         private readonly ?string $serviceUrl = null,
+        ?HttpTimeouts $timeouts = null,
     ) {
+        $this->timeouts = $timeouts;
     }
 
     public function getMode(): string
     {
         return self::MODE;
+    }
+
+    public function setHttpTimeouts(?HttpTimeouts $timeouts): void
+    {
+        $this->timeouts = $timeouts;
+    }
+
+    public function getHttpTimeouts(): ?HttpTimeouts
+    {
+        return $this->timeouts;
     }
 
     public function buildRequestHeaders(?string $contentType, string $method, bool $forAuthenticateCall): array
@@ -162,7 +183,11 @@ class AuthenticateV3AuthMode implements AuthModeInterface
     {
         $ch = curl_init($uri);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+        $timeoutOptions = [CURLOPT_TIMEOUT => self::LEGACY_TIMEOUT];
+        if ($this->timeouts !== null) {
+            $timeoutOptions = $this->timeouts->toCurlOptions();
+        }
+        curl_setopt_array($ch, $timeoutOptions);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
